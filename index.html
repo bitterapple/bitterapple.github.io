@@ -7,13 +7,15 @@
   <title>Hiroshi Kojima — Apps</title>
   <meta name="description" content="Developer site for Hiroshi Kojima. Apps, support, and privacy policy.">
 
-  <!-- Social preview (optional but harmless) -->
+  <!-- Social preview -->
   <meta property="og:title" content="Hiroshi Kojima — Apps">
-  <meta property="og:description" content="Apps, support, and privacy policy.">
+  <meta property="og:description" content="Apps and support information.">
   <meta property="og:type" content="website">
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect rx='12' width='64' height='64' fill='%232f73ff'/%3E%3Cpath d='M18 33h28M18 33l6-6M18 33l6 6' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="style.css">
+
+  <!-- cache-bust -->
+  <link rel="stylesheet" href="style.css?v=20260106-1">
 </head>
 
 <body>
@@ -30,7 +32,6 @@
         <a class="btn" href="privacy/">Privacy Policy</a>
         <a class="btn" href="mailto:kjdevapphelp@gmail.com?subject=Support%20Request">Contact</a>
       </div>
-
     </header>
 
     <main>
@@ -39,38 +40,80 @@
         <div class="grid">
 
           <article class="card">
-            <h3>Studio Mate</h3>
-            <p class="muted">Timecode markers & PDF notes for recording sessions.</p>
-            <div class="cardActions">
-              <a class="btn" href="support/studio-mate/">Support</a>
-              <a class="btn" href="privacy/">Privacy</a>
+            <div class="cardTop">
+              <img class="appIconImg" src="support/img/studiomate_icon.png" alt="Studio Mate icon">
+              <div class="cardTitle">
+                <div class="titleRow">
+                  <h3>Studio Mate</h3>
+                  <span class="badge live">Live</span>
+                </div>
+                <p class="muted">Tools for timecode markers and PDF notes in recording sessions.</p>
+              </div>
             </div>
           </article>
 
           <article class="card">
-            <h3>PocketCam Viewer</h3>
-            <p class="muted">Viewer app for simple camera workflows.</p>
-            <div class="cardActions">
-              <a class="btn" href="support/pocketcam-viewer/">Support</a>
-              <a class="btn" href="privacy/">Privacy</a>
+            <div class="cardTop">
+              <img class="appIconImg" src="support/img/pocketcamviewer_icon.png" alt="PocketCam Viewer icon">
+              <div class="cardTitle">
+                <div class="titleRow">
+                  <h3>PocketCam Viewer</h3>
+                  <span class="badge progress">In progress</span>
+                </div>
+                <p class="muted">A lightweight viewer app for simple camera workflows.</p>
+              </div>
             </div>
           </article>
 
           <article class="card">
-            <h3>Audio Compare</h3>
-            <p class="muted">Compare audio files quickly (waveform / checks).</p>
-            <div class="cardActions">
-              <a class="btn" href="support/audio-compare/">Support</a>
-              <a class="btn" href="privacy/">Privacy</a>
+            <div class="cardTop">
+              <div class="appIconFallback" aria-hidden="true">MT</div>
+              <div class="cardTitle">
+                <div class="titleRow">
+                  <h3>Music Theory</h3>
+                  <span class="badge progress">In progress</span>
+                </div>
+                <p class="muted">A practical music theory toolset for daily practice and study.</p>
+              </div>
             </div>
           </article>
 
           <article class="card">
-            <h3>QuickSearchExt</h3>
-            <p class="muted">Lightweight selection search extension.</p>
-            <div class="cardActions">
-              <a class="btn" href="support/quicksearchext/">Support</a>
-              <a class="btn" href="privacy/">Privacy</a>
+            <div class="cardTop">
+              <img class="appIconImg" src="support/img/quicksearchext_icon.png" alt="QuickSearchExt icon">
+              <div class="cardTitle">
+                <div class="titleRow">
+                  <h3>QuickSearchExt</h3>
+                  <span class="badge live">Live</span>
+                </div>
+                <p class="muted">A selection search extension for fast lookups.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="cardTop">
+              <img class="appIconImg" src="support/img/copskipper_icon.png" alt="CopySkipper icon">
+              <div class="cardTitle">
+                <div class="titleRow">
+                  <h3>CopySkipper</h3>
+                  <span class="badge live">Live</span>
+                </div>
+                <p class="muted">A small macOS utility for safer, clearer file copy workflows.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="cardTop">
+              <div class="appIconFallback" aria-hidden="true">LR</div>
+              <div class="cardTitle">
+                <div class="titleRow">
+                  <h3>Level Range EQ</h3>
+                  <span class="badge progress">In progress</span>
+                </div>
+                <p class="muted">An EQ concept focused on controllable level-dependent tone shaping.</p>
+              </div>
             </div>
           </article>
 
@@ -84,13 +127,13 @@
           <a href="mailto:kjdevapphelp@gmail.com?subject=Support%20Request">kjdevapphelp@gmail.com</a>
         </p>
         <p class="muted">
-          Please include the following if possible: app name / version / OS / steps to reproduce / screenshots
+          Please include: app name / app version / OS version / steps to reproduce / screenshots (if possible).
         </p>
       </section>
 
-
-
-      <p class="footer">© 2026 Hiroshi Kojima. All rights reserved.</p>
+      <footer class="siteFooter">
+        <p class="footerText">© 2026 Hiroshi Kojima. All rights reserved.</p>
+      </footer>
     </main>
   </div>
 </body>
