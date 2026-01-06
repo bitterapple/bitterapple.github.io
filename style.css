@@ -109,6 +109,21 @@ a:hover { text-decoration: underline; }
   border-color: rgba(255,255,255,0.18);
 }
 
+.cardLink {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.cardLink:hover {
+  text-decoration: none;
+}
+
+.cardLink:focus-visible {
+  outline: 3px solid rgba(47,115,255,0.55);
+  outline-offset: 3px;
+}
+
 .card h3 {
   margin: 0 0 8px;
   font-size: 16px;
