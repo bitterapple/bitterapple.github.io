@@ -1,34 +1,148 @@
 <!doctype html>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Studio Mate — Support</title>
-<meta name="description" content="Studio Mate support: one-way folder sync for macOS.">
-<link rel="stylesheet" href="../style.css">
-<link rel="icon" href="../icons/studiomate_icon.png">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<div class="container">
-  <header class="header">
-    <h1>Studio Mate — Support</h1>
-    <p>Add timecode markers directly into your PDF.<br>
-       Locate your DAW instantly from each marker.</p>
-    <div class="nav">
-      <a class="btn" href="../">← All apps</a>
-      <a class="btn" href="mailto:kjdevapphelp@gmail.com">Contact support</a>
-    </div>
-  </header>
+  <title>Studio Mate — Support</title>
+  <meta name="description" content="Studio Mate support: timecode markers inside your PDF for faster recording workflows.">
 
-  <section class="section card">
-    <h2>Quick answers</h2>
-    <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-    <hr>
-    <p>If you need more help, email us at <a href="mailto:kjdevapphelp@gmail.com">kjdevapphelp@gmail.com</a>.</p>
-  </section>
+  <!-- Use the site-wide stylesheet (root) -->
+  <link rel="stylesheet" href="../../style.css?v=20260106-1">
 
-  <p class="footer">© 2025 Hiroshi Kojima. All rights reserved. ·
-    <a href="../privacy/">Privacy Policy</a></p>
-</div>
+  <!-- App icon (stored under /support/img/) -->
+  <link rel="icon" href="../img/studiomate_icon.png">
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Studio Mate — Support</h1>
+      <p>
+        Add timecode markers directly into your PDF, then tap a marker to locate your DAW.
+        <span class="muted"><br>iPad + DAW via MIDI (MTC/MMC).</span>
+      </p>
+
+      <div class="nav">
+        <a class="btn" href="../../">← All apps</a>
+        <a class="btn" href="mailto:kjdevapphelp@gmail.com?subject=Studio%20Mate%20Support">Contact support</a>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2>How it works (quick overview)</h2>
+      <figure style="margin: 12px 0 0;">
+        <img
+          src="img/IMG_6668.JPG"
+          alt="Studio Mate overview comic: record in DAW, tap to add marker, tap marker later on iPad, locate the same spot in the DAW"
+          style="width: 100%; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12);"
+          loading="lazy">
+        <figcaption class="muted" style="margin-top: 8px; font-size: 12px;">
+          Record in your DAW → add markers in the PDF → tap a marker later → your DAW locates to the same time.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <h2>Before you start</h2>
+      <p class="muted">Please set up a <strong>MIDI connection</strong> between your DAW and this app.</p>
+
+      <h3 style="margin: 14px 0 6px; font-size: 16px;">USB connection (macOS Audio MIDI Setup)</h3>
+      <ol class="muted" style="margin: 0; padding-left: 18px; font-size: 13px;">
+        <li>On your Mac, open <strong>Audio MIDI Setup</strong>.</li>
+        <li>Connect your iPad to your Mac via <strong>USB</strong>.</li>
+        <li>From the <strong>Window</strong> menu, choose <strong>Show MIDI Studio</strong>.</li>
+        <li>When your iPad appears, enable <strong>Audio</strong> and <strong>MIDI</strong> for the device.</li>
+      </ol>
+
+      <h3 style="margin: 14px 0 6px; font-size: 16px;">Network connection</h3>
+      <ol class="muted" style="margin: 0; padding-left: 18px; font-size: 13px;">
+        <li>Make sure your Mac (running the DAW) and iPad are on the same network.</li>
+        <li>On your Mac, open <strong>Audio MIDI Setup</strong>.</li>
+        <li>From the <strong>Window</strong> menu, choose <strong>Show MIDI Studio</strong>.</li>
+        <li>Double-click <strong>Network</strong> to open <strong>MIDI Network Setup</strong>.</li>
+        <li>If there’s no <strong>Session</strong>, create one. Then select your iPad and click <strong>Connect</strong>.</li>
+      </ol>
+
+      <h3 style="margin: 14px 0 6px; font-size: 16px;">DAW settings</h3>
+      <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px;">
+        <li>Set <strong>MTC Generate Port</strong> to the iPad.</li>
+        <li>Set <strong>MIDI Machine Control Remote</strong> to its default value.</li>
+        <li>Turn <strong>MTC Generate</strong> <strong>ON</strong>.</li>
+      </ul>
+      <p class="muted" style="margin-top: 10px; font-size: 12px;">
+        Note: wireless MIDI can work, but USB tends to be more stable if your iPad sleeps.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>How to use</h2>
+      <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px;">
+        <li><strong>Draw with Pen</strong> on the PDF.</li>
+        <li><strong>Tap</strong> to add a timecode marker.</li>
+        <li><strong>Double-tap</strong> a timecode marker to edit.</li>
+        <li><strong>Long-press</strong> a timecode marker to move it.</li>
+        <li>When the DAW is stopped, <strong>tap a marker</strong> to locate your DAW to that position.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Interface shortcuts</h2>
+
+      <h3 style="margin: 0 0 6px; font-size: 16px;">Bookmarks</h3>
+      <p class="muted" style="margin: 0; font-size: 13px;">Tap the bookmark icon to open the bookmark list for the current PDF.</p>
+
+      <h3 style="margin: 14px 0 6px; font-size: 16px;">Document switcher</h3>
+      <p class="muted" style="margin: 0; font-size: 13px;">Tap the PDF title in the toolbar to open the list of recently opened documents.</p>
+
+      <h3 style="margin: 14px 0 6px; font-size: 16px;">Pen & label tools</h3>
+      <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px;">
+        <li>Long-press the tag icon to toggle <strong>Finger / Pencil</strong> mode.</li>
+        <li>Double-tap any pen or label icon to open its settings menu.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Editing swatches</h2>
+      <ol class="muted" style="margin: 0; padding-left: 18px; font-size: 13px;">
+        <li>Double-tap any pen or label icon to open its settings menu.</li>
+        <li>Tap <strong>Edit</strong> to enter swatch edit mode.</li>
+        <li>Use the color picker to create the color you want.</li>
+        <li>Long-press the swatch you want to replace to save the new color.</li>
+        <li>Tap <strong>Reset</strong> to restore the default swatch set when needed.</li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>FAQ</h2>
+
+      <details style="margin: 8px 0;">
+        <summary><strong>Nothing happens when I tap a marker.</strong></summary>
+        <p class="muted" style="margin: 8px 0 0; font-size: 13px;">
+          Make sure your MIDI connection is active and your DAW is configured for MTC/MMC as described above.
+          Also confirm your DAW is <strong>stopped</strong> when tapping a marker (locate is intended for stopped state).
+        </p>
+      </details>
+
+      <details style="margin: 8px 0;">
+        <summary><strong>Network MIDI disconnects sometimes.</strong></summary>
+        <p class="muted" style="margin: 8px 0 0; font-size: 13px;">
+          Try USB if possible. If you prefer network MIDI, keep the iPad awake and avoid switching Wi‑Fi networks.
+        </p>
+      </details>
+
+      <details style="margin: 8px 0;">
+        <summary><strong>How do I send feedback or report a bug?</strong></summary>
+        <p class="muted" style="margin: 8px 0 0; font-size: 13px;">
+          Email <a href="mailto:kjdevapphelp@gmail.com?subject=Studio%20Mate%20Feedback">kjdevapphelp@gmail.com</a>
+          and include: app version, iPadOS version, and steps to reproduce.
+        </p>
+      </details>
+    </section>
+
+    <footer class="siteFooter">
+      <p class="footerText">© 2026 Hiroshi Kojima. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
