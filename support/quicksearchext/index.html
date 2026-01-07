@@ -1,33 +1,144 @@
 <!doctype html>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>QuickSearchExt — Support</title>
-<meta name="description" content="QuickSearchExt support: one-way folder sync for macOS.">
-<link rel="stylesheet" href="../style.css">
-<link rel="icon" href="../icons/quicksearchext_icon.png">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<div class="container">
-  <header class="header">
-    <h1>QuickSearchExt — Support</h1>
-    <p>Instantly search selected text on your favorite sites</p>
-    <div class="nav">
-      <a class="btn" href="../">← All apps</a>
-      <a class="btn" href="mailto:kjdevapphelp@gmail.com">Contact support</a>
-    </div>
-  </header>
+  <title>QuickSearchExt — Support</title>
+  <meta name="description" content="QuickSearchExt support: a Safari extension that searches selected text on your favorite sites — on iPhone and Mac.">
 
-  <section class="section card">
-    <h2>Quick answers</h2>
-    <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-    <hr>
-    <p>If you need more help, email us at <a href="mailto:kjdevapphelp@gmail.com">kjdevapphelp@gmail.com</a>.</p>
-  </section>
+  <!-- Use the site-wide stylesheet (root) -->
+  <link rel="stylesheet" href="../../style.css?v=20260106-1">
 
-  <p class="footer">© 2025 Hiroshi Kojima. All rights reserved. ·
-    <a href="../privacy/">Privacy Policy</a></p>
-</div>
+  <!-- App icon (stored under /support/img/) -->
+  <link rel="icon" href="../img/quicksearchext_icon.png">
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>QuickSearchExt — Support</h1>
+      <p>
+        QuickSearchExt is a Safari extension that searches the selected text on your favorite sites.
+        On iPhone, jump from the popup; on Mac, from the toolbar or the right‑click menu — <strong>one tap to search</strong>.
+      </p>
+
+      <div class="nav">
+        <a class="btn" href="../../">← All apps</a>
+        <a class="btn" href="mailto:kjdevapphelp@gmail.com?subject=QuickSearchExt%20Support">Contact support</a>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2>Quick start</h2>
+
+      <div class="grid" style="grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start;">
+        <div class="card" style="margin: 0;">
+          <h3 style="margin: 0 0 8px; font-size: 16px;">How to use on iPhone / iPad</h3>
+          <ol class="muted" style="margin: 0; padding-left: 18px; font-size: 13px;">
+            <li>Open Safari.</li>
+            <li>Tap <strong>…</strong> → <strong>Extensions</strong> → launch <strong>QuickSearchExt</strong>.</li>
+            <li>Tap the site you want to search.</li>
+          </ol>
+          <p class="muted" style="margin: 10px 0 0; font-size: 12px;">
+            Tip: the query auto-fills with selected text. If nothing is selected, it keeps your previous query.
+          </p>
+        </div>
+
+        <div class="card" style="margin: 0;">
+          <h3 style="margin: 0 0 8px; font-size: 16px;">How to use on Mac</h3>
+          <ol class="muted" style="margin: 0; padding-left: 18px; font-size: 13px;">
+            <li>Safari <strong>Settings</strong> → <strong>Extensions</strong> → enable <strong>QuickSearchExt</strong>.</li>
+            <li>Click the toolbar button, or right-click selected text → <strong>QuickSearchExt</strong>.</li>
+          </ol>
+          <p class="muted" style="margin: 10px 0 0; font-size: 12px;">
+            You can run the same search sites list on both platforms.
+          </p>
+        </div>
+      </div>
+
+      <figure style="margin: 14px 0 0;">
+        <img
+          src="img/800x400bb-1.png"
+          alt="QuickSearchExt on macOS: toolbar button and grid popup"
+          style="width: 100%; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12);"
+          loading="lazy">
+        <figcaption class="muted" style="margin-top: 8px; font-size: 12px;">macOS: toolbar popup with your search sites.</figcaption>
+      </figure>
+
+      <div class="grid" style="grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; margin-top: 14px;">
+        <figure style="margin: 0;">
+          <img
+            src="img/400x800bb.png"
+            alt="QuickSearchExt on iPhone: extension popup with search sites"
+            style="width: 100%; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12);"
+            loading="lazy">
+          <figcaption class="muted" style="margin-top: 8px; font-size: 12px;">iPhone: run searches from the Extensions popup.</figcaption>
+        </figure>
+
+        <figure style="margin: 0;">
+          <img
+            src="img/400x800bb-1.png"
+            alt="QuickSearchExt on iPhone: configure search sites"
+            style="width: 100%; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12);"
+            loading="lazy">
+          <figcaption class="muted" style="margin-top: 8px; font-size: 12px;">Configure sites: add a name and a URL template.</figcaption>
+        </figure>
+      </div>
+
+    </section>
+
+    <section class="section">
+      <h2>Features</h2>
+      <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px;">
+        <li><strong>Auto-fill</strong> with selected text; if nothing is selected, keep the previous query.</li>
+        <li><strong>Built-in sites</strong> (examples): Search, Images, Maps, Video, Shopping, Encyclopedia, and more.</li>
+        <li><strong>Locale-aware suggestions</strong> (enable/disable per site).</li>
+        <li><strong>Reorder</strong>, set defaults, and <strong>add / edit / delete</strong> sites.</li>
+        <li>Clear list with <strong>site icons</strong>.</li>
+        <li><strong>Multilingual localization</strong> (including Japanese).</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Customization</h2>
+      <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px;">
+        <li>Freely add a <strong>site name</strong> and a <strong>URL template</strong> (use <strong>%s</strong> for the query).</li>
+        <li>Reorder / enable / disable with one click.</li>
+      </ul>
+
+      <figure style="margin: 14px 0 0;">
+        <img
+          src="img/800x400bb.png"
+          alt="QuickSearchExt settings on macOS: configure search sites list"
+          style="width: 100%; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12);"
+          loading="lazy">
+        <figcaption class="muted" style="margin-top: 8px; font-size: 12px;">macOS: edit the site list, reorder, and set defaults.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <h2>Privacy</h2>
+      <p class="muted" style="margin: 0; font-size: 13px;">
+        No personal data is collected. Searches are launched directly from the extension on your device.
+      </p>
+      <p class="muted" style="margin: 10px 0 0; font-size: 12px;">
+        For general information, see the site-wide <a href="../privacy/">Privacy Policy</a>.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Feedback</h2>
+      <p class="muted" style="margin: 0; font-size: 13px;">
+        Send bug reports or feature requests to
+        <a href="mailto:kjdevapphelp@gmail.com?subject=QuickSearchExt%20Feedback">kjdevapphelp@gmail.com</a>.
+        Please include: app version, Safari version, macOS/iOS version, and steps to reproduce.
+      </p>
+    </section>
+
+    <footer class="siteFooter">
+      <p class="footerText">© 2026 Hiroshi Kojima. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
