@@ -1,89 +1,140 @@
 <!doctype html>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Apps — Support</title>
-<meta name="description" content="Support hub for our macOS apps.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect rx='12' width='64' height='64' fill='%232f73ff'/%3E%3Cpath d='M18 33h28M18 33l6-6M18 33l6 6' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="style.css">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<div class="container">
-  <header class="header">
-    <h1>Support — Apps</h1>
-    <p>Quick help, FAQ, and contact for our macOS tools.<br>
-       Primary language: English.</p>
-    <div class="nav">
-      <a class="btn" href="privacy/">Privacy Policy</a>
-      <a class="btn" href="mailto:kjdevapphelp@gmail.com">Contact support</a>
-    </div>
-  </header>
+  <title>Hiroshi Kojima — Apps</title>
+  <meta name="description" content="Developer site for Hiroshi Kojima. Apps, support, and privacy policy.">
 
-  <section class="section">
-    <div class="grid">
+  <!-- Social preview -->
+  <meta property="og:title" content="Hiroshi Kojima — Apps">
+  <meta property="og:description" content="Apps and support information.">
+  <meta property="og:type" content="website">
 
-      <!-- WrisTick card -->
-      <a class="card app" href="WrisTick/">
-        <div class="icon">
-          <img src="img/wristick_icon.png" alt="WrisTick icon" width="26" height="26">
-        </div>
-        <div class="meta">
-          <h3>WrisTick</h3>
-          <p>Metronome and tuner for watchOS.</p>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect rx='12' width='64' height='64' fill='%232f73ff'/%3E%3Cpath d='M18 33h28M18 33l6-6M18 33l6 6' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+  <!-- cache-bust -->
+  <link rel="stylesheet" href="/style.css?v=20260106-1">
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Hiroshi Kojima</h1>
+      <p>
+        I build audio tools and apps for production workflows.
+      </p>
+
+      <div class="nav">
+        <!-- <a class="btn" href="/support/">Support</a> -->
+        <a class="btn" href="/support/privacy/">Privacy Policy</a>
+        <a class="btn" href="mailto:kjdevapphelp@gmail.com?subject=Support%20Request">Contact</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <h2>Apps</h2>
+        <div class="grid">
+
+          <a class="card cardLink" href="/support/studiomate/" aria-label="Studio Mate support page">
+            <div class="cardTop">
+              <img class="appIconImg" src="support/img/studiomate_icon.png" alt="Studio Mate icon">
+              <div class="cardTitle">
+                <div class="titleRow">
+                  <h3>Studio Mate</h3>
+                  <span class="badge live">Live</span>
+                </div>
+                <p class="muted">Tools for timecode markers and PDF notes in recording sessions.</p>
+              </div>
+            </div>
+          </a>
+
+          <a class="card cardLink" href="/support/pocketcamviewer/" aria-label="PocketCam Viewer support page">
+            <div class="cardTop">
+              <img class="appIconImg" src="support/img/pocketcamviewer_icon.png" alt="PocketCam Viewer icon">
+              <div class="cardTitle">
+                <div class="titleRow">
+                  <h3>PocketCam Viewer</h3>
+                  <span class="badge progress">In progress</span>
+                </div>
+                <p class="muted">A lightweight viewer app for simple camera workflows.</p>
+              </div>
+            </div>
+          </a>
+
+          <article class="card">
+            <div class="cardTop">
+              <div class="appIconFallback" aria-hidden="true">MT</div>
+              <div class="cardTitle">
+                <div class="titleRow">
+                  <h3>Music Theory</h3>
+                  <span class="badge progress">In progress</span>
+                </div>
+                <p class="muted">A practical music theory toolset for daily practice and study.</p>
+              </div>
+            </div>
+          </article>
+
+          <a class="card cardLink" href="/support/quicksearchext/" aria-label="QuickSearchExt support page">
+            <div class="cardTop">
+              <img class="appIconImg" src="support/img/quicksearchext_icon.png" alt="QuickSearchExt icon">
+              <div class="cardTitle">
+                <div class="titleRow">
+                  <h3>QuickSearchExt</h3>
+                  <span class="badge live">Live</span>
+                </div>
+                <p class="muted">A selection search extension for fast lookups.</p>
+              </div>
+            </div>
+          </a>
+
+          <a class="card cardLink" href="/support/copyskipper/" aria-label="CopySkipper support page">
+            <div class="cardTop">
+              <img class="appIconImg" src="support/img/copyskipper_icon.png" alt="CopySkipper icon">
+              <div class="cardTitle">
+                <div class="titleRow">
+                  <h3>CopySkipper</h3>
+                  <span class="badge live">Live</span>
+                </div>
+                <p class="muted">A small macOS utility for safer, clearer file copy workflows.</p>
+              </div>
+            </div>
+          </a>
+
+      <a class="card cardLink" href="/support/levelrangeeq/" aria-label="Level Range EQ support page">
+        <div class="cardTop">
+          <img class="appIconImg" src="/support/img/levelrangeeq_icon.png" alt="Level Range EQ icon">
+          <div class="cardTitle">
+            <div class="titleRow">
+              <h3>Level Range EQ</h3>
+              <span class="badge live">Live</span>
+            </div>
+            <p class="muted">An EQ concept focused on controllable level-dependent tone shaping.</p>
+          </div>
         </div>
       </a>
 
-      <!-- CopySkipper card -->
-      <a class="card app" href="copyskipper/">
-        <div class="icon">
-          <img src="img/copskipper_icon.png" alt="CopySkipper icon" width="26" height="26">
         </div>
-        <div class="meta">
-          <h3>CopySkipper</h3>
-          <p>One-way folder sync for macOS.</p>
-        </div>
-      </a>
 
-      <!-- Studio Mate -->
-      <a class="card app" href="studiomate/">
-        <div class="icon">
-          <img src="img/studiomate_icon.png" alt="Studio Mate icon" width="26" height="26">
-        </div>
-        <div class="meta">
-          <h3>Studio Mate</h3>
-          <p>Sync your PDF and DAW projects effortlessly.</p>
-        </div>
-      </a>
+      </section>
 
-      <a class="card app" href="audiocompare/">
-        <div class="icon">
-          <img src="img/audiocompare_icon.png" alt="Audio Compare icon" width="26" height="26">
-        </div>
-        <div class="meta">
-          <h3>Audio Compare</h3>
-          <p>Compare audio files with ease.</p>
-        </div>
-      </a>
+      <section class="section">
+        <h2>Support</h2>
+        <p>
+          For bug reports and feature requests, contact me by email:
+          <a href="mailto:kjdevapphelp@gmail.com?subject=Support%20Request">kjdevapphelp@gmail.com</a>
+        </p>
+        <p class="muted">
+          Please include: app name / app version / OS version / steps to reproduce / screenshots (if possible).
+        </p>
+      </section>
 
-      <a class="card app" href="quicksearchext/">
-        <div class="icon">
-          <img src="img/quicksearchext_icon.png" alt="Quick Search Ext icon" width="26" height="26">
-        </div>
-        <div class="meta">
-          <h3>QuickSearchExt</h3>
-          <p>Instantly search selected text on your favorite sites.</p>
-        </div>
-      </a>
-
-      <a class="card app" href="pocketcamviewer/">
-        <div class="icon">
-          <img src="img/pocketcamviewer_icon.png" alt="PocketCam Viewer icon" width="26" height="26">
-        </div>
-        <div class="meta">
-          <h3>PocketCam Viewer</h3>
-          <p>Instantly search selected text on your favorite sites.</p>
-        </div>
-      </a>
-
-    </div>
-    <p class="footer">© 2025 Hiroshi Kojima. All rights reserved.</p>
-  </section>
-</div>
+      <footer class="siteFooter">
+        <p class="footerText">© 2026 Hiroshi Kojima. All rights reserved.</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
