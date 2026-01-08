@@ -11,13 +11,20 @@
   <link rel="stylesheet" href="../../style.css?v=20260106-1">
 
   <!-- App icon (stored under /support/img/) -->
-  <link rel="icon" href="../img/copskipper_icon.png">
+  <link rel="icon" href="./img/copyskipper_icon.png">
 </head>
 
 <body>
   <div class="container">
     <header class="header">
-      <h1>CopySkipper</h1>
+      <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+        <img
+          src="./img/copyskipper_icon.png"
+          alt="CopySkipper icon"
+          style="width: 64px; height: 64px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12);"
+          loading="lazy">
+        <h1 style="margin:0;">CopySkipper</h1>
+      </div>
       <p>
         CopySkipper is a clean, one-way folder sync for macOS.
         <span class="muted"><br>It’s intentionally simple: it’s basically <strong>rsync</strong> with a friendly UI.</span>
