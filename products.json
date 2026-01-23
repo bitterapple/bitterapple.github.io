@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-01-23T00:00:00Z",
+  "products": {
+    "levelrangeeq": {
+      "name": "Level Range EQ",
+      "latest_version": "1.5.0",
+      "download_url": "https://bitterapple.github.io/support/levelrangeeq/",
+      "release_notes_url": "https://bitterapple.github.io/support/levelrangeeq/#release-notes",
+      "min_supported_version": "1.0.0",
+      "critical": false
+    },
+    "harshsibilancemodarator": {
+      "name": "Harsh Sibilance Modarator",
+      "latest_version": "1.0.0",
+      "download_url": "https://bitterapple.github.io/support/harshsibilancemodarator/",
+      "release_notes_url": "https://bitterapple.github.io/support/harshsibilancemodarator/#release-notes",
+      "min_supported_version": "1.0.0",
+      "critical": false
+    }
+  }
+}
