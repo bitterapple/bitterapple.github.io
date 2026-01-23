@@ -1,0 +1,12 @@
+{
+  "updated_at": "2026-01-23",
+  "products": {
+    "levelrangeeq": {
+      "name": "Level Range EQ",
+      "latest_version": "1.5.0",
+      "released_at": "2026-01-23",
+      "download_url": "https://bitterapple.github.io/support/levelrangeeq/LevelRangeEQ_1.5.0.pkg",
+      "notes": "UI improvements and bug fixes."
+    }
+  }
+}
