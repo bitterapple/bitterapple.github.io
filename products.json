@@ -1,6 +1,6 @@
 {
-  "schema_version": 2,
-  "generated_at": "2026-01-31T00:00:00Z",
+  "schema_version": 3,
+  "generated_at": "2026-02-02T00:00:00Z",
   "products": {
     "levelrangeeq": {
       "name": "Level Range EQ",
@@ -12,7 +12,7 @@
     },
     "dialoguedoctor": {
       "name": "Dialogue Doctor",
-      "latest_version": "1.1.0",
+      "latest_version": "1.2.0",
       "download_url": "https://bitterapple.github.io/support/dialoguedoctor/",
       "release_notes_url": "https://bitterapple.github.io/support/dialoguedoctor/#release-notes",
       "min_supported_version": "1.0.0",
