@@ -129,7 +129,10 @@
             src="./img/dialoguedoctor.png"
             alt="Dialogue Doctor UI screenshot"
             style="
-              width: 100%;
+              width: auto;
+              max-width: 100%;
+              display: block;
+              margin: 0 auto;
               border-radius: 14px;
               border: 1px solid rgba(255, 255, 255, 0.12);
             "
@@ -139,6 +142,151 @@
             Screenshot: Dialogue Doctor main interface.
           </figcaption>
         </figure>
+      </section>
+
+      <section class="section">
+        <h2>Dialogue Doctor Preset</h2>
+
+        <div
+          class="grid"
+          style="align-items: start"
+        >
+          <div class="card" style="margin: 0">
+            <h3 style="margin: 0 0 8px; font-size: 16px">Sibilance Detector</h3>
+            <ul
+              class="muted"
+              style="margin: 0; padding-left: 18px; font-size: 13px"
+            >
+              <li>
+                <strong>Detect Threshold:</strong> The level above which
+                high-frequency content is treated as sibilance.
+              </li>
+              <li>
+                <strong>Gate:</strong> Ignores very quiet signals below this
+                level to prevent false detection.
+              </li>
+              <li>
+                <strong>Min Duration:</strong> Minimum event length required
+                before processing starts.
+              </li>
+              <li>
+                <strong>Release:</strong> How quickly detection fades after
+                sibilance drops.
+              </li>
+              <li>
+                <strong>Lookahead:</strong> Pre-scans incoming audio to catch
+                fast sibilants more accurately.
+              </li>
+              <li>
+                <strong>Wave Speed:</strong> Controls how quickly the detector
+                follows waveform changes.
+              </li>
+            </ul>
+          </div>
+
+          <div class="card" style="margin: 0">
+            <h3 style="margin: 0 0 8px; font-size: 16px">Sibilance</h3>
+            <ul
+              class="muted"
+              style="margin: 0; padding-left: 18px; font-size: 13px"
+            >
+              <li>
+                <strong>Harsh Moderator (On/Off):</strong> Enables targeted
+                reduction of harsh sibilant energy.
+              </li>
+              <li>
+                <strong>Low Hz:</strong> Lower bound of the processing
+                frequency range.
+              </li>
+              <li>
+                <strong>High Hz:</strong> Upper bound of the processing
+                frequency range.
+              </li>
+              <li>
+                <strong>Focus:</strong> Tightens or broadens emphasis inside
+                the selected band.
+              </li>
+              <li>
+                <strong>Max Cut:</strong> Maximum amount of attenuation applied
+                to harsh content.
+              </li>
+              <li>
+                <strong>Strength:</strong> Overall intensity of the harshness
+                reduction.
+              </li>
+            </ul>
+          </div>
+
+          <div class="card" style="margin: 0">
+            <h3 style="margin: 0 0 8px; font-size: 16px">Declick</h3>
+            <ul
+              class="muted"
+              style="margin: 0; padding-left: 18px; font-size: 13px"
+            >
+              <li>
+                <strong>Declick (On/Off):</strong> Enables click/crackle
+                detection and repair.
+              </li>
+              <li>
+                <strong>Freq Hz:</strong> Primary frequency region used for
+                click detection.
+              </li>
+              <li>
+                <strong>Sensitivity:</strong> Detection aggressiveness for
+                short click artifacts.
+              </li>
+              <li>
+                <strong>Max Len ms:</strong> Longest transient duration treated
+                as a click.
+              </li>
+              <li>
+                <strong>Strength:</strong> Amount of click reduction.
+              </li>
+              <li>
+                <strong>Texture:</strong> Balances smooth repair vs. preserved
+                detail.
+              </li>
+              <li>
+                <strong>Mix:</strong> Wet/dry blend between processed and
+                original signal.
+              </li>
+            </ul>
+          </div>
+
+          <div class="card" style="margin: 0">
+            <h3 style="margin: 0 0 8px; font-size: 16px">Residual</h3>
+            <ul
+              class="muted"
+              style="margin: 0; padding-left: 18px; font-size: 13px"
+            >
+              <li>
+                <strong>Deplosive (On/Off):</strong> Reduces low-frequency
+                plosive bursts (e.g., “P” and “B” pops).
+              </li>
+              <li>
+                <strong>Low Hz:</strong> Lower bound of plosive
+                detection/processing.
+              </li>
+              <li>
+                <strong>High Hz:</strong> Upper bound of plosive
+                detection/processing.
+              </li>
+              <li>
+                <strong>Length:</strong> Time window used to suppress plosive
+                events.
+              </li>
+              <li>
+                <strong>Depth:</strong> Reduction depth applied to detected
+                plosives.
+              </li>
+              <li>
+                <strong>Detect:</strong> Detection sensitivity for plosive
+                events.
+              </li>
+              <li><strong>Residual - Decline</strong></li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       <section class="section">
