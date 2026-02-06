@@ -1,0 +1,6 @@
+# Xcodeのビルドキャッシュを無視する
+DerivedData/
+*.xcuserdata/
+*.xcuserstate
+.DS_Store
+**/.DS_Store
