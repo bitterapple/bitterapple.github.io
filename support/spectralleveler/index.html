@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Spectral Leveler</title>
+    <meta
+      name="description"
+      content="Spectral Leveler support & download: a macOS spectral dynamics plug-in (AAX / AU / VST3) for real-time spectrogram-based level shaping with frequency and level windows. Apple Silicon."
+    />
+
+    <!-- Use the site-wide stylesheet (root) -->
+    <link rel="stylesheet" href="/style.css?v=20260106-1" />
+
+    <!-- Local icon (stored next to this index.html) -->
+    <link rel="icon" href="./img/spectralleveler_icon.png" />
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <div
+          style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap"
+        >
+          <img
+            src="./img/spectralleveler_icon.png"
+            alt="Spectral Leveler icon"
+            style="
+              width: 64px;
+              height: 64px;
+              border-radius: 14px;
+              border: 1px solid rgba(255, 255, 255, 0.12);
+            "
+            loading="lazy"
+          />
+          <div>
+            <h1 style="margin: 0">Spectral Leveler</h1>
+            <p class="muted" style="margin: 6px 0 0; font-size: 13px">
+              <strong>Preview build</strong> — <strong>In development</strong>.
+            </p>
+            <p
+              class="muted"
+              style="margin: 6px 0 0; font-size: 12px; opacity: 0.85"
+            >
+              Real-time spectrogram dynamics tool for voice, dialogue, and
+              musical sources.
+            </p>
+          </div>
+        </div>
+
+        <p style="margin-top: 14px">
+          <strong>Spectral Leveler</strong> is a macOS spectral dynamics plug-in
+          ( <strong>AAX / AU / VST3</strong>) that lets you shape audio by
+          <strong>frequency window</strong> and <strong>level window</strong>
+          directly on a real-time spectrogram. Adjust the target range, then
+          control
+          <strong>Gain</strong>, <strong>Attack</strong>, and
+          <strong>Release</strong>
+          for smooth, selective leveling.
+        </p>
+
+        <div class="nav">
+          <a class="btn" href="../../">← All apps</a>
+          <a
+            class="btn"
+            href="mailto:kjdevapphelp@gmail.com?subject=Spectral%20Leveler%20Support"
+            >Contact support</a
+          >
+        </div>
+
+        <div
+          class="grid"
+          style="
+            grid-template-columns: 1fr;
+            align-items: start;
+            gap: 14px;
+            margin-top: 14px;
+          "
+        >
+          <div class="card" style="margin: 0">
+            <div class="muted" style="font-size: 13px">
+              <strong>Format:</strong> AAX / AU / VST3
+              <span style="opacity: 0.6; padding: 0 6px">•</span>
+              <strong>Platform:</strong> Apple Silicon macOS
+            </div>
+            <div
+              style="
+                margin-top: 10px;
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+              "
+            >
+              <a
+                class="btn"
+                href="#"
+                style="font-weight: 700; opacity: 0.8; pointer-events: none"
+                >Download (coming soon)</a
+              >
+            </div>
+            <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+              Public release package is not posted yet. This page is ready for
+              upcoming AAX / AU / VST3 releases.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <section class="section">
+        <h2>What it does</h2>
+        <ul
+          class="muted"
+          style="margin: 0; padding-left: 18px; font-size: 13px"
+        >
+          <li>
+            Display a <strong>real-time spectrogram</strong> while audio is
+            playing.
+          </li>
+          <li>
+            Set a <strong>frequency window</strong> (upper / lower bounds)
+            directly in the display.
+          </li>
+          <li>
+            Set a <strong>level window</strong> with the color level bar (target
+            only the desired dB range).
+          </li>
+          <li>
+            Apply spectral gain with <strong>Attack / Release</strong> smoothing
+            for natural control.
+          </li>
+          <li>
+            Useful for dialogue harshness, sibilant bands, resonant peaks, and
+            transient-heavy sources.
+          </li>
+        </ul>
+
+        <figure style="margin: 14px 0 0">
+          <img
+            src="./img/spectralleveler_ui.png"
+            alt="Spectral Leveler UI screenshot"
+            style="
+              width: 100%;
+              border-radius: 14px;
+              border: 1px solid rgba(255, 255, 255, 0.12);
+            "
+            loading="lazy"
+          />
+          <figcaption class="muted" style="margin-top: 8px; font-size: 12px">
+            Screenshot: spectrogram view, frequency band targeting, and per-band
+            Gain / Attack / Release controls.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <h2>Status</h2>
+        <div class="card" style="margin: 0">
+          <h3 style="margin: 0 0 8px; font-size: 16px">Current development</h3>
+          <ul
+            class="muted"
+            style="margin: 0; padding-left: 18px; font-size: 13px"
+          >
+            <li>
+              <strong>UI concept:</strong> Spectrogram-based direct manipulation
+              workflow is in progress.
+            </li>
+            <li>
+              <strong>Target formats:</strong> AAX / AU / VST3 for Apple Silicon
+              macOS.
+            </li>
+            <li>
+              <strong>Focus:</strong> Fast day-to-day control for dialogue,
+              vocals, and instrument harshness.
+            </li>
+          </ul>
+          <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+            Release notes and downloads will be added here when the first public
+            version is available.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="release-notes">
+        <h2>Release history</h2>
+        <div class="card" style="margin: 0">
+          <p class="muted" style="margin: 0; font-size: 13px">
+            No public releases yet.
+          </p>
+          <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+            The first signed release will appear here with version number, date,
+            and download link.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Typical use cases</h2>
+        <div
+          class="grid"
+          style="
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            align-items: start;
+          "
+        >
+          <div class="card" style="margin: 0">
+            <h3 style="margin: 0 0 8px; font-size: 16px">Dialogue / VO</h3>
+            <p class="muted" style="margin: 0; font-size: 13px">
+              Tame harsh consonants and resonant bands in a selected frequency
+              and level range without flattening the entire voice.
+            </p>
+          </div>
+          <div class="card" style="margin: 0">
+            <h3 style="margin: 0 0 8px; font-size: 16px">Vocals</h3>
+            <p class="muted" style="margin: 0; font-size: 13px">
+              Smooth bright peaks dynamically while preserving body and tone.
+              Great for “just the painful bits” control.
+            </p>
+          </div>
+          <div class="card" style="margin: 0">
+            <h3 style="margin: 0 0 8px; font-size: 16px">Instruments</h3>
+            <p class="muted" style="margin: 0; font-size: 13px">
+              Control string harshness, pick attack spikes, or resonant zones
+              with visual targeting and musical attack / release timing.
+            </p>
+          </div>
+          <div class="card" style="margin: 0">
+            <h3 style="margin: 0 0 8px; font-size: 16px">De-esser support</h3>
+            <p class="muted" style="margin: 0; font-size: 13px">
+              Focus on a sibilant frequency window and a high-level dB window to
+              reduce only “S / SH” peaks while leaving the rest of the vocal
+              untouched.
+            </p>
+          </div>
+          <div class="card" style="margin: 0">
+            <h3 style="margin: 0 0 8px; font-size: 16px">Podcast cleanup</h3>
+            <p class="muted" style="margin: 0; font-size: 13px">
+              Fast daily cleanup for spoken content: control edgy moments,
+              mouth-noise-heavy bands, or transient spikes without opening a
+              full repair suite.
+            </p>
+          </div>
+          <div class="card" style="margin: 0">
+            <h3 style="margin: 0 0 8px; font-size: 16px">
+              Mix-bus spot control
+            </h3>
+            <p class="muted" style="margin: 0; font-size: 13px">
+              Use gentle settings to catch occasional spectral peaks in stems or
+              buses where a normal compressor or static EQ feels too broad.
+            </p>
+          </div>
+        </div>
+        <p class="muted" style="margin: 12px 0 0; font-size: 12px">
+          In practice, Spectral Leveler is designed for the “RX is powerful, but
+          I just want to fix this quickly in the DAW” workflow.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Planned controls</h2>
+        <ul
+          class="muted"
+          style="margin: 0; padding-left: 18px; font-size: 13px"
+        >
+          <li>
+            <strong>Frequency window:</strong> upper / lower range targeting on
+            the spectrogram.
+          </li>
+          <li>
+            <strong>Level window:</strong> upper / lower dB targeting via color
+            level bar.
+          </li>
+          <li>
+            <strong>Gain:</strong> positive or negative spectral gain within the
+            selected window.
+          </li>
+          <li>
+            <strong>Attack / Release:</strong> smoothing for natural dynamic
+            behavior.
+          </li>
+          <li>
+            <strong>Before / After view:</strong> compare spectrogram response
+            before and after processing.
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Requirements</h2>
+        <ul
+          class="muted"
+          style="margin: 0; padding-left: 18px; font-size: 13px"
+        >
+          <li><strong>Apple Silicon</strong> Mac.</li>
+          <li>
+            A plug-in host that supports <strong>AAX</strong> (Pro Tools),
+            <strong>AU</strong>, or <strong>VST3</strong>.
+          </li>
+          <li>
+            Release installer and version details will be posted here when
+            available.
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Install</h2>
+        <ol
+          class="muted"
+          style="margin: 0; padding-left: 18px; font-size: 13px"
+        >
+          <li>
+            Download the latest <code>SpectralLeveler_x.x.x.pkg</code> from this
+            page (coming soon).
+          </li>
+          <li>
+            Run the installer (AAX / AU / VST3 will be installed to standard
+            macOS plug-in locations).
+          </li>
+          <li>Launch your host and rescan plug-ins if needed.</li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <h2>Support</h2>
+        <p class="muted" style="margin: 0; font-size: 13px">
+          Email:
+          <a
+            href="mailto:kjdevapphelp@gmail.com?subject=Spectral%20Leveler%20Support"
+            >kjdevapphelp@gmail.com</a
+          >
+        </p>
+        <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+          Please include: macOS version, host app / Pro Tools version, and a
+          short description (or screenshot) of the issue.
+        </p>
+      </section>
+
+      <footer class="siteFooter">
+        <p class="footerText">© 2026 Hiroshi Kojima. All rights reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>
