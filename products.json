@@ -17,6 +17,14 @@
       "release_notes_url": "https://bitterapple.github.io/support/dialoguedoctor/#release-notes",
       "min_supported_version": "1.0.0",
       "critical": false
+    },
+    "spectralleveler": {
+      "name": "Spectral Leveler",
+      "latest_version": "1.0.0",
+      "download_url": "https://bitterapple.github.io/support/spectralleveler/",
+      "release_notes_url": "https://bitterapple.github.io/support/spectralleveler/#release-notes",
+      "min_supported_version": "1.0.0",
+      "critical": false
     }
   }
 }
