@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>BandMatrix</title>
+    <meta
+      name="description"
+      content="BandMatrix support & download: a macOS dynamics plug-in (AAX / AU / VST3) featuring multi-band sidechain routing (internal, external key input, and inter-band key sources). Apple Silicon."
+    />
+
+    <!-- Use the site-wide stylesheet (root) -->
+    <link rel="stylesheet" href="/style.css?v=20260106-1" />
+
+    <!-- Local icon (stored next to this index.html) -->
+    <link rel="icon" href="./img/BandMatrix_icon.png" />
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <div
+          style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap"
+        >
+          <img
+            src="./img/BandMatrix_icon.png"
+            alt="BandMatrix icon"
+            style="
+              width: 64px;
+              height: 64px;
+              border-radius: 14px;
+              border: 1px solid rgba(255, 255, 255, 0.12);
+            "
+            loading="lazy"
+          />
+          <div>
+            <h1 style="margin: 0">BandMatrix</h1>
+            <p class="muted" style="margin: 6px 0 0; font-size: 13px">
+              <strong>Version</strong> — <strong>Coming soon</strong>.
+            </p>
+            <p
+              class="muted"
+              style="margin: 6px 0 0; font-size: 12px; opacity: 0.85"
+            >
+              Latest signed release: <strong>TBA</strong> •
+              <strong>TBA</strong>
+            </p>
+          </div>
+        </div>
+
+        <p style="margin-top: 14px">
+          <strong>BandMatrix</strong> is a macOS dynamics plug-in (<strong
+            >AAX / AU / VST3</strong
+          >) built for <strong>multi-band sidechain compression</strong> with
+          flexible key routing. Each band can be driven by the
+          <strong>internal signal</strong>, the
+          <strong>external sidechain input</strong>, or even an
+          <strong>arbitrary other band</strong> — so you can create targeted,
+          musical ducking and inter-band control.
+        </p>
+
+        <div class="nav">
+          <a class="btn" href="../../">← All apps</a>
+          <a
+            class="btn"
+            href="mailto:kjdevapphelp@gmail.com?subject=BandMatrix%20Support"
+            >Contact support</a
+          >
+        </div>
+
+        <div
+          class="grid"
+          style="
+            grid-template-columns: 1fr;
+            align-items: start;
+            gap: 14px;
+            margin-top: 14px;
+          "
+        >
+          <div class="card" style="margin: 0">
+            <div class="muted" style="font-size: 13px">
+              <strong>Format:</strong> AAX / AU / VST3
+              <span style="opacity: 0.6; padding: 0 6px">•</span>
+              <strong>Platform:</strong> Apple Silicon macOS
+            </div>
+            <div
+              style="
+                margin-top: 10px;
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+              "
+            >
+              <span
+                class="btn"
+                style="opacity: 0.6; cursor: not-allowed; font-weight: 700"
+                >Download (coming soon)</span
+              >
+            </div>
+            <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+              The first signed release is being prepared. This page will be
+              updated with the installer link as soon as it’s available.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <section class="section">
+        <h2>What it does</h2>
+        <ul
+          class="muted"
+          style="margin: 0; padding-left: 18px; font-size: 13px"
+        >
+          <li>
+            Split the signal into multiple bands and apply
+            <strong>independent compression</strong> per band.
+          </li>
+          <li>
+            Per band, choose a <strong>key source</strong>:
+            <strong>Internal</strong>, <strong>External sidechain</strong>,
+            <strong>Mix</strong>, or <strong>Other band</strong>.
+          </li>
+          <li>
+            Create precise ducking (e.g., kick → bass low band) and inter-band
+            control (e.g., harsh band → tame presence) without affecting the
+            entire spectrum.
+          </li>
+        </ul>
+
+        <figure style="margin: 14px 0 0">
+          <img
+            src="./img/bandmatrix.png"
+            alt="BandMatrix UI screenshot"
+            style="
+              width: 100%;
+              border-radius: 14px;
+              border: 1px solid rgba(255, 255, 255, 0.12);
+            "
+            loading="lazy"
+          />
+          <figcaption class="muted" style="margin-top: 8px; font-size: 12px">
+            Screenshot: band routing, key selection, and per-band gain
+            reduction.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="section">
+        <h2>What’s new</h2>
+        <div class="card" style="margin: 0">
+          <h3 style="margin: 0 0 8px; font-size: 16px">Status</h3>
+          <ul
+            class="muted"
+            style="margin: 0; padding-left: 18px; font-size: 13px"
+          >
+            <li>
+              <strong>In development:</strong> BandMatrix is currently being
+              built and tuned.
+            </li>
+            <li>
+              <strong>Focus:</strong> stable AAX first, then AU/VST3, with
+              careful attention to routing clarity and CPU.
+            </li>
+          </ul>
+          <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+            Release notes will appear here once the first public build is
+            available.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="release-notes">
+        <h2>Release history</h2>
+        <div class="card" style="margin: 0">
+          <div class="muted" style="font-size: 13px">
+            No public releases yet.
+          </div>
+          <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+            Tip: Check back here for the latest signed installer once BandMatrix
+            is released.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Typical use cases</h2>
+        <div
+          class="grid"
+          style="
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            align-items: start;
+          "
+        >
+          <div class="card" style="margin: 0">
+            <h3 style="margin: 0 0 8px; font-size: 16px">Kick / Bass</h3>
+            <p class="muted" style="margin: 0; font-size: 13px">
+              Duck only the bass low band from the kick, keeping mids and highs
+              stable and punchy.
+            </p>
+          </div>
+          <div class="card" style="margin: 0">
+            <h3 style="margin: 0 0 8px; font-size: 16px">Vocals / Music</h3>
+            <p class="muted" style="margin: 0; font-size: 13px">
+              Make space for vocals by gently ducking specific instrument bands
+              using internal or external keys.
+            </p>
+          </div>
+          <div class="card" style="margin: 0">
+            <h3 style="margin: 0 0 8px; font-size: 16px">Sound design</h3>
+            <p class="muted" style="margin: 0; font-size: 13px">
+              Create inter-band dynamics (one band driving another) for
+              movement, emphasis, and controlled aggression.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Requirements</h2>
+        <ul
+          class="muted"
+          style="margin: 0; padding-left: 18px; font-size: 13px"
+        >
+          <li><strong>Apple Silicon</strong> Mac.</li>
+          <li>
+            A plug-in host that supports <strong>AAX</strong> (Pro Tools),
+            <strong>AU</strong>, or <strong>VST3</strong>.
+          </li>
+          <li>
+            Installer: <code>BandMatrix_*.pkg</code> (will be posted here).
+          </li>
+        </ul>
+        <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+          Note: The installer will include
+          <strong>AAX / AU / VST3</strong> builds for
+          <strong>Apple Silicon</strong> once released.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Install</h2>
+        <ol
+          class="muted"
+          style="margin: 0; padding-left: 18px; font-size: 13px"
+        >
+          <li>
+            Download the latest <code>BandMatrix_1.0.0.pkg</code> from this page
+            (once available).
+          </li>
+          <li>
+            Run the installer (it installs AAX / AU / VST3 to the standard macOS
+            plug-in locations).
+          </li>
+          <li>
+            Launch your host (e.g., Pro Tools) and rescan plug-ins if needed.
+          </li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <h2>Support</h2>
+        <p class="muted" style="margin: 0; font-size: 13px">
+          Email:
+          <a href="mailto:kjdevapphelp@gmail.com?subject=BandMatrix%20Support"
+            >kjdevapphelp@gmail.com</a
+          >
+        </p>
+        <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+          Please include: macOS version, Pro Tools version, and a short
+          description (or screenshot) of the issue.
+        </p>
+      </section>
+
+      <footer class="siteFooter">
+        <p class="footerText">© 2026 Hiroshi Kojima. All rights reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>
