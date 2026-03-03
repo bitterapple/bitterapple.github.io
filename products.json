@@ -33,6 +33,14 @@
       "release_notes_url": "https://bitterapple.github.io/support/bandmatrix/#release-notes",
       "min_supported_version": "1.1.0",
       "critical": false
+    },
+    "phaseslice": {
+      "name": "PhaseSlice",
+      "latest_version": "1.0.0",
+      "download_url": "https://bitterapple.github.io/support/phaseslice/",
+      "release_notes_url": "https://bitterapple.github.io/support/phaseslice/#release-notes",
+      "min_supported_version": "1.0.0",
+      "critical": false
     }
   }
 }
