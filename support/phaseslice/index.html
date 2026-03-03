@@ -7,7 +7,7 @@
     <title>PhaseSlice</title>
     <meta
       name="description"
-      content="PhaseSlice is a 5-band macOS plug-in in development for delaying selected frequency bands by a few milliseconds to hundreds of milliseconds, with per-band mix, trim, polarity, and phase controls."
+      content="PhaseSlice support & download: a macOS 5-band split-delay plug-in (AAX / AU / VST3) for delaying selected frequency bands with per-band mix, trim, polarity, and phase control. Apple Silicon."
     />
 
     <link rel="stylesheet" href="/style.css?v=20260106-1" />
@@ -36,8 +36,7 @@
           <div>
             <h1 style="margin: 0">PhaseSlice</h1>
             <p class="muted" style="margin: 6px 0 0; font-size: 13px">
-              <strong>In development</strong> — first public release in
-              preparation.
+              <strong>Released</strong> — <strong>Version 1.0.0</strong>.
             </p>
             <p
               class="muted"
@@ -49,16 +48,22 @@
         </div>
 
         <p style="margin-top: 14px">
-          <strong>PhaseSlice</strong> is a macOS plug-in concept that goes one
-          step past a band-pass filter: instead of just isolating a frequency
-          range, it lets you <strong>delay only that band</strong> by a few
-          milliseconds up to longer texture-shaping values, then blend it back
-          with <strong>per-band mix, trim, polarity, and phase control</strong>.
+          <strong>PhaseSlice</strong> is a macOS plug-in (<strong
+            >AAX / AU / VST3</strong
+          >) that goes one step past a band-pass filter: instead of just
+          isolating a frequency range, it lets you
+          <strong>delay only that band</strong> by a few milliseconds up to
+          longer texture-shaping values, then blend it back with
+          <strong>per-band mix, trim, polarity, and phase control</strong>.
         </p>
 
         <div class="nav">
           <a class="btn" href="../../">← All apps</a>
-          <a class="btn" href="#status">Release status</a>
+          <a
+            class="btn"
+            href="https://github.com/bitterapple/bitterapple.github.io/releases/download/PhaseSlice_1.0.0/PhaseSlice_1.0.0.pkg"
+            >Download v1.0.0</a
+          >
           <a
             class="btn"
             href="mailto:kjdevapphelp@gmail.com?subject=PhaseSlice%20Support"
@@ -77,7 +82,7 @@
         >
           <div class="card" style="margin: 0">
             <div class="muted" style="font-size: 13px">
-              <strong>Target formats:</strong> AAX / AU / VST3
+              <strong>Format:</strong> AAX / AU / VST3
               <span style="opacity: 0.6; padding: 0 6px">•</span>
               <strong>Platform:</strong> Apple Silicon macOS
             </div>
@@ -89,13 +94,15 @@
                 flex-wrap: wrap;
               "
             >
-              <a class="btn" href="#status" style="font-weight: 700"
-                >Release details coming soon</a
+              <a
+                class="btn"
+                href="https://github.com/bitterapple/bitterapple.github.io/releases/download/PhaseSlice_1.0.0/PhaseSlice_1.0.0.pkg"
+                style="font-weight: 700"
+                >Download PhaseSlice_1.0.0.pkg</a
               >
             </div>
             <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-              No public installer is posted yet. This page documents the current
-              direction for the first release.
+              Initial public release is now available.
             </p>
           </div>
         </div>
@@ -116,8 +123,8 @@
             <strong>Mix</strong>, and <strong>Trim</strong> controls.
           </li>
           <li>
-            Shape interference and depth with <strong>Polarity</strong> and an
-            optional <strong>All-pass phase amount</strong> per band.
+            Shape interference and depth with <strong>Polarity</strong> and
+            <strong>All-pass phase amount</strong> per band.
           </li>
           <li>
             Keep the result practical with <strong>output trim</strong>,
@@ -138,14 +145,14 @@
             loading="lazy"
           />
           <figcaption class="muted" style="margin-top: 8px; font-size: 12px">
-            Current UI direction: FFT and crossover view on top, selected-band
-            delay and phase controls below.
+            FFT and crossover view on top, selected-band delay and phase
+            controls below.
           </figcaption>
         </figure>
       </section>
 
       <section class="section">
-        <h2>Initial parameter set</h2>
+        <h2>Main controls</h2>
         <div
           class="grid"
           style="
@@ -161,11 +168,10 @@
             >
               <li><strong>Xover1-4 (Hz)</strong> for the 5-band crossover.</li>
               <li>
-                Working draft: <strong>120 / 450 / 2k / 6k</strong> as the
-                default crossover points.
+                Default working points: <strong>120 / 450 / 2k / 6k</strong>.
               </li>
               <li>
-                Crossover design target: a split that recombines cleanly for the
+                The crossover is designed so the bands recombine cleanly at the
                 dry baseline.
               </li>
             </ul>
@@ -179,16 +185,11 @@
             >
               <li><strong>Delay[i]</strong>: 0-1000 ms for each band.</li>
               <li>
-                Practical sweet spot is expected to be around
-                <strong>0-100 ms</strong>.
-              </li>
-              <li>
-                <strong>Mix[i]</strong>: 0-100% dry/wet blend per band to avoid
-                turning every move into a full-strength comb filter.
+                <strong>Mix[i]</strong>: 0-100% dry/wet blend per band.
               </li>
               <li>
                 <strong>Trim[i]</strong>: -12 to +12 dB for band-by-band level
-                recovery.
+                correction.
               </li>
             </ul>
           </div>
@@ -200,21 +201,16 @@
               style="margin: 0; padding-left: 18px; font-size: 13px"
             >
               <li><strong>Polarity[i]</strong>: on/off per band.</li>
+              <li><strong>Phase mode</strong>: Off / All-pass.</li>
               <li>
-                <strong>Phase mode</strong>: Off / All-pass.
+                <strong>Phase amount[i]</strong>: 0-100% per band.
               </li>
-              <li>
-                <strong>Phase amount[i]</strong>: 0-100%, with the all-pass
-                design following the band center frequency under the hood.
-              </li>
-              <li>
-                <strong>Solo / Mute</strong> per band for tuning by ear.
-              </li>
+              <li><strong>Solo / Mute</strong> per band.</li>
             </ul>
           </div>
 
           <div class="card" style="margin: 0">
-            <h3 style="margin: 0 0 8px; font-size: 16px">Safety and control</h3>
+            <h3 style="margin: 0 0 8px; font-size: 16px">Safety and stereo</h3>
             <ul
               class="muted"
               style="margin: 0; padding-left: 18px; font-size: 13px"
@@ -223,24 +219,16 @@
               <li><strong>Limiter</strong>: on/off.</li>
               <li><strong>Auto gain comp</strong>: on/off.</li>
               <li>
-                <strong>Delay smoothing</strong>: Off / Light / High for delay
-                moves.
+                <strong>Delay smoothing</strong>: Off / Light / High.
               </li>
-              <li>
-                <strong>Latency mode</strong>: zero-latency split first, linear
-                phase as a possible later option.
-              </li>
-              <li>
-                <strong>Stereo link</strong>: 0-100%, with LR mode first and MS
-                as a possible future extension.
-              </li>
+              <li><strong>Stereo link</strong>: 0-100%.</li>
             </ul>
           </div>
         </div>
       </section>
 
       <section class="section">
-        <h2>Interface direction</h2>
+        <h2>Interface overview</h2>
         <div
           class="grid"
           style="
@@ -265,7 +253,7 @@
         </div>
       </section>
 
-      <section class="section" id="status">
+      <section class="section">
         <h2>Status</h2>
         <div class="card" style="margin: 0">
           <h3 style="margin: 0 0 8px; font-size: 16px">Current release state</h3>
@@ -273,26 +261,45 @@
             class="muted"
             style="margin: 0; padding-left: 18px; font-size: 13px"
           >
+            <li><strong>Release status:</strong> v1.0.0 is now available.</li>
             <li>
-              <strong>Release status:</strong> first public build is not posted
-              yet.
-            </li>
-            <li>
-              <strong>Format target:</strong> AAX / AU / VST3 on Apple Silicon
-              macOS.
+              <strong>Formats:</strong> AAX / AU / VST3 for Apple Silicon macOS.
             </li>
             <li>
               <strong>Focus:</strong> a usable band-delay tool rather than a
               novelty comb-filter effect.
             </li>
             <li>
-              <strong>Not in the first build:</strong> envelope-follow delay is
-              under consideration but not part of the initial scope.
+              <strong>Not included:</strong> envelope-follow delay is not part
+              of the initial release.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="release-notes">
+        <h2>Release history</h2>
+        <div class="card" style="margin: 0">
+          <div class="muted" style="font-size: 13px">
+            <strong>v1.0.0</strong> — Initial public release.
+          </div>
+          <ul
+            class="muted"
+            style="margin: 10px 0 0; padding-left: 18px; font-size: 13px"
+          >
+            <li>First public build of PhaseSlice for Apple Silicon macOS.</li>
+            <li>Includes AAX / AU / VST3 plug-in formats.</li>
+            <li>
+              Includes 5-band crossover delay, per-band mix and trim, polarity,
+              all-pass phase amount, solo and mute, and output safety controls.
             </li>
           </ul>
           <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-            This page will be updated with download links and release notes once
-            the initial package is published.
+            Download:
+            <a
+              href="https://github.com/bitterapple/bitterapple.github.io/releases/download/PhaseSlice_1.0.0/PhaseSlice_1.0.0.pkg"
+              >PhaseSlice_1.0.0.pkg</a
+            >
           </p>
         </div>
       </section>
@@ -308,11 +315,27 @@
             A plug-in host that supports <strong>AAX</strong> (Pro Tools),
             <strong>AU</strong>, or <strong>VST3</strong>.
           </li>
-          <li>
-            Installer and versioned package link will be added when the first
-            public build is ready.
-          </li>
+          <li>Installer: <code>PhaseSlice_1.0.0.pkg</code></li>
         </ul>
+      </section>
+
+      <section class="section">
+        <h2>Install</h2>
+        <ol
+          class="muted"
+          style="margin: 0; padding-left: 18px; font-size: 13px"
+        >
+          <li>
+            Download <code>PhaseSlice_1.0.0.pkg</code> from this page.
+          </li>
+          <li>
+            Run the installer to place the AAX / AU / VST3 plug-ins into the
+            standard macOS locations.
+          </li>
+          <li>
+            Launch your host application and rescan plug-ins if needed.
+          </li>
+        </ol>
       </section>
 
       <section class="section">
