@@ -1,6 +1,6 @@
 {
-  "schema_version": 7,
-  "generated_at": "2026-03-03T00:00:00Z",
+  "schema_version": 8,
+  "generated_at": "2026-03-04T00:00:00Z",
   "products": {
     "levelrangeeq": {
       "name": "Level Range EQ",
@@ -36,7 +36,7 @@
     },
     "phaseslice": {
       "name": "PhaseSlice",
-      "latest_version": "1.0.0",
+      "latest_version": "1.1.0",
       "download_url": "https://bitterapple.github.io/support/phaseslice/",
       "release_notes_url": "https://bitterapple.github.io/support/phaseslice/#release-notes",
       "min_supported_version": "1.0.0",
