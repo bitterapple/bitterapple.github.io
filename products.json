@@ -1,5 +1,5 @@
 {
-  "schema_version": 8,
+  "schema_version": 9,
   "generated_at": "2026-03-04T00:00:00Z",
   "products": {
     "levelrangeeq": {
@@ -28,10 +28,10 @@
     },
     "bandmatrix": {
       "name": "BandMatrix",
-      "latest_version": "1.1.0",
+      "latest_version": "1.2.0",
       "download_url": "https://bitterapple.github.io/support/bandmatrix/",
       "release_notes_url": "https://bitterapple.github.io/support/bandmatrix/#release-notes",
-      "min_supported_version": "1.1.0",
+      "min_supported_version": "1.2.0",
       "critical": false
     },
     "phaseslice": {
