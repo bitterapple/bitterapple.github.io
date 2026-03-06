@@ -1,10 +1,10 @@
 {
   "schema_version": 9,
-  "generated_at": "2026-03-04T00:00:00Z",
+  "generated_at": "2026-03-06T00:00:00Z",
   "products": {
     "levelrangeeq": {
       "name": "Level Range EQ",
-      "latest_version": "1.8.0",
+      "latest_version": "1.9.0",
       "download_url": "https://bitterapple.github.io/support/levelrangeeq/",
       "release_notes_url": "https://bitterapple.github.io/support/levelrangeeq/#release-notes",
       "min_supported_version": "1.3.0",
@@ -20,7 +20,7 @@
     },
     "spectralleveler": {
       "name": "Spectral Leveler",
-      "latest_version": "1.1.0",
+      "latest_version": "1.2.0",
       "download_url": "https://bitterapple.github.io/support/spectralleveler/",
       "release_notes_url": "https://bitterapple.github.io/support/spectralleveler/#release-notes",
       "min_supported_version": "1.0.0",
@@ -28,7 +28,7 @@
     },
     "bandmatrix": {
       "name": "BandMatrix",
-      "latest_version": "1.2.0",
+      "latest_version": "1.3.0",
       "download_url": "https://bitterapple.github.io/support/bandmatrix/",
       "release_notes_url": "https://bitterapple.github.io/support/bandmatrix/#release-notes",
       "min_supported_version": "1.2.0",
@@ -36,7 +36,7 @@
     },
     "phaseslice": {
       "name": "PhaseSlice",
-      "latest_version": "1.1.0",
+      "latest_version": "1.2.0",
       "download_url": "https://bitterapple.github.io/support/phaseslice/",
       "release_notes_url": "https://bitterapple.github.io/support/phaseslice/#release-notes",
       "min_supported_version": "1.0.0",
