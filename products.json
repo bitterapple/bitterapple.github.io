@@ -41,6 +41,14 @@
       "release_notes_url": "https://bitterapple.github.io/support/phaseslice/#release-notes",
       "min_supported_version": "1.0.0",
       "critical": false
+    },
+    "distance": {
+      "name": "Distance",
+      "latest_version": "1.0.0",
+      "download_url": "https://bitterapple.github.io/support/distance/",
+      "release_notes_url": "https://bitterapple.github.io/support/distance/#release-notes",
+      "min_supported_version": "1.0.0",
+      "critical": false
     }
   }
 }
