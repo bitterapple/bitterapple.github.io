@@ -1,123 +1,192 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title>CopySkipper</title>
-  <meta name="description" content="CopySkipper support: a simple one-way folder sync for macOS (rsync-based).">
-  <meta name="apple-itunes-app" content="app-id=6752370654">
+    <title>CopySkipper</title>
+    <meta
+      name="description"
+      content="CopySkipper support: a simple one-way folder sync for macOS (rsync-based)."
+    />
+    <meta name="apple-itunes-app" content="app-id=6752370654" />
 
-  <!-- Use the site-wide stylesheet (root) -->
-  <link rel="stylesheet" href="/style.css?v=20260106-1">
+    <!-- Use the site-wide stylesheet (root) -->
+    <link rel="stylesheet" href="/style.css?v=20260106-1" />
 
-  <!-- App icon (stored under /support/img/) -->
-  <link rel="icon" href="./img/copyskipper_icon.png">
-</head>
+    <!-- App icon (stored under /support/img/) -->
+    <link rel="icon" href="./img/copyskipper_icon.png" />
+  </head>
 
-<body>
-  <div class="container">
-    <header class="header">
-      <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
-        <img
-          src="./img/copyskipper_icon.png"
-          alt="CopySkipper icon"
-          style="width: 64px; height: 64px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12);"
-          loading="lazy">
-        <h1 style="margin:0;">CopySkipper</h1>
-      </div>
-      <p>
-        CopySkipper is a clean, one-way folder sync for macOS.
-        <span class="muted"><br>It’s intentionally simple: it’s basically <strong>rsync</strong> with a friendly UI.</span>
-      </p>
-
-      <div class="nav">
-        <a class="btn" href="../../">← All apps</a>
-        <a class="btn" href="https://apps.apple.com/jp/app/copyskipper/id6752370654" target="_blank" rel="noopener">View on the App Store</a>
-        <a class="btn" href="mailto:kjdevapphelp@gmail.com?subject=CopySkipper%20Support">Contact support</a>
-      </div>
-    </header>
-
-    <section class="section">
-      <h2>Quick start</h2>
-      <ol class="muted" style="margin: 0; padding-left: 18px; font-size: 13px;">
-        <li>Drag your <strong>Source</strong> folder (left).</li>
-        <li>Drag your <strong>Target</strong> folder (right).</li>
-        <li>Click <strong>Sync now</strong>.</li>
-        <li>Optional: enable <strong>Auto-run</strong> to sync on an interval.</li>
-      </ol>
-
-      <figure style="margin: 12px 0 0;">
-        <img
-          src="img/CopySkipper_ScreenShot.png"
-          alt="CopySkipper main window screenshot"
-          style="width: 100%; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12);"
-          loading="lazy">
-        <figcaption class="muted" style="margin-top: 8px; font-size: 12px;">
-          Drop Source and Target folders, then press Sync now.
-        </figcaption>
-      </figure>
-
-      <p class="muted" style="margin-top: 10px; font-size: 12px;">
-        Note: CopySkipper performs a <strong>one-way</strong> sync from Source → Target. It does not merge changes both ways.
-      </p>
-    </section>
-
-    <section class="section">
-      <h2>Options (what they mean)</h2>
-      <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px;">
-        <li><strong>Auto-run</strong>: runs sync automatically at the selected interval (for example every 5 minutes).</li>
-        <li><strong>Mirror</strong> (delete extra items in the target folder): removes files that exist only in the Target.
-          This is equivalent to using rsync with <strong>--delete</strong>. Use with care.</li>
-        <li><strong>Play a sound when finished</strong>: plays a short completion sound.</li>
-        <li><strong>Show a notification when finished</strong>: shows a macOS notification after sync completes.</li>
-        <li><strong>Show log</strong>: opens the log panel so you can see what happened during the last run.</li>
-      </ul>
-    </section>
-
-    <section class="section">
-      <h2>Troubleshooting</h2>
-
-      <details style="margin: 8px 0;">
-        <summary><strong>How do I cancel a running sync?</strong></summary>
-        <p class="muted" style="margin: 8px 0 0; font-size: 13px;">Click <strong>Cancel sync</strong>.</p>
-      </details>
-
-      <details style="margin: 8px 0;">
-        <summary><strong>The progress looks stuck at 0%.</strong></summary>
-        <p class="muted" style="margin: 8px 0 0; font-size: 13px;">
-          Deletions and metadata updates can move the progress bar slowly at first. The final completion state is accurate.
+  <body>
+    <div class="container">
+      <header class="header">
+        <div
+          style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap"
+        >
+          <img
+            src="./img/copyskipper_icon.png"
+            alt="CopySkipper icon"
+            style="
+              width: 64px;
+              height: 64px;
+              border-radius: 14px;
+              border: 1px solid rgba(255, 255, 255, 0.12);
+            "
+            loading="lazy"
+          />
+          <h1 style="margin: 0">CopySkipper</h1>
+        </div>
+        <p>
+          CopySkipper is a clean, one-way folder sync for macOS.
+          <span class="muted"
+            ><br />It’s intentionally simple: it’s basically
+            <strong>rsync</strong> with a friendly UI.</span
+          >
         </p>
-      </details>
 
-      <details style="margin: 8px 0;">
-        <summary><strong>Auto-run doesn’t start immediately.</strong></summary>
-        <p class="muted" style="margin: 8px 0 0; font-size: 13px;">
-          Auto-run triggers after a sync completes and the selected interval elapses.
+        <div class="nav">
+          <a class="btn" href="../../">← All apps</a>
+          <a
+            class="btn"
+            href="https://apps.apple.com/jp/app/copyskipper/id6752370654"
+            target="_blank"
+            rel="noopener"
+            >View on the App Store</a
+          >
+          <a
+            class="btn"
+            href="mailto:kjdevapphelp@gmail.com?subject=CopySkipper%20Support"
+            >Contact support</a
+          >
+        </div>
+      </header>
+
+      <section class="section">
+        <h2>Quick start</h2>
+        <ol
+          class="muted"
+          style="margin: 0; padding-left: 18px; font-size: 13px"
+        >
+          <li>Drag your <strong>Source</strong> folder (left).</li>
+          <li>Drag your <strong>Target</strong> folder (right).</li>
+          <li>Click <strong>Sync now</strong>.</li>
+          <li>
+            Optional: enable <strong>Auto-run</strong> to sync on an interval.
+          </li>
+        </ol>
+
+        <figure style="margin: 12px 0 0">
+          <img
+            src="img/CopySkipper_ScreenShot.png"
+            alt="CopySkipper main window screenshot"
+            style="
+              width: 100%;
+              border-radius: 14px;
+              border: 1px solid rgba(255, 255, 255, 0.12);
+            "
+            loading="lazy"
+          />
+          <figcaption class="muted" style="margin-top: 8px; font-size: 12px">
+            Drop Source and Target folders, then press Sync now.
+          </figcaption>
+        </figure>
+
+        <p class="muted" style="margin-top: 10px; font-size: 12px">
+          Note: CopySkipper performs a <strong>one-way</strong> sync from Source
+          → Target. It does not merge changes both ways.
         </p>
-      </details>
+      </section>
 
-      <details style="margin: 8px 0;">
-        <summary><strong>Is this safe? Will it delete my files?</strong></summary>
-        <p class="muted" style="margin: 8px 0 0; font-size: 13px;">
-          By default, CopySkipper copies Source → Target. Deletions happen only if you enable <strong>Mirror</strong>
-          (rsync <strong>--delete</strong>). When in doubt, test with a small folder first.
+      <section class="section">
+        <h2>Options (what they mean)</h2>
+        <ul
+          class="muted"
+          style="margin: 0; padding-left: 18px; font-size: 13px"
+        >
+          <li>
+            <strong>Auto-run</strong>: runs sync automatically at the selected
+            interval (for example every 5 minutes).
+          </li>
+          <li>
+            <strong>Mirror</strong> (delete extra items in the target folder):
+            removes files that exist only in the Target. This is equivalent to
+            using rsync with <strong>--delete</strong>. Use with care.
+          </li>
+          <li>
+            <strong>Play a sound when finished</strong>: plays a short
+            completion sound.
+          </li>
+          <li>
+            <strong>Show a notification when finished</strong>: shows a macOS
+            notification after sync completes.
+          </li>
+          <li>
+            <strong>Show log</strong>: opens the log panel so you can see what
+            happened during the last run.
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Troubleshooting</h2>
+
+        <details style="margin: 8px 0">
+          <summary><strong>How do I cancel a running sync?</strong></summary>
+          <p class="muted" style="margin: 8px 0 0; font-size: 13px">
+            Click <strong>Cancel sync</strong>.
+          </p>
+        </details>
+
+        <details style="margin: 8px 0">
+          <summary><strong>The progress looks stuck at 0%.</strong></summary>
+          <p class="muted" style="margin: 8px 0 0; font-size: 13px">
+            Deletions and metadata updates can move the progress bar slowly at
+            first. The final completion state is accurate.
+          </p>
+        </details>
+
+        <details style="margin: 8px 0">
+          <summary>
+            <strong>Auto-run doesn’t start immediately.</strong>
+          </summary>
+          <p class="muted" style="margin: 8px 0 0; font-size: 13px">
+            Auto-run triggers after a sync completes and the selected interval
+            elapses.
+          </p>
+        </details>
+
+        <details style="margin: 8px 0">
+          <summary>
+            <strong>Is this safe? Will it delete my files?</strong>
+          </summary>
+          <p class="muted" style="margin: 8px 0 0; font-size: 13px">
+            By default, CopySkipper copies Source → Target. Deletions happen
+            only if you enable <strong>Mirror</strong> (rsync
+            <strong>--delete</strong>). When in doubt, test with a small folder
+            first.
+          </p>
+        </details>
+      </section>
+
+      <section class="section">
+        <h2>Feedback</h2>
+        <p class="muted" style="margin: 0; font-size: 13px">
+          Send bug reports or feature requests to
+          <a href="mailto:kjdevapphelp@gmail.com?subject=CopySkipper%20Feedback"
+            >kjdevapphelp@gmail.com</a
+          >. Please include: app version, macOS version, and steps to reproduce.
         </p>
-      </details>
-    </section>
+      </section>
 
-    <section class="section">
-      <h2>Feedback</h2>
-      <p class="muted" style="margin: 0; font-size: 13px;">
-        Send bug reports or feature requests to
-        <a href="mailto:kjdevapphelp@gmail.com?subject=CopySkipper%20Feedback">kjdevapphelp@gmail.com</a>.
-        Please include: app version, macOS version, and steps to reproduce.
-      </p>
-    </section>
-
-    <footer class="siteFooter">
-      <p class="footerText">© 2026 Hiroshi Kojima. All rights reserved.</p>
-    </footer>
-  </div>
-</body>
+      <footer class="siteFooter">
+        <p class="footerText">© 2026 Hiroshi Kojima. All rights reserved.</p>
+      </footer>
+    </div>
+    <script
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="5703919f-7afb-42cc-a158-15c9a564b0d6"
+    ></script>
+  </body>
 </html>
