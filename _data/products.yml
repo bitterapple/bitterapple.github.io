@@ -1,0 +1,131 @@
+- slug: distance
+  title: Distance
+  type: plugin
+  order: 10
+  status_label: Coming soon
+  status_class: progress
+  summary: A plug-in for shaping the perceived distance of a sound source more naturally than simple reverb or EQ alone.
+  icon: /support/distance/img/Distance_icon.png
+  url: /support/distance/
+
+- slug: bandmatrix
+  title: BandMatrix
+  type: plugin
+  order: 20
+  status_label: Live
+  status_class: live
+  summary: BandMatrix is dynamics plug-in for multi-band sidechain compression with flexible key routing.
+  icon: /support/bandmatrix/img/BandMatrix_icon.png
+  url: /support/bandmatrix/
+  latest_order: 10
+  latest_date: "2026-03-06"
+  latest_summary: Updated to v1.3.0 with Tone Shaper mode and resizable window support.
+
+- slug: dialoguedoctor
+  title: Dialogue Doctor
+  type: plugin
+  order: 30
+  status_label: Beta
+  status_class: progress
+  summary: Dialogue cleanup and consistency tool for post-production.
+  icon: /support/dialoguedoctor/img/icon.jpg
+  url: /support/dialoguedoctor/
+
+- slug: levelrangeeq
+  title: Level Range EQ
+  type: plugin
+  order: 40
+  status_label: Live
+  status_class: live
+  summary: An EQ concept focused on controllable level-dependent tone shaping.
+  icon: /support/img/levelrangeeq_icon.png
+  url: /support/levelrangeeq/
+  latest_order: 20
+  latest_date: "2026-03-06"
+  latest_summary: Updated to v1.9.0 with resizable window support.
+
+- slug: phaseslice
+  title: PhaseSlice
+  type: plugin
+  order: 50
+  status_label: Live
+  status_class: live
+  summary: A 5-band split-delay plug-in for offsetting only selected frequency ranges with per-band mix, trim, and phase control.
+  icon: /support/phaseslice/img/icon.png
+  url: /support/phaseslice/
+  latest_order: 30
+  latest_date: "2026-03-06"
+  latest_summary: Updated to v1.2.0 with resizable window support.
+
+- slug: spectralleveler
+  title: Spectral Leveler
+  type: plugin
+  order: 60
+  status_label: Live
+  status_class: live
+  summary: Real-time spectrogram dynamics tool for voice, dialogue, and musical sources.
+  icon: /support/spectralleveler/img/spectralleveler_icon.png
+  url: /support/spectralleveler/
+  latest_order: 40
+  latest_date: "2026-03-06"
+  latest_summary: Updated to v1.2.0 with resizable window support.
+
+- slug: studiomate
+  title: Studio Mate
+  type: app
+  order: 10
+  status_label: Live
+  status_class: live
+  summary: Tools for timecode markers and PDF notes in recording sessions.
+  icon: /support/img/studiomate_icon.png
+  url: /support/studiomate/
+
+- slug: pocketcamviewer
+  title: PocketCam Viewer
+  type: app
+  order: 20
+  status_label: Live
+  status_class: progress
+  summary: Use two devices signed in with the same Apple ID as Camera and Viewer.
+  icon: /support/img/pocketcamviewer_icon.png
+  url: /support/pocketcamviewer/
+
+- slug: harmonycounterpoint
+  title: Harmony & Counterpoint
+  type: app
+  order: 30
+  status_label: Coming soon
+  status_class: progress
+  summary: Formerly Music Theory. Practice counterpoint assignments and harmony figured-bass exercises.
+  icon: /support/harmonycounterpoint/img/icon.jpeg
+  url: /support/harmonycounterpoint/
+
+- slug: quicksearchext
+  title: QuickSearchExt
+  type: app
+  order: 40
+  status_label: Live
+  status_class: live
+  summary: A selection search extension for fast lookups.
+  icon: /support/img/quicksearchext_icon.png
+  url: /support/quicksearchext/
+
+- slug: copyskipper
+  title: CopySkipper
+  type: app
+  order: 50
+  status_label: Live
+  status_class: live
+  summary: A small macOS utility for safer, clearer file copy workflows.
+  icon: /support/img/copyskipper_icon.png
+  url: /support/copyskipper/
+
+- slug: calendarcalendar
+  title: Calendar Calendar
+  type: app
+  order: 60
+  status_label: Live
+  status_class: live
+  summary: A customizable macOS calendar widget with color and font controls.
+  icon: /support/calendarcalendar/img/CalendarCalendar.png
+  url: /support/calendarcalendar/

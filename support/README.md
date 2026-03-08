@@ -1,16 +1,23 @@
 # Support Site
 
-This repository hosts the public **support pages** for our apps.
-Pages are deployed via **GitHub Pages** from the `docs/` folder.
+This repository hosts the public support pages for the apps and plug-ins on
+`bitterapple.github.io`.
 
-## Live site
-- Root (apps list): `https://<your-user>.github.io/support/`
-- Example product page: `https://<your-user>.github.io/support/copyskipper/`
-- Privacy Policy: `https://<your-user>.github.io/support/privacy/`
+## Deployment
 
-## Structure
-docs/
-index.html           # Apps list (links to each product)
-style.css            # Shared styles
-privacy/index.html   # Privacy Policy
-copyskipper/index.html   # CopySkipper support page
+The site now uses GitHub Pages with Jekyll.
+
+- `index.html` is the home page.
+- `_data/products.yml` drives the product cards and the "What's New" section.
+- `support/<app>/index.html` contains each support page.
+- `_layouts/default.html` provides the shared HTML shell.
+- `_layouts/support.html` wraps support pages with the shared container and footer.
+- `_layouts/redirect.html` handles simple redirect pages.
+- `_includes/footer.html` and `_includes/analytics.html` hold shared fragments.
+- `_config.yml` contains the GitHub Pages / Jekyll site settings.
+
+## Notes
+
+- Product cards on the home page are generated from each page's front matter.
+- The `support/` index redirects to the home page.
+- Shared styles still live in `style.css`.

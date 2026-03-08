@@ -1,0 +1,7 @@
+{% if page.analytics != false and site.analytics.umami_script and site.analytics.umami_website_id %}
+<script
+  defer
+  src="{{ site.analytics.umami_script }}"
+  data-website-id="{{ site.analytics.umami_website_id }}"
+></script>
+{% endif %}

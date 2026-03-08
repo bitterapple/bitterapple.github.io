@@ -1,25 +1,10 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-    <title>CopySkipper</title>
-    <meta
-      name="description"
-      content="CopySkipper support: a simple one-way folder sync for macOS (rsync-based)."
-    />
-    <meta name="apple-itunes-app" content="app-id=6752370654" />
-
-    <!-- Use the site-wide stylesheet (root) -->
-    <link rel="stylesheet" href="/style.css?v=20260106-1" />
-
-    <!-- App icon (stored under /support/img/) -->
-    <link rel="icon" href="./img/copyskipper_icon.png" />
-  </head>
-
-  <body>
-    <div class="container">
+---
+layout: support
+title: "CopySkipper"
+description: "CopySkipper support: a simple one-way folder sync for macOS (rsync-based)."
+apple_itunes_app: "app-id=6752370654"
+favicon: "/support/copyskipper/img/copyskipper_icon.png"
+---
       <header class="header">
         <div
           style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap"
@@ -46,7 +31,7 @@
         </p>
 
         <div class="nav">
-          <a class="btn" href="../../">← All apps</a>
+          <a class="btn" href="{{ '/' | relative_url }}">← All apps</a>
           <a
             class="btn"
             href="https://apps.apple.com/jp/app/copyskipper/id6752370654"
@@ -178,15 +163,3 @@
           >. Please include: app version, macOS version, and steps to reproduce.
         </p>
       </section>
-
-      <footer class="siteFooter">
-        <p class="footerText">© 2026 Hiroshi Kojima. All rights reserved.</p>
-      </footer>
-    </div>
-    <script
-      defer
-      src="https://cloud.umami.is/script.js"
-      data-website-id="5703919f-7afb-42cc-a158-15c9a564b0d6"
-    ></script>
-  </body>
-</html>

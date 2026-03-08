@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    {% assign meta_title = page.meta_title | default: page.title | default: site.title %}
+    {% assign meta_description = page.description | default: site.description %}
+    <title>{{ meta_title | escape }}</title>
+    <meta name="description" content="{{ meta_description | strip_newlines | escape }}" />
+    <meta property="og:title" content="{{ page.og_title | default: meta_title | escape }}" />
+    <meta property="og:description" content="{{ page.og_description | default: meta_description | strip_newlines | escape }}" />
+    <meta property="og:type" content="{{ page.og_type | default: 'website' }}" />
+
+    {% if page.apple_itunes_app %}
+    <meta name="apple-itunes-app" content="{{ page.apple_itunes_app | escape }}" />
+    {% endif %}
+
+    {% assign canonical_target = page.redirect_to | default: page.url %}
+    {% if canonical_target %}
+    <link rel="canonical" href="{{ canonical_target | absolute_url }}" />
+    {% endif %}
+
+    {% if page.redirect_to %}
+    <meta http-equiv="refresh" content="0; url={{ page.redirect_to | relative_url }}" />
+    <meta name="robots" content="noindex" />
+    {% endif %}
+
+    {% assign favicon = page.favicon | default: site.favicon %}
+    {% if favicon and favicon != "" %}
+    {% if favicon contains '://' or favicon contains 'data:' %}
+    <link rel="icon" href="{{ favicon }}" />
+    {% else %}
+    <link rel="icon" href="{{ favicon | relative_url }}" />
+    {% endif %}
+    {% endif %}
+
+    <link rel="stylesheet" href="{{ '/style.css?v=20260106-1' | relative_url }}" />
+  </head>
+
+  <body>
+    {{ content }}
+    {% include analytics.html %}
+  </body>
+</html>

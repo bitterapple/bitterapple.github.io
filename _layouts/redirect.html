@@ -1,0 +1,9 @@
+---
+layout: default
+---
+<div class="container">
+  <p>Redirecting to <a href="{{ page.redirect_to | relative_url }}">{{ page.redirect_label | default: 'Home' }}</a>…</p>
+</div>
+<script>
+  window.location.replace("{{ page.redirect_to | relative_url }}");
+</script>
