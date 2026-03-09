@@ -2,11 +2,14 @@
   title: Distance
   type: plugin
   order: 10
-  status_label: Coming soon
-  status_class: progress
-  summary: A plug-in for shaping the perceived distance of a sound source more naturally than simple reverb or EQ alone.
+  status_label: Live
+  status_class: live
+  summary: A subtle but practical plug-in for shaping the perceived distance of a sound source more naturally than simple reverb or EQ alone.
   icon: /support/distance/img/Distance_icon.png
   url: /support/distance/
+  latest_order: 5
+  latest_date: "2026-03-09"
+  latest_summary: "Distance v1.0.0 is out now: a subtle but useful perceived-distance tool, with more improvements planned."
 
 - slug: bandmatrix
   title: BandMatrix
