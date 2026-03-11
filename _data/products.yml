@@ -8,8 +8,8 @@
   icon: /support/distance/img/Distance_icon.png
   url: /support/distance/
   latest_order: 5
-  latest_date: "2026-03-09"
-  latest_summary: "Distance v1.0.0 is out now: a subtle but useful perceived-distance tool, with more improvements planned."
+  latest_date: "2026-03-11"
+  latest_summary: "Updated to v1.0.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet."
 
 - slug: bandmatrix
   title: BandMatrix
@@ -21,8 +21,8 @@
   icon: /support/bandmatrix/img/BandMatrix_icon.png
   url: /support/bandmatrix/
   latest_order: 10
-  latest_date: "2026-03-06"
-  latest_summary: Updated to v1.3.0 with Tone Shaper mode and resizable window support.
+  latest_date: "2026-03-11"
+  latest_summary: Updated to v1.4.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet.
 
 - slug: dialoguedoctor
   title: Dialogue Doctor
@@ -33,6 +33,9 @@
   summary: Dialogue cleanup and consistency tool for post-production.
   icon: /support/dialoguedoctor/img/icon.jpg
   url: /support/dialoguedoctor/
+  latest_order: 15
+  latest_date: "2026-03-11"
+  latest_summary: Updated to v1.5.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet.
 
 - slug: levelrangeeq
   title: Level Range EQ
@@ -44,8 +47,8 @@
   icon: /support/img/levelrangeeq_icon.png
   url: /support/levelrangeeq/
   latest_order: 20
-  latest_date: "2026-03-06"
-  latest_summary: Updated to v1.9.0 with resizable window support.
+  latest_date: "2026-03-11"
+  latest_summary: Updated to v1.9.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet.
 
 - slug: phaseslice
   title: PhaseSlice
@@ -57,8 +60,8 @@
   icon: /support/phaseslice/img/icon.png
   url: /support/phaseslice/
   latest_order: 30
-  latest_date: "2026-03-06"
-  latest_summary: Updated to v1.2.0 with resizable window support.
+  latest_date: "2026-03-11"
+  latest_summary: Updated to v1.2.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet.
 
 - slug: spectralleveler
   title: Spectral Leveler
@@ -70,8 +73,8 @@
   icon: /support/spectralleveler/img/spectralleveler_icon.png
   url: /support/spectralleveler/
   latest_order: 40
-  latest_date: "2026-03-06"
-  latest_summary: Updated to v1.2.0 with resizable window support.
+  latest_date: "2026-03-11"
+  latest_summary: Updated to v1.2.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet.
 
 - slug: studiomate
   title: Studio Mate
