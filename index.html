@@ -13,7 +13,11 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64
   <header class="header">
     <h1>Free Mac DAW Plugins and iOS/macOS Apps</h1>
     <p class="muted" style="margin-top: 8px">By Hiroshi Kojima · Recording Engineer</p>
-    <p>Creating free Mac DAW plugins (AAX, AU, VST) and iOS/macOS apps.</p>
+    <p>
+      Creating free Mac DAW plugins (AAX, AU, VST) and iOS/macOS apps.
+      Windows VST3 downloads are now available on supported plug-in pages, and
+      Windows AAX support is planned.
+    </p>
 
     <div class="nav">
       <a class="btn" href="{{ '/support/privacy/' | relative_url }}">Privacy Policy</a>
@@ -50,6 +54,10 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64
 
     <section class="section">
       <h2>Plugins</h2>
+      <p class="muted" style="margin-top: 0">
+        Supported plug-ins now include Apple Silicon macOS downloads and
+        Windows VST3 ZIPs on each product page. Windows AAX support is planned.
+      </p>
       <div class="grid">
         {% for entry in plugins %}
         <a class="card cardLink" href="{{ entry.url | relative_url }}" aria-label="{{ entry.title }} support page">
