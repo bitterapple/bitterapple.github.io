@@ -100,8 +100,8 @@
   title: Harmony & Counterpoint
   type: app
   order: 30
-  status_label: Coming soon
-  status_class: progress
+  status_label: Live
+  status_class: live
   summary: Formerly Music Theory. Practice counterpoint assignments and harmony figured-bass exercises.
   icon: /support/harmonycounterpoint/img/icon.jpeg
   url: /support/harmonycounterpoint/
