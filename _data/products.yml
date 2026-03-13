@@ -105,6 +105,9 @@
   summary: Formerly Music Theory. Practice counterpoint assignments and harmony figured-bass exercises.
   icon: /support/harmonycounterpoint/img/icon.jpeg
   url: /support/harmonycounterpoint/
+  latest_order: 1
+  latest_date: "2026-03-13"
+  latest_summary: Initial App Store release is now available.
 
 - slug: quicksearchext
   title: QuickSearchExt
