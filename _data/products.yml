@@ -11,6 +11,16 @@
   latest_date: "2026-03-11"
   latest_summary: "Updated to v1.0.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet."
 
+- slug: propagation
+  title: Propagation
+  type: plugin
+  order: 15
+  status_label: Coming Soon
+  status_class: soon
+  summary: IR-driven algorithmic reverb that analyzes curated and user-loaded impulse responses and turns their spatial traits into uncommon, editable controls.
+  icon: /support/Propagation/img/icon.png
+  url: /support/Propagation/
+
 - slug: bandmatrix
   title: BandMatrix
   type: plugin

@@ -9,6 +9,7 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64
 {% assign whats_new = products | where_exp: 'item', 'item.latest_order' | sort: 'latest_order' %}
 {% assign plugins = products | where: 'type', 'plugin' | sort: 'order' %}
 {% assign apps = products | where: 'type', 'app' | sort: 'order' %}
+{% assign propagation = products | where: 'slug', 'propagation' | first %}
 <div class="container">
   <header class="header">
     <h1>Free Mac DAW Plugins and iOS/macOS Apps</h1>
@@ -33,6 +34,62 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64
   </header>
 
   <main>
+    {% if propagation %}
+    <section class="section featureTeaser">
+      <div class="featureTeaserGrid">
+        <div>
+          <p class="featureEyebrow">New plug-in preview</p>
+          <div class="titleRow" style="justify-content: space-between; align-items: center">
+            <h2 style="margin: 0">{{ propagation.title }}</h2>
+            <span class="badge soon">{{ propagation.status_label }}</span>
+          </div>
+          <p style="margin-top: 12px">
+            <strong>Propagation</strong> is a coming-soon
+            <strong>algorithmic reverb</strong> built from
+            <strong>IR analysis</strong>. Instead of staying locked to one
+            impulse response, it studies curated spaces, extracts their spatial
+            traits, and turns that DNA into a set of playable controls.
+          </p>
+          <p class="muted" style="margin-top: 10px">
+            The concept also includes
+            <strong>user IR loading</strong>, so your own captured spaces can
+            become morphable starting points with a parameter set that goes
+            beyond typical reverb workflows.
+          </p>
+          <div class="chipRow">
+            <span class="chip">IR-driven</span>
+            <span class="chip">User IR import</span>
+            <span class="chip">Morphable space DNA</span>
+            <span class="chip">Uncommon controls</span>
+          </div>
+          <div class="nav">
+            <a class="btn" href="{{ propagation.url | relative_url }}">Preview page</a>
+            <a
+              class="btn"
+              href="https://x.com/kojima_appdev"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Follow for release updates</a
+            >
+          </div>
+        </div>
+
+        <a
+          class="featurePreview"
+          href="{{ propagation.url | relative_url }}"
+          aria-label="Open Propagation preview page"
+        >
+          <img
+            class="teaserShot"
+            src="{{ '/support/Propagation/img/Propagation.png' | relative_url }}"
+            alt="Propagation interface preview"
+            loading="lazy"
+          />
+        </a>
+      </div>
+    </section>
+    {% endif %}
+
     <section class="section">
       <h2>What's New</h2>
       <div class="grid" style="grid-template-columns: 1fr; align-items: start; gap: 12px">
