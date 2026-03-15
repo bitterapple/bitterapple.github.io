@@ -1,0 +1,15 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% assign sitemap_pages = site.pages | sort: "url" %}
+  {% for page in sitemap_pages %}
+    {% if page.sitemap != false and page.layout != "redirect" and page.url != "/sitemap.xml" %}
+  <url>
+    <loc>{{ page.url | absolute_url | escape }}</loc>
+  </url>
+    {% endif %}
+  {% endfor %}
+</urlset>
