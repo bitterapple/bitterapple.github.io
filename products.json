@@ -49,6 +49,22 @@
       "release_notes_url": "https://bitterapple.github.io/support/distance/#release-notes",
       "min_supported_version": "1.0.0",
       "critical": false
+    },
+    "Propagation": {
+      "name": "Propagation",
+      "latest_version": "1.0.0",
+      "download_url": "https://bitterapple.github.io/support/Propagation/",
+      "release_notes_url": "https://bitterapple.github.io/support/Propagation/#release-notes",
+      "min_supported_version": "1.0.0",
+      "critical": false
+    },
+    "8900": {
+      "name": "8900",
+      "latest_version": "1.0.0",
+      "download_url": "https://bitterapple.github.io/support/8900/",
+      "release_notes_url": "https://bitterapple.github.io/support/8900/#release-notes",
+      "min_supported_version": "1.0.0",
+      "critical": false
     }
   }
 }
