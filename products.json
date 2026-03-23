@@ -1,6 +1,6 @@
 {
-  "schema_version": 9,
-  "generated_at": "2026-03-17T00:00:00Z",
+  "schema_version": 10,
+  "generated_at": "2026-03-23T00:00:00Z",
   "products": {
     "levelrangeeq": {
       "name": "Level Range EQ",
@@ -28,10 +28,10 @@
     },
     "bandmatrix": {
       "name": "BandMatrix",
-      "latest_version": "1.5.0",
+      "latest_version": "1.7.0",
       "download_url": "https://bitterapple.github.io/support/bandmatrix/",
       "release_notes_url": "https://bitterapple.github.io/support/bandmatrix/#release-notes",
-      "min_supported_version": "1.2.0",
+      "min_supported_version": "1.7.0",
       "critical": false
     },
     "phaseslice": {
@@ -63,6 +63,14 @@
       "latest_version": "1.0.0",
       "download_url": "https://bitterapple.github.io/support/8900/",
       "release_notes_url": "https://bitterapple.github.io/support/8900/#release-notes",
+      "min_supported_version": "1.0.0",
+      "critical": false
+    },
+    "DSPTrace": {
+      "name": "DSPTrace",
+      "latest_version": "1.0.0",
+      "download_url": "https://bitterapple.github.io/support/DSPTrace/",
+      "release_notes_url": "https://bitterapple.github.io/support/DSPTrace/#release-notes",
       "min_supported_version": "1.0.0",
       "critical": false
     }

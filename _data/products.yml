@@ -7,7 +7,7 @@
   summary: A subtle but practical plug-in for shaping the perceived distance of a sound source more naturally than simple reverb or EQ alone.
   icon: /support/distance/img/Distance_icon.png
   url: /support/distance/
-  latest_order: 5
+  latest_order: 20
   latest_date: "2026-03-11"
   latest_summary: "Updated to v1.0.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet."
 
@@ -31,8 +31,8 @@
   icon: /support/bandmatrix/img/BandMatrix_icon.png
   url: /support/bandmatrix/
   latest_order: 10
-  latest_date: "2026-03-17"
-  latest_summary: Updated to v1.6.0. This release includes an update intended to resolve a reported Windows issue, although this has not yet been fully confirmed.
+  latest_date: "2026-03-23"
+  latest_summary: Updated to v1.7.0. Minor bug fixes.
 
 - slug: dialoguedoctor
   title: Dialogue Doctor
@@ -43,7 +43,7 @@
   summary: Dialogue cleanup and consistency tool for post-production.
   icon: /support/dialoguedoctor/img/icon.jpg
   url: /support/dialoguedoctor/
-  latest_order: 15
+  latest_order: 30
   latest_date: "2026-03-11"
   latest_summary: Updated to v1.5.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet.
 
@@ -56,7 +56,7 @@
   summary: An EQ concept focused on controllable level-dependent tone shaping.
   icon: /support/img/levelrangeeq_icon.png
   url: /support/levelrangeeq/
-  latest_order: 20
+  latest_order: 40
   latest_date: "2026-03-11"
   latest_summary: Updated to v1.9.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet.
 
@@ -69,7 +69,7 @@
   summary: A 5-band split-delay plug-in for offsetting only selected frequency ranges with per-band mix, trim, and phase control.
   icon: /support/phaseslice/img/icon.png
   url: /support/phaseslice/
-  latest_order: 30
+  latest_order: 50
   latest_date: "2026-03-11"
   latest_summary: Updated to v1.2.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet.
 
@@ -82,7 +82,7 @@
   summary: Real-time spectrogram dynamics tool for voice, dialogue, and musical sources.
   icon: /support/spectralleveler/img/spectralleveler_icon.png
   url: /support/spectralleveler/
-  latest_order: 40
+  latest_order: 60
   latest_date: "2026-03-11"
   latest_summary: Updated to v1.2.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet.
 
@@ -115,9 +115,6 @@
   summary: Formerly Music Theory. Practice counterpoint assignments and harmony figured-bass exercises.
   icon: /support/harmonycounterpoint/img/icon.jpeg
   url: /support/harmonycounterpoint/
-  latest_order: 1
-  latest_date: "2026-03-13"
-  latest_summary: Initial App Store release is now available.
 
 - slug: quicksearchext
   title: QuickSearchExt
