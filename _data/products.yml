@@ -85,9 +85,9 @@
   summary: Real-time spectrogram dynamics tool for voice, dialogue, and musical sources.
   icon: /support/spectralleveler/img/spectralleveler_icon.png
   url: /support/spectralleveler/
-  latest_order: 60
-  latest_date: "2026-03-11"
-  latest_summary: Updated to v1.2.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet.
+  latest_order: 15
+  latest_date: "2026-03-27"
+  latest_summary: Windows AAX public test build is now available. Build and signing are complete, but final Windows Pro Tools verification is still pending.
 
 - slug: studiomate
   title: Studio Mate
