@@ -15,11 +15,14 @@
   title: Propagation
   type: plugin
   order: 15
-  status_label: Coming Soon
-  status_class: soon
+  status_label: Live
+  status_class: live
   summary: IR-driven algorithmic reverb that analyzes curated and user-loaded impulse responses and turns their spatial traits into uncommon, editable controls.
   icon: /support/Propagation/img/icon.png
   url: /support/Propagation/
+  latest_order: 5
+  latest_date: "2026-03-27"
+  latest_summary: Released v1.0.0. First public release, with more changes likely in future updates.
 
 - slug: bandmatrix
   title: BandMatrix
@@ -31,8 +34,8 @@
   icon: /support/bandmatrix/img/BandMatrix_icon.png
   url: /support/bandmatrix/
   latest_order: 10
-  latest_date: "2026-03-23"
-  latest_summary: Updated to v1.7.0. Minor bug fixes.
+  latest_date: "2026-03-27"
+  latest_summary: Updated to v1.8.0. Added parallel processing support plus other improvements.
 
 - slug: dialoguedoctor
   title: Dialogue Doctor

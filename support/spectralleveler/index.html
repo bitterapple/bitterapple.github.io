@@ -1,7 +1,7 @@
 ---
 layout: support
 title: "Spectral Leveler"
-description: "Spectral Leveler support & download: a macOS spectral dynamics plug-in (AAX / AU / VST3) for real-time spectrogram-based level shaping with frequency and level windows. macOS 11 or later."
+description: "Spectral Leveler support & download: a spectral dynamics plug-in (AAX / AU / VST3) for real-time spectrogram-based level shaping with frequency and level windows, with Windows VST3 and Windows AAX public-test builds."
 favicon: "/support/spectralleveler/img/spectralleveler_icon.png"
 ---
       <header class="header">
@@ -35,7 +35,7 @@ favicon: "/support/spectralleveler/img/spectralleveler_icon.png"
         </div>
 
         <p style="margin-top: 14px">
-          <strong>Spectral Leveler</strong> is a macOS spectral dynamics plug-in
+          <strong>Spectral Leveler</strong> is a spectral dynamics plug-in
           ( <strong>AAX / AU / VST3</strong>) that lets you shape audio by
           <strong>frequency window</strong> and <strong>level window</strong>
           directly on a real-time spectrogram. Adjust the target range, then
@@ -67,7 +67,7 @@ favicon: "/support/spectralleveler/img/spectralleveler_icon.png"
             <div class="muted" style="font-size: 13px">
               <strong>macOS:</strong> AAX / AU / VST3 for macOS 11 or later
               <span style="opacity: 0.6; padding: 0 6px">•</span>
-              <strong>Windows:</strong> VST3
+              <strong>Windows:</strong> VST3 / AAX public test
             </div>
             <div
               style="
@@ -88,18 +88,42 @@ favicon: "/support/spectralleveler/img/spectralleveler_icon.png"
                 href="{{ '/windows/SpectralLeveler-windows-vst3.zip' | relative_url }}"
                 >Download Windows VST3 (ZIP)</a
               >
+              <a
+                class="btn"
+                href="{{ '/windows/SpectralLeveler-windows-aax-signed.zip' | relative_url }}"
+                >Download Windows AAX test build (ZIP)</a
+              >
             </div>
             <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-              Latest downloads are available for macOS 11 or later and Windows
-              VST3. The Windows build matches version
+              Latest downloads are available for macOS 11 or later and Windows.
+              The Windows VST3 build matches version
               <strong>1.2.1</strong>, and I have received reports that it works
-              well. Windows AAX support is planned for a future release. This
-              update may resolve an issue where the plug-in could fail to load
-              in some environments, but this has not been fully confirmed yet.
+              well. A signed Windows AAX public test build is also available.
+              Building and signing are complete, but final verification on an
+              actual Windows Pro Tools system is still pending. This update may
+              resolve an issue where the plug-in could fail to load in some
+              environments, but this has not been fully confirmed yet.
             </p>
           </div>
         </div>
       </header>
+
+      <section class="section">
+        <h2>Windows AAX public test</h2>
+        <div class="card" style="margin: 0">
+          <p style="margin: 0 0 10px">
+            I have completed the build and signing work for the Windows AAX
+            version of <strong>Spectral Leveler</strong>, but I have not yet
+            completed final verification on an actual
+            <strong>Windows Pro Tools</strong> system.
+          </p>
+          <p class="muted" style="margin: 0; font-size: 13px">
+            If you can try this pre-release test build before the full public
+            rollout, that would help a lot. Feedback is welcome at
+            <a href="mailto:kjdevapphelp@gmail.com?subject=Spectral%20Leveler%20Windows%20AAX%20Test">kjdevapphelp@gmail.com</a>.
+          </p>
+        </div>
+      </section>
 
       <section class="section">
         <h2>What it does</h2>
@@ -167,6 +191,10 @@ favicon: "/support/spectralleveler/img/spectralleveler_icon.png"
             </li>
             <li>
               <strong>Formats:</strong> AAX / AU / VST3 for macOS 11 or later.
+            </li>
+            <li>
+              <strong>Windows AAX:</strong> signed public test build now
+              available, with final Pro Tools validation still pending.
             </li>
             <li>
               <strong>Focus:</strong> Fast day-to-day spectral level control for
@@ -459,7 +487,7 @@ favicon: "/support/spectralleveler/img/spectralleveler_icon.png"
           >
         </p>
         <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-          Please include: macOS version, host app / Pro Tools version, and a
-          short description (or screenshot) of the issue.
+          Please include: OS version, host app / Pro Tools version, and a short
+          description (or screenshot) of the issue.
         </p>
       </section>
