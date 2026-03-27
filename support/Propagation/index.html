@@ -5,191 +5,143 @@ description: "Propagation support & download: an IR-driven algorithmic reverb th
 favicon: "/support/Propagation/img/icon.png"
 ---
 
-<header class="header featureTeaser">
-  <div class="featureTeaserGrid">
+<header class="header">
+  <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap">
+    <img
+      src="./img/icon.png"
+      alt="Propagation icon"
+      style="
+        width: 64px;
+        height: 64px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      "
+      loading="lazy"
+    />
     <div>
-      <p class="featureEyebrow">New Release</p>
-      <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap">
-        <img
-          src="./img/icon.png"
-          alt="Propagation icon"
-          style="
-            width: 68px;
-            height: 68px;
-            border-radius: 18px;
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.3);
-          "
-          loading="lazy"
-        />
-        <div>
-          <div class="titleRow">
-            <h1 style="margin: 0">Propagation</h1>
-            <span class="badge live">Live</span>
-          </div>
-          <p class="muted" style="margin: 6px 0 0; font-size: 13px">
-            <strong>Released</strong> — <strong>Version 1.0.0</strong>.
-          </p>
-        </div>
-      </div>
-
-      <p style="margin-top: 16px">
-        <strong>Propagation</strong> is an
-        <strong>algorithmic reverb</strong> shaped by
-        <strong>impulse-response analysis</strong>. It studies curated IRs,
-        extracts their spatial character, and turns that information into a
-        parameter set you can actually play with, rather than locking you to a
-        single frozen response. <strong>Version 1.0.0</strong> is the first
-        public release.
+      <h1 style="margin: 0">Propagation</h1>
+      <p class="muted" style="margin: 6px 0 0; font-size: 13px">
+        <strong>Released</strong> — <strong>Version 1.0.0</strong>.
       </p>
-      <p class="muted" style="margin-top: 10px">
-        The current concept also includes
-        <strong>user IR loading</strong>, so your own captured spaces can be
-        analyzed in the same way and used as flexible starting points. I still
-        have more ideas for it, so the feature set may continue to evolve quite
-        a bit after this first release.
+      <p class="muted" style="margin: 6px 0 0; font-size: 12px; opacity: 0.85">
+        IR-Driven Algorithmic Reverb
       </p>
-
-      <div class="chipRow">
-        <span class="chip">Curated IR analysis</span>
-        <span class="chip">User IR analysis</span>
-        <span class="chip">Morphable reverb DNA</span>
-        <span class="chip">Non-standard controls</span>
-      </div>
-
-      <div class="nav">
-        <a class="btn" href="{{ '/' | relative_url }}">← All apps</a>
-        <a class="btn" href="#downloads">Downloads</a>
-        <a
-          class="btn"
-          href="https://x.com/kojima_appdev"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Follow on X</a
-        >
-        <a
-          class="btn"
-          href="mailto:kjdevapphelp@gmail.com?subject=Propagation%20Update"
-          >Ask about release updates</a
-        >
-      </div>
     </div>
+  </div>
 
-    <div>
-      <img
-        class="teaserShot"
-        src="./img/Propagation.png"
-        alt="Propagation interface preview"
-        loading="lazy"
-      />
+  <p style="margin-top: 14px">
+    <strong>Propagation</strong> is an <strong>algorithmic reverb</strong>
+    shaped by <strong>impulse-response analysis</strong>. It studies curated
+    IRs, extracts their spatial character, and turns that information into a
+    parameter set you can actually play with, rather than locking you to a
+    single frozen response. <strong>Version 1.0.0</strong> is the first public
+    release.
+  </p>
+
+  <div class="nav">
+    <a class="btn" href="{{ '/' | relative_url }}">← All apps</a>
+    <a
+      class="btn"
+      href="https://github.com/bitterapple/bitterapple.github.io/releases/download/Propagation_1.0.0/Propagation_1.0.0.pkg"
+      >Download v1.0.0</a
+    >
+    <a
+      class="btn"
+      href="mailto:kjdevapphelp@gmail.com?subject=Propagation%20Support"
+      >Contact support</a
+    >
+  </div>
+
+  <div
+    class="grid"
+    style="
+      grid-template-columns: 1fr;
+      align-items: start;
+      gap: 14px;
+      margin-top: 14px;
+    "
+  >
+    <div class="card" style="margin: 0">
+      <div class="muted" style="font-size: 13px">
+        <strong>macOS:</strong> AAX / AU / VST3 for macOS 11 or later
+        <span style="opacity: 0.6; padding: 0 6px">•</span>
+        <strong>Windows:</strong> VST3
+      </div>
+      <div style="margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap">
+        <a
+          class="btn"
+          href="https://github.com/bitterapple/bitterapple.github.io/releases/download/Propagation_1.0.0/Propagation_1.0.0.pkg"
+          style="font-weight: 700"
+          >Download Propagation_1.0.0.pkg</a
+        >
+        <a
+          class="btn"
+          href="{{ '/windows/Propagation-windows-vst3.zip' | relative_url }}"
+          >Download Windows VST3 (ZIP)</a
+        >
+      </div>
       <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-        Screenshot from the current 1.0.0 build. Controls and layout may still
-        change in later updates.
+        Propagation 1.0.0 is now publicly available. This is the first release,
+        but I still have more ideas for it, so the controls, layout, and
+        overall direction may continue to change quite a bit in future updates.
       </p>
     </div>
   </div>
 </header>
 
-<section class="section" id="downloads">
-  <h2>Download</h2>
-  <div class="card" style="margin: 0">
-    <div class="muted" style="font-size: 13px">
-      <strong>macOS:</strong> AAX / AU / VST3 for macOS 11 or later
-      <span style="opacity: 0.6; padding: 0 6px">•</span>
-      <strong>Windows:</strong> VST3
-    </div>
-    <div style="margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap">
-      <a
-        class="btn"
-        href="https://github.com/bitterapple/bitterapple.github.io/releases/download/Propagation_1.0.0/Propagation_1.0.0.pkg"
-        style="font-weight: 700"
-        >Download v1.0.0 (PKG)</a
-      >
-      <a
-        class="btn"
-        href="{{ '/windows/Propagation-windows-vst3.zip' | relative_url }}"
-        >Download Windows VST3 (ZIP)</a
-      >
-    </div>
-    <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-      Propagation 1.0.0 is now publicly available. This is the first release,
-      but I still have more ideas for it, so the controls, layout, and overall
-      direction may continue to change quite a bit in future updates.
-    </p>
-  </div>
-</section>
-
 <section class="section">
-  <h2>What makes it different</h2>
-  <div class="grid" style="align-items: start">
-    <div class="card" style="margin: 0">
-      <h3 style="margin-bottom: 8px">IR as a starting point</h3>
-      <p class="muted" style="margin: 0; font-size: 13px">
-        Instead of treating an IR as a fixed destination, Propagation extracts
-        usable traits from multiple spaces and lets you steer them with an
-        algorithmic engine.
-      </p>
-    </div>
-    <div class="card" style="margin: 0">
-      <h3 style="margin-bottom: 8px">Your own spaces too</h3>
-      <p class="muted" style="margin: 0; font-size: 13px">
-        User IR import is part of the design, so personal captures can go
-        through the same analysis pipeline and become editable, morphable
-        reverb sources.
-      </p>
-    </div>
-    <div class="card" style="margin: 0">
-      <h3 style="margin-bottom: 8px">Control language beyond usual reverb</h3>
-      <p class="muted" style="margin: 0; font-size: 13px">
-        The current build explores controls such as Space Size, Density, IR
-        Morph, Clarity, Transient, Width, M/S Bias, and shaping moves like Push
-        Back, Bring Forward, Open Wide, and Tighten.
-      </p>
-    </div>
-    <div class="card" style="margin: 0">
-      <h3 style="margin-bottom: 8px">Built for exploration</h3>
-      <p class="muted" style="margin: 0; font-size: 13px">
-        The goal is a reverb that can move through families of spaces quickly,
-        without losing the recognizable character extracted from the source IR
-        material.
-      </p>
-    </div>
-  </div>
-</section>
+  <h2>What it does</h2>
+  <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
+    <li>
+      Build reverb behavior from <strong>curated IR analysis</strong> instead
+      of freezing a single response in place.
+    </li>
+    <li>
+      Use <strong>user IR loading</strong> as a flexible starting point for
+      further shaping and experimentation.
+    </li>
+    <li>
+      Explore spaces with controls such as <strong>Space Size</strong>,
+      <strong>Density</strong>, <strong>IR Morph</strong>, <strong>Clarity</strong>,
+      <strong>Transient</strong>, <strong>Width</strong>, and
+      <strong>M/S Bias</strong>.
+    </li>
+    <li>
+      Treat the source IR as a <strong>starting point</strong>, not a fixed
+      destination, so you can push it toward new spatial characters.
+    </li>
+    <li>
+      This first release is public now, but the feature set may continue to
+      evolve substantially in future updates.
+    </li>
+  </ul>
 
-<section class="section">
-  <h2>Current status</h2>
-  <div class="card" style="margin: 0">
-    <p style="margin: 0 0 10px">
-      <strong>Propagation 1.0.0 is now publicly available.</strong> This first
-      release is intended as a starting point, not a finished endpoint.
-    </p>
-    <p class="muted" style="margin: 0; font-size: 13px">
-      I still have more ideas for it, so the feature set, controls, and overall
-      presentation may keep changing in future updates. If you want to keep an
-      eye on it, follow
-      <a href="https://x.com/kojima_appdev" target="_blank" rel="noopener noreferrer">@kojima_appdev</a>
-      or reach out by email.
-    </p>
-  </div>
+  <figure style="margin: 14px 0 0">
+    <img
+      src="./img/Propagation.png"
+      alt="Propagation UI screenshot"
+      style="
+        width: 100%;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      "
+      loading="lazy"
+    />
+    <figcaption class="muted" style="margin-top: 8px; font-size: 12px">
+      Screenshot: the current 1.0.0 interface and control layout.
+    </figcaption>
+  </figure>
 </section>
 
 <section class="section" id="release-notes">
   <h2>Release history</h2>
   <div class="card" style="margin: 0">
-    <div
-      style="
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-        flex-wrap: wrap;
-      "
-    >
-      <p class="muted" style="margin: 0; font-size: 13px">
-        <strong>v1.0.0</strong> — First public release
-      </p>
-      <p class="muted" style="margin: 0; font-size: 12px">2026-03-27</p>
+    <div class="muted" style="font-size: 13px">
+      <strong>v1.0.0</strong> — First public release.
     </div>
+    <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+      Current release.
+    </p>
     <ul
       class="muted"
       style="margin: 10px 0 0; padding-left: 18px; font-size: 13px"
@@ -200,16 +152,87 @@ favicon: "/support/Propagation/img/icon.png"
         user impulse responses.
       </li>
       <li>
+        User IR loading is part of the design, so personal spaces can become
+        editable, morphable starting points.
+      </li>
+      <li>
         This 1.0 release is public, but the control set and overall direction
         may still change substantially in future updates.
       </li>
     </ul>
-    <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-      Download:
-      <a
-        href="https://github.com/bitterapple/bitterapple.github.io/releases/download/Propagation_1.0.0/Propagation_1.0.0.pkg"
-        >Propagation_1.0.0.pkg</a
-      >
-    </p>
   </div>
+</section>
+
+<section class="section">
+  <h2>Typical use cases</h2>
+  <div
+    class="grid"
+    style="grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start"
+  >
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Musical spaces</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        Move quickly between room characters without being locked to a single
+        static IR.
+      </p>
+    </div>
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Sound design</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        Push a captured space toward something less literal and more playable
+        inside a mix or effect chain.
+      </p>
+    </div>
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">IR experimentation</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        Use your own impulse responses as flexible source material rather than
+        fixed end states.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Requirements</h2>
+  <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
+    <li><strong>macOS 11 or later</strong>.</li>
+    <li>
+      A plug-in host that supports <strong>AAX</strong> (Pro Tools),
+      <strong>AU</strong>, or <strong>VST3</strong>.
+    </li>
+    <li>Installer: <code>Propagation_1.0.0.pkg</code></li>
+  </ul>
+  <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+    Note: The installer includes <strong>AAX / AU / VST3</strong> builds for
+    macOS 11 or later. Windows VST3 is provided separately as a ZIP download.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Install</h2>
+  <ol class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
+    <li>
+      Download the latest <code>Propagation_1.0.0.pkg</code> from this page.
+    </li>
+    <li>
+      Run the installer (it installs AAX / AU / VST3 to the standard macOS
+      plug-in locations).
+    </li>
+    <li>Launch your host and rescan plug-ins if needed.</li>
+  </ol>
+</section>
+
+<section class="section">
+  <h2>Support</h2>
+  <p class="muted" style="margin: 0; font-size: 13px">
+    Email:
+    <a href="mailto:kjdevapphelp@gmail.com?subject=Propagation%20Support"
+      >kjdevapphelp@gmail.com</a
+    >
+  </p>
+  <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+    Please include: OS version, host app / Pro Tools version, and a short
+    description (or screenshot) of the issue.
+  </p>
 </section>
