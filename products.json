@@ -68,10 +68,10 @@
     },
     "DSPTrace": {
       "name": "DSPTrace",
-      "latest_version": "1.0.0",
+      "latest_version": "1.0.1",
       "download_url": "https://bitterapple.github.io/support/DSPTrace/",
       "release_notes_url": "https://bitterapple.github.io/support/DSPTrace/#release-notes",
-      "min_supported_version": "1.0.0",
+      "min_supported_version": "1.0.1",
       "critical": false
     }
   }
