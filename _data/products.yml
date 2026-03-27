@@ -22,7 +22,7 @@
   url: /support/Propagation/
   latest_order: 5
   latest_date: "2026-03-27"
-  latest_summary: Released v1.0.0. First public release, with more changes likely in future updates.
+  latest_summary: Updated to v1.0.1. Bug fix release.
 
 - slug: bandmatrix
   title: BandMatrix

@@ -52,7 +52,7 @@
     },
     "Propagation": {
       "name": "Propagation",
-      "latest_version": "1.0.0",
+      "latest_version": "1.0.1",
       "download_url": "https://bitterapple.github.io/support/Propagation/",
       "release_notes_url": "https://bitterapple.github.io/support/Propagation/#release-notes",
       "min_supported_version": "1.0.0",
