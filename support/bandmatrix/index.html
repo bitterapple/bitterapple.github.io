@@ -1,7 +1,7 @@
 ---
 layout: support
 title: "BandMatrix"
-description: "BandMatrix support & download: a dynamics plug-in (AAX / AU / VST3) featuring multi-band sidechain routing, new parallel processing support, and Inverse sidechain mode."
+description: "BandMatrix support & download: a dynamics plug-in (AU / VST3) featuring multi-band sidechain routing, Tone Shaper mode, and Inverse sidechain mode."
 favicon: "/support/bandmatrix/img/BandMatrix_icon.png"
 ---
 
@@ -21,7 +21,7 @@ favicon: "/support/bandmatrix/img/BandMatrix_icon.png"
     <div>
       <h1 style="margin: 0">BandMatrix</h1>
       <p class="muted" style="margin: 6px 0 0; font-size: 13px">
-        <strong>Released</strong> — <strong>Version 1.8.0</strong>.
+        <strong>Released</strong> — <strong>Version 1.9.0</strong>.
       </p>
       <p class="muted" style="margin: 6px 0 0; font-size: 12px; opacity: 0.85">
         6-Band SideChain Compressor / Expander Router
@@ -31,15 +31,14 @@ favicon: "/support/bandmatrix/img/BandMatrix_icon.png"
 
   <p style="margin-top: 14px">
     <strong>BandMatrix</strong> is a dynamics plug-in (<strong
-      >AAX / AU / VST3</strong
+      >AU / VST3</strong
     >) built for <strong>multi-band sidechain compression</strong> with flexible
     key routing. Each band can be driven by the
     <strong>internal signal</strong>, the
     <strong>external sidechain input</strong>, or even an
     <strong>arbitrary other band</strong> — so you can create targeted, musical
-    ducking and inter-band control. Version <strong>1.8.0</strong> adds
-    <strong>parallel processing support</strong> plus additional improvements
-    and refinements.
+    ducking and inter-band control. Version <strong>1.9.0</strong> is a minor
+    bug-fix update.
   </p>
 
   <div class="nav">
@@ -62,53 +61,30 @@ favicon: "/support/bandmatrix/img/BandMatrix_icon.png"
   >
     <div class="card" style="margin: 0">
       <div class="muted" style="font-size: 13px">
-        <strong>macOS:</strong> AAX / AU / VST3 for macOS 11 or later
+        <strong>macOS:</strong> AU / VST3 for macOS 11 or later
         <span style="opacity: 0.6; padding: 0 6px">•</span>
-        <strong>Windows:</strong> VST3 / AAX public test
+        <strong>Windows:</strong> VST3
       </div>
       <div style="margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap">
         <a
           class="btn"
-          href="https://github.com/bitterapple/bitterapple.github.io/releases/download/BandMatrix_1.8.0/BandMatrix_1.8.0.pkg"
+          href="https://github.com/bitterapple/bitterapple.github.io/releases/download/BandMatrix_1.9.0/BandMatrix_1.9.0.pkg"
           style="font-weight: 700"
-          >Download v1.8.0 (PKG)</a
+          >Download v1.9.0 (PKG)</a
         >
         <a
           class="btn"
           href="{{ '/windows/BandMatrix-windows-vst3.zip' | relative_url }}"
           >Download Windows VST3 (ZIP)</a
         >
-        <a
-          class="btn"
-          href="{{ '/windows/BandMatrix-windows-aax-signed.zip' | relative_url }}"
-          >Download Windows AAX test build (ZIP)</a
-        >
       </div>
       <p class="muted" style="margin: 10px 0 0; font-size: 12px">
         Latest downloads are available for macOS 11 or later and Windows.
-        Version <strong>1.8.0</strong> adds parallel processing support plus
-        additional improvements and refinements. A signed Windows AAX public
-        test build is also available.
+        Version <strong>1.9.0</strong> is a minor bug-fix release.
       </p>
     </div>
   </div>
 </header>
-
-<section class="section">
-  <h2>Windows AAX public test</h2>
-  <div class="card" style="margin: 0">
-    <p style="margin: 0 0 10px">
-      I have completed the build and signing work for the Windows AAX version
-      of <strong>BandMatrix</strong>, but I have not yet completed final
-      verification on an actual <strong>Windows Pro Tools</strong> system.
-    </p>
-    <p class="muted" style="margin: 0; font-size: 13px">
-      If you can try this pre-release test build before the full public rollout,
-      that would help a lot. Feedback is welcome at
-      <a href="mailto:kjdevapphelp@gmail.com?subject=BandMatrix%20Windows%20AAX%20Test">kjdevapphelp@gmail.com</a>.
-    </p>
-  </div>
-</section>
 
 <section class="section">
   <h2>What it does</h2>
@@ -127,8 +103,7 @@ favicon: "/support/bandmatrix/img/BandMatrix_icon.png"
       (e.g., harsh band → tame presence) without affecting the entire spectrum.
     </li>
     <li>
-      Version <strong>1.8.0</strong> adds <strong>parallel processing
-      support</strong> plus general improvements.
+      Version <strong>1.9.0</strong> is a minor bug-fix release.
     </li>
     <li>
       <strong>Tone Shaper mode</strong> adds a more flexible way to shape
@@ -161,10 +136,31 @@ favicon: "/support/bandmatrix/img/BandMatrix_icon.png"
   <h2>Release history</h2>
   <div class="card" style="margin: 0">
     <div class="muted" style="font-size: 13px">
-      <strong>v1.8.0</strong> — Parallel processing support and general improvements.
+      <strong>v1.9.0</strong> — Minor bug fixes.
     </div>
     <p class="muted" style="margin: 10px 0 0; font-size: 12px">
       Current release.
+    </p>
+    <ul
+      class="muted"
+      style="margin: 10px 0 0; padding-left: 18px; font-size: 13px"
+    >
+      <li>Minor bug fixes.</li>
+    </ul>
+
+    <hr
+      style="
+        border: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        margin: 14px 0;
+      "
+    />
+
+    <div class="muted" style="font-size: 13px">
+      <strong>v1.8.0</strong> — Parallel processing support and general improvements.
+    </div>
+    <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+      Previous release.
     </p>
     <ul
       class="muted"
@@ -365,14 +361,13 @@ favicon: "/support/bandmatrix/img/BandMatrix_icon.png"
   <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
     <li><strong>macOS 11 or later</strong>.</li>
     <li>
-      A plug-in host that supports <strong>AAX</strong> (Pro Tools),
-      <strong>AU</strong>, or <strong>VST3</strong>.
+      A plug-in host that supports <strong>AU</strong> or <strong>VST3</strong>.
     </li>
-    <li>Installer: <code>BandMatrix_1.8.0.pkg</code></li>
+    <li>Installer: <code>BandMatrix_1.9.0.pkg</code></li>
   </ul>
   <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-    Note: The installer includes <strong>AAX / AU / VST3</strong> builds that
-    target <strong>macOS 11 or later</strong>.
+    Note: The installer includes <strong>AU / VST3</strong> builds that target
+    <strong>macOS 11 or later</strong>.
   </p>
 </section>
 
@@ -380,13 +375,13 @@ favicon: "/support/bandmatrix/img/BandMatrix_icon.png"
   <h2>Install</h2>
   <ol class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
     <li>
-      Download the latest <code>BandMatrix_1.8.0.pkg</code> from this page.
+      Download the latest <code>BandMatrix_1.9.0.pkg</code> from this page.
     </li>
     <li>
-      Run the installer (it installs AAX / AU / VST3 to the standard macOS
-      plug-in locations).
+      Run the installer (it installs AU / VST3 to the standard macOS plug-in
+      locations).
     </li>
-    <li>Launch your host (e.g., Pro Tools) and rescan plug-ins if needed.</li>
+    <li>Launch your host and rescan plug-ins if needed.</li>
   </ol>
 </section>
 
@@ -399,7 +394,7 @@ favicon: "/support/bandmatrix/img/BandMatrix_icon.png"
     >
   </p>
   <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-    Please include: OS version, host app / Pro Tools version, and a short
-    description (or screenshot) of the issue.
+    Please include: OS version, host app version, and a short description (or
+    screenshot) of the issue.
   </p>
 </section>

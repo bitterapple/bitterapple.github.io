@@ -33,9 +33,9 @@
   summary: BandMatrix is dynamics plug-in for multi-band sidechain compression with flexible key routing and Inverse sidechain mode.
   icon: /support/bandmatrix/img/BandMatrix_icon.png
   url: /support/bandmatrix/
-  latest_order: 10
-  latest_date: "2026-03-27"
-  latest_summary: Updated to v1.8.0. Added parallel processing support plus other improvements.
+  latest_order: 1
+  latest_date: "2026-03-31"
+  latest_summary: Updated to v1.9.0. Minor bug fix release.
 
 - slug: dialoguedoctor
   title: Dialogue Doctor
