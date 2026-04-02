@@ -108,6 +108,9 @@
   summary: Tools for timecode markers and PDF notes in recording sessions.
   icon: /support/img/studiomate_icon.png
   url: /support/studiomate/
+  latest_order: -1
+  latest_date: "2026-04-02"
+  latest_summary: Updated to v2.8. Minor bug fix release.
 
 - slug: pocketcamviewer
   title: PocketCam Viewer
@@ -128,6 +131,9 @@
   summary: Formerly Music Theory. Practice counterpoint assignments and harmony figured-bass exercises.
   icon: /support/harmonycounterpoint/img/icon.jpeg
   url: /support/harmonycounterpoint/
+  latest_order: -2
+  latest_date: "2026-04-02"
+  latest_summary: Updated to v1.1. Grading Rules can now be turned on or off.
 
 - slug: quicksearchext
   title: QuickSearchExt
