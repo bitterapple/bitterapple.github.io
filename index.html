@@ -9,7 +9,7 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64
 {% assign whats_new = products | where_exp: 'item', 'item.latest_order' | sort: 'latest_order' %}
 {% assign plugins = products | where: 'type', 'plugin' | sort: 'order' %}
 {% assign apps = products | where: 'type', 'app' | sort: 'order' %}
-{% assign propagation = products | where: 'slug', 'propagation' | first %}
+{% assign dsptrace = products | where: 'slug', 'dsptrace' | first %}
 <div class="container">
   <header class="header">
     <h1>Free Mac DAW Plugins and iOS/macOS Apps</h1>
@@ -34,35 +34,36 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64
   </header>
 
   <main>
-    {% if propagation %}
+    {% if dsptrace %}
     <section class="section featureTeaser">
       <div class="featureTeaserGrid">
         <div>
-          <p class="featureEyebrow">New Release</p>
+          <p class="featureEyebrow">Preview</p>
           <div class="titleRow" style="justify-content: space-between; align-items: center">
-            <h2 style="margin: 0">{{ propagation.title }}</h2>
-            <span class="badge {% if propagation.status_class %}{{ propagation.status_class }}{% endif %}">{{ propagation.status_label }}</span>
+            <h2 style="margin: 0">{{ dsptrace.title }}</h2>
+            <span class="badge {% if dsptrace.status_class %}{{ dsptrace.status_class }}{% endif %}">{{ dsptrace.status_label }}</span>
           </div>
           <p style="margin-top: 12px">
-            <strong>Propagation</strong> is now available as
-            <strong>version 1.0.1</strong>, an <strong>algorithmic reverb</strong>
-            built from <strong>IR analysis</strong>. Instead of staying locked
-            to one impulse response, it studies curated spaces, extracts their
-            spatial traits, and turns that DNA into a set of playable controls.
+            <strong>DSPTrace</strong> is an in-development analysis plug-in for
+            loading <strong>AU</strong> and <strong>VST</strong> plug-ins,
+            automatically sweeping their parameters, and measuring how those
+            changes affect the signal. The goal is to make a plug-in’s behavior
+            easier to characterize in a repeatable way, instead of relying only
+            on manual listening and guesswork.
           </p>
           <p class="muted" style="margin-top: 10px">
-            This first release is public now, but I still have more ideas for
-            it, so the controls, layout, and overall direction may continue to
-            change quite a bit in future updates.
+            The current build is still in progress, but the direction is clear:
+            faster plug-in analysis, clearer parameter-to-sound tracing, and a
+            better way to compare how processors actually behave.
           </p>
           <div class="chipRow">
-            <span class="chip">IR-driven</span>
-            <span class="chip">User IR import</span>
-            <span class="chip">Morphable space DNA</span>
-            <span class="chip">Uncommon controls</span>
+            <span class="chip">AU + VST loading</span>
+            <span class="chip">Automated parameter sweeps</span>
+            <span class="chip">Audio-change measurement</span>
+            <span class="chip">Plug-in characterization</span>
           </div>
           <div class="nav">
-            <a class="btn" href="{{ propagation.url | relative_url }}">Support &amp; download</a>
+            <a class="btn" href="{{ dsptrace.url | relative_url }}">Preview page</a>
             <a
               class="btn"
               href="https://x.com/kojima_appdev"
@@ -75,13 +76,13 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64
 
         <a
           class="featurePreview"
-          href="{{ propagation.url | relative_url }}"
-          aria-label="Open Propagation support page"
+          href="{{ dsptrace.url | relative_url }}"
+          aria-label="Open DSPTrace preview page"
         >
           <img
             class="teaserShot"
-            src="{{ '/support/Propagation/img/Propagation.png' | relative_url }}"
-            alt="Propagation interface preview"
+            src="{{ '/support/DSPTrace/img/DSPTrace.png' | relative_url }}"
+            alt="DSPTrace interface preview"
             loading="lazy"
           />
         </a>
