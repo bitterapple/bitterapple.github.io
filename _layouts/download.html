@@ -1,0 +1,85 @@
+---
+layout: default
+---
+{% assign download_target = page.download_target %}
+{% unless download_target contains '://' %}
+  {% assign download_target = download_target | relative_url %}
+{% endunless %}
+{% assign download_name = page.download_name | default: page.download_file %}
+
+<div class="container">
+  <div class="card" style="max-width: 640px; margin: 64px auto 0">
+    <h1 style="margin: 0 0 10px; font-size: 28px">Starting download...</h1>
+    <p class="muted" style="margin: 0; font-size: 14px">
+      {% if download_name %}
+        Preparing <code>{{ download_name }}</code>.
+      {% else %}
+        Preparing your download.
+      {% endif %}
+      If nothing happens, <a href="{{ download_target }}">click here</a>.
+    </p>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var redirected = false;
+    var target = {{ download_target | jsonify }};
+    var eventName = {{ page.download_event | default: 'download' | jsonify }};
+    var props = {
+      plugin: {{ page.download_plugin | jsonify }},
+      version: {{ page.download_version | jsonify }},
+      os: {{ page.download_os | jsonify }},
+      format: {{ page.download_format | jsonify }},
+      package: {{ page.download_package | jsonify }},
+      file: {{ page.download_file | jsonify }},
+      channel: {{ page.download_channel | jsonify }}
+    };
+
+    Object.keys(props).forEach(function (key) {
+      if (props[key] === null || props[key] === "") {
+        delete props[key];
+      }
+    });
+
+    function redirect() {
+      if (redirected) {
+        return;
+      }
+
+      redirected = true;
+      window.location.replace(target);
+    }
+
+    function trackAndRedirect() {
+      var fallbackTimer = window.setTimeout(redirect, 500);
+
+      if (window.umami && typeof window.umami.track === "function") {
+        try {
+          var result = window.umami.track(eventName, props);
+
+          if (result && typeof result.then === "function") {
+            result.catch(function () {}).finally(function () {
+              window.clearTimeout(fallbackTimer);
+              redirect();
+            });
+            return;
+          }
+        } catch (error) {
+          // Continue to the timed redirect path when tracking is unavailable.
+        }
+      }
+
+      window.clearTimeout(fallbackTimer);
+      window.setTimeout(redirect, 150);
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", trackAndRedirect, {
+        once: true
+      });
+    } else {
+      trackAndRedirect();
+    }
+  })();
+</script>
