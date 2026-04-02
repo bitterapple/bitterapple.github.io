@@ -6,6 +6,7 @@ layout: default
   {% assign download_target = download_target | relative_url %}
 {% endunless %}
 {% assign download_name = page.download_name | default: page.download_file %}
+{% assign return_target = page.download_return_to | default: '/' | relative_url %}
 
 <div class="container">
   <div class="card" style="max-width: 640px; margin: 64px auto 0">
@@ -18,14 +19,20 @@ layout: default
       {% endif %}
       If nothing happens, <a href="{{ download_target }}">click here</a>.
     </p>
+    <p class="muted" style="margin: 10px 0 0; font-size: 13px">
+      <a id="download-back-link" href="{{ return_target }}">Back to the previous page</a>
+    </p>
   </div>
 </div>
 
 <script>
   (function () {
+    var cancelled = false;
     var redirected = false;
     var target = {{ download_target | jsonify }};
+    var returnTarget = {{ return_target | jsonify }};
     var eventName = {{ page.download_event | default: 'download' | jsonify }};
+    var backLink = document.getElementById("download-back-link");
     var props = {
       plugin: {{ page.download_plugin | jsonify }},
       version: {{ page.download_version | jsonify }},
@@ -43,12 +50,30 @@ layout: default
     });
 
     function redirect() {
-      if (redirected) {
+      if (redirected || cancelled) {
         return;
       }
 
       redirected = true;
       window.location.replace(target);
+    }
+
+    function resolveReferrer() {
+      if (!document.referrer) {
+        return null;
+      }
+
+      try {
+        var referrerUrl = new URL(document.referrer);
+
+        if (referrerUrl.origin !== window.location.origin) {
+          return null;
+        }
+
+        return referrerUrl.href;
+      } catch (error) {
+        return null;
+      }
     }
 
     function trackAndRedirect() {
@@ -72,6 +97,29 @@ layout: default
 
       window.clearTimeout(fallbackTimer);
       window.setTimeout(redirect, 150);
+    }
+
+    if (backLink) {
+      var referrerTarget = resolveReferrer();
+
+      if (referrerTarget) {
+        backLink.href = referrerTarget;
+      }
+
+      backLink.addEventListener("click", function (event) {
+        cancelled = true;
+
+        if (referrerTarget) {
+          event.preventDefault();
+          window.history.back();
+          window.setTimeout(function () {
+            window.location.href = referrerTarget;
+          }, 200);
+          return;
+        }
+
+        backLink.href = returnTarget;
+      });
     }
 
     if (document.readyState === "loading") {
