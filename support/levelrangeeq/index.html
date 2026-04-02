@@ -22,14 +22,14 @@ favicon: "/support/levelrangeeq/img/LevelRangeEQ_icon_bottomleft_redpurpleblue.p
           <div>
             <h1 style="margin: 0">Level Range EQ</h1>
             <p class="muted" style="margin: 6px 0 0; font-size: 13px">
-              <strong>Version 1.9.1</strong> — <strong>Out now</strong>.
+              <strong>Version 2.0.0</strong> — <strong>Out now</strong>.
             </p>
             <p
               class="muted"
               style="margin: 6px 0 0; font-size: 12px; opacity: 0.85"
             >
-              Latest signed release: <strong>1.9.1</strong> •
-              <strong>2026-03-11</strong>
+              Latest signed release: <strong>2.0.0</strong> •
+              <strong>2026-04-02</strong>
             </p>
           </div>
         </div>
@@ -76,9 +76,9 @@ favicon: "/support/levelrangeeq/img/LevelRangeEQ_icon_bottomleft_redpurpleblue.p
             >
               <a
                 class="btn"
-                href="https://github.com/bitterapple/bitterapple.github.io/releases/download/LevelRangeEQ_1.9.1/LevelRangeEQ_1.9.1.pkg"
+                href="https://github.com/bitterapple/bitterapple.github.io/releases/download/LevelRangeEQ_2.0.0/LevelRangeEQ_2.0.0.pkg"
                 style="font-weight: 700"
-                >Download LevelRangeEQ_1.9.1.pkg</a
+                >Download LevelRangeEQ_2.0.0.pkg</a
               >
               <a
                 class="btn"
@@ -89,10 +89,12 @@ favicon: "/support/levelrangeeq/img/LevelRangeEQ_icon_bottomleft_redpurpleblue.p
             <p class="muted" style="margin: 10px 0 0; font-size: 12px">
               Latest downloads are available for macOS 11 or later and Windows
               VST3. The Windows build matches version
-              <strong>1.9.1</strong>, and I have received reports that it works
+              <strong>2.0.0</strong>, and I have received reports that it works
               well. Windows AAX support is planned for a future release. This
-              update may resolve an issue where the plug-in could fail to load
-              in some environments, but this has not been fully confirmed yet.
+              release fixes an AU startup issue reported in Logic Pro where
+              inserting the plug-in immediately after launch and moving EQ
+              bands could produce severe distortion, runaway output, and audio
+              dropout until the plug-in was re-instanced.
             </p>
           </div>
         </div>
@@ -138,22 +140,27 @@ favicon: "/support/levelrangeeq/img/LevelRangeEQ_icon_bottomleft_redpurpleblue.p
       <section class="section">
         <h2>What’s new</h2>
         <div class="card" style="margin: 0">
-          <h3 style="margin: 0 0 8px; font-size: 16px">Version 1.9.1</h3>
+          <h3 style="margin: 0 0 8px; font-size: 16px">Version 2.0.0</h3>
           <ul
             class="muted"
             style="margin: 0; padding-left: 18px; font-size: 13px"
           >
             <li>
-              <strong>New release:</strong> Level Range EQ 1.9.1 is out now.
+              <strong>New release:</strong> Level Range EQ 2.0.0 is out now.
             </li>
             <li>
-              This update may resolve an issue where the plug-in could fail to
-              load in some environments, but this has not been fully confirmed
-              yet.
+              Fixes an AU startup bug in Logic Pro that could trigger severe
+              distortion and runaway output when the plug-in was inserted
+              immediately after launch and EQ bands were edited before the
+              instance had settled.
+            </li>
+            <li>
+              Version reporting is now aligned so the shipped component
+              metadata matches the plug-in release version.
             </li>
           </ul>
           <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-            Previous: 1.9.0 added resizable window support.
+            Previous: 1.9.1 addressed a loading issue in some environments.
           </p>
         </div>
       </section>
@@ -162,6 +169,41 @@ favicon: "/support/levelrangeeq/img/LevelRangeEQ_icon_bottomleft_redpurpleblue.p
         <h2>Release history</h2>
         <div class="card" style="margin: 0">
           <div class="muted" style="font-size: 13px">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                gap: 12px;
+                flex-wrap: wrap;
+              "
+            >
+              <div>
+                <strong>2.0.0</strong>
+                <span style="opacity: 0.6; padding: 0 6px">•</span>
+                <span>2026-04-02</span>
+                <span style="opacity: 0.6; padding: 0 6px">•</span>
+                <span>AU startup stability fix</span>
+              </div>
+              <div>
+                <a
+                  class="btn"
+                  href="https://github.com/bitterapple/bitterapple.github.io/releases/download/LevelRangeEQ_2.0.0/LevelRangeEQ_2.0.0.pkg"
+                  style="padding: 8px 12px"
+                  >Download 2.0.0</a
+                >
+              </div>
+            </div>
+
+            <div style="height: 10px"></div>
+
+            <p class="muted" style="margin: 0 0 10px; font-size: 12px">
+              Fixes an AU startup issue reported in Logic Pro where inserting
+              the plug-in immediately after launch and editing EQ bands could
+              produce severe distortion, runaway output, and audio dropout
+              until the plug-in was re-instanced. Also aligns the component
+              metadata version with the released plug-in version.
+            </p>
+
             <div
               style="
                 display: flex;
@@ -383,7 +425,7 @@ favicon: "/support/levelrangeeq/img/LevelRangeEQ_icon_bottomleft_redpurpleblue.p
             </div>
           </div>
           <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-            Tip: Install the latest signed version (1.9.1).
+            Tip: Install the latest signed version (2.0.0).
           </p>
         </div>
       </section>
@@ -433,7 +475,7 @@ favicon: "/support/levelrangeeq/img/LevelRangeEQ_icon_bottomleft_redpurpleblue.p
             <strong>AU</strong>, or <strong>VST3</strong>.
           </li>
           <li>
-            Installer: <code>LevelRangeEQ_1.9.1.pkg</code> (download above).
+            Installer: <code>LevelRangeEQ_2.0.0.pkg</code> (download above).
           </li>
         </ul>
         <p class="muted" style="margin: 10px 0 0; font-size: 12px">
@@ -451,8 +493,8 @@ favicon: "/support/levelrangeeq/img/LevelRangeEQ_icon_bottomleft_redpurpleblue.p
           <li>
             Download
             <a
-              href="https://github.com/bitterapple/bitterapple.github.io/releases/download/LevelRangeEQ_1.9.1/LevelRangeEQ_1.9.1.pkg"
-              >LevelRangeEQ_1.9.1.pkg</a
+              href="https://github.com/bitterapple/bitterapple.github.io/releases/download/LevelRangeEQ_2.0.0/LevelRangeEQ_2.0.0.pkg"
+              >LevelRangeEQ_2.0.0.pkg</a
             >.
           </li>
           <li>

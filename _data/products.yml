@@ -59,9 +59,9 @@
   summary: An EQ concept focused on controllable level-dependent tone shaping.
   icon: /support/img/levelrangeeq_icon.png
   url: /support/levelrangeeq/
-  latest_order: 40
-  latest_date: "2026-03-11"
-  latest_summary: Updated to v1.9.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet.
+  latest_order: 0
+  latest_date: "2026-04-02"
+  latest_summary: Updated to v2.0.0. Fixes an AU startup bug in Logic Pro that could cause severe distortion and runaway output when the plug-in was inserted immediately after launch.
 
 - slug: phaseslice
   title: PhaseSlice
