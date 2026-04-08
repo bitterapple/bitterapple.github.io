@@ -1,6 +1,6 @@
 {
-  "schema_version": 10,
-  "generated_at": "2026-04-02T00:00:00Z",
+  "schema_version": 11,
+  "generated_at": "2026-04-08T00:00:00Z",
   "products": {
     "levelrangeeq": {
       "name": "Level Range EQ",
