@@ -44,8 +44,8 @@
   icon: /support/bandmatrix/img/BandMatrix_icon.png
   url: /support/bandmatrix/
   latest_order: 1
-  latest_date: "2026-04-07"
-  latest_summary: Updated to v2.0.0. adds master input/output metering and a master output trim control.
+  latest_date: "2026-04-08"
+  latest_summary: Updated to v2.1.0. Adds window size persistence, reduced CPU usage in Tone mode, and a universal mix control.
 
 - slug: dialoguedoctor
   title: Dialogue Doctor
