@@ -7,7 +7,7 @@
   summary: A subtle but practical plug-in for shaping the perceived distance of a sound source more naturally than simple reverb or EQ alone.
   icon: /support/distance/img/Distance_icon.png
   url: /support/distance/
-  latest_order: 20
+  latest_order: 7
   latest_date: "2026-03-11"
   latest_summary: "Updated to v1.0.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet."
 
@@ -56,7 +56,7 @@
   summary: Dialogue cleanup and consistency tool for post-production.
   icon: /support/dialoguedoctor/img/icon.jpg
   url: /support/dialoguedoctor/
-  latest_order: 30
+  latest_order: 8
   latest_date: "2026-03-11"
   latest_summary: Updated to v1.5.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet.
 
@@ -69,7 +69,7 @@
   summary: An EQ concept focused on controllable level-dependent tone shaping.
   icon: /support/img/levelrangeeq_icon.png
   url: /support/levelrangeeq/
-  latest_order: 0
+  latest_order: 2
   latest_date: "2026-04-02"
   latest_summary: Updated to v2.0.0. Fixes an AU startup bug in Logic Pro that could cause severe distortion and runaway output when the plug-in was inserted immediately after launch.
 
@@ -82,7 +82,7 @@
   summary: A 5-band split-delay plug-in for offsetting only selected frequency ranges with per-band mix, trim, and phase control.
   icon: /support/phaseslice/img/icon.png
   url: /support/phaseslice/
-  latest_order: 50
+  latest_order: 9
   latest_date: "2026-03-11"
   latest_summary: Updated to v1.2.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet.
 
@@ -95,7 +95,7 @@
   summary: Real-time spectrogram dynamics tool for voice, dialogue, and musical sources.
   icon: /support/spectralleveler/img/spectralleveler_icon.png
   url: /support/spectralleveler/
-  latest_order: 15
+  latest_order: 6
   latest_date: "2026-03-27"
   latest_summary: Windows AAX public test build is now available. Build and signing are complete, but final Windows Pro Tools verification is still pending.
 
@@ -108,7 +108,7 @@
   summary: Tools for timecode markers and PDF notes in recording sessions.
   icon: /support/img/studiomate_icon.png
   url: /support/studiomate/
-  latest_order: -1
+  latest_order: 3
   latest_date: "2026-04-02"
   latest_summary: Updated to v2.8. Minor bug fix release.
 
@@ -131,7 +131,7 @@
   summary: Formerly Music Theory. Practice counterpoint assignments and harmony figured-bass exercises.
   icon: /support/harmonycounterpoint/img/icon.jpeg
   url: /support/harmonycounterpoint/
-  latest_order: -2
+  latest_order: 4
   latest_date: "2026-04-02"
   latest_summary: Updated to v1.1. Grading Rules can now be turned on or off.
 
