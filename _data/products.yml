@@ -1,26 +1,3 @@
-- slug: distance
-  title: Distance
-  type: plugin
-  order: 10
-  status_label: Live
-  status_class: live
-  summary: A subtle but practical plug-in for shaping the perceived distance of a sound source more naturally than simple reverb or EQ alone.
-  icon: /support/distance/img/Distance_icon.png
-  url: /support/distance/
-  latest_order: 7
-  latest_date: "2026-03-11"
-  latest_summary: "Updated to v1.0.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet."
-
-- slug: dsptrace
-  title: DSPTrace
-  type: plugin
-  order: 12
-  status_label: Coming Soon
-  status_class: soon
-  summary: An analysis plug-in that loads AU and VST plug-ins, sweeps parameters automatically, and measures how their controls change sound.
-  icon: /support/DSPTrace/img/DSPTrace.png
-  url: /support/DSPTrace/
-
 - slug: propagation
   title: Propagation
   type: plugin
@@ -44,8 +21,8 @@
   icon: /support/bandmatrix/img/BandMatrix_icon.png
   url: /support/bandmatrix/
   latest_order: 1
-  latest_date: "2026-04-08"
-  latest_summary: Updated to v2.1.0. Adds window size persistence, reduced CPU usage in Tone mode, and a universal mix control.
+  latest_date: "2026-04-09"
+  latest_summary: Updated to v2.2.0. Improves window size recall and fixes the universal mix control.
 
 - slug: dialoguedoctor
   title: Dialogue Doctor
@@ -69,7 +46,7 @@
   summary: An EQ concept focused on controllable level-dependent tone shaping.
   icon: /support/img/levelrangeeq_icon.png
   url: /support/levelrangeeq/
-  latest_order: 2
+  latest_order: 4
   latest_date: "2026-04-02"
   latest_summary: Updated to v2.0.0. Fixes an AU startup bug in Logic Pro that could cause severe distortion and runaway output when the plug-in was inserted immediately after launch.
 
@@ -108,7 +85,7 @@
   summary: Tools for timecode markers and PDF notes in recording sessions.
   icon: /support/img/studiomate_icon.png
   url: /support/studiomate/
-  latest_order: 3
+  latest_order: 5
   latest_date: "2026-04-02"
   latest_summary: Updated to v2.8. Minor bug fix release.
 
@@ -131,9 +108,9 @@
   summary: Formerly Music Theory. Practice counterpoint assignments and harmony figured-bass exercises.
   icon: /support/harmonycounterpoint/img/icon.jpeg
   url: /support/harmonycounterpoint/
-  latest_order: 4
-  latest_date: "2026-04-02"
-  latest_summary: Updated to v1.1. Grading Rules can now be turned on or off.
+  latest_order: 2
+  latest_date: "2026-04-09"
+  latest_summary: Updated to v1.2.0. Added learning hints.
 
 - slug: quicksearchext
   title: QuickSearchExt
@@ -154,6 +131,9 @@
   summary: A small macOS utility for safer, clearer file copy workflows.
   icon: /support/img/copyskipper_icon.png
   url: /support/copyskipper/
+  latest_order: 3
+  latest_date: "2026-04-09"
+  latest_summary: Updated to v2.0. Added Finder tag sync. Finder comment sync is not supported due to Apple limitations.
 
 - slug: calendarcalendar
   title: Calendar Calendar
