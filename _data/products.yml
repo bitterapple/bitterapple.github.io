@@ -63,6 +63,29 @@
   latest_date: "2026-03-11"
   latest_summary: Updated to v1.2.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet.
 
+- slug: distance
+  title: Distance
+  type: plugin
+  order: 10
+  status_label: Live
+  status_class: live
+  summary: A subtle but practical plug-in for shaping the perceived distance of a sound source more naturally than simple reverb or EQ alone.
+  icon: /support/distance/img/Distance_icon.png
+  url: /support/distance/
+  latest_order: 20
+  latest_date: "2026-03-11"
+  latest_summary: "Updated to v1.0.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet."
+
+- slug: dsptrace
+  title: DSPTrace
+  type: plugin
+  order: 12
+  status_label: Coming Soon
+  status_class: soon
+  summary: An analysis plug-in that loads AU and VST plug-ins, sweeps parameters automatically, and measures how their controls change sound.
+  icon: /support/DSPTrace/img/DSPTrace.png
+  url: /support/DSPTrace/
+
 - slug: spectralleveler
   title: Spectral Leveler
   type: plugin
