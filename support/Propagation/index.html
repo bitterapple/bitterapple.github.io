@@ -30,19 +30,38 @@ favicon: "/support/Propagation/img/icon.png"
   </div>
 
   <p style="margin-top: 14px">
-    <strong>Propagation</strong> is an <strong>algorithmic reverb</strong>
-    shaped by <strong>impulse-response analysis</strong>. It studies curated
-    IRs, extracts their spatial character, and turns that information into a
-    parameter set you can actually play with, rather than locking you to a
-    single frozen response. <strong>Version 1.0.1</strong> is the current
-    release.
+    <strong>Propagation</strong> is an
+    <strong>algorithmic reverb</strong> guided by
+    <strong>impulse-response analysis</strong>. In plain English: it listens to
+    the timing, tone, density, and width of a space, then turns that information
+    into controls you can keep shaping inside a mix, instead of trapping you
+    inside one fixed convolution snapshot. <strong>Version 1.0.1</strong> is the
+    current release.
   </p>
+
+  <div class="card" style="margin: 14px 0 0">
+    <h2 style="margin: 0 0 8px; font-size: 18px">
+      What Propagation is, in one sentence
+    </h2>
+    <p class="muted" style="margin: 0; font-size: 13px">
+      <strong
+        >Propagation analyzes the character of a captured space, then lets you
+        reshape it like an instrument.</strong
+      >
+    </p>
+    <p class="muted" style="margin: 10px 0 0; font-size: 13px">
+      If you prefer a simpler mental model, think of it like this:
+      <strong>IRs provide the spatial fingerprint</strong>, while
+      <strong
+        >Propagation gives you playable controls over size, density, width,
+        clarity, and motion</strong
+      >.
+    </p>
+  </div>
 
   <div class="nav">
     <a class="btn" href="{{ '/' | relative_url }}">← All apps</a>
-    <a
-      class="btn"
-      href="{{ '/download/propagation/macos/' | relative_url }}"
+    <a class="btn" href="{{ '/download/propagation/macos/' | relative_url }}"
       >Download v1.0.1</a
     >
     <a
@@ -82,8 +101,8 @@ favicon: "/support/Propagation/img/icon.png"
       </div>
       <p class="muted" style="margin: 10px 0 0; font-size: 12px">
         Propagation 1.0.1 is now publicly available. This update fixes a bug,
-        and I still have more ideas for it, so the controls, layout, and
-        overall direction may continue to change quite a bit in future updates.
+        and I still have more ideas for it, so the controls, layout, and overall
+        direction may continue to change quite a bit in future updates.
       </p>
     </div>
   </div>
@@ -93,28 +112,54 @@ favicon: "/support/Propagation/img/icon.png"
   <h2>What it does</h2>
   <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
     <li>
-      Build reverb behavior from <strong>curated IR analysis</strong> instead
-      of freezing a single response in place.
+      Start from <strong>impulse-response analysis</strong>, then keep editing
+      the result like an <strong>algorithmic reverb</strong>.
     </li>
     <li>
-      Use <strong>user IR loading</strong> as a flexible starting point for
-      further shaping and experimentation.
+      Load <strong>your own IRs</strong> or use built-in material as a starting
+      point for further shaping.
     </li>
     <li>
-      Explore spaces with controls such as <strong>Space Size</strong>,
-      <strong>Density</strong>, <strong>IR Morph</strong>, <strong>Clarity</strong>,
+      Adjust familiar mix-facing controls such as <strong>Space Size</strong>,
+      <strong>Density</strong>, <strong>Clarity</strong>,
       <strong>Transient</strong>, <strong>Width</strong>, and
       <strong>M/S Bias</strong>.
     </li>
     <li>
-      Treat the source IR as a <strong>starting point</strong>, not a fixed
-      destination, so you can push it toward new spatial characters.
+      Use <strong>IR Morph</strong> when you want to move away from one literal
+      captured space and toward a new hybrid character.
     </li>
     <li>
-      This first release is public now, but the feature set may continue to
-      evolve substantially in future updates.
+      Treat the analyzed IR as <strong>source material</strong>, not as a fixed
+      destination.
     </li>
   </ul>
+  <div
+    class="grid"
+    style="
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    "
+  >
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">
+        A simple way to approach it
+      </h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        Start with <strong>Space Size</strong>, <strong>Density</strong>,
+        <strong>Clarity</strong>, and <strong>Width</strong>. Those four
+        controls already cover a lot of practical mix work before you go deeper.
+      </p>
+    </div>
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">What makes it different</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        The goal is not to replay one static IR forever. The goal is to borrow a
+        space’s character, then let you keep moving it in a musical way.
+      </p>
+    </div>
+  </div>
 
   <figure style="margin: 14px 0 0">
     <img
@@ -131,6 +176,81 @@ favicon: "/support/Propagation/img/icon.png"
       Screenshot: the current 1.0.1 interface and control layout.
     </figcaption>
   </figure>
+</section>
+
+<section class="section">
+  <h2>How to read the controls</h2>
+  <div
+    class="grid"
+    style="grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start"
+  >
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Main mix controls</h3>
+      <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
+        <li>
+          <strong>Space Size</strong>: makes the apparent room feel smaller or
+          larger.
+        </li>
+        <li>
+          <strong>Density</strong>: changes how tightly the reflections fill in.
+        </li>
+        <li>
+          <strong>Clarity</strong>: shifts the balance between cleaner detail
+          and thicker wash.
+        </li>
+        <li>
+          <strong>Transient</strong>: changes how sharply the input excites the
+          space.
+        </li>
+        <li><strong>Width</strong>: adjusts stereo spread and side energy.</li>
+        <li>
+          <strong>M/S Bias</strong>: tilts the wet field toward the center or
+          sides.
+        </li>
+      </ul>
+    </div>
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">IR-based controls</h3>
+      <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
+        <li>
+          <strong>IR Morph</strong>: moves away from one captured response
+          toward a different blended character.
+        </li>
+        <li>
+          <strong>User IR loading</strong>: lets your own spaces become editable
+          starting points.
+        </li>
+        <li>
+          <strong>Character choices</strong>: change the overall reverb behavior
+          rather than acting like fixed presets.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <p class="muted" style="margin: 14px 0 0; font-size: 13px">
+    In other words, you do <strong>not</strong> need to understand every
+    internal concept to use Propagation well. You can treat it like a normal
+    reverb first, then go deeper only when you want to.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Good first moves</h2>
+  <ol class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
+    <li>Pick a character that feels closest to the mix goal.</li>
+    <li>Set <strong>Space Size</strong> first.</li>
+    <li>
+      Adjust <strong>Density</strong> until the reverb feels either more open or
+      more filled-in.
+    </li>
+    <li>
+      Use <strong>Clarity</strong> and <strong>Transient</strong> to decide how
+      forward or soft the space should feel.
+    </li>
+    <li>
+      Only then start pushing <strong>IR Morph</strong> or loading your own IRs.
+    </li>
+  </ol>
 </section>
 
 <section class="section" id="release-notes">
@@ -192,24 +312,26 @@ favicon: "/support/Propagation/img/icon.png"
     style="grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start"
   >
     <div class="card" style="margin: 0">
-      <h3 style="margin: 0 0 8px; font-size: 16px">Musical spaces</h3>
+      <h3 style="margin: 0 0 8px; font-size: 16px">Mix reverb</h3>
       <p class="muted" style="margin: 0; font-size: 13px">
-        Move quickly between room characters without being locked to a single
-        static IR.
+        Move between tighter and larger spaces without committing to one frozen
+        impulse response.
       </p>
     </div>
     <div class="card" style="margin: 0">
-      <h3 style="margin: 0 0 8px; font-size: 16px">Sound design</h3>
+      <h3 style="margin: 0 0 8px; font-size: 16px">Creative space shaping</h3>
       <p class="muted" style="margin: 0; font-size: 13px">
-        Push a captured space toward something less literal and more playable
-        inside a mix or effect chain.
+        Start from a believable captured space, then push it into something less
+        literal and more musical.
       </p>
     </div>
     <div class="card" style="margin: 0">
-      <h3 style="margin: 0 0 8px; font-size: 16px">IR experimentation</h3>
+      <h3 style="margin: 0 0 8px; font-size: 16px">
+        Personal IR starting points
+      </h3>
       <p class="muted" style="margin: 0; font-size: 13px">
-        Use your own impulse responses as flexible source material rather than
-        fixed end states.
+        Bring in your own IRs and treat them as editable source material instead
+        of locked destinations.
       </p>
     </div>
   </div>
