@@ -21,8 +21,8 @@
   icon: /support/bandmatrix/img/BandMatrix_icon.png
   url: /support/bandmatrix/
   latest_order: 1
-  latest_date: "2026-04-09"
-  latest_summary: Updated to v2.2.0. Improves window size recall and fixes the universal mix control.
+  latest_date: "2026-04-10"
+  latest_summary: Updated to v2.3.0. This release should resolve the phase issue affecting the universal mix control.
 
 - slug: dialoguedoctor
   title: Dialogue Doctor
