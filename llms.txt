@@ -1,0 +1,23 @@
+# Bitterapple
+
+> Free Mac DAW plugins and iOS/macOS apps by recording engineer Hiroshi Kojima.
+
+## Main pages
+
+- Home: https://bitterapple.github.io/
+- Plugins: https://bitterapple.github.io/
+- Apps: https://bitterapple.github.io/
+- Harmony & Counterpoint: https://bitterapple.github.io/support/harmonycounterpoint/
+
+## Products
+
+- Harmony & Counterpoint: iPhone app for counterpoint assignments and figured-bass practice.
+- Studio Mate: tools for timecode markers and PDF notes in recording sessions.
+- CopySkipper: macOS utility for safer file copy workflows.
+- BandMatrix: multiband dynamics plug-in with flexible routing.
+- Spectral Leveler: real-time spectrogram dynamics tool.
+
+## Support
+
+- Contact: kjdevapphelp@gmail.com
+- Privacy Policy: https://bitterapple.github.io/privacy/
