@@ -1,7 +1,7 @@
 - slug: propagation
   title: Propagation
   type: plugin
-  order: 15
+  order: 18
   status_label: Live
   status_class: live
   summary: IR-driven algorithmic reverb that analyzes curated and user-loaded impulse responses and turns their spatial traits into uncommon, editable controls.
@@ -20,9 +20,22 @@
   summary: BandMatrix is dynamics plug-in for multi-band sidechain compression with flexible key routing and Inverse sidechain mode.
   icon: /support/bandmatrix/img/BandMatrix_icon.png
   url: /support/bandmatrix/
+  latest_order: 2
+  latest_date: "2026-04-24"
+  latest_summary: Updated to v2.4.0. Minor bug fix release.
+
+- slug: panblur
+  title: PanBlur
+  type: plugin
+  order: 12
+  status_label: Live
+  status_class: live
+  summary: A spatial blur plug-in for softening point-source panning from a master insert, so mono tracks feel spread around their pan position instead of pinned to a dot.
+  icon: /support/PanBlur/img/icon.png
+  url: /support/PanBlur/
   latest_order: 1
-  latest_date: "2026-04-10"
-  latest_summary: Updated to v2.3.0. This release should resolve the phase issue affecting the universal mix control.
+  latest_date: "2026-04-24"
+  latest_summary: PanBlur is now available. Blur point-like mono panning from a master insert instead of inserting a widening plug-in on every track.
 
 - slug: dialoguedoctor
   title: Dialogue Doctor
@@ -79,7 +92,7 @@
 - slug: dsptrace
   title: DSPTrace
   type: plugin
-  order: 12
+  order: 90
   status_label: Coming Soon
   status_class: soon
   summary: An analysis plug-in that loads AU and VST plug-ins, sweeps parameters automatically, and measures how their controls change sound.
@@ -131,9 +144,9 @@
   summary: Formerly Music Theory. Practice counterpoint assignments and harmony figured-bass exercises.
   icon: /support/harmonycounterpoint/img/icon.jpeg
   url: /support/harmonycounterpoint/
-  latest_order: 2
-  latest_date: "2026-04-09"
-  latest_summary: Updated to v1.2.0. Added learning hints.
+  latest_order: 3
+  latest_date: "2026-04-24"
+  latest_summary: Updated to v1.3.0. Improved note entry so it is easier to input notes.
 
 - slug: quicksearchext
   title: QuickSearchExt

@@ -9,7 +9,6 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64
 {% assign whats_new = products | where_exp: 'item', 'item.latest_order' | sort: 'latest_order' %}
 {% assign plugins = products | where: 'type', 'plugin' | sort: 'order' %}
 {% assign apps = products | where: 'type', 'app' | sort: 'order' %}
-{% assign dsptrace = products | where: 'slug', 'dsptrace' | first %}
 <div class="container">
   <header class="header">
     <h1>Free Mac DAW Plugins and iOS/macOS Apps</h1>
@@ -34,62 +33,6 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64
   </header>
 
   <main>
-    {% if dsptrace %}
-    <section class="section featureTeaser">
-      <div class="featureTeaserGrid">
-        <div>
-          <p class="featureEyebrow">Preview</p>
-          <div class="titleRow" style="justify-content: space-between; align-items: center">
-            <h2 style="margin: 0">{{ dsptrace.title }}</h2>
-            <span class="badge {% if dsptrace.status_class %}{{ dsptrace.status_class }}{% endif %}">{{ dsptrace.status_label }}</span>
-          </div>
-          <p style="margin-top: 12px">
-            <strong>DSPTrace</strong> is an in-development analysis plug-in for
-            loading <strong>AU</strong> and <strong>VST</strong> plug-ins,
-            automatically sweeping their parameters, and measuring how those
-            changes affect the signal. The goal is to make a plug-in’s behavior
-            easier to characterize in a repeatable way, instead of relying only
-            on manual listening and guesswork.
-          </p>
-          <p class="muted" style="margin-top: 10px">
-            The current build is still in progress, but the direction is clear:
-            faster plug-in analysis, clearer parameter-to-sound tracing, and a
-            better way to compare how processors actually behave.
-          </p>
-          <div class="chipRow">
-            <span class="chip">AU + VST loading</span>
-            <span class="chip">Automated parameter sweeps</span>
-            <span class="chip">Audio-change measurement</span>
-            <span class="chip">Plug-in characterization</span>
-          </div>
-          <div class="nav">
-            <a class="btn" href="{{ dsptrace.url | relative_url }}">Preview page</a>
-            <a
-              class="btn"
-              href="https://x.com/kojima_appdev"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Follow for updates</a
-            >
-          </div>
-        </div>
-
-        <a
-          class="featurePreview"
-          href="{{ dsptrace.url | relative_url }}"
-          aria-label="Open DSPTrace preview page"
-        >
-          <img
-            class="teaserShot"
-            src="{{ '/support/DSPTrace/img/DSPTrace.png' | relative_url }}"
-            alt="DSPTrace interface preview"
-            loading="lazy"
-          />
-        </a>
-      </div>
-    </section>
-    {% endif %}
-
     <section class="section">
       <h2>What's New</h2>
       <div class="grid" style="grid-template-columns: 1fr; align-items: start; gap: 12px">

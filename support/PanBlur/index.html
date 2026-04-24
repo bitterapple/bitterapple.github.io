@@ -1,0 +1,193 @@
+---
+layout: support
+title: "PanBlur"
+description: "PanBlur support page. A spatial blur plug-in for softening point-source panning from a master insert."
+favicon: "/support/PanBlur/img/icon.png"
+---
+
+<header class="header">
+  <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap">
+    <img
+      src="./img/icon.png"
+      alt="PanBlur icon"
+      style="
+        width: 64px;
+        height: 64px;
+        border-radius: 14px;
+        object-fit: cover;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      "
+      loading="lazy"
+    />
+    <div>
+      <h1 style="margin: 0">PanBlur</h1>
+      <p class="muted" style="margin: 6px 0 0; font-size: 13px">
+        <strong>Released</strong> — <strong>Version 1.0.0</strong>.
+      </p>
+      <p class="muted" style="margin: 6px 0 0; font-size: 12px; opacity: 0.85">
+        Spatial Blur for Panned Mono Sources
+      </p>
+    </div>
+  </div>
+
+  <p style="margin-top: 14px">
+    <strong>PanBlur</strong> is a spatial blur plug-in for mono sources that
+    feel too fixed after panning. Instead of making a sound sit as a small point
+    at one pan position, it softens the image so the source still belongs around
+    that position, but feels less pinned and more spread out.
+  </p>
+
+  <div class="nav">
+    <a class="btn" href="{{ '/' | relative_url }}">← All apps</a>
+    <a class="btn" href="mailto:kjdevapphelp@gmail.com?subject=PanBlur%20Support"
+      >Contact support</a
+    >
+  </div>
+
+  <div
+    class="grid"
+    style="
+      grid-template-columns: 1fr;
+      align-items: start;
+      gap: 14px;
+      margin-top: 14px;
+    "
+  >
+    <div class="card" style="margin: 0">
+      <div class="muted" style="font-size: 13px">
+        <strong>macOS:</strong> AU / VST3 for macOS 11 or later
+        <span style="opacity: 0.6; padding: 0 6px">•</span>
+        <strong>Windows:</strong> VST3
+      </div>
+      <div style="margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap">
+        <a
+          class="btn"
+          href="{{ '/download/panblur/macos/' | relative_url }}"
+          style="font-weight: 700"
+          >Download v1.0.0 (PKG)</a
+        >
+        <a
+          class="btn"
+          href="{{ '/download/panblur/windows-vst3/' | relative_url }}"
+          >Download Windows VST3 (ZIP)</a
+        >
+      </div>
+      <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+        The latest release is <strong>v1.0.0</strong>. macOS and Windows VST3
+        downloads are available from this page.
+      </p>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <h2>What it does</h2>
+  <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
+    <li>
+      Softens the feeling of a mono source being locked to one exact pan point.
+    </li>
+    <li>
+      Keeps the source around its pan location while giving the image a more
+      blurred, less point-like shape.
+    </li>
+    <li>
+      Works from a master insert concept, so multiple panned tracks can be
+      softened together instead of inserting a spatial plug-in on every track.
+    </li>
+    <li>
+      Designed for cases where ordinary panning feels too narrow or artificial,
+      but full reverb or obvious widening is not the goal.
+    </li>
+  </ul>
+
+  <figure style="margin: 14px 0 0">
+    <img
+      src="./img/PanBlur.png"
+      alt="PanBlur interface screenshot"
+      style="
+        width: 100%;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      "
+      loading="lazy"
+    />
+    <figcaption class="muted" style="margin-top: 8px; font-size: 12px">
+      Screenshot: PanBlur interface.
+    </figcaption>
+  </figure>
+</section>
+
+<section class="section">
+  <h2>Concept</h2>
+  <div
+    class="grid"
+    style="grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start"
+  >
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Point to Area</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        Turn a sharply positioned mono pan into a softer area around that
+        position.
+      </p>
+    </div>
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Master Insert</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        Treat multiple tracks together instead of managing one insert per
+        source.
+      </p>
+    </div>
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Subtle Space</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        Add image softness without turning the move into an obvious reverb or
+        special effect.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="release-notes">
+  <h2>Release history</h2>
+  <div class="card" style="margin: 0">
+    <div class="muted" style="font-size: 13px">
+      <strong>v1.0.0</strong> — Initial release.
+    </div>
+    <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+      First public release of PanBlur.
+    </p>
+    <ul
+      class="muted"
+      style="margin: 10px 0 0; padding-left: 18px; font-size: 13px"
+    >
+      <li>Spatial blur for panned mono sources.</li>
+      <li>Master-insert workflow for softening multiple panned tracks together.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Requirements</h2>
+  <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
+    <li><strong>macOS 11 or later</strong> for the macOS installer.</li>
+    <li>
+      A plug-in host that supports <strong>AU</strong> or <strong>VST3</strong>.
+    </li>
+    <li>Installer: <code>PanBlur_1.0.0.pkg</code></li>
+    <li>Windows package: <code>PanBlur-windows-vst3.zip</code></li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>Support</h2>
+  <p class="muted" style="margin: 0; font-size: 13px">
+    Email:
+    <a href="mailto:kjdevapphelp@gmail.com?subject=PanBlur%20Support"
+      >kjdevapphelp@gmail.com</a
+    >
+  </p>
+  <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+    Please include: OS version, host app version, and a short description of the
+    issue.
+  </p>
+</section>
