@@ -22,7 +22,7 @@ favicon: "/support/PanBlur/img/icon.png"
     <div>
       <h1 style="margin: 0">PanBlur</h1>
       <p class="muted" style="margin: 6px 0 0; font-size: 13px">
-        <strong>Released</strong> — <strong>Version 1.0.0</strong>.
+        <strong>Released</strong> — <strong>Version 1.1.0</strong>.
       </p>
       <p class="muted" style="margin: 6px 0 0; font-size: 12px; opacity: 0.85">
         Spatial Blur for Panned Mono Sources
@@ -66,7 +66,7 @@ favicon: "/support/PanBlur/img/icon.png"
           class="btn"
           href="{{ '/download/panblur/macos/' | relative_url }}"
           style="font-weight: 700"
-          >Download v1.0.0 (PKG)</a
+          >Download v1.1.0 (PKG)</a
         >
         <a
           class="btn"
@@ -75,7 +75,7 @@ favicon: "/support/PanBlur/img/icon.png"
         >
       </div>
       <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-        The latest release is <strong>v1.0.0</strong>. macOS and Windows VST3
+        The latest release is <strong>v1.1.0</strong>. macOS and Windows VST3
         downloads are available from this page.
       </p>
     </div>
@@ -99,6 +99,11 @@ favicon: "/support/PanBlur/img/icon.png"
     <li>
       Designed for cases where ordinary panning feels too narrow or artificial,
       but full reverb or obvious widening is not the goal.
+    </li>
+    <li>
+      Includes an <strong>Air</strong> control that adds subtle movement to the
+      halo layer, creating a gentle sense of air without moving the source
+      position.
     </li>
   </ul>
 
@@ -140,18 +145,51 @@ favicon: "/support/PanBlur/img/icon.png"
       </p>
     </div>
     <div class="card" style="margin: 0">
-      <h3 style="margin: 0 0 8px; font-size: 16px">Subtle Space</h3>
+      <h3 style="margin: 0 0 8px; font-size: 16px">Air Motion</h3>
       <p class="muted" style="margin: 0; font-size: 13px">
-        Add image softness without turning the move into an obvious reverb or
-        special effect.
+        Add subtle movement to the halo texture while keeping the dry image and
+        source position stable.
       </p>
     </div>
   </div>
 </section>
 
+<section class="section">
+  <h2>New in v1.1.0: Air</h2>
+  <p class="muted" style="margin: 0; font-size: 13px">
+    The new <strong>Air</strong> parameter gives the generated halo a very
+    subtle sense of motion. It is not an auto-pan or chorus-style movement: the
+    dry source stays fixed, while only the surrounding blur texture gently
+    changes.
+  </p>
+  <p class="muted" style="margin: 10px 0 0; font-size: 13px">
+    This can help close-miked stereo sources, such as classical guitar, feel a
+    little more alive without shifting the apparent source position or adding an
+    obvious reverb tail.
+  </p>
+</section>
+
 <section class="section" id="release-notes">
   <h2>Release history</h2>
   <div class="card" style="margin: 0">
+    <div class="muted" style="font-size: 13px">
+      <strong>v1.1.0</strong> — Added Air.
+    </div>
+    <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+      Adds the new Air parameter for subtle halo texture movement without moving
+      the dry source position.
+    </p>
+    <ul
+      class="muted"
+      style="margin: 10px 0 16px; padding-left: 18px; font-size: 13px"
+    >
+      <li>New Air control for adding gentle motion to the halo layer.</li>
+      <li>
+        Designed to add air and life around close-miked sources without becoming
+        an obvious chorus or auto-pan effect.
+      </li>
+    </ul>
+
     <div class="muted" style="font-size: 13px">
       <strong>v1.0.0</strong> — Initial release.
     </div>
@@ -178,7 +216,7 @@ favicon: "/support/PanBlur/img/icon.png"
       A plug-in host that supports <strong>AAX</strong> or
       <strong>AU</strong> or <strong>VST3</strong>.
     </li>
-    <li>Installer: <code>PanBlur_1.0.0.pkg</code></li>
+    <li>Installer: <code>PanBlur_1.1.0.pkg</code></li>
     <li>Windows package: <code>PanBlur-windows-vst3.zip</code></li>
   </ul>
 </section>

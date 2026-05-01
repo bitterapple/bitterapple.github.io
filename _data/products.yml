@@ -30,12 +30,12 @@
   order: 12
   status_label: Live
   status_class: live
-  summary: A spatial blur plug-in for softening point-source panning from a master insert, so mono tracks feel spread around their pan position instead of pinned to a dot.
+  summary: A spatial blur plug-in for softening point-source panning, with Air for adding subtle halo movement without shifting the source position.
   icon: /support/PanBlur/img/icon.png
   url: /support/PanBlur/
   latest_order: 1
-  latest_date: "2026-04-24"
-  latest_summary: PanBlur is now available. Blur point-like mono panning from a master insert instead of inserting a widening plug-in on every track.
+  latest_date: "2026-05-01"
+  latest_summary: Updated to v1.1.0. Added Air, a new control for subtle halo texture movement that adds a sense of air without moving the dry source position.
 
 - slug: dialoguedoctor
   title: Dialogue Doctor
