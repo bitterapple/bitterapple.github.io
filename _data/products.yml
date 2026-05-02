@@ -5,6 +5,15 @@
   status_label: Live
   status_class: live
   summary: IR-driven algorithmic reverb that analyzes curated and user-loaded impulse responses and turns their spatial traits into uncommon, editable controls.
+  featured: true
+  featured_order: 1
+  featured_label: Signature Reverb
+  featured_summary: Capture the character of real spaces, then play their size, density, width, motion, and tone like musical controls.
+  featured_image: /support/Propagation/img/Propagation.png
+  featured_points:
+    - IR-informed space design
+    - Playable width and density
+    - macOS + Windows VST3
   icon: /support/Propagation/img/icon.png
   url: /support/Propagation/
   latest_order: 5
@@ -31,6 +40,15 @@
   status_label: Live
   status_class: live
   summary: A spatial blur plug-in for softening point-source panning, with Air for adding subtle halo movement without shifting the source position.
+  featured: true
+  featured_order: 2
+  featured_label: Spatial Texture
+  featured_summary: Soften hard-panned points into a stable halo, with subtle Air movement that adds texture without pulling the source around.
+  featured_image: /support/PanBlur/img/PanBlur.png
+  featured_points:
+    - Softens point-source panning
+    - Adds air without obvious modulation
+    - macOS + Windows VST3
   icon: /support/PanBlur/img/icon.png
   url: /support/PanBlur/
   latest_order: 1

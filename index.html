@@ -7,6 +7,7 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64
 ---
 {% assign products = site.data.products %}
 {% assign whats_new = products | where_exp: 'item', 'item.latest_order' | sort: 'latest_order' %}
+{% assign featured_plugins = products | where: 'featured', true | sort: 'featured_order' %}
 {% assign plugins = products | where: 'type', 'plugin' | sort: 'order' %}
 {% assign apps = products | where: 'type', 'app' | sort: 'order' %}
 <div class="container">
@@ -33,6 +34,45 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64
   </header>
 
   <main>
+    <section class="section featureTeaser" aria-labelledby="featured-tools-title">
+      <div class="sectionHeading">
+        <div>
+          <p class="featureEyebrow">Featured audio tools</p>
+          <h2 id="featured-tools-title">Spatial plug-ins worth noticing</h2>
+        </div>
+        <p class="sectionLead">
+          Two of the more distinctive tools here: one for shaping captured spaces,
+          one for making hard-panned sources feel less like a point on a line.
+        </p>
+      </div>
+      <div class="featuredGrid">
+        {% for entry in featured_plugins %}
+        <a
+          class="featuredCard cardLink"
+          href="{{ entry.url | relative_url }}"
+          aria-label="{{ entry.title }} support page"
+        >
+          <img class="featuredShot" src="{{ entry.featured_image | relative_url }}" alt="{{ entry.title }} UI screenshot" />
+          <div class="featuredCopy">
+            <div class="titleRow">
+              <img class="featuredIcon" src="{{ entry.icon | relative_url }}" alt="" />
+              <div>
+                <p class="featureLabel">{{ entry.featured_label }}</p>
+                <h3>{{ entry.title }}</h3>
+              </div>
+            </div>
+            <p>{{ entry.featured_summary }}</p>
+            <div class="chipRow">
+              {% for point in entry.featured_points %}
+              <span class="chip">{{ point }}</span>
+              {% endfor %}
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+
     <section class="section">
       <h2>What's New</h2>
       <div class="grid" style="grid-template-columns: 1fr; align-items: start; gap: 12px">
