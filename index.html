@@ -7,6 +7,7 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64
 ---
 {% assign products = site.data.products %}
 {% assign whats_new = products | where_exp: 'item', 'item.latest_order' | sort: 'latest_order' %}
+{% assign recent_updates = whats_new | slice: 0, 3 %}
 {% assign plugins = products | where: 'type', 'plugin' | sort: 'order' %}
 {% assign spatial_plugins = plugins | where: 'collection', 'spatial' %}
 {% assign apps = products | where: 'type', 'app' | sort: 'order' %}
@@ -34,43 +35,13 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64
   </header>
 
   <main>
-    <section class="section overviewSection" aria-labelledby="overview-title">
-      <h2 id="overview-title">What You Can Find Here</h2>
-      <div class="overviewGrid">
-        <a class="overviewCard cardLink" href="#plugins" aria-label="Audio plug-ins">
-          <p class="overviewKicker">AAX / AU / VST3</p>
-          <h3>Audio plug-ins</h3>
-          <p class="muted">
-            Spatial tools, dynamics, EQ ideas, phase/delay utilities, and
-            analysis tools for DAW work.
-          </p>
-          <div class="miniProductGrid" aria-label="Available audio plug-ins">
-            {% for entry in plugins %}
-            <span>{{ entry.title }}</span>
-            {% endfor %}
-          </div>
-        </a>
-
-        <a class="overviewCard cardLink" href="#apps" aria-label="macOS and iOS apps">
-          <p class="overviewKicker">macOS / iOS</p>
-          <h3>Apps</h3>
-          <p class="muted">
-            Session helpers, learning tools, camera utilities, Finder workflows,
-            and small Mac/iPhone apps.
-          </p>
-          <div class="miniProductGrid" aria-label="Available macOS and iOS apps">
-            {% for entry in apps %}
-            <span>{{ entry.title }}</span>
-            {% endfor %}
-          </div>
-        </a>
+    <section class="section compactNews">
+      <div class="sectionTitleRow">
+        <h2>What's New</h2>
+        <a class="textLink" href="{{ '/whats-new/' | relative_url }}">View all updates</a>
       </div>
-    </section>
-
-    <section class="section">
-      <h2>What's New</h2>
       <div class="grid" style="grid-template-columns: 1fr; align-items: start; gap: 12px">
-        {% for entry in whats_new %}
+        {% for entry in recent_updates %}
         <a
           class="card cardLink"
           href="{{ entry.url | append: '#release-notes' | relative_url }}"

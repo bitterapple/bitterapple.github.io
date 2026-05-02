@@ -1,0 +1,39 @@
+---
+layout: default
+title: "What's New"
+description: "Recent product updates for Hiroshi Kojima's audio plug-ins and macOS/iOS apps."
+---
+{% assign products = site.data.products %}
+{% assign whats_new = products | where_exp: 'item', 'item.latest_order' | sort: 'latest_order' %}
+<div class="container">
+  <header class="header">
+    <h1>What's New</h1>
+    <p class="muted" style="margin-top: 8px">Recent updates for audio plug-ins and macOS/iOS apps.</p>
+    <div class="nav">
+      <a class="btn" href="{{ '/' | relative_url }}">Home</a>
+      <a class="btn" href="mailto:kjdevapphelp@gmail.com?subject=Support%20Request">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="grid" style="grid-template-columns: 1fr; align-items: start; gap: 12px">
+        {% for entry in whats_new %}
+        <a
+          class="card cardLink"
+          href="{{ entry.url | append: '#release-notes' | relative_url }}"
+          aria-label="{{ entry.title }} release notes"
+        >
+          <div class="titleRow" style="justify-content: space-between">
+            <h3 style="margin: 0">{{ entry.title }}</h3>
+            <span class="badge">{{ entry.latest_date }}</span>
+          </div>
+          <p class="muted" style="margin: 6px 0 0; font-size: 13px">{{ entry.latest_summary }}</p>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+
+    {% include footer.html %}
+  </main>
+</div>

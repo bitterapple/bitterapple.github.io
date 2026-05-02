@@ -90,68 +90,24 @@ a:hover { text-decoration: underline; }
   letter-spacing: 0.2px;
 }
 
-.overviewSection h2 {
-  margin-bottom: 14px;
+.sectionTitleRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
 }
 
-.overviewGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.overviewCard {
-  min-height: 100%;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 16px;
-  background: rgba(255,255,255,0.045);
-  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
-}
-
-.overviewCard:hover {
-  transform: translateY(-1px);
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.18);
-}
-
-.overviewCard h3 {
-  margin: 0 0 8px;
-  font-size: 24px;
-  line-height: 1.15;
-}
-
-.overviewCard p {
+.sectionTitleRow h2 {
   margin: 0;
 }
 
-.overviewKicker {
-  margin: 0 0 8px !important;
+.textLink {
   color: var(--muted);
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.miniProductGrid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 14px;
-}
-
-.miniProductGrid span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 26px;
-  padding: 5px 9px;
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 999px;
-  background: rgba(255,255,255,0.045);
-  color: var(--text);
-  font-size: 12px;
-  line-height: 1.2;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .sectionHeading {
@@ -189,7 +145,6 @@ a:hover { text-decoration: underline; }
 }
 
 @media (max-width: 720px) {
-  .overviewGrid { grid-template-columns: 1fr; }
   .grid { grid-template-columns: 1fr; }
   .header h1 { font-size: 24px; }
   .sectionHeading { grid-template-columns: 1fr; align-items: start; }
@@ -463,19 +418,6 @@ a:hover { text-decoration: underline; }
 
   .card:hover {
     background: rgba(0,0,0,0.03);
-  }
-
-  .overviewCard {
-    background: rgba(0,0,0,0.02);
-  }
-
-  .overviewCard:hover {
-    background: rgba(0,0,0,0.03);
-  }
-
-  .miniProductGrid span {
-    border-color: rgba(0,0,0,0.10);
-    background: rgba(0,0,0,0.025);
   }
 
   .appIconImg {
