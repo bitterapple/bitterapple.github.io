@@ -4,7 +4,7 @@
   order: 18
   status_label: Live
   status_class: live
-  summary: IR-driven algorithmic reverb that analyzes curated and user-loaded impulse responses and turns their spatial traits into uncommon, editable controls.
+  summary: Free IR-inspired algorithmic reverb that turns captured spaces into editable size, density, width, clarity, and motion controls.
   collection: spatial
   icon: /support/Propagation/img/icon.png
   url: /support/Propagation/
@@ -18,7 +18,7 @@
   order: 20
   status_label: Live
   status_class: live
-  summary: BandMatrix is dynamics plug-in for multi-band sidechain compression with flexible key routing and Inverse sidechain mode.
+  summary: Free 6-band sidechain dynamics plug-in with compression, expansion, flexible key routing, and Inverse sidechain mode.
   icon: /support/bandmatrix/img/BandMatrix_icon.png
   url: /support/bandmatrix/
   latest_order: 2
@@ -31,7 +31,7 @@
   order: 12
   status_label: Live
   status_class: live
-  summary: A spatial blur plug-in for softening point-source panning, with Air for adding subtle halo movement without shifting the source position.
+  summary: Free mono-to-stereo spatial enhancer that turns dry mono sources into intimate, ASMR-like stereo images without moving their pan position.
   collection: spatial
   icon: /support/PanBlur/img/icon.png
   url: /support/PanBlur/
@@ -45,7 +45,7 @@
   order: 30
   status_label: Beta
   status_class: progress
-  summary: Dialogue cleanup and consistency tool for post-production.
+  summary: Free dialogue cleanup plug-in for voice and post-production, with separate sibilance and residual processing for more consistent speech.
   icon: /support/dialoguedoctor/img/icon.jpg
   url: /support/dialoguedoctor/
   latest_order: 8
@@ -58,7 +58,7 @@
   order: 40
   status_label: Live
   status_class: live
-  summary: An EQ concept focused on controllable level-dependent tone shaping.
+  summary: Free dynamic EQ-style plug-in that applies different EQ curves to quiet, mid-level, and loud parts of a signal.
   icon: /support/img/levelrangeeq_icon.png
   url: /support/levelrangeeq/
   latest_order: 4
@@ -71,7 +71,7 @@
   order: 50
   status_label: Live
   status_class: live
-  summary: A 5-band split-delay plug-in for offsetting only selected frequency ranges with per-band mix, trim, and phase control.
+  summary: Free multi-band phase and timing shaper for tightening drums, transients, and frequency-specific timing problems.
   icon: /support/phaseslice/img/icon.png
   url: /support/phaseslice/
   latest_order: 9
@@ -84,7 +84,7 @@
   order: 10
   status_label: Live
   status_class: live
-  summary: A subtle but practical plug-in for shaping the perceived distance of a sound source more naturally than simple reverb or EQ alone.
+  summary: Free psychoacoustic distance plug-in for pushing close sounds farther back without obvious reverb.
   icon: /support/distance/img/Distance_icon.png
   url: /support/distance/
   latest_order: 20
@@ -97,7 +97,7 @@
   order: 90
   status_label: Coming Soon
   status_class: soon
-  summary: An analysis plug-in that loads AU and VST plug-ins, sweeps parameters automatically, and measures how their controls change sound.
+  summary: Plug-in analyzer for loading AU/VST processors, sweeping parameters, and documenting how their controls change sound.
   icon: /support/DSPTrace/img/DSPTrace.png
   url: /support/DSPTrace/
 
@@ -107,7 +107,7 @@
   order: 60
   status_label: Live
   status_class: live
-  summary: Real-time spectrogram dynamics tool for voice, dialogue, and musical sources.
+  summary: Real-time spectral dynamics plug-in for smoothing harshness and uneven resonances without static EQ.
   icon: /support/spectralleveler/img/spectralleveler_icon.png
   url: /support/spectralleveler/
   latest_order: 6
@@ -120,7 +120,7 @@
   order: 10
   status_label: Live
   status_class: live
-  summary: Tools for timecode markers and PDF notes in recording sessions.
+  summary: iPad recording-session app that adds timecode markers to PDFs and jumps your DAW back to the marked spot.
   icon: /support/img/studiomate_icon.png
   url: /support/studiomate/
   latest_order: 5
@@ -133,7 +133,7 @@
   order: 20
   status_label: Live
   status_class: progress
-  summary: Use two devices signed in with the same Apple ID as Camera and Viewer.
+  summary: iPhone, iPad, and Mac camera-monitor app that turns one Apple device into a camera and another into a viewer.
   icon: /support/img/pocketcamviewer_icon.png
   url: /support/pocketcamviewer/
 
@@ -143,7 +143,7 @@
   order: 30
   status_label: Live
   status_class: live
-  summary: Formerly Music Theory. Practice counterpoint assignments and harmony figured-bass exercises.
+  summary: Music learning app for harmony and counterpoint practice, with guided exercises, note entry, daily questions, and red-pen style review.
   icon: /support/harmonycounterpoint/img/icon.jpeg
   url: /support/harmonycounterpoint/
   latest_order: 3
@@ -156,7 +156,7 @@
   order: 40
   status_label: Live
   status_class: live
-  summary: A selection search extension for fast lookups.
+  summary: Safari extension for searching selected text on your favorite sites from iPhone, iPad, or Mac.
   icon: /support/img/quicksearchext_icon.png
   url: /support/quicksearchext/
 
@@ -166,7 +166,7 @@
   order: 50
   status_label: Live
   status_class: live
-  summary: A small macOS utility for safer, clearer file copy workflows.
+  summary: macOS one-way folder sync app that makes rsync-style copying easier to review, repeat, and trust.
   icon: /support/img/copyskipper_icon.png
   url: /support/copyskipper/
   latest_order: 3
@@ -179,6 +179,6 @@
   order: 60
   status_label: Live
   status_class: live
-  summary: A customizable macOS calendar widget with color and font controls.
+  summary: macOS desktop calendar widget with customizable colors, fonts, weekend styling, and readable month layouts.
   icon: /support/calendarcalendar/img/CalendarCalendar.png
   url: /support/calendarcalendar/

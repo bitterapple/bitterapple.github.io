@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Free Mac DAW Plugins and iOS/macOS Apps by a Recording Engineer"
-description: "Developer site for Hiroshi Kojima, a recording engineer creating free Mac DAW plugins and iOS/macOS apps."
-og_description: "Free Mac DAW plugins (AAX, AU, VST) and iOS/macOS apps by Hiroshi Kojima."
+title: "Free Audio Plug-ins and Practical iOS/macOS Apps by a Recording Engineer"
+description: "Free audio plug-ins for mixing, spatial processing, dynamics, EQ, and analysis, plus practical iOS/macOS apps by recording engineer Hiroshi Kojima."
+og_description: "Free audio plug-ins for mixing and spatial processing, plus practical iOS/macOS apps by Hiroshi Kojima."
 favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect rx='12' width='64' height='64' fill='%232f73ff'/%3E%3Cpath d='M18 33h28M18 33l6-6M18 33l6 6' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
 ---
 {% assign products = site.data.products %}
@@ -13,12 +13,12 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64
 {% assign apps = products | where: 'type', 'app' | sort: 'order' %}
 <div class="container">
   <header class="header">
-    <h1>Audio plug-ins and macOS/iOS apps</h1>
+    <h1>Free audio plug-ins and practical macOS/iOS apps</h1>
     <p class="muted" style="margin-top: 8px">By Hiroshi Kojima · Recording Engineer</p>
     <p>
-      Free tools for recording, mixing, music practice, and small daily
-      workflows. Most audio plug-ins are available for macOS, with Windows VST3
-      builds on supported product pages.
+      Free tools for mixing, spatial processing, recording sessions, music
+      practice, and small daily workflows. Most audio plug-ins are available for
+      macOS, with Windows VST3 builds on supported product pages.
     </p>
 
     <div class="nav">
