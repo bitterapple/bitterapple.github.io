@@ -1,7 +1,7 @@
 ---
 layout: support
 title: "PanBlur"
-description: "PanBlur support page. A spatial blur plug-in for softening point-source panning from a master insert."
+description: "PanBlur support page. A spatial blur plug-in for softening point-source panning and turning mono sources into ASMR-like stereo presence."
 favicon: "/support/PanBlur/img/icon.png"
 ---
 
@@ -34,7 +34,9 @@ favicon: "/support/PanBlur/img/icon.png"
     <strong>PanBlur</strong> is a spatial blur plug-in for mono sources that
     feel too fixed after panning. Instead of making a sound sit as a small point
     at one pan position, it softens the image so the source still belongs around
-    that position, but feels less pinned and more spread out.
+    that position, but feels less pinned and more spread out. It can also turn a
+    dry mono source into a more intimate, ASMR-like stereo image without simply
+    auto-panning the source left and right.
   </p>
 
   <div class="nav">
@@ -93,6 +95,10 @@ favicon: "/support/PanBlur/img/icon.png"
       blurred, less point-like shape.
     </li>
     <li>
+      Can give mono sources a more intimate, ASMR-like stereo presence while
+      keeping the apparent source position stable.
+    </li>
+    <li>
       Works from a master insert concept, so multiple panned tracks can be
       softened together instead of inserting a spatial plug-in on every track.
     </li>
@@ -131,10 +137,10 @@ favicon: "/support/PanBlur/img/icon.png"
     style="grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start"
   >
     <div class="card" style="margin: 0">
-      <h3 style="margin: 0 0 8px; font-size: 16px">Point to Area</h3>
+      <h3 style="margin: 0 0 8px; font-size: 16px">Mono to Intimate Stereo</h3>
       <p class="muted" style="margin: 0; font-size: 13px">
-        Turn a sharply positioned mono pan into a softer area around that
-        position.
+        Give a mono source an ASMR-like stereo presence while keeping its core
+        position clear.
       </p>
     </div>
     <div class="card" style="margin: 0">
@@ -201,6 +207,7 @@ favicon: "/support/PanBlur/img/icon.png"
       style="margin: 10px 0 0; padding-left: 18px; font-size: 13px"
     >
       <li>Spatial blur for panned mono sources.</li>
+      <li>ASMR-like stereo presence for dry mono sources.</li>
       <li>
         Master-insert workflow for softening multiple panned tracks together.
       </li>
