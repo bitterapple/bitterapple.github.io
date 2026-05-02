@@ -7,17 +7,17 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64
 ---
 {% assign products = site.data.products %}
 {% assign whats_new = products | where_exp: 'item', 'item.latest_order' | sort: 'latest_order' %}
-{% assign featured_plugins = products | where: 'featured', true | sort: 'featured_order' %}
 {% assign plugins = products | where: 'type', 'plugin' | sort: 'order' %}
+{% assign spatial_plugins = plugins | where: 'collection', 'spatial' %}
 {% assign apps = products | where: 'type', 'app' | sort: 'order' %}
 <div class="container">
   <header class="header">
-    <h1>Free Mac DAW Plugins and iOS/macOS Apps</h1>
+    <h1>Audio plug-ins and macOS/iOS apps</h1>
     <p class="muted" style="margin-top: 8px">By Hiroshi Kojima · Recording Engineer</p>
     <p>
-      Creating free Mac DAW plugins (AAX, AU, VST) and iOS/macOS apps.
-      Windows VST3 downloads are now available on supported plug-in pages, and
-      a Windows AAX public test build is now available for Spectral Leveler.
+      Free tools for recording, mixing, music practice, and small daily
+      workflows. Most audio plug-ins are available for macOS, with Windows VST3
+      builds on supported product pages.
     </p>
 
     <div class="nav">
@@ -34,42 +34,36 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64
   </header>
 
   <main>
-    <section class="section featureTeaser" aria-labelledby="featured-tools-title">
-      <div class="sectionHeading">
-        <div>
-          <p class="featureEyebrow">Featured audio tools</p>
-          <h2 id="featured-tools-title">Spatial plug-ins worth noticing</h2>
-        </div>
-        <p class="sectionLead">
-          Two of the more distinctive tools here: one for shaping captured spaces,
-          one for making hard-panned sources feel less like a point on a line.
-        </p>
-      </div>
-      <div class="featuredGrid">
-        {% for entry in featured_plugins %}
-        <a
-          class="featuredCard cardLink"
-          href="{{ entry.url | relative_url }}"
-          aria-label="{{ entry.title }} support page"
-        >
-          <img class="featuredShot" src="{{ entry.featured_image | relative_url }}" alt="{{ entry.title }} UI screenshot" />
-          <div class="featuredCopy">
-            <div class="titleRow">
-              <img class="featuredIcon" src="{{ entry.icon | relative_url }}" alt="" />
-              <div>
-                <p class="featureLabel">{{ entry.featured_label }}</p>
-                <h3>{{ entry.title }}</h3>
-              </div>
-            </div>
-            <p>{{ entry.featured_summary }}</p>
-            <div class="chipRow">
-              {% for point in entry.featured_points %}
-              <span class="chip">{{ point }}</span>
-              {% endfor %}
-            </div>
+    <section class="section overviewSection" aria-labelledby="overview-title">
+      <h2 id="overview-title">What You Can Find Here</h2>
+      <div class="overviewGrid">
+        <a class="overviewCard cardLink" href="#plugins" aria-label="Audio plug-ins">
+          <p class="overviewKicker">AAX / AU / VST3</p>
+          <h3>Audio plug-ins</h3>
+          <p class="muted">
+            Spatial tools, dynamics, EQ ideas, phase/delay utilities, and
+            analysis tools for DAW work.
+          </p>
+          <div class="miniProductGrid" aria-label="Available audio plug-ins">
+            {% for entry in plugins %}
+            <span>{{ entry.title }}</span>
+            {% endfor %}
           </div>
         </a>
-        {% endfor %}
+
+        <a class="overviewCard cardLink" href="#apps" aria-label="macOS and iOS apps">
+          <p class="overviewKicker">macOS / iOS</p>
+          <h3>Apps</h3>
+          <p class="muted">
+            Session helpers, learning tools, camera utilities, Finder workflows,
+            and small Mac/iPhone apps.
+          </p>
+          <div class="miniProductGrid" aria-label="Available macOS and iOS apps">
+            {% for entry in apps %}
+            <span>{{ entry.title }}</span>
+            {% endfor %}
+          </div>
+        </a>
       </div>
     </section>
 
@@ -92,15 +86,35 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="plugins">
       <h2>Plugins</h2>
       <p class="muted" style="margin-top: 0">
         macOS builds target macOS 11 or later. Windows VST3 ZIPs are also
         available on each product page. A Windows AAX public test build is now
         available for Spectral Leveler.
       </p>
+      <div class="quietGroup">
+        <p class="quietGroupTitle">Spatial tools</p>
+        <div class="grid">
+          {% for entry in spatial_plugins %}
+          <a class="card cardLink" href="{{ entry.url | relative_url }}" aria-label="{{ entry.title }} support page">
+            <div class="cardTop">
+              <img class="appIconImg" src="{{ entry.icon | relative_url }}" alt="{{ entry.title }} icon" />
+              <div class="cardTitle">
+                <div class="titleRow">
+                  <h3>{{ entry.title }}</h3>
+                  <span class="badge {% if entry.status_class %}{{ entry.status_class }}{% endif %}">{{ entry.status_label }}</span>
+                </div>
+                <p class="muted">{{ entry.summary }}</p>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
       <div class="grid">
         {% for entry in plugins %}
+        {% unless entry.collection == 'spatial' %}
         <a class="card cardLink" href="{{ entry.url | relative_url }}" aria-label="{{ entry.title }} support page">
           <div class="cardTop">
             <img class="appIconImg" src="{{ entry.icon | relative_url }}" alt="{{ entry.title }} icon" />
@@ -113,11 +127,12 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64
             </div>
           </div>
         </a>
+        {% endunless %}
         {% endfor %}
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="apps">
       <h2>Apps</h2>
       <div class="grid">
         {% for entry in apps %}
