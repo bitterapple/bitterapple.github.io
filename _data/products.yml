@@ -22,8 +22,8 @@
   icon: /support/bandmatrix/img/BandMatrix_icon.png
   url: /support/bandmatrix/
   latest_order: 2
-  latest_date: "2026-04-24"
-  latest_summary: Updated to v2.4.0. Minor bug fix release.
+  latest_date: "2026-05-03"
+  latest_summary: Updated to v2.5.0. Minor bug fix release.
 
 - slug: panblur
   title: PanBlur
