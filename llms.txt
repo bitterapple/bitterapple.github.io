@@ -14,7 +14,7 @@
 - Propagation: free IR-inspired algorithmic reverb that turns captured spaces into editable reverb controls.
 - Level Range EQ: free dynamic EQ-style plug-in for applying different EQ curves to quiet, mid-level, and loud signal ranges.
 - DSPTrace: plug-in analyzer for loading AU/VST processors, sweeping parameters, and documenting how controls change sound.
-- Harmony & Counterpoint: music learning app for harmony and counterpoint practice with guided exercises and red-pen style review.
+- Harmony & Counterpoint: a music theory practice app for composers, arrangers, and producers, with guided exercises and red-pen style review.
 - Studio Mate: iPad recording-session app that adds timecode markers to PDFs and jumps a DAW to the marked spot.
 - PocketCam Viewer: iPhone, iPad, and Mac camera-monitor app using one Apple device as a camera and another as a viewer.
 - QuickSearchExt: Safari extension for searching selected text on favorite sites from iPhone, iPad, or Mac.
