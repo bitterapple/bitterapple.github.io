@@ -21,9 +21,9 @@
   summary: Free 6-band sidechain dynamics plug-in with compression, expansion, flexible key routing, and Inverse sidechain mode.
   icon: /support/bandmatrix/img/BandMatrix_icon.png
   url: /support/bandmatrix/
-  latest_order: 2
-  latest_date: "2026-05-03"
-  latest_summary: Updated to v2.5.0. Minor bug fix release.
+  latest_order: 1
+  latest_date: "2026-05-06"
+  latest_summary: Updated to v2.6.0. Fixes Mix control behavior in Tone Shaper mode.
 
 - slug: panblur
   title: PanBlur
@@ -35,7 +35,7 @@
   collection: spatial
   icon: /support/PanBlur/img/icon.png
   url: /support/PanBlur/
-  latest_order: 1
+  latest_order: 2
   latest_date: "2026-05-04"
   latest_summary: Updated to v1.2.0. Added Air, a new control for subtle halo texture movement that adds a sense of air without moving the dry source position.
 
