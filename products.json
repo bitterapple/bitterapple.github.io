@@ -52,7 +52,7 @@
     },
     "distance": {
       "name": "Distance",
-      "latest_version": "1.0.2",
+      "latest_version": "1.0.1",
       "download_url": "https://bitterapple.github.io/support/distance/",
       "release_notes_url": "https://bitterapple.github.io/support/distance/#release-notes",
       "min_supported_version": "1.0.0",

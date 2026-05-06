@@ -10,7 +10,7 @@
   url: /support/Propagation/
   latest_order: 2
   latest_date: "2026-05-06"
-  latest_summary: Updated to v1.1.0. Refines the reverb behavior and makes the space-shaping controls easier to use in a mix.
+  latest_summary: Updated to v1.1.0. Refines the reverb behavior, including the Distance parameter, and makes the space-shaping controls easier to use in a mix.
 
 - slug: bandmatrix
   title: BandMatrix
@@ -21,7 +21,7 @@
   summary: Free 6-band sidechain dynamics plug-in with compression, expansion, flexible key routing, and Inverse sidechain mode.
   icon: /support/bandmatrix/img/BandMatrix_icon.png
   url: /support/bandmatrix/
-  latest_order: 4
+  latest_order: 3
   latest_date: "2026-05-06"
   latest_summary: Updated to v2.6.0. Fixes Mix control behavior in Tone Shaper mode.
 
@@ -87,9 +87,9 @@
   summary: Free psychoacoustic distance plug-in for pushing close sounds farther back without obvious reverb.
   icon: /support/distance/img/Distance_icon.png
   url: /support/distance/
-  latest_order: 3
-  latest_date: "2026-05-06"
-  latest_summary: "Updated to v1.0.2. Refines the distance-shaping behavior for more useful front-to-back placement."
+  latest_order: 20
+  latest_date: "2026-03-11"
+  latest_summary: "Updated to v1.0.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet."
 
 - slug: dsptrace
   title: DSPTrace
