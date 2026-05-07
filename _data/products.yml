@@ -8,7 +8,7 @@
   collection: spatial
   icon: /support/Propagation/img/icon.png
   url: /support/Propagation/
-  latest_order: 1
+  latest_order: 2
   latest_date: "2026-05-07"
   latest_summary: Updated to v1.2.0. Minor update with refreshed macOS and Windows downloads.
 
@@ -35,9 +35,9 @@
   collection: spatial
   icon: /support/PanBlur/img/icon.png
   url: /support/PanBlur/
-  latest_order: 2
-  latest_date: "2026-05-06"
-  latest_summary: Updated to v1.3.0. Makes the Air effect easier to hear while keeping the dry source position stable.
+  latest_order: 1
+  latest_date: "2026-05-07"
+  latest_summary: Updated to v1.4.0. Improves the SoundField display so shape and localization remain visible even with small input levels.
 
 - slug: dialoguedoctor
   title: Dialogue Doctor

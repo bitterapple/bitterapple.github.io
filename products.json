@@ -1,6 +1,6 @@
 {
   "schema_version": 17,
-  "generated_at": "2026-05-07T03:25:00Z",
+  "generated_at": "2026-05-07T04:45:00Z",
   "products": {
     "levelrangeeq": {
       "name": "Level Range EQ",
@@ -36,10 +36,10 @@
     },
     "panblur": {
       "name": "PanBlur",
-      "latest_version": "1.3.0",
+      "latest_version": "1.4.0",
       "download_url": "https://bitterapple.github.io/support/PanBlur/",
       "release_notes_url": "https://bitterapple.github.io/support/PanBlur/#release-notes",
-      "min_supported_version": "1.3.0",
+      "min_supported_version": "1.4.0",
       "critical": false
     },
     "phaseslice": {
