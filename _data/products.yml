@@ -36,8 +36,8 @@
   icon: /support/PanBlur/img/icon.png
   url: /support/PanBlur/
   latest_order: 1
-  latest_date: "2026-05-07"
-  latest_summary: Updated to v1.4.0. Improves the SoundField display so shape and localization remain visible even with small input levels.
+  latest_date: "2026-05-08"
+  latest_summary: Windows AAX download added for v1.4.0. The plug-in version is unchanged.
 
 - slug: dialoguedoctor
   title: Dialogue Doctor
