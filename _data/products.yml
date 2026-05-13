@@ -31,13 +31,13 @@
   order: 12
   status_label: Live
   status_class: live
-  summary: Free mono-to-stereo spatial enhancer that turns dry mono sources into intimate, ASMR-like stereo images without moving their pan position.
+  summary: Free spatial enhancer for mono and LCR sources that creates intimate stereo images without moving their pan position.
   collection: spatial
   icon: /support/PanBlur/img/icon.png
   url: /support/PanBlur/
   latest_order: 1
-  latest_date: "2026-05-08"
-  latest_summary: Windows AAX download added for v1.4.0. The plug-in version is unchanged.
+  latest_date: "2026-05-13"
+  latest_summary: Updated to v1.5.0. Adds LCR support and removes the mono/mono format.
 
 - slug: dialoguedoctor
   title: Dialogue Doctor
