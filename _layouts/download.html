@@ -28,7 +28,7 @@ layout: default
       class="muted"
       style="display: none; margin: 10px 0 0; font-size: 13px"
     >
-      The download has started. You can close this tab.
+      Your browser should start the download shortly. This tab will close automatically.
     </p>
     <p class="muted" style="margin: 10px 0 0; font-size: 13px">
       <a id="download-back-link" href="{{ return_target }}">Back to the previous page</a>
@@ -68,8 +68,15 @@ layout: default
 
       redirected = true;
 
+      var frame = document.createElement("iframe");
+      frame.name = "download-frame";
+      frame.style.display = "none";
+      frame.setAttribute("aria-hidden", "true");
+      document.body.appendChild(frame);
+
       var link = document.createElement("a");
       link.href = target;
+      link.target = "download-frame";
       link.style.display = "none";
       link.rel = "noopener";
 
@@ -84,9 +91,15 @@ layout: default
         if (closeNote) {
           closeNote.style.display = "block";
         }
+      }, 1200);
+
+      window.setTimeout(function () {
+        if (window.opener && !window.opener.closed) {
+          window.opener.focus();
+        }
 
         window.close();
-      }, 1200);
+      }, 2500);
     }
 
     function resolveReferrer() {
