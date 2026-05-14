@@ -43,24 +43,6 @@
 
   <body>
     {{ content }}
-    {% unless page.layout == 'download' %}
-    <script>
-      (function () {
-        Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function (link) {
-          try {
-            var url = new URL(link.getAttribute("href"), window.location.href);
-
-            if (url.origin === window.location.origin && url.pathname.indexOf("/download/") === 0) {
-              link.target = "_blank";
-              link.rel = "noopener";
-            }
-          } catch (error) {
-            // Ignore malformed links and keep the page usable.
-          }
-        });
-      })();
-    </script>
-    {% endunless %}
     {% include analytics.html %}
   </body>
 </html>
