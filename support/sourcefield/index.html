@@ -1,0 +1,222 @@
+---
+layout: support
+title: "SourceField"
+description: "SourceField is a free 2D source placement plug-in for changing mono or stereo position, direction, and listener perspective from an XY field."
+favicon: "/support/sourcefield/img/screenshot.png"
+---
+
+<header class="header">
+  <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap">
+    <img
+      src="./img/screenshot.png"
+      alt="SourceField interface preview"
+      style="
+        width: 64px;
+        height: 64px;
+        border-radius: 14px;
+        object-fit: cover;
+        object-position: top center;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      "
+      loading="lazy"
+    />
+    <div>
+      <h1 style="margin: 0">SourceField</h1>
+      <p class="muted" style="margin: 6px 0 0; font-size: 13px">
+        <strong>Public preview</strong> — <strong>Version 1.0.0</strong>.
+      </p>
+      <p class="muted" style="margin: 6px 0 0; font-size: 12px; opacity: 0.85">
+        Free 2D Source Placement Plug-in
+      </p>
+    </div>
+  </div>
+
+  <p style="margin-top: 14px">
+    <strong>SourceField</strong> places a mono or stereo source on a 2D field
+    around the listening point. Move the source on an XY matrix, rotate the
+    source direction, and rotate the listener direction from the center point to
+    shape where the sound appears to come from.
+  </p>
+
+  <div class="nav">
+    <a class="btn" href="{{ '/' | relative_url }}">← All apps</a>
+    <a
+      class="btn"
+      href="{{ '/download/sourcefield/windows-vst3/' | relative_url }}"
+      target="_blank"
+      rel="noopener"
+      style="font-weight: 700"
+      >Download Windows VST3</a
+    >
+    <a
+      class="btn"
+      href="mailto:kjdevapphelp@gmail.com?subject=SourceField%20Support"
+      >Contact support</a
+    >
+  </div>
+
+  <div
+    class="grid"
+    style="
+      grid-template-columns: 1fr;
+      align-items: start;
+      gap: 14px;
+      margin-top: 14px;
+    "
+  >
+    <div class="card" style="margin: 0">
+      <div class="muted" style="font-size: 13px">
+        <strong>Windows:</strong> VST3 public preview
+        <span style="opacity: 0.6; padding: 0 6px">•</span>
+        <strong>macOS:</strong> planned
+      </div>
+      <div style="margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap">
+        <a
+          class="btn"
+          href="{{ '/download/sourcefield/windows-vst3/' | relative_url }}"
+          target="_blank"
+          rel="noopener"
+          style="font-weight: 700"
+          >Download SourceField-windows-vst3.zip</a
+        >
+      </div>
+      <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+        SourceField is being released early because the basic idea is already
+        useful: a sound source, its facing direction, and the listener's facing
+        direction can all be adjusted on one 2D surface. More controls and
+        sound-model revisions are planned.
+      </p>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <h2>What it does</h2>
+  <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
+    <li>
+      Places a mono or stereo source around a listener-centered
+      <strong>XY field</strong>.
+    </li>
+    <li>
+      Changes left/right position, front/back distance, and source direction in
+      one visual control.
+    </li>
+    <li>
+      Lets the listener direction rotate too, so the same source position can
+      feel different as the listening point turns.
+    </li>
+    <li>
+      Combines the kind of spatial softening explored in PanBlur with the
+      front/back placement idea of Distance.
+    </li>
+    <li>
+      Works as a practical mix tool for making a source feel placed, aimed, or
+      offset without setting up a full surround or game-audio scene.
+    </li>
+  </ul>
+
+  <figure style="margin: 14px 0 0; max-width: 560px">
+    <img
+      src="./img/screenshot.png"
+      alt="SourceField interface screenshot"
+      style="
+        width: 100%;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      "
+      loading="lazy"
+    />
+    <figcaption class="muted" style="margin-top: 8px; font-size: 12px">
+      Screenshot: source position, source direction, and listener direction in
+      one 2D placement view.
+    </figcaption>
+  </figure>
+</section>
+
+<section class="section">
+  <h2>Concept</h2>
+  <div
+    class="grid"
+    style="grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start"
+  >
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Source Position</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        Move the sound on an XY field instead of thinking only in pan or width.
+      </p>
+    </div>
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Source Direction</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        Rotate where the source is facing, changing the feeling of projection
+        and off-axis placement.
+      </p>
+    </div>
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Listener Direction</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        Keep the listener at the center, then turn the listening direction to
+        reshape the perspective.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Current state</h2>
+  <p class="muted" style="margin: 0; font-size: 13px">
+    This first public build is a preview. The core interaction is in place, but
+    the sound, parameter set, and supported formats may change as SourceField
+    grows. Treat it as an early spatial tool rather than a finished final model.
+  </p>
+</section>
+
+<section class="section" id="release-notes">
+  <h2>Release history</h2>
+  <div class="card" style="margin: 0">
+    <p class="muted" style="margin: 0; font-size: 13px">
+      <strong>v1.0.0</strong> — Initial public preview.
+    </p>
+    <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+      Windows VST3 build for testing SourceField's first 2D source-placement
+      workflow.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Requirements</h2>
+  <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
+    <li>Windows plug-in host with <strong>VST3</strong> support.</li>
+    <li>Package: <code>SourceField-windows-vst3.zip</code></li>
+    <li>macOS formats are planned for a future release.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>Install</h2>
+  <ol class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
+    <li>
+      Download
+      <a href="{{ '/download/sourcefield/windows-vst3/' | relative_url }}"
+        ><code>SourceField-windows-vst3.zip</code></a
+      >.
+    </li>
+    <li>Unzip the package and place the VST3 file in your Windows VST3 folder.</li>
+    <li>Launch your DAW and rescan plug-ins if SourceField does not appear.</li>
+  </ol>
+</section>
+
+<section class="section">
+  <h2>Support</h2>
+  <p class="muted" style="margin: 0; font-size: 13px">
+    Email:
+    <a href="mailto:kjdevapphelp@gmail.com?subject=SourceField%20Support"
+      >kjdevapphelp@gmail.com</a
+    >
+  </p>
+  <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+    Please include: OS version, host DAW, plug-in format, SourceField version,
+    and a short description of what you expected to hear or see.
+  </p>
+</section>

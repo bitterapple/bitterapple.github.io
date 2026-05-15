@@ -8,9 +8,23 @@
   collection: spatial
   icon: /support/Propagation/img/icon.png
   url: /support/Propagation/
-  latest_order: 2
+  latest_order: 3
   latest_date: "2026-05-07"
   latest_summary: Updated to v1.2.0. Minor update with refreshed macOS and Windows downloads.
+
+- slug: sourcefield
+  title: SourceField
+  type: plugin
+  order: 8
+  status_label: Preview
+  status_class: progress
+  summary: Free 2D source placement plug-in for changing mono or stereo position, direction, and listener perspective from an XY field.
+  collection: spatial
+  icon: /support/sourcefield/img/screenshot.png
+  url: /support/sourcefield/
+  latest_order: 1
+  latest_date: "2026-05-15"
+  latest_summary: Initial public preview. Windows VST3 build is available while the spatial model and feature set continue to evolve.
 
 - slug: bandmatrix
   title: BandMatrix
@@ -21,7 +35,7 @@
   summary: Free 6-band sidechain dynamics plug-in with compression, expansion, flexible key routing, and Inverse sidechain mode.
   icon: /support/bandmatrix/img/BandMatrix_icon.png
   url: /support/bandmatrix/
-  latest_order: 3
+  latest_order: 4
   latest_date: "2026-05-06"
   latest_summary: Updated to v2.6.0. Fixes Mix control behavior in Tone Shaper mode.
 
@@ -35,7 +49,7 @@
   collection: spatial
   icon: /support/PanBlur/img/icon.png
   url: /support/PanBlur/
-  latest_order: 1
+  latest_order: 2
   latest_date: "2026-05-13"
   latest_summary: Updated to v1.5.0. Adds LCR support and removes the mono/mono format.
 
