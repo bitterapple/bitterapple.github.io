@@ -95,10 +95,11 @@
 - slug: distance
   title: Distance
   type: plugin
-  order: 10
+  order: 14
   status_label: Live
   status_class: live
   summary: Free psychoacoustic distance plug-in for pushing close sounds farther back without obvious reverb.
+  collection: spatial
   icon: /support/distance/img/Distance_icon.png
   url: /support/distance/
   latest_order: 20
