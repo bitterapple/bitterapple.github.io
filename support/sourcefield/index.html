@@ -1,7 +1,7 @@
 ---
 layout: support
 title: "SourceField"
-description: "SourceField is a free 2D source placement plug-in for changing mono or stereo position, direction, and listener perspective from an XY field."
+description: "SourceField is a free 2D source placement plug-in for ASMR-like mono or stereo positioning, source direction, and listener perspective from an XY field."
 favicon: "/support/sourcefield/img/screenshot.png"
 ---
 
@@ -23,23 +23,32 @@ favicon: "/support/sourcefield/img/screenshot.png"
     <div>
       <h1 style="margin: 0">SourceField</h1>
       <p class="muted" style="margin: 6px 0 0; font-size: 13px">
-        <strong>Public preview</strong> — <strong>Version 1.0.0</strong>.
+        <strong>Released</strong> — <strong>Version 1.0.0</strong>.
       </p>
       <p class="muted" style="margin: 6px 0 0; font-size: 12px; opacity: 0.85">
-        Free 2D Source Placement Plug-in
+        Free 2D ASMR-Style Source Placement Plug-in
       </p>
     </div>
   </div>
 
   <p style="margin-top: 14px">
-    <strong>SourceField</strong> places a mono or stereo source on a 2D field
-    around the listening point. Move the source on an XY matrix, rotate the
-    source direction, and rotate the listener direction from the center point to
-    shape where the sound appears to come from.
+    <strong>SourceField</strong> is for playing with close, physical, ASMR-like
+    stereo placement. Put a mono or stereo source on a 2D field around the
+    listening point, rotate the source direction, and rotate the listener
+    direction from the center point to shape where the sound appears to come
+    from.
   </p>
 
   <div class="nav">
     <a class="btn" href="{{ '/' | relative_url }}">← All apps</a>
+    <a
+      class="btn"
+      href="{{ '/download/sourcefield/macos/' | relative_url }}"
+      target="_blank"
+      rel="noopener"
+      style="font-weight: 700"
+      >Download macOS AU/AAX/VST3</a
+    >
     <a
       class="btn"
       href="{{ '/download/sourcefield/windows-vst3/' | relative_url }}"
@@ -66,11 +75,19 @@ favicon: "/support/sourcefield/img/screenshot.png"
   >
     <div class="card" style="margin: 0">
       <div class="muted" style="font-size: 13px">
-        <strong>Windows:</strong> VST3 public preview
+        <strong>macOS:</strong> AU / AAX / VST3
         <span style="opacity: 0.6; padding: 0 6px">•</span>
-        <strong>macOS:</strong> planned
+        <strong>Windows:</strong> VST3
       </div>
       <div style="margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap">
+        <a
+          class="btn"
+          href="{{ '/download/sourcefield/macos/' | relative_url }}"
+          target="_blank"
+          rel="noopener"
+          style="font-weight: 700"
+          >Download SourceField_1.0.0.pkg</a
+        >
         <a
           class="btn"
           href="{{ '/download/sourcefield/windows-vst3/' | relative_url }}"
@@ -82,9 +99,10 @@ favicon: "/support/sourcefield/img/screenshot.png"
       </div>
       <p class="muted" style="margin: 10px 0 0; font-size: 12px">
         SourceField is being released early because the basic idea is already
-        useful: a sound source, its facing direction, and the listener's facing
-        direction can all be adjusted on one 2D surface. More controls and
-        sound-model revisions are planned.
+        fun: put a sound close to the listener, aim it, turn the listener, and
+        do ASMR-like placement experiments on one 2D surface. macOS AU/AAX/VST3
+        and Windows VST3 builds are available. More controls and sound-model
+        revisions are planned.
       </p>
     </div>
   </div>
@@ -112,6 +130,10 @@ favicon: "/support/sourcefield/img/screenshot.png"
     <li>
       Works as a practical mix tool for making a source feel placed, aimed, or
       offset without setting up a full surround or game-audio scene.
+    </li>
+    <li>
+      Good for ASMR-style play: whisper-close sounds, moving objects, and
+      "where is this voice facing?" experiments.
     </li>
   </ul>
 
@@ -165,9 +187,9 @@ favicon: "/support/sourcefield/img/screenshot.png"
 <section class="section">
   <h2>Current state</h2>
   <p class="muted" style="margin: 0; font-size: 13px">
-    This first public build is a preview. The core interaction is in place, but
-    the sound, parameter set, and supported formats may change as SourceField
-    grows. Treat it as an early spatial tool rather than a finished final model.
+    The core interaction is in place, but the sound and parameter set will keep
+    evolving as SourceField grows. Treat this first release as a playful spatial
+    tool that will gain more controls and refinements over time.
   </p>
 </section>
 
@@ -175,11 +197,11 @@ favicon: "/support/sourcefield/img/screenshot.png"
   <h2>Release history</h2>
   <div class="card" style="margin: 0">
     <p class="muted" style="margin: 0; font-size: 13px">
-      <strong>v1.0.0</strong> — Initial public preview.
+      <strong>v1.0.0</strong> — Initial release.
     </p>
     <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-      Windows VST3 build for testing SourceField's first 2D source-placement
-      workflow.
+      macOS AU/AAX/VST3 and Windows VST3 builds for testing SourceField's first
+      2D source-placement workflow.
     </p>
   </div>
 </section>
@@ -187,9 +209,13 @@ favicon: "/support/sourcefield/img/screenshot.png"
 <section class="section">
   <h2>Requirements</h2>
   <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
+    <li>
+      macOS plug-in host with <strong>AU</strong>, <strong>AAX</strong>, or
+      <strong>VST3</strong> support.
+    </li>
     <li>Windows plug-in host with <strong>VST3</strong> support.</li>
-    <li>Package: <code>SourceField-windows-vst3.zip</code></li>
-    <li>macOS formats are planned for a future release.</li>
+    <li>macOS installer: <code>SourceField_1.0.0.pkg</code></li>
+    <li>Windows package: <code>SourceField-windows-vst3.zip</code></li>
   </ul>
 </section>
 
@@ -197,12 +223,20 @@ favicon: "/support/sourcefield/img/screenshot.png"
   <h2>Install</h2>
   <ol class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
     <li>
-      Download
+      Download the package for your system:
+      <a href="{{ '/download/sourcefield/macos/' | relative_url }}"
+        ><code>SourceField_1.0.0.pkg</code></a
+      >
+      or
       <a href="{{ '/download/sourcefield/windows-vst3/' | relative_url }}"
         ><code>SourceField-windows-vst3.zip</code></a
       >.
     </li>
-    <li>Unzip the package and place the VST3 file in your Windows VST3 folder.</li>
+    <li>Run the macOS installer, or unzip the Windows package.</li>
+    <li>
+      Install the plug-in format you need into the appropriate system plug-in
+      folder.
+    </li>
     <li>Launch your DAW and rescan plug-ins if SourceField does not appear.</li>
   </ol>
 </section>
