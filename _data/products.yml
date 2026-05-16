@@ -12,19 +12,19 @@
   latest_date: "2026-05-07"
   latest_summary: Updated to v1.2.0. Minor update with refreshed macOS and Windows downloads.
 
-slug: sourcefield
-title: SourceField
-type: plugin
-order: 8
-status_label: Live
-status_class: live
-summary: Free 2D source placement plug-in for ASMR-like mono or stereo positioning, source direction, and listener perspective from an XY field.
-collection: spatial
-icon: /support/sourcefield/img/screenshot.png
-url: /support/sourcefield/
-latest_order: 1
-latest_date: "2026-05-15"
-latest_summary: Updated to v1.1.0. Adds Lock direction to listener, Surface Blur, Rear Softening, Air Absorption, Proximity Bass, and a Limiter on/off control.
+- slug: sourcefield
+  title: SourceField
+  type: plugin
+  order: 8
+  status_label: Live
+  status_class: live
+  summary: Free 2D source placement plug-in for ASMR-like mono or stereo positioning, source direction, listener perspective, and distance-style tone shaping from an XY field.
+  collection: spatial
+  icon: /support/sourcefield/img/screenshot.png
+  url: /support/sourcefield/
+  latest_order: 1
+  latest_date: "2026-05-16"
+  latest_summary: Updated to v1.1.0. Adds Lock direction to listener, Surface Blur, Rear Softening, Air Absorption, Proximity Bass, and a Limiter on/off control.
 
 - slug: bandmatrix
   title: BandMatrix
