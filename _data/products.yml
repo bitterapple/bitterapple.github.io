@@ -18,13 +18,13 @@
   order: 8
   status_label: Live
   status_class: live
-  summary: Free 2D source placement plug-in for ASMR-like mono or stereo positioning, source direction, listener perspective, and distance-style tone shaping from an XY field.
+  summary: Free 2D source placement plug-in for ASMR-like mono or stereo positioning, source direction, listener perspective, distance-style tone shaping, motion drift, and input-reactive visual feedback from an XY field.
   collection: spatial
   icon: /support/sourcefield/img/screenshot.png
   url: /support/sourcefield/
   latest_order: 1
   latest_date: "2026-05-16"
-  latest_summary: Updated to v1.1.0. Adds Lock direction to listener, Surface Blur, Rear Softening, Air Absorption, Proximity Bass, and a Limiter on/off control.
+  latest_summary: Updated to v1.2.0. Adds Distance Law, Motion Drift, Shift-drag Snap Assist, and input-reactive directional visual feedback.
 
 - slug: bandmatrix
   title: BandMatrix
