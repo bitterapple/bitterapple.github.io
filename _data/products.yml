@@ -8,9 +8,9 @@
   collection: spatial
   icon: /support/Propagation/img/icon.png
   url: /support/Propagation/
-  latest_order: 4
-  latest_date: "2026-05-07"
-  latest_summary: Updated to v1.2.0. Minor update with refreshed macOS and Windows downloads.
+  latest_order: 1
+  latest_date: "2026-05-17"
+  latest_summary: Updated to v1.3.0. Adds in-app tooltips so the controls are easier to understand while mixing.
 
 - slug: sourcefield
   title: SourceField
@@ -22,7 +22,7 @@
   collection: spatial
   icon: /support/sourcefield/img/screenshot.png
   url: /support/sourcefield/
-  latest_order: 1
+  latest_order: 3
   latest_date: "2026-05-16"
   latest_summary: Updated to v1.2.0. Adds Distance Law, Motion Drift, Shift-drag Snap Assist, and input-reactive directional visual feedback.
 
@@ -35,7 +35,7 @@
   summary: Free 6-band sidechain dynamics plug-in with compression, expansion, flexible key routing, and Inverse sidechain mode.
   icon: /support/bandmatrix/img/BandMatrix_icon.png
   url: /support/bandmatrix/
-  latest_order: 2
+  latest_order: 4
   latest_date: "2026-05-15"
   latest_summary: Updated to v2.7.0. Minor update with refreshed macOS and Windows downloads.
 
@@ -49,9 +49,9 @@
   collection: spatial
   icon: /support/PanBlur/img/icon.png
   url: /support/PanBlur/
-  latest_order: 3
-  latest_date: "2026-05-13"
-  latest_summary: Updated to v1.5.0. Adds LCR support and removes the mono/mono format.
+  latest_order: 2
+  latest_date: "2026-05-17"
+  latest_summary: Updated to v1.6.0. Adds in-app tooltips for the main controls and I/O behavior.
 
 - slug: dialoguedoctor
   title: Dialogue Doctor
