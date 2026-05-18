@@ -8,7 +8,7 @@
   collection: spatial
   icon: /support/Propagation/img/icon.png
   url: /support/Propagation/
-  latest_order: 1
+  latest_order: 2
   latest_date: "2026-05-17"
   latest_summary: Updated to v1.3.0. Adds in-app tooltips so the controls are easier to understand while mixing.
 
@@ -22,9 +22,9 @@
   collection: spatial
   icon: /support/sourcefield/img/screenshot.png
   url: /support/sourcefield/
-  latest_order: 3
-  latest_date: "2026-05-16"
-  latest_summary: Updated to v1.2.0. Adds Distance Law, Motion Drift, Shift-drag Snap Assist, and input-reactive directional visual feedback.
+  latest_order: 1
+  latest_date: "2026-05-18"
+  latest_summary: Updated to v1.3.0. Adds frequency-dependent source direction, so rear-facing sounds lose direct high detail while keeping low-end body and a wider halo.
 
 - slug: bandmatrix
   title: BandMatrix
@@ -49,7 +49,7 @@
   collection: spatial
   icon: /support/PanBlur/img/icon.png
   url: /support/PanBlur/
-  latest_order: 2
+  latest_order: 3
   latest_date: "2026-05-17"
   latest_summary: Updated to v1.6.0. Adds in-app tooltips for the main controls and I/O behavior.
 

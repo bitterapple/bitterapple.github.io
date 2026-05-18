@@ -1,7 +1,7 @@
 ---
 layout: support
 title: "SourceField"
-description: "SourceField is a free 2D source placement plug-in for ASMR-like mono or stereo positioning, source direction, listener perspective, distance-style tone shaping, motion drift, and input-reactive visual feedback from an XY field."
+description: "SourceField is a free 2D source placement plug-in for ASMR-like mono or stereo positioning, frequency-dependent source direction, listener perspective, distance-style tone shaping, motion drift, and input-reactive visual feedback from an XY field."
 favicon: "/support/sourcefield/img/screenshot.png"
 ---
 
@@ -23,7 +23,7 @@ favicon: "/support/sourcefield/img/screenshot.png"
     <div>
       <h1 style="margin: 0">SourceField</h1>
       <p class="muted" style="margin: 6px 0 0; font-size: 13px">
-        <strong>Released</strong> — <strong>Version 1.2.0</strong>.
+        <strong>Released</strong> — <strong>Version 1.3.0</strong>.
       </p>
       <p class="muted" style="margin: 6px 0 0; font-size: 12px; opacity: 0.85">
         Free 2D ASMR-Style Source Placement Plug-in
@@ -35,8 +35,9 @@ favicon: "/support/sourcefield/img/screenshot.png"
     <strong>SourceField</strong> is for playing with close, physical, ASMR-like
     stereo placement. Put a mono or stereo source on a 2D field around the
     listening point, rotate the source direction, lock the direction toward the
-    listener when needed, add subtle motion drift, and use distance-style tone
-    controls to shape how close, soft, rear-facing, or stable the source feels.
+    listener when needed, add subtle motion drift, and use frequency-dependent
+    direction shaping to make rear-facing sounds lose direct high detail without
+    simply turning the whole source down.
   </p>
 
   <div class="nav">
@@ -70,7 +71,7 @@ favicon: "/support/sourcefield/img/screenshot.png"
           target="_blank"
           rel="noopener"
           style="font-weight: 700"
-          >Download SourceField_1.2.0.pkg</a
+          >Download SourceField_1.3.0.pkg</a
         >
         <a
           class="btn"
@@ -82,9 +83,10 @@ favicon: "/support/sourcefield/img/screenshot.png"
         >
       </div>
       <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-        SourceField v1.2.0 adds Distance Law, subtle Motion Drift, Shift-based
-        Snap Assist, and input-reactive directional visual feedback. macOS
-        AU/AAX/VST3 and Windows VST3 builds are available.
+        SourceField v1.3.0 adds frequency-dependent source direction, so
+        off-axis and rear-facing sounds keep low-end body while direct high
+        detail, air, and mouth-front presence become softer. macOS AU/AAX/VST3
+        and Windows VST3 builds are available.
       </p>
     </div>
   </div>
@@ -129,6 +131,11 @@ favicon: "/support/sourcefield/img/screenshot.png"
     <li>
       Shows input-reactive directional ripples from the source point, with the
       visual spread following the source direction.
+    </li>
+    <li>
+      Uses <strong>frequency-dependent source direction</strong>: lows stay
+      comparatively stable, while upper mids, air, consonants, and direct detail
+      react more strongly when the source turns away.
     </li>
     <li>
       Combines the kind of spatial softening explored in PanBlur with the
@@ -186,6 +193,49 @@ favicon: "/support/sourcefield/img/screenshot.png"
       <p class="muted" style="margin: 0; font-size: 13px">
         Keep the listener at the center, then turn the listening direction to
         reshape the perspective.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>New in v1.3.0</h2>
+  <div
+    class="grid"
+    style="grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start"
+  >
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">
+        Frequency-dependent direction
+      </h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        Source direction now behaves more like an off-axis voice or small sound
+        source: low body remains present, while upper-mid directness, air, and
+        mouth-front detail fade more strongly as the source turns away.
+      </p>
+    </div>
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Core and halo balance</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        Rear-facing placement is shaped as a balance change instead of a simple
+        volume drop: the direct core becomes less sharp, while the surrounding
+        halo opens slightly so the source feels turned away rather than muted.
+      </p>
+    </div>
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Softer consonants</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        High-frequency transients, breath, sibilance, and close mouth texture
+        are softened more than the low and low-mid body. This helps a voice
+        read as facing away without making it feel thin or artificially low-passed.
+      </p>
+    </div>
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Side-facing nuance</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        Side-facing sources now sit between forward and rear-facing behavior,
+        with a modest reduction around the direct-detail range and a little more
+        spatial spread from the halo.
       </p>
     </div>
   </div>
@@ -278,16 +328,25 @@ favicon: "/support/sourcefield/img/screenshot.png"
 <section class="section">
   <h2>Current state</h2>
   <p class="muted" style="margin: 0; font-size: 13px">
-    The core interaction, distance-style tone controls, motion drift, and visual
-    feedback are now in place. SourceField will keep evolving as a playful
-    spatial tool for close, physical, ASMR-like placement and source-direction
-    experiments.
+    The core interaction, distance-style tone controls, motion drift,
+    frequency-dependent direction, and visual feedback are now in place.
+    SourceField will keep evolving as a playful spatial tool for close,
+    physical, ASMR-like placement and source-direction experiments.
   </p>
 </section>
 
 <section class="section" id="release-notes">
   <h2>Release history</h2>
   <div class="card" style="margin: 0">
+    <p class="muted" style="margin: 0; font-size: 13px">
+      <strong>v1.3.0</strong> — Adds frequency-dependent source direction.
+    </p>
+    <p class="muted" style="margin: 10px 0 14px; font-size: 12px">
+      Updates direction processing so rear-facing sounds keep low-end body while
+      direct high detail, air, consonants, and close mouth texture are softened.
+      The result is more like an off-axis source with a wider halo, not a simple
+      full-band volume drop.
+    </p>
     <p class="muted" style="margin: 0; font-size: 13px">
       <strong>v1.2.0</strong> — Adds Distance Law, Motion Drift, Snap Assist,
       and input-reactive directional visual feedback.
@@ -323,7 +382,7 @@ favicon: "/support/sourcefield/img/screenshot.png"
       <strong>VST3</strong> support.
     </li>
     <li>Windows plug-in host with <strong>VST3</strong> support.</li>
-    <li>macOS installer: <code>SourceField_1.2.0.pkg</code></li>
+    <li>macOS installer: <code>SourceField_1.3.0.pkg</code></li>
     <li>Windows package: <code>SourceField-windows-vst3.zip</code></li>
   </ul>
 </section>
@@ -334,7 +393,7 @@ favicon: "/support/sourcefield/img/screenshot.png"
     <li>
       Download the package for your system:
       <a href="{{ '/download/sourcefield/macos/' | relative_url }}"
-        ><code>SourceField_1.2.0.pkg</code></a
+        ><code>SourceField_1.3.0.pkg</code></a
       >
       or
       <a href="{{ '/download/sourcefield/windows-vst3/' | relative_url }}"
