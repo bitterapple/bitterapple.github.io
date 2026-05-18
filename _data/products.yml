@@ -8,7 +8,7 @@
   collection: spatial
   icon: /support/Propagation/img/icon.png
   url: /support/Propagation/
-  latest_order: 2
+  latest_order: 4
   latest_date: "2026-05-17"
   latest_summary: Updated to v1.3.0. Adds in-app tooltips so the controls are easier to understand while mixing.
 
@@ -22,7 +22,7 @@
   collection: spatial
   icon: /support/sourcefield/img/screenshot.png
   url: /support/sourcefield/
-  latest_order: 1
+  latest_order: 3
   latest_date: "2026-05-18"
   latest_summary: Updated to v1.3.0. Adds frequency-dependent source direction, so rear-facing sounds lose direct high detail while keeping low-end body and a wider halo.
 
@@ -35,7 +35,7 @@
   summary: Free 6-band sidechain dynamics plug-in with compression, expansion, flexible key routing, and Inverse sidechain mode.
   icon: /support/bandmatrix/img/BandMatrix_icon.png
   url: /support/bandmatrix/
-  latest_order: 4
+  latest_order: 6
   latest_date: "2026-05-15"
   latest_summary: Updated to v2.7.0. Minor update with refreshed macOS and Windows downloads.
 
@@ -49,7 +49,7 @@
   collection: spatial
   icon: /support/PanBlur/img/icon.png
   url: /support/PanBlur/
-  latest_order: 3
+  latest_order: 5
   latest_date: "2026-05-17"
   latest_summary: Updated to v1.6.0. Adds in-app tooltips for the main controls and I/O behavior.
 
@@ -138,9 +138,9 @@
   summary: iPad recording-session app that adds timecode markers to PDFs and jumps your DAW back to the marked spot.
   icon: /support/img/studiomate_icon.png
   url: /support/studiomate/
-  latest_order: 9
-  latest_date: "2026-04-02"
-  latest_summary: Updated to v2.8. Minor bug fix release.
+  latest_order: 1
+  latest_date: "2026-05-18"
+  latest_summary: Updated to v2.9. Adds workspace operation improvements for smoother session document handling.
 
 - slug: pocketcamviewer
   title: PocketCam Viewer
@@ -161,9 +161,9 @@
   summary: Music theory practice app for harmony and counterpoint, with guided exercises, note entry, daily questions, and red-pen style review.
   icon: /support/harmonycounterpoint/img/icon.jpeg
   url: /support/harmonycounterpoint/
-  latest_order: 5
-  latest_date: "2026-04-24"
-  latest_summary: Updated to v1.3.0. Improved note entry so it is easier to input notes.
+  latest_order: 2
+  latest_date: "2026-05-18"
+  latest_summary: Updated to v1.4. Includes guided learning improvements, easier note entry, level assessment, goal setting, daily questions, and reminders.
 
 - slug: quicksearchext
   title: QuickSearchExt
