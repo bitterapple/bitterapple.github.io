@@ -172,6 +172,19 @@ favicon: "/support/PanBlur/img/icon.png"
 </section>
 
 <section class="section">
+  <h2>Also try SourceField</h2>
+  <p class="muted" style="margin: 0; font-size: 13px">
+    If you like using PanBlur to soften point-source panning and add a stable
+    stereo halo, you may also want to try
+    <a href="{{ '/support/sourcefield/' | relative_url }}">SourceField</a>.
+    SourceField is designed for more direct control over source direction,
+    listener perspective, surface blur, rear softening, air absorption, and
+    proximity bass, while PanBlur remains the simpler way to add a blurred halo
+    around mono or LCR sources.
+  </p>
+</section>
+
+<section class="section">
   <h2>New in v1.6.0: In-App Tooltips</h2>
   <p class="muted" style="margin: 0; font-size: 13px">
     Version <strong>1.6.0</strong> adds tooltips inside the plug-in, so the main
@@ -203,35 +216,145 @@ favicon: "/support/PanBlur/img/icon.png"
     >
       <thead>
         <tr>
-          <th style="text-align: left; padding: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.16)">I/O</th>
-          <th style="text-align: left; padding: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.16)">Processing</th>
-          <th style="text-align: left; padding: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.16)">Bypass / dryOnly</th>
+          <th
+            style="
+              text-align: left;
+              padding: 8px;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+            "
+          >
+            I/O
+          </th>
+          <th
+            style="
+              text-align: left;
+              padding: 8px;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+            "
+          >
+            Processing
+          </th>
+          <th
+            style="
+              text-align: left;
+              padding: 8px;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+            "
+          >
+            Bypass / dryOnly
+          </th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td style="padding: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.08)"><strong>mono → stereo</strong></td>
-          <td style="padding: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.08)">Source Pan enabled. L/R = panned source + stereo halo.</td>
-          <td style="padding: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.08)">Mono is copied to L/R.</td>
+          <td
+            style="
+              padding: 8px;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            "
+          >
+            <strong>mono → stereo</strong>
+          </td>
+          <td
+            style="
+              padding: 8px;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            "
+          >
+            Source Pan enabled. L/R = panned source + stereo halo.
+          </td>
+          <td
+            style="
+              padding: 8px;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            "
+          >
+            Mono is copied to L/R.
+          </td>
         </tr>
         <tr>
-          <td style="padding: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.08)"><strong>stereo → stereo</strong></td>
-          <td style="padding: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.08)">Source Pan disabled. L/R are preserved, with halo added.</td>
-          <td style="padding: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.08)">L/R pass through unchanged.</td>
+          <td
+            style="
+              padding: 8px;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            "
+          >
+            <strong>stereo → stereo</strong>
+          </td>
+          <td
+            style="
+              padding: 8px;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            "
+          >
+            Source Pan disabled. L/R are preserved, with halo added.
+          </td>
+          <td
+            style="
+              padding: 8px;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            "
+          >
+            L/R pass through unchanged.
+          </td>
         </tr>
         <tr>
-          <td style="padding: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.08)"><strong>mono → LCR</strong></td>
-          <td style="padding: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.08)">C = source core. L/R = halo.</td>
-          <td style="padding: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.08)">Mono goes to C only.</td>
+          <td
+            style="
+              padding: 8px;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            "
+          >
+            <strong>mono → LCR</strong>
+          </td>
+          <td
+            style="
+              padding: 8px;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            "
+          >
+            C = source core. L/R = halo.
+          </td>
+          <td
+            style="
+              padding: 8px;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            "
+          >
+            Mono goes to C only.
+          </td>
         </tr>
         <tr>
-          <td style="padding: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.08)"><strong>LCR → LCR</strong></td>
-          <td style="padding: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.08)">L/R are preserved. Halo is generated from C when needed.</td>
-          <td style="padding: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.08)">L/C/R pass through unchanged.</td>
+          <td
+            style="
+              padding: 8px;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            "
+          >
+            <strong>LCR → LCR</strong>
+          </td>
+          <td
+            style="
+              padding: 8px;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            "
+          >
+            L/R are preserved. Halo is generated from C when needed.
+          </td>
+          <td
+            style="
+              padding: 8px;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            "
+          >
+            L/C/R pass through unchanged.
+          </td>
         </tr>
         <tr>
           <td style="padding: 8px"><strong>stereo → LCR</strong></td>
-          <td style="padding: 8px">L/R = input L/R + halo. C = mid × Center Send, default 0.</td>
+          <td style="padding: 8px">
+            L/R = input L/R + halo. C = mid × Center Send, default 0.
+          </td>
           <td style="padding: 8px">L/R pass through unchanged. C is silent.</td>
         </tr>
       </tbody>
@@ -252,8 +375,7 @@ favicon: "/support/PanBlur/img/icon.png"
       <strong>v1.5.0</strong> — LCR support.
     </p>
     <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-      Adds LCR support and removes the mono/mono plug-in
-      format.
+      Adds LCR support and removes the mono/mono plug-in format.
     </p>
     <p class="muted" style="margin: 14px 0 0; font-size: 13px">
       <strong>v1.4.0</strong> — Clearer SoundField display.
