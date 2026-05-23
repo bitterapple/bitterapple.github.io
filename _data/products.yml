@@ -22,9 +22,9 @@
   collection: spatial
   icon: /support/sourcefield/img/screenshot.png
   url: /support/sourcefield/
-  latest_order: 3
-  latest_date: "2026-05-18"
-  latest_summary: Updated to v1.3.0. Adds frequency-dependent source direction, so rear-facing sounds lose direct high detail while keeping low-end body and a wider halo.
+  latest_order: 2
+  latest_date: "2026-05-23"
+  latest_summary: Updated to v1.4.0. Adds listener direction lock modes, including locking the listener toward the source and keeping the listener always facing up.
 
 - slug: bandmatrix
   title: BandMatrix
