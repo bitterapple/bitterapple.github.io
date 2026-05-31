@@ -1,6 +1,6 @@
 {
-  "schema_version": 22,
-  "generated_at": "2026-05-23T06:00:00Z",
+  "schema_version": 23,
+  "generated_at": "2026-05-31T00:00:00Z",
   "products": {
     "levelrangeeq": {
       "name": "Level Range EQ",
@@ -28,10 +28,10 @@
     },
     "bandmatrix": {
       "name": "BandMatrix",
-      "latest_version": "2.7.0",
+      "latest_version": "2.9.0",
       "download_url": "https://bitterapple.github.io/support/bandmatrix/",
       "release_notes_url": "https://bitterapple.github.io/support/bandmatrix/#release-notes",
-      "min_supported_version": "2.7.0",
+      "min_supported_version": "2.9.0",
       "critical": false
     },
     "panblur": {
