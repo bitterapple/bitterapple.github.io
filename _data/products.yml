@@ -45,13 +45,13 @@
   order: 12
   status_label: Live
   status_class: live
-  summary: Free spatial enhancer for mono and LCR sources that creates intimate stereo images without moving their pan position.
+  summary: Free spatial enhancer for mono, LCR, and 5.1 sources that creates intimate stereo images without moving their pan position.
   collection: spatial
   icon: /support/PanBlur/img/icon.png
   url: /support/PanBlur/
-  latest_order: 5
-  latest_date: "2026-05-17"
-  latest_summary: Updated to v1.6.0. Adds in-app tooltips for the main controls and I/O behavior.
+  latest_order: -2
+  latest_date: "2026-06-04"
+  latest_summary: PanBlur v1.7.0 adds 5.1 layout support. Final verification in some surround host environments is still pending.
 
 - slug: dialoguedoctor
   title: Dialogue Doctor
@@ -115,6 +115,9 @@
   summary: Plug-in analyzer for loading AU/VST processors, sweeping parameters, and documenting how their controls change sound.
   icon: /support/DSPTrace/img/DSPTrace.png
   url: /support/DSPTrace/
+  latest_order: -1
+  latest_date: "2026-06-04"
+  latest_summary: DSPTrace is still moving forward, with the current work focused on clearer trace reports and graph-first analysis.
 
 - slug: spectralleveler
   title: Spectral Leveler
@@ -164,6 +167,19 @@
   latest_order: 2
   latest_date: "2026-05-18"
   latest_summary: Updated to v1.4. Includes guided learning improvements, easier note entry, level assessment, goal setting, daily questions, and reminders.
+
+- slug: scoreshelf
+  title: ScoreShelf
+  type: app
+  order: 35
+  status_label: Coming Soon
+  status_class: soon
+  summary: Free iPad sheet music library for managing PDFs, reading scores, adding light Apple Pencil notes, bookmarking pages, and tracking practice spots.
+  icon: /support/ScoreShelf/img/icon.png
+  url: /support/ScoreShelf/
+  latest_order: 0
+  latest_date: "2026-06-04"
+  latest_summary: Added the ScoreShelf preview page for the upcoming free iPad sheet music library and reader.
 
 - slug: quicksearchext
   title: QuickSearchExt

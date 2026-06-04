@@ -4,6 +4,7 @@ title: "DSPTrace"
 description: "DSPTrace is a plug-in analyzer for loading AU/VST processors, sweeping parameters, and documenting how their controls change sound."
 favicon: "/support/DSPTrace/img/DSPTrace.png"
 ---
+
 <header class="header">
   <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap">
     <img
@@ -31,10 +32,10 @@ favicon: "/support/DSPTrace/img/DSPTrace.png"
 
   <p style="margin-top: 14px">
     <strong>DSPTrace</strong> is a plug-in analyzer for loading
-    <strong>AU</strong> and <strong>VST</strong> processors, sweeping parameters,
-    and documenting how their controls change sound. It is built for repeatable
-    tests: load a processor, move its controls automatically, and keep the
-    results in a library you can compare later.
+    <strong>AU</strong> and <strong>VST</strong> processors, sweeping
+    parameters, and documenting how their controls change sound. It is built for
+    repeatable tests: load a processor, move its controls automatically, and
+    keep the results in a library you can compare later.
   </p>
 
   <div class="nav">
@@ -70,8 +71,8 @@ favicon: "/support/DSPTrace/img/DSPTrace.png"
       </div>
       <p class="muted" style="margin: 10px 0 0; font-size: 12px">
         This page is an early look at the current direction. The feature set,
-        layout, supported formats, and analysis workflow may still change
-        before the first public release.
+        layout, supported formats, and analysis workflow may still change before
+        the first public release.
       </p>
     </div>
   </div>
@@ -81,8 +82,8 @@ favicon: "/support/DSPTrace/img/DSPTrace.png"
   <h2>What it aims to do</h2>
   <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
     <li>
-      Load <strong>AU</strong> and <strong>VST</strong> plug-ins inside
-      DSPTrace for controlled analysis.
+      Load <strong>AU</strong> and <strong>VST</strong> plug-ins inside DSPTrace
+      for controlled analysis.
     </li>
     <li>
       Automatically vary parameters and measure how those changes alter the
@@ -98,21 +99,39 @@ favicon: "/support/DSPTrace/img/DSPTrace.png"
     </li>
   </ul>
 
-  <figure style="margin: 14px 0 0">
-    <img
-      src="./img/DSPTrace.png"
-      alt="DSPTrace interface preview"
-      style="
-        width: 100%;
-        border-radius: 14px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-      "
-      loading="lazy"
-    />
-    <figcaption class="muted" style="margin-top: 8px; font-size: 12px">
-      Screenshot: the current in-progress DSPTrace interface.
-    </figcaption>
-  </figure>
+  <div class="grid" style="align-items: start; margin-top: 14px">
+    <figure style="margin: 0">
+      <img
+        src="./img/compressor-trace-static-curve.png"
+        alt="DSPTrace compressor trace static transfer curve"
+        style="
+          width: 100%;
+          border-radius: 14px;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+        "
+        loading="lazy"
+      />
+      <figcaption class="muted" style="margin-top: 8px; font-size: 12px">
+        Compressor Trace: static transfer curve view.
+      </figcaption>
+    </figure>
+
+    <figure style="margin: 0">
+      <img
+        src="./img/compressor-trace-attack-release.png"
+        alt="DSPTrace compressor trace attack and release response"
+        style="
+          width: 100%;
+          border-radius: 14px;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+        "
+        loading="lazy"
+      />
+      <figcaption class="muted" style="margin-top: 8px; font-size: 12px">
+        Compressor Trace: attack and release response view.
+      </figcaption>
+    </figure>
+  </div>
 </section>
 
 <section class="section">
@@ -131,8 +150,8 @@ favicon: "/support/DSPTrace/img/DSPTrace.png"
     <div class="card" style="margin: 0">
       <h3 style="margin: 0 0 8px; font-size: 16px">Behavior comparison</h3>
       <p class="muted" style="margin: 0; font-size: 13px">
-        Compare different plug-ins or compare versions of the same plug-in
-        using the same measurement flow.
+        Compare different plug-ins or compare versions of the same plug-in using
+        the same measurement flow.
       </p>
     </div>
     <div class="card" style="margin: 0">
@@ -157,12 +176,17 @@ favicon: "/support/DSPTrace/img/DSPTrace.png"
     >
       <li>Development is in progress.</li>
       <li>
-        Current focus: AU / VST loading, automated parameter sweeps, and audio
-        response measurement.
+        Current focus: clearer trace reports, graph-first analysis, hosted
+        plug-in loading, automated parameter sweeps, and audio response
+        measurement.
       </li>
       <li>
         The screenshot shown here is from an in-progress build and the UI may
         change before release.
+      </li>
+      <li>
+        Development is continuing toward a more focused Comp Trace / EQ Trace
+        workflow before a public build is posted.
       </li>
     </ul>
   </div>

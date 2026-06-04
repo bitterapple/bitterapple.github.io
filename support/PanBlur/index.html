@@ -1,7 +1,7 @@
 ---
 layout: support
 title: "PanBlur"
-description: "PanBlur is a free spatial enhancer for mono and LCR sources that gives them an intimate, ASMR-like stereo presence without moving their pan position."
+description: "PanBlur is a free spatial enhancer for mono, LCR, and 5.1 sources that gives them an intimate, ASMR-like stereo presence without moving their pan position."
 favicon: "/support/PanBlur/img/icon.png"
 ---
 
@@ -22,19 +22,19 @@ favicon: "/support/PanBlur/img/icon.png"
     <div>
       <h1 style="margin: 0">PanBlur</h1>
       <p class="muted" style="margin: 6px 0 0; font-size: 13px">
-        <strong>Released</strong> — <strong>Version 1.6.0</strong>.
+        <strong>Public download v1.6.0</strong> — <strong>v1.7.0 5.1 support note</strong>.
       </p>
       <p class="muted" style="margin: 6px 0 0; font-size: 12px; opacity: 0.85">
-        Free Mono / LCR Spatial Enhancer
+        Free Mono / LCR / 5.1 Spatial Enhancer
       </p>
     </div>
   </div>
 
   <p style="margin-top: 14px">
-    <strong>PanBlur</strong> turns mono and LCR sources into intimate, ASMR-like
-    stereo images while keeping the source position stable. It softens hard
-    point-source panning and adds a clearer Air texture to the generated halo,
-    without moving the dry source position.
+    <strong>PanBlur</strong> turns mono, LCR, and 5.1 sources into intimate,
+    ASMR-like stereo images while keeping the source position stable. It softens
+    hard point-source panning and adds a clearer Air texture to the generated
+    halo, without moving the dry source position.
   </p>
 
   <div class="nav">
@@ -89,9 +89,9 @@ favicon: "/support/PanBlur/img/icon.png"
         >
       </div>
       <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-        The latest release is <strong>v1.6.0</strong>, which adds in-app
-        tooltips for the main controls and I/O behavior. macOS, Windows VST3,
-        and Windows AAX downloads are available from this page.
+        The current public download is <strong>v1.6.0</strong>. Version
+        <strong>1.7.0</strong> adds 5.1 layout support, but final verification
+        in some surround host environments is still pending.
       </p>
     </div>
   </div>
@@ -101,16 +101,16 @@ favicon: "/support/PanBlur/img/icon.png"
   <h2>What it does</h2>
   <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
     <li>
-      Softens the feeling of a mono or LCR source being locked to one exact pan
-      point.
+      Softens the feeling of a mono, LCR, or 5.1 source being locked to one
+      exact pan point.
     </li>
     <li>
       Keeps the source around its pan location while giving the image a more
       blurred, less point-like shape.
     </li>
     <li>
-      Can give mono and LCR sources a more intimate, ASMR-like stereo presence
-      while keeping the apparent source position stable.
+      Can give mono, LCR, and 5.1 sources a more intimate, ASMR-like stereo
+      presence while keeping the apparent source position stable.
     </li>
     <li>
       Works from a master insert concept, so multiple panned tracks can be
@@ -189,6 +189,15 @@ favicon: "/support/PanBlur/img/icon.png"
     <a class="btn" href="{{ '/support/sourcefield/' | relative_url }}"
       >Open SourceField page →</a
     >
+  </p>
+</section>
+
+<section class="section">
+  <h2>New in v1.7.0: 5.1 Support</h2>
+  <p class="muted" style="margin: 0; font-size: 13px">
+    Version <strong>1.7.0</strong> adds 5.1 layout support so PanBlur can be
+    used in more surround-oriented sessions. This has been added to the app, but
+    final confirmation in some 5.1 host environments is still pending.
   </p>
 </section>
 
@@ -365,6 +374,15 @@ favicon: "/support/PanBlur/img/icon.png"
           </td>
           <td style="padding: 8px">L/R pass through unchanged. C is silent.</td>
         </tr>
+        <tr>
+          <td style="padding: 8px"><strong>5.1 layouts</strong></td>
+          <td style="padding: 8px">
+            Adds surround-layout handling for 5.1 sessions.
+          </td>
+          <td style="padding: 8px">
+            Verification in some 5.1 host environments is still pending.
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -374,10 +392,18 @@ favicon: "/support/PanBlur/img/icon.png"
   <h2>Release history</h2>
   <div class="card" style="margin: 0">
     <p class="muted" style="margin: 0; font-size: 13px">
+      <strong>v1.7.0</strong> — 5.1 layout support.
+    </p>
+    <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+      Adds 5.1 support. Final verification in some surround host environments
+      is still pending.
+    </p>
+    <p class="muted" style="margin: 14px 0 0; font-size: 13px">
       <strong>v1.6.0</strong> — In-app tooltips.
     </p>
     <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-      Current release. Adds tooltips for the main controls and I/O behavior.
+      Current public download. Adds tooltips for the main controls and I/O
+      behavior.
     </p>
     <p class="muted" style="margin: 14px 0 0; font-size: 13px">
       <strong>v1.5.0</strong> — LCR support.
@@ -402,7 +428,7 @@ favicon: "/support/PanBlur/img/icon.png"
       A plug-in host that supports <strong>AAX</strong> or
       <strong>AU</strong> or <strong>VST3</strong>.
     </li>
-    <li>Installer: <code>PanBlur_1.6.0.pkg</code></li>
+    <li>Current public installer: <code>PanBlur_1.6.0.pkg</code></li>
     <li>Windows package: <code>PanBlur-windows-vst3.zip</code></li>
     <li>Windows AAX package: <code>PanBlur-windows-aax-signed.zip</code></li>
   </ul>
