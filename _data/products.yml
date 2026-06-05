@@ -8,9 +8,9 @@
   collection: spatial
   icon: /support/Propagation/img/icon.png
   url: /support/Propagation/
-  latest_order: 4
-  latest_date: "2026-05-17"
-  latest_summary: Updated to v1.3.0. Adds in-app tooltips so the controls are easier to understand while mixing.
+  latest_order: -4
+  latest_date: "2026-06-05"
+  latest_summary: Updated to v1.4.0. Adds small refinements to the reverb controls and current public downloads.
 
 - slug: sourcefield
   title: SourceField
