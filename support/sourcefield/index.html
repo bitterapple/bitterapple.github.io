@@ -1,7 +1,7 @@
 ---
 layout: support
 title: "SourceField"
-description: "SourceField is a free 2D source placement plug-in for ASMR-like mono or stereo positioning, frequency-dependent source direction, listener lock modes, distance-style tone shaping, motion drift, and input-reactive visual feedback from an XY field."
+description: "SourceField is a free 2D source placement plug-in for ASMR-like mono, stereo, and 5.1 positioning, blur-based spatial softening, frequency-dependent source direction, listener lock modes, distance-style tone shaping, motion drift, and input-reactive visual feedback from an XY field."
 favicon: "/support/sourcefield/img/screenshot.png"
 ---
 
@@ -23,7 +23,7 @@ favicon: "/support/sourcefield/img/screenshot.png"
     <div>
       <h1 style="margin: 0">SourceField</h1>
       <p class="muted" style="margin: 6px 0 0; font-size: 13px">
-        <strong>Released</strong> — <strong>Version 1.4.0</strong>.
+        <strong>Released</strong> — <strong>Version 1.5.0</strong>.
       </p>
       <p class="muted" style="margin: 6px 0 0; font-size: 12px; opacity: 0.85">
         Free 2D ASMR-Style Source Placement Plug-in
@@ -33,12 +33,12 @@ favicon: "/support/sourcefield/img/screenshot.png"
 
   <p style="margin-top: 14px">
     <strong>SourceField</strong> is for playing with close, physical, ASMR-like
-    stereo placement. Put a mono or stereo source on a 2D field around the
-    listening point, rotate the source direction, lock the direction toward the
-    listener when needed, lock the listener toward the source or keep the
-    listener facing up, add subtle motion drift, and use frequency-dependent
-    direction shaping to make rear-facing sounds lose direct high detail without
-    simply turning the whole source down.
+    stereo placement. Put a mono, stereo, or 5.1ch source on a 2D field around
+    the listening point, rotate the source direction, keep the placement as a
+    blurred spatial source instead of a pin-point pan target, add distance-style
+    depth, add subtle motion drift, and use frequency-dependent direction
+    shaping to make rear-facing sounds lose direct high detail without simply
+    turning the whole source down.
   </p>
 
   <div class="nav">
@@ -72,7 +72,7 @@ favicon: "/support/sourcefield/img/screenshot.png"
           target="_blank"
           rel="noopener"
           style="font-weight: 700"
-          >Download SourceField_1.4.0.pkg</a
+          >Download SourceField_1.5.0.pkg</a
         >
         <a
           class="btn"
@@ -84,9 +84,10 @@ favicon: "/support/sourcefield/img/screenshot.png"
         >
       </div>
       <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-        SourceField v1.4.0 adds listener direction lock modes, including Lock
-        listener to source and Listener always up. macOS AU/AAX/VST3 and Windows
-        VST3 builds are available.
+        SourceField v1.5.0 adds 5.1ch support and updates the spatial model so
+        placement keeps a blurred source image with distance-style depth instead
+        of collapsing the sound into a point source. macOS AU/AAX/VST3 and
+        Windows VST3 builds are available.
       </p>
     </div>
   </div>
@@ -96,7 +97,7 @@ favicon: "/support/sourcefield/img/screenshot.png"
   <h2>What it does</h2>
   <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
     <li>
-      Places a mono or stereo source around a listener-centered
+      Places a mono, stereo, or 5.1ch source around a listener-centered
       <strong>XY field</strong>.
     </li>
     <li>
@@ -123,6 +124,10 @@ favicon: "/support/sourcefield/img/screenshot.png"
       Includes tone-shaping controls for <strong>Surface Blur</strong>,
       <strong>Rear Softening</strong>, <strong>Air Absorption</strong>,
       <strong>Proximity Bass</strong>, and a <strong>Limiter</strong> switch.
+    </li>
+    <li>
+      Keeps localization as a <strong>blurred spatial source</strong> rather
+      than reducing placement to a narrow point-source pan.
     </li>
     <li>
       Adds <strong>Distance Law</strong> modes for choosing how strongly
@@ -201,6 +206,37 @@ favicon: "/support/sourcefield/img/screenshot.png"
       <p class="muted" style="margin: 0; font-size: 13px">
         Keep the listener at the center, then turn the listening direction to
         reshape the perspective.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>New in v1.5.0</h2>
+  <div
+    class="grid"
+    style="grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start"
+  >
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">5.1ch support</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        SourceField can now be used in 5.1ch sessions, extending the XY
+        placement workflow beyond mono and stereo sources.
+      </p>
+    </div>
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Blurred source placement</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        The spatial image stays softened and source-like instead of becoming a
+        tiny point target, so movement can feel physical without turning into a
+        simple pan-position marker.
+      </p>
+    </div>
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Distance-style depth</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        Distance behavior remains part of the placement model, helping sources
+        feel closer or farther while preserving the blurred spatial character.
       </p>
     </div>
   </div>
@@ -379,9 +415,10 @@ favicon: "/support/sourcefield/img/screenshot.png"
 <section class="section">
   <h2>Current state</h2>
   <p class="muted" style="margin: 0; font-size: 13px">
-    The core interaction, listener lock modes, distance-style tone controls,
-    motion drift, frequency-dependent direction, and visual feedback are now in
-    place. SourceField will keep evolving as a playful spatial tool for close,
+    The core interaction, 5.1ch support, blurred source placement,
+    distance-style tone controls, listener lock modes, motion drift,
+    frequency-dependent direction, and visual feedback are now in place.
+    SourceField will keep evolving as a playful spatial tool for close,
     physical, ASMR-like placement and source-direction experiments.
   </p>
 </section>
@@ -389,6 +426,15 @@ favicon: "/support/sourcefield/img/screenshot.png"
 <section class="section" id="release-notes">
   <h2>Release history</h2>
   <div class="card" style="margin: 0">
+    <p class="muted" style="margin: 0; font-size: 13px">
+      <strong>v1.5.0</strong> — Adds 5.1ch support and blurred distance-aware
+      placement.
+    </p>
+    <p class="muted" style="margin: 10px 0 14px; font-size: 12px">
+      Adds 5.1ch support and updates the spatial behavior so placement remains
+      a blurred source with distance-style depth instead of becoming a narrow
+      point source.
+    </p>
     <p class="muted" style="margin: 0; font-size: 13px">
       <strong>v1.4.0</strong> — Adds listener direction lock modes.
     </p>
@@ -441,7 +487,7 @@ favicon: "/support/sourcefield/img/screenshot.png"
       <strong>VST3</strong> support.
     </li>
     <li>Windows plug-in host with <strong>VST3</strong> support.</li>
-    <li>macOS installer: <code>SourceField_1.4.0.pkg</code></li>
+    <li>macOS installer: <code>SourceField_1.5.0.pkg</code></li>
     <li>Windows package: <code>SourceField-windows-vst3.zip</code></li>
   </ul>
 </section>
@@ -452,7 +498,7 @@ favicon: "/support/sourcefield/img/screenshot.png"
     <li>
       Download the package for your system:
       <a href="{{ '/download/sourcefield/macos/' | relative_url }}"
-        ><code>SourceField_1.4.0.pkg</code></a
+        ><code>SourceField_1.5.0.pkg</code></a
       >
       or
       <a href="{{ '/download/sourcefield/windows-vst3/' | relative_url }}"

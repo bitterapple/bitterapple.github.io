@@ -18,13 +18,13 @@
   order: 8
   status_label: Live
   status_class: live
-  summary: Free 2D source placement plug-in for ASMR-like mono or stereo positioning, source direction, listener perspective, distance-style tone shaping, motion drift, and input-reactive visual feedback from an XY field.
+  summary: Free 2D source placement plug-in for ASMR-like mono, stereo, and 5.1 positioning, with blur-based spatial softening, source direction, listener perspective, distance-style tone shaping, motion drift, and input-reactive visual feedback from an XY field.
   collection: spatial
   icon: /support/sourcefield/img/screenshot.png
   url: /support/sourcefield/
-  latest_order: 2
-  latest_date: "2026-05-23"
-  latest_summary: Updated to v1.4.0. Adds listener direction lock modes, including locking the listener toward the source and keeping the listener always facing up.
+  latest_order: -5
+  latest_date: "2026-06-06"
+  latest_summary: Updated to v1.5.0. Adds 5.1ch support and keeps placement as a blurred spatial source with distance-style depth instead of collapsing it into a point source.
 
 - slug: bandmatrix
   title: BandMatrix
@@ -172,14 +172,14 @@
   title: ScoreShelf
   type: app
   order: 35
-  status_label: Coming Soon
-  status_class: soon
+  status_label: Live
+  status_class: live
   summary: Free iPad sheet music library for managing PDFs, reading scores, adding light Apple Pencil notes, bookmarking pages, and tracking practice spots.
   icon: /support/ScoreShelf/img/icon.png
   url: /support/ScoreShelf/
-  latest_order: 0
-  latest_date: "2026-06-04"
-  latest_summary: Added the ScoreShelf preview page for the upcoming free iPad sheet music library and reader.
+  latest_order: -6
+  latest_date: "2026-06-06"
+  latest_summary: ScoreShelf is now available on the App Store as a free iPad sheet music library and reader.
 
 - slug: quicksearchext
   title: QuickSearchExt

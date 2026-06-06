@@ -1,6 +1,6 @@
 {
-  "schema_version": 23,
-  "generated_at": "2026-05-31T00:00:00Z",
+  "schema_version": 24,
+  "generated_at": "2026-06-06T00:00:00Z",
   "products": {
     "levelrangeeq": {
       "name": "Level Range EQ",
@@ -44,10 +44,10 @@
     },
     "sourcefield": {
       "name": "SourceField",
-      "latest_version": "1.4.0",
+      "latest_version": "1.5.0",
       "download_url": "https://bitterapple.github.io/support/sourcefield/",
       "release_notes_url": "https://bitterapple.github.io/support/sourcefield/#release-notes",
-      "min_supported_version": "1.4.0",
+      "min_supported_version": "1.5.0",
       "critical": false
     },
     "phaseslice": {
