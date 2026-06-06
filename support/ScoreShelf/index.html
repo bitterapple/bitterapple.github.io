@@ -36,8 +36,9 @@ favicon: "/support/ScoreShelf/img/icon.png"
     <strong>ScoreShelf</strong> is a free iPad app for keeping sheet music PDFs
     in one place, opening them quickly, and adding light handwritten notes while
     you practice. It is designed around a practical score library: import PDFs,
-    jump back to useful pages, mark practice spots, and keep a small history of
-    what you worked on.
+    jump back to useful pages, mark practice spots, and quietly look back on
+    your practice history with a calendar-style heatmap and links back to the
+    scores and pages you worked on.
   </p>
 
   <div class="nav">
@@ -96,10 +97,16 @@ favicon: "/support/ScoreShelf/img/icon.png"
       Open scores in a focused reader with Apple Pencil markup for small notes,
       reminders, and practice markings.
     </li>
-    <li>Save <strong>bookmarks</strong> for pages you need to return to quickly.</li>
+    <li>
+      Save <strong>bookmarks</strong> for pages you need to return to quickly.
+    </li>
     <li>
       Create <strong>Practice Spots</strong> for passages that need repeated
       work.
+    </li>
+    <li>
+      View <strong>Practice History</strong> as a quiet calendar-style heatmap
+      and reopen the scores and pages you practiced.
     </li>
     <li>
       Track recent practice time by score so the library reflects what you are
@@ -109,40 +116,68 @@ favicon: "/support/ScoreShelf/img/icon.png"
 </section>
 
 <section class="section">
-  <h2>Screenshot</h2>
-  <figure style="margin: 0">
-    <img
-      src="./img/0x0ss.png"
-      alt="ScoreShelf iPad library screenshot"
-      style="
-        width: 100%;
-        max-width: 860px;
-        height: auto;
-        display: block;
-        border-radius: 14px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-      "
-      loading="lazy"
-    />
-    <figcaption class="muted" style="margin-top: 8px; font-size: 12px">
-      Screenshot: ScoreShelf library with practice spots and recent scores.
-    </figcaption>
-  </figure>
+  <h2>Screenshots</h2>
+  <div
+    class="grid screenshots"
+    style="
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+      gap: 14px;
+    "
+  >
+    <figure style="margin: 0">
+      <img
+        src="./img/0x0ss.png"
+        alt="ScoreShelf iPad library screenshot"
+        style="
+          width: 100%;
+          height: auto;
+          display: block;
+          border-radius: 14px;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+        "
+        loading="lazy"
+      />
+      <figcaption class="muted" style="margin-top: 8px; font-size: 12px">
+        Screenshot: ScoreShelf library with practice spots and recent scores.
+      </figcaption>
+    </figure>
+
+    <figure style="margin: 0">
+      <img
+        src="./img/0x0ss2.png"
+        alt="ScoreShelf practice history heatmap screenshot"
+        style="
+          width: 100%;
+          height: auto;
+          display: block;
+          border-radius: 14px;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+        "
+        loading="lazy"
+      />
+      <figcaption class="muted" style="margin-top: 8px; font-size: 12px">
+        Screenshot: Practice History with a calendar-style heatmap and links
+        back to practiced pages.
+      </figcaption>
+    </figure>
+  </div>
 </section>
 
 <section class="section">
   <h2>Designed for practice</h2>
   <div
     class="grid"
-    style="grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start"
+    style="grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: start"
   >
     <div class="card" style="margin: 0">
       <h3 style="margin: 0 0 8px; font-size: 16px">Score library</h3>
       <p class="muted" style="margin: 0; font-size: 13px">
-        Keep PDFs together and return to the right score without hunting
-        through files.
+        Keep PDFs together and return to the right score without hunting through
+        files.
       </p>
     </div>
+
     <div class="card" style="margin: 0">
       <h3 style="margin: 0 0 8px; font-size: 16px">Practice spots</h3>
       <p class="muted" style="margin: 0; font-size: 13px">
@@ -150,11 +185,20 @@ favicon: "/support/ScoreShelf/img/icon.png"
         bookmarks.
       </p>
     </div>
+
     <div class="card" style="margin: 0">
       <h3 style="margin: 0 0 8px; font-size: 16px">Light markup</h3>
       <p class="muted" style="margin: 0; font-size: 13px">
         Add quick handwritten notes while keeping the reader simple and score
         focused.
+      </p>
+    </div>
+
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Practice history</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        Look back at what you practiced with a calendar-style heatmap, then jump
+        directly back to the score and page.
       </p>
     </div>
   </div>
@@ -172,7 +216,14 @@ favicon: "/support/ScoreShelf/img/icon.png"
     >
       <li>ScoreShelf is available as a free iPad app.</li>
       <li>Import, organize, read, and lightly mark up sheet music PDFs.</li>
-      <li>Use bookmarks, Practice Spots, and recent practice history while working through scores.</li>
+      <li>
+        Use bookmarks, Practice Spots, and Practice History while working
+        through scores.
+      </li>
+      <li>
+        Practice History shows a calendar-style heatmap and helps you return to
+        previously practiced scores and pages.
+      </li>
     </ul>
   </div>
 </section>
