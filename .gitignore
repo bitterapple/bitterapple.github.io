@@ -4,5 +4,13 @@ DerivedData/
 *.xcuserstate
 .DS_Store
 **/.DS_Store
-.DS_Store
-.DS_Store
+
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+.bundle/
+vendor/
+Gemfile.lock
+

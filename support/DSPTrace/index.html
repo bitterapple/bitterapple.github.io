@@ -1,7 +1,7 @@
 ---
 layout: support
 title: "DSPTrace"
-description: "DSPTrace is a plug-in analyzer for loading AU/VST processors, sweeping parameters, and documenting how their controls change sound."
+description: "DSPTrace is an in-development plug-in analyzer for loading AU/VST processors, sweeping parameters, and documenting how their controls change sound."
 favicon: "/support/DSPTrace/img/DSPTrace.png"
 ---
 
@@ -9,7 +9,7 @@ favicon: "/support/DSPTrace/img/DSPTrace.png"
   <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap">
     <img
       src="./img/DSPTrace.png"
-      alt="DSPTrace screenshot"
+      alt="DSPTrace icon"
       style="
         width: 64px;
         height: 64px;
@@ -31,11 +31,11 @@ favicon: "/support/DSPTrace/img/DSPTrace.png"
   </div>
 
   <p style="margin-top: 14px">
-    <strong>DSPTrace</strong> is a plug-in analyzer for loading
-    <strong>AU</strong> and <strong>VST</strong> processors, sweeping
-    parameters, and documenting how their controls change sound. It is built for
-    repeatable tests: load a processor, move its controls automatically, and
-    keep the results in a library you can compare later.
+    <strong>DSPTrace</strong> is an in-development analyzer for documenting how
+    audio plug-ins behave. The idea is to load a processor, send controlled test
+    signals through it, sweep parameters, capture the result, and turn the
+    response into graphs that are easier to compare than knob labels, marketing
+    names, or listening notes alone.
   </p>
 
   <div class="nav">
@@ -70,9 +70,9 @@ favicon: "/support/DSPTrace/img/DSPTrace.png"
         <strong>Public build:</strong> Not available yet
       </div>
       <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-        This page is an early look at the current direction. The feature set,
-        layout, supported formats, and analysis workflow may still change before
-        the first public release.
+        This page describes the current direction. No package or ZIP is posted
+        yet, and the analysis workflow may still change before the first public
+        release.
       </p>
     </div>
   </div>
@@ -82,20 +82,28 @@ favicon: "/support/DSPTrace/img/DSPTrace.png"
   <h2>What it aims to do</h2>
   <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
     <li>
-      Load <strong>AU</strong> and <strong>VST</strong> plug-ins inside DSPTrace
-      for controlled analysis.
+      Load <strong>AU</strong> and <strong>VST</strong> processors inside a
+      controlled analysis host.
     </li>
     <li>
-      Automatically vary parameters and measure how those changes alter the
-      resulting audio.
+      Send repeatable test material through the plug-in: level sweeps, stepped
+      tones, impulses, bursts, noise, or other purpose-built signals.
     </li>
     <li>
-      Help reveal what a plug-in’s controls are really doing, not just what
-      their labels imply.
+      Sweep one or more plug-in parameters and record how the output changes.
     </li>
     <li>
-      Make it easier to compare processor behavior across versions or across
-      different plug-ins.
+      Convert the captured behavior into graphs such as transfer curves,
+      attack/release traces, frequency response, gain movement, or timing
+      response.
+    </li>
+    <li>
+      Keep traces in a library so different plug-ins, versions, settings, or
+      oversampling modes can be compared later.
+    </li>
+    <li>
+      Make hidden behavior easier to inspect: auto gain, knee shape, detector
+      timing, saturation onset, internal filtering, and parameter smoothing.
     </li>
   </ul>
 
@@ -135,33 +143,160 @@ favicon: "/support/DSPTrace/img/DSPTrace.png"
 </section>
 
 <section class="section">
-  <h2>Why I’m building it</h2>
+  <h2>Analysis workflows</h2>
   <div
     class="grid"
-    style="grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start"
+    style="grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start"
   >
     <div class="card" style="margin: 0">
-      <h3 style="margin: 0 0 8px; font-size: 16px">Plug-in research</h3>
+      <h3 style="margin: 0 0 8px; font-size: 16px">Compressor Trace</h3>
       <p class="muted" style="margin: 0; font-size: 13px">
-        Check how an EQ, compressor, saturator, or other processor actually
-        responds as parameters move.
+        Compressor Trace is for dynamics processors. It focuses on input/output
+        curves, threshold and knee behavior, ratio shape, makeup gain, attack
+        and release timing, hold behavior, detector smoothing, and whether the
+        plug-in reacts differently to short bursts than to steady-state tones.
       </p>
     </div>
     <div class="card" style="margin: 0">
-      <h3 style="margin: 0 0 8px; font-size: 16px">Behavior comparison</h3>
+      <h3 style="margin: 0 0 8px; font-size: 16px">EQ Trace</h3>
       <p class="muted" style="margin: 0; font-size: 13px">
-        Compare different plug-ins or compare versions of the same plug-in using
-        the same measurement flow.
+        EQ Trace is intended for frequency-shaping processors. It can help show
+        the actual curve behind a band, how Q changes with gain, whether shelves
+        tilt smoothly or create resonant edges, and how dynamic EQ behavior
+        differs between quiet and loud test levels.
       </p>
     </div>
     <div class="card" style="margin: 0">
-      <h3 style="margin: 0 0 8px; font-size: 16px">Parameter tracing</h3>
+      <h3 style="margin: 0 0 8px; font-size: 16px">Saturation Trace</h3>
       <p class="muted" style="margin: 0; font-size: 13px">
-        Turn vague control labels into something more concrete by observing
-        their sonic effect directly.
+        Saturation and clipping are difficult to describe from controls alone. A
+        trace can show where harmonic content starts, how the transfer curve
+        bends, whether the top and bottom halves behave symmetrically, and how
+        drive, tone, bias, or output trim affect the result.
+      </p>
+    </div>
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Version comparison</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        The same test can be run again after a plug-in update. That makes it
+        easier to see whether a change is only a UI or preset change, or whether
+        the processor itself now has different timing, level, filtering, or
+        nonlinear behavior.
       </p>
     </div>
   </div>
+</section>
+
+<section class="section">
+  <h2>What a trace can reveal</h2>
+  <div
+    class="grid"
+    style="grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start"
+  >
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Dynamics details</h3>
+      <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
+        <li>
+          <strong>Static curve</strong>: threshold, ratio, knee, and makeup
+          gain.
+        </li>
+        <li>
+          <strong>Time response</strong>: attack, release, hold, recovery, and
+          overshoot.
+        </li>
+        <li>
+          <strong>Detector behavior</strong>: peak/RMS-like response, smoothing,
+          and level memory.
+        </li>
+        <li>
+          <strong>Program dependence</strong>: different release behavior after
+          short and long events.
+        </li>
+      </ul>
+    </div>
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">
+        Tone and frequency details
+      </h3>
+      <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
+        <li>
+          <strong>Frequency response</strong>: boosts, cuts, shelves, tilt,
+          resonances, and hidden filters.
+        </li>
+        <li>
+          <strong>Level-dependent tone</strong>: curves that change when the
+          input gets louder.
+        </li>
+        <li>
+          <strong>Phase or timing hints</strong>: impulse and burst changes that
+          suggest latency or smearing.
+        </li>
+        <li>
+          <strong>Oversampling differences</strong>: changes in aliasing,
+          rolloff, or high-frequency behavior.
+        </li>
+      </ul>
+    </div>
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Parameter behavior</h3>
+      <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
+        <li>
+          <strong>Control scaling</strong>: whether the useful range is spread
+          evenly or packed into one end.
+        </li>
+        <li>
+          <strong>Smoothing</strong>: zipper noise prevention, lag, and glide
+          time after automation moves.
+        </li>
+        <li>
+          <strong>Mode changes</strong>: what actually changes when a style,
+          character, or model switch is selected.
+        </li>
+        <li>
+          <strong>Linked controls</strong>: hidden interactions between
+          drive/output, threshold/makeup, or frequency/Q.
+        </li>
+      </ul>
+    </div>
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Documentation use</h3>
+      <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
+        <li>
+          <strong>Preset notes</strong>: keep measured behavior with the setting
+          that produced it.
+        </li>
+        <li>
+          <strong>Regression checks</strong>: confirm whether a code change
+          altered a processor’s response.
+        </li>
+        <li>
+          <strong>Teaching material</strong>: show students what a compressor,
+          EQ, or saturator is doing visually.
+        </li>
+        <li>
+          <strong>Mix decisions</strong>: choose between processors based on
+          observed behavior, not only names.
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>How to read it</h2>
+  <p class="muted" style="margin: 0; font-size: 13px">
+    DSPTrace is not meant to replace listening. It is meant to make listening
+    less vague. If a compressor feels punchy, the trace might show whether that
+    comes from a slower attack, a release overshoot, a curved knee, or a hidden
+    level compensation. If an EQ band feels wider than expected, a trace can
+    show the real curve. If a saturator feels louder even after output trim, the
+    trace can separate level change from harmonic change.
+  </p>
+  <p class="muted" style="margin: 12px 0 0; font-size: 13px">
+    The useful result is a repeatable record: same plug-in, same version, same
+    setting, same test signal, same graph. That makes the tool valuable for
+    plug-in development, QA, documentation, education, and personal research.
+  </p>
 </section>
 
 <section class="section" id="release-notes">
@@ -175,18 +310,15 @@ favicon: "/support/DSPTrace/img/DSPTrace.png"
       style="margin: 10px 0 0; padding-left: 18px; font-size: 13px"
     >
       <li>Development is in progress.</li>
+      <li>No macOS package or Windows ZIP is posted yet.</li>
       <li>
         Current focus: clearer trace reports, graph-first analysis, hosted
         plug-in loading, automated parameter sweeps, and audio response
         measurement.
       </li>
       <li>
-        The screenshot shown here is from an in-progress build and the UI may
-        change before release.
-      </li>
-      <li>
-        Development is continuing toward a more focused Comp Trace / EQ Trace
-        workflow before a public build is posted.
+        The page currently describes the Comp Trace / EQ Trace direction. The
+        final public workflow may still change before release.
       </li>
     </ul>
   </div>
@@ -196,7 +328,7 @@ favicon: "/support/DSPTrace/img/DSPTrace.png"
   <h2>Availability</h2>
   <p class="muted" style="margin: 0; font-size: 13px">
     There is no public build yet. This page will be updated when a first test
-    build or initial release is ready.
+    build, package, or ZIP is ready.
   </p>
 </section>
 

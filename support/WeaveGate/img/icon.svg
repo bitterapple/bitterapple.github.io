@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="WeaveGate icon">
+  <defs>
+    <linearGradient id="bg" x1="18" y1="14" x2="112" y2="116" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#60cbff"/>
+      <stop offset="0.55" stop-color="#2f73ff"/>
+      <stop offset="1" stop-color="#151b3f"/>
+    </linearGradient>
+    <linearGradient id="line" x1="16" y1="24" x2="112" y2="104" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f7fbff"/>
+      <stop offset="1" stop-color="#b9e8ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <path d="M22 86c16 0 19-44 34-44s18 44 34 44 19-44 34-44" fill="none" stroke="url(#line)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M22 42c16 0 19 44 34 44s18-44 34-44 19 44 34 44" fill="none" stroke="#fff" stroke-opacity="0.54" stroke-width="8" stroke-linecap="round"/>
+  <path d="M32 64h64" fill="none" stroke="#06142e" stroke-opacity="0.42" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="34" cy="64" r="7" fill="#fff"/>
+  <circle cx="94" cy="64" r="7" fill="#fff"/>
+</svg>

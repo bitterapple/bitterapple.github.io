@@ -112,12 +112,25 @@
   order: 90
   status_label: Coming Soon
   status_class: soon
-  summary: Plug-in analyzer for loading AU/VST processors, sweeping parameters, and documenting how their controls change sound.
+  summary: Plug-in analyzer for loading AU/VST processors, sweeping parameters, and turning compressor, EQ, saturation, timing, and automation behavior into repeatable trace graphs.
   icon: /support/DSPTrace/img/DSPTrace.png
   url: /support/DSPTrace/
   latest_order: -1
-  latest_date: "2026-06-04"
-  latest_summary: DSPTrace is still moving forward, with the current work focused on clearer trace reports and graph-first analysis.
+  latest_date: "2026-06-13"
+  latest_summary: DSPTrace now has a fuller preview page for the in-development plug-in analyzer, including Compressor Trace, EQ Trace, parameter sweeps, and repeatable behavior comparison.
+
+- slug: weavegate
+  title: WeaveGate
+  type: plugin
+  order: 92
+  status_label: Coming Soon
+  status_class: soon
+  summary: In-development rhythmic gate and pattern-weaving effect for turning pads, ambience, rooms, loops, and long effect returns into interlocking motion.
+  icon: /support/WeaveGate/img/icon.svg
+  url: /support/WeaveGate/
+  latest_order: 0
+  latest_date: "2026-06-13"
+  latest_summary: WeaveGate preview page added. It is still in development, with no public package or ZIP posted yet, and focuses on pattern lanes, gate shape, accents, and mix-friendly rhythmic motion.
 
 - slug: spectralleveler
   title: Spectral Leveler
