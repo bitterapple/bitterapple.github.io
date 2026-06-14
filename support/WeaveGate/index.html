@@ -1,7 +1,7 @@
 ---
 layout: support
 title: "WeaveGate"
-description: "WeaveGate is an in-development rhythmic gate and pattern-weaving plug-in for turning sustained sounds, loops, rooms, and noise beds into interlocking motion."
+description: "WeaveGate is an in-development multiband gate and spectral expander plug-in with per-band detection, dependency routing, gain-curve mapping, and crossover or FFT spectral processing modes."
 favicon: "/support/WeaveGate/img/icon.svg"
 ---
 
@@ -24,18 +24,24 @@ favicon: "/support/WeaveGate/img/icon.svg"
         <strong>Preview</strong> — <strong>In development</strong>.
       </p>
       <p class="muted" style="margin: 6px 0 0; font-size: 12px; opacity: 0.85">
-        Rhythmic Gate / Pattern-Weaving Effect
+        Multiband Gate / Spectral Expander
       </p>
     </div>
   </div>
 
   <p style="margin-top: 14px">
-    <strong>WeaveGate</strong> is an in-development rhythmic gate for turning
-    sustained material into woven movement. Instead of treating gating as one
-    simple on/off chop, it is aimed at patterns that can open, close, overlap,
-    soften, accent, and shift against the source so pads, drones, ambience, room
-    mics, loops, noise beds, and long effects returns can become animated parts
-    of the arrangement.
+    <strong>WeaveGate</strong> is an in-development multiband gate and spectral
+    expander. Instead of using one detector and one gain stage for the whole
+    signal, it splits the signal into frequency regions, evaluates each region
+    with its own detector, and maps the detector result to gain reduction through
+    editable curves and inter-band dependency rules.
+  </p>
+  <p style="margin-top: 12px">
+    The plug-in can run as a conventional crossover-based multiband processor,
+    or as an FFT spectral engine where frequency bins are assigned to bands and
+    processed directly. The goal is not only to make a signal quieter below a
+    threshold, but to define how frequency regions open, close, influence each
+    other, and transition over time.
   </p>
 
   <div class="nav">
@@ -71,153 +77,144 @@ favicon: "/support/WeaveGate/img/icon.svg"
       </div>
       <p class="muted" style="margin: 10px 0 0; font-size: 12px">
         The public package and ZIP files are not posted yet. Screenshot slots
-        are already wired for <code>weavegate-main.png</code> and
-        <code>weavegate-activity.png</code>; replacing those files later will
-        update the page without changing the text.
+        are already wired for <code>weavegate-main.png</code>; replacing those
+        files later will update the page without changing the text.
       </p>
     </div>
   </div>
 </header>
 
 <section class="section">
-  <h2>What it is for</h2>
+  <h2>What it does</h2>
   <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
     <li>
-      Add rhythmic motion to sounds that are otherwise too static: pads, held
-      synths, bowed textures, guitar feedback, reverb returns, delays, field
-      recordings, room tone, and layered ambience.
+      Splits audio into up to eight frequency bands and applies independent
+      gate / expander behavior per band.
     </li>
     <li>
-      Build gated patterns that feel more like interlocking phrases than a
-      single hard tremolo shape.
+      Lets each band use a selectable detector: Peak, RMS, Rectified, Fast
+      Envelope, or Slow Envelope.
     </li>
     <li>
-      Shape how each opening behaves, including fast cuts, rounded pulses, short
-      accents, and longer windows that let the source breathe.
+      Maps detector level to gain with an editable gain curve rather than only a
+      fixed hard gate or soft gate preset.
     </li>
     <li>
-      Keep the pattern connected to the song grid while still allowing enough
-      looseness that the movement does not feel mechanically stamped on top.
+      Allows one band to depend on other bands or sidechain input through link
+      weights and modes such as Add, AND, OR, Follow, Oppose, and Duck.
     </li>
     <li>
-      Use a sound as rhythmic material without needing to slice it manually into
-      audio regions.
+      Provides two processing engines: low-latency crossover processing and a
+      higher-latency FFT spectral engine.
     </li>
   </ul>
 </section>
 
 <section class="section">
-  <h2>Main ideas</h2>
+  <h2>Processing engines</h2>
   <div
     class="grid"
     style="grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start"
   >
     <div class="card" style="margin: 0">
-      <h3 style="margin: 0 0 8px; font-size: 16px">Pattern lanes</h3>
+      <h3 style="margin: 0 0 8px; font-size: 16px">Crossover mode</h3>
       <p class="muted" style="margin: 0; font-size: 13px">
-        WeaveGate is planned around the idea of separate gate lanes rather than
-        one flat sequence. A lane can carry a simple pulse, a syncopated accent,
-        a longer opening, or a sparse response, then the lanes combine into one
-        composite movement.
+        Crossover mode uses Linkwitz-Riley-style band splitting and recombines
+        the processed bands in the time domain. It is the lower-latency path and
+        is suited to conventional multiband gating, expansion, monitoring, and
+        threshold editing.
       </p>
     </div>
     <div class="card" style="margin: 0">
-      <h3 style="margin: 0 0 8px; font-size: 16px">Woven openings</h3>
+      <h3 style="margin: 0 0 8px; font-size: 16px">Spectral mode</h3>
       <p class="muted" style="margin: 0; font-size: 13px">
-        The goal is not only to mute and unmute. The useful area is where
-        openings overlap, trade emphasis, and leave small gaps, so the ear hears
-        a pattern being woven through the source instead of a volume switch.
+        Spectral mode processes FFT bins directly. It uses a 2048-sample FFT
+        with 50% overlap-add, applies a Hann analysis/synthesis window, assigns
+        bins to the current bands, and gates those bins according to the band's
+        detector and gain mapping. This mode introduces additional latency.
       </p>
     </div>
     <div class="card" style="margin: 0">
-      <h3 style="margin: 0 0 8px; font-size: 16px">Shape before level</h3>
+      <h3 style="margin: 0 0 8px; font-size: 16px">Band model</h3>
       <p class="muted" style="margin: 0; font-size: 13px">
-        Gate depth matters, but the feel often comes from attack, hold, release,
-        curve, and smoothing. A very deep gate can still feel gentle if the
-        shape is rounded; a shallow gate can feel sharp if the edge is abrupt.
+        Band boundaries are editable on the spectrum display. A band owns its
+        threshold, hysteresis, attack, hold, release, range, detector gain,
+        detector mode, dependency settings, and gain-curve points.
       </p>
     </div>
     <div class="card" style="margin: 0">
-      <h3 style="margin: 0 0 8px; font-size: 16px">
-        Arrangement-friendly motion
-      </h3>
+      <h3 style="margin: 0 0 8px; font-size: 16px">Monitoring</h3>
       <p class="muted" style="margin: 0; font-size: 13px">
-        The plug-in is meant for mix and arrangement work: making a static layer
-        sit around drums, creating rhythmic negative space, or letting an effect
-        return answer the groove without taking over the dry source.
+        The processor exposes views for the full output, selected band, detector
+        signal, opened signal, removed signal, and boundary signal. Timeline
+        data shows detector level, thresholds, gain reduction, fast/slow
+        envelopes, transient score, continuity, and link contribution.
       </p>
     </div>
   </div>
 </section>
 
 <section class="section">
-  <h2>Planned control areas</h2>
+  <h2>Control areas</h2>
   <div
     class="grid"
     style="grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start"
   >
     <div class="card" style="margin: 0">
-      <h3 style="margin: 0 0 8px; font-size: 16px">Timing and grid</h3>
+      <h3 style="margin: 0 0 8px; font-size: 16px">Detector layer</h3>
       <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
-        <li><strong>Rate</strong>: choose the base rhythmic division.</li>
-        <li><strong>Steps</strong>: define the visible pattern length.</li>
+        <li><strong>Peak</strong>: fast peak-following detector.</li>
+        <li><strong>RMS</strong>: averaged power detector.</li>
+        <li><strong>Rectified</strong>: instantaneous rectified level.</li>
+        <li><strong>Fast Envelope</strong>: responsive envelope follower.</li>
+        <li><strong>Slow Envelope</strong>: slower, more sustained envelope.</li>
+      </ul>
+    </div>
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Gate parameters</h3>
+      <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
+        <li><strong>Open Threshold</strong>: detector level required to open.</li>
+        <li><strong>Hysteresis</strong>: separation between open and close points.</li>
+        <li><strong>Attack / Hold / Release</strong>: timing of transitions.</li>
+        <li><strong>Range</strong>: maximum attenuation applied when closed.</li>
+        <li><strong>Detector Gain</strong>: trims the detector before gating.</li>
+      </ul>
+    </div>
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Dependencies</h3>
+      <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
         <li>
-          <strong>Swing / offset</strong>: push the feel away from a rigid grid.
+          <strong>Self</strong>: how strongly the selected band listens to its
+          own detector.
         </li>
         <li>
-          <strong>Phase</strong>: move the pattern against the source without
-          redrawing it.
+          <strong>Sidechain</strong>: how much external sidechain contributes
+          to the band's detector.
+        </li>
+        <li>
+          <strong>Band weights</strong>: how much other bands influence the
+          selected band.
+        </li>
+        <li>
+          <strong>Modes</strong>: Add, AND, OR, Follow, Oppose, and Duck define
+          how linked detectors combine.
         </li>
       </ul>
     </div>
     <div class="card" style="margin: 0">
-      <h3 style="margin: 0 0 8px; font-size: 16px">Gate shape</h3>
-      <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
-        <li><strong>Depth</strong>: how far the closed parts pull down.</li>
-        <li><strong>Attack</strong>: how quickly each opening arrives.</li>
-        <li><strong>Hold</strong>: how long an opening stays fully present.</li>
-        <li><strong>Release</strong>: how naturally the gate falls away.</li>
-        <li>
-          <strong>Curve</strong>: whether the motion feels stepped, rounded, or
-          swelling.
-        </li>
-      </ul>
-    </div>
-    <div class="card" style="margin: 0">
-      <h3 style="margin: 0 0 8px; font-size: 16px">Accent and variation</h3>
+      <h3 style="margin: 0 0 8px; font-size: 16px">Gain Curve</h3>
       <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
         <li>
-          <strong>Accent amount</strong>: make selected steps speak more
-          strongly.
+          Draws the relationship between normalized detector level and open
+          amount.
         </li>
         <li>
-          <strong>Probability</strong>: let some openings appear less
-          predictably.
-        </li>
-        <li><strong>Humanize</strong>: add small timing or level variation.</li>
-        <li>
-          <strong>Lane balance</strong>: decide which movement layer leads the
-          pattern.
-        </li>
-      </ul>
-    </div>
-    <div class="card" style="margin: 0">
-      <h3 style="margin: 0 0 8px; font-size: 16px">Mix behavior</h3>
-      <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
-        <li>
-          <strong>Dry / wet</strong>: blend original continuity with gated
-          motion.
+          Supports preset shapes such as hard gate, soft gate, expansion, floor
+          preservation, and duck-style curves.
         </li>
         <li>
-          <strong>Floor</strong>: keep closed sections audible when full silence
-          is too much.
-        </li>
-        <li>
-          <strong>Smoothing</strong>: avoid clicks on bright or bass-heavy
-          material.
-        </li>
-        <li>
-          <strong>Output trim</strong>: compensate for perceived level changes.
+          Allows custom points to create non-linear transitions that are not
+          possible with a simple threshold/range pair.
         </li>
       </ul>
     </div>
@@ -225,22 +222,19 @@ favicon: "/support/WeaveGate/img/icon.svg"
 </section>
 
 <section class="section">
-  <h2>How to think about it</h2>
+  <h2>Adaptive behavior</h2>
   <p class="muted" style="margin: 0; font-size: 13px">
-    A normal gate answers the question, “should this signal pass right now?”
-    WeaveGate is aimed more at, “what rhythmic shape should this sustained sound
-    become?” That makes it useful on sources that already have tone and space,
-    but need phrasing: a pad that should breathe with the drums, a reverb return
-    that should pulse around the vocal, a noise layer that should become a
-    texture, or a loop that needs smaller internal motion without being chopped
-    apart in the timeline.
+    WeaveGate also tracks transient and continuity information inside each band.
+    These values can influence the effective timing and threshold behavior so a
+    band does not have to respond only to static level. Transient amount,
+    sustain amount, and continuity amount provide a way to bias the gate toward
+    sharper openings, more stable sustained behavior, or smoother release
+    motion.
   </p>
   <p class="muted" style="margin: 12px 0 0; font-size: 13px">
-    The important distinction is that the plug-in is not meant only as a hard
-    trance-gate effect. It should also cover softer editorial moves: thinning
-    out a dense bed, making an ambience leave space for dialogue, turning a held
-    chord into a subtle rhythmic shimmer, or adding structure to a long
-    transition.
+    Spectral Cohesion blends neighboring-band detector information into the
+    decision process. This can make adjacent frequency regions behave more
+    coherently instead of opening and closing as isolated strips.
   </p>
 </section>
 
@@ -286,8 +280,9 @@ favicon: "/support/WeaveGate/img/icon.svg"
         change before the first public build.
       </li>
       <li>
-        The current public-facing direction is a rhythmic gate that focuses on
-        pattern layering, gate shape, and mix-friendly motion.
+        The current public-facing direction is a multiband gate and spectral
+        expander focused on band detection, dependency routing, gain mapping,
+        and crossover / FFT spectral processing.
       </li>
     </ul>
   </div>
