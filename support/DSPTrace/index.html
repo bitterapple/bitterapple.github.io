@@ -1,7 +1,7 @@
 ---
 layout: support
 title: "DSPTrace"
-description: "DSPTrace is a beta plug-in analyzer for loading AU/VST processors, sweeping parameters, and documenting how their controls change sound."
+description: "DSPTrace is a beta AU/VST plug-in analysis host for sending calibrated test signals through processors, capturing their output, and turning the measured behavior into repeatable trace reports."
 favicon: "/support/DSPTrace/img/DSPTrace.png"
 ---
 
@@ -22,17 +22,17 @@ favicon: "/support/DSPTrace/img/DSPTrace.png"
     <div>
       <h1 style="margin: 0">DSPTrace</h1>
       <p class="muted" style="margin: 6px 0 0; font-size: 13px">
-        <strong>Beta</strong> — <strong>Public testing</strong>.
+        <strong>Beta</strong> — <strong>Public beta available</strong>.
       </p>
       <p class="muted" style="margin: 6px 0 0; font-size: 12px; opacity: 0.85">
-        AU / VST Plug-in Behavior Analyzer
+        Beta AU / VST Plug-in Measurement Host
       </p>
     </div>
   </div>
 
   <p style="margin-top: 14px">
-    <strong>DSPTrace</strong> is a beta analyzer for documenting how
-    audio plug-ins behave. The idea is to load a processor, send controlled test
+    <strong>DSPTrace</strong> is a beta analysis host for measuring audio
+    plug-ins behave. The idea is to load a processor, send controlled test
     signals through it, sweep parameters, capture the result, and turn the
     response into graphs that are easier to compare than knob labels, marketing
     names, or listening notes alone.
@@ -42,7 +42,20 @@ favicon: "/support/DSPTrace/img/DSPTrace.png"
     <a class="btn" href="{{ '/' | relative_url }}">← All apps</a>
     <a
       class="btn"
-      href="mailto:kjdevapphelp@gmail.com?subject=DSPTrace%20Beta"
+      href="{{ '/download/dsptrace/macos/' | relative_url }}"
+      target="_blank"
+      rel="noopener"
+      style="font-weight: 700"
+      >Download Mac beta (PKG)</a
+    >
+    <a
+      class="btn"
+      href="{{ '/download/dsptrace/windows-vst3/' | relative_url }}"
+      target="_blank"
+      rel="noopener"
+      >Download Windows VST3 beta (ZIP)</a
+    >
+    <a class="btn" href="mailto:kjdevapphelp@gmail.com?subject=DSPTrace%20Beta"
       >Contact</a
     >
     <a
@@ -65,14 +78,57 @@ favicon: "/support/DSPTrace/img/DSPTrace.png"
   >
     <div class="card" style="margin: 0">
       <div class="muted" style="font-size: 13px">
-        <strong>Status:</strong> Beta
+        <strong>Status:</strong> Public beta
         <span style="opacity: 0.6; padding: 0 6px">•</span>
-        <strong>Version:</strong> beta
+        <strong>Version:</strong> 1.0.0 beta
       </div>
       <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-        This page describes the current beta direction. The analysis workflow
-        may still change while trace capture, reports, and hosted plug-in
-        behavior are being tested.
+        DSPTrace 1.0.0 beta is available for macOS as an installer package. The
+        Mac build supports AU and VST plug-ins only. AAX is not included. The
+        Windows support is VST only.
+      </p>
+    </div>
+  </div>
+
+  <div
+    class="grid"
+    style="
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+      gap: 14px;
+      margin-top: 14px;
+    "
+  >
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">macOS beta</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        Installer package for macOS. Supports AU and VST plug-in analysis. AAX
+        is not included in this beta.
+      </p>
+      <p style="margin: 12px 0 0">
+        <a
+          class="btn"
+          href="{{ '/download/dsptrace/macos/' | relative_url }}"
+          target="_blank"
+          rel="noopener"
+          >Download DSPTrace_1.0.0.pkg</a
+        >
+      </p>
+    </div>
+
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">Windows beta</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        Windows support is VST only. AAX is not included.
+      </p>
+      <p style="margin: 12px 0 0">
+        <a
+          class="btn"
+          href="{{ '/download/dsptrace/windows-vst3/' | relative_url }}"
+          target="_blank"
+          rel="noopener"
+          >Download Windows VST3 beta (ZIP)</a
+        >
       </p>
     </div>
   </div>
@@ -303,23 +359,16 @@ favicon: "/support/DSPTrace/img/DSPTrace.png"
   <h2>Release status</h2>
   <div class="card" style="margin: 0">
     <div class="muted" style="font-size: 13px">
-      <strong>Beta</strong> — Public testing status.
+      <strong>Beta</strong> — DSPTrace 1.0.0 public beta.
     </div>
     <ul
       class="muted"
       style="margin: 10px 0 0; padding-left: 18px; font-size: 13px"
     >
-      <li>DSPTrace is currently listed as beta.</li>
-      <li>Download package links have not been added to this page yet.</li>
-      <li>
-        Current focus: clearer trace reports, graph-first analysis, hosted
-        plug-in loading, automated parameter sweeps, and audio response
-        measurement.
-      </li>
-      <li>
-        The page currently describes the Comp Trace / EQ Trace direction. The
-        beta workflow may still change before a stable release.
-      </li>
+      <li>DSPTrace 1.0.0 beta is available for macOS.</li>
+      <li>macOS support: AU and VST only. AAX is not included.</li>
+      <li>Windows support: VST3 only. AAX is not included.</li>
+      <li>The beta workflow may still change before a stable release.</li>
     </ul>
   </div>
 </section>
@@ -327,9 +376,27 @@ favicon: "/support/DSPTrace/img/DSPTrace.png"
 <section class="section">
   <h2>Availability</h2>
   <p class="muted" style="margin: 0; font-size: 13px">
-    DSPTrace is currently listed as beta. This page will be updated with direct
-    package or ZIP links when those release assets are posted.
+    DSPTrace 1.0.0 beta is available for macOS as a package installer. The Mac
+    build supports AU and VST plug-ins only. AAX is not included. Windows
+    support is VST3 only. AAX is not included on either platform.
   </p>
+  <div style="margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap">
+    <a
+      class="btn"
+      href="{{ '/download/dsptrace/macos/' | relative_url }}"
+      target="_blank"
+      rel="noopener"
+      style="font-weight: 700"
+      >Download Mac beta (PKG)</a
+    >
+    <a
+      class="btn"
+      href="{{ '/download/dsptrace/windows-vst3/' | relative_url }}"
+      target="_blank"
+      rel="noopener"
+      >Download Windows VST3 beta (ZIP)</a
+    >
+  </div>
 </section>
 
 <section class="section">

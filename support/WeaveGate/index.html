@@ -4,6 +4,7 @@ title: "WeaveGate"
 description: "WeaveGate is a version 1.0 multiband gate and spectral expander plug-in with per-band detection, dependency routing, gain-curve mapping, and crossover or FFT spectral processing modes."
 favicon: "/support/WeaveGate/img/icon.svg"
 ---
+
 <header class="header">
   <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap">
     <img
@@ -31,8 +32,8 @@ favicon: "/support/WeaveGate/img/icon.svg"
     <strong>WeaveGate</strong> is a version 1.0 multiband gate and spectral
     expander. Instead of using one detector and one gain stage for the whole
     signal, it splits the signal into frequency regions, evaluates each region
-    with its own detector, and maps the detector result to gain reduction through
-    editable curves and inter-band dependency rules.
+    with its own detector, and maps the detector result to gain reduction
+    through editable curves and inter-band dependency rules.
   </p>
   <p style="margin-top: 12px">
     The plug-in can run as a conventional crossover-based multiband processor,
@@ -49,7 +50,20 @@ favicon: "/support/WeaveGate/img/icon.svg"
     <a class="btn" href="{{ '/' | relative_url }}">← All apps</a>
     <a
       class="btn"
-      href="mailto:kjdevapphelp@gmail.com?subject=WeaveGate%201.0"
+      href="{{ '/download/weavegate/macos/' | relative_url }}"
+      target="_blank"
+      rel="noopener"
+      style="font-weight: 700"
+      >Download Mac v1.0 (PKG)</a
+    >
+    <a
+      class="btn"
+      href="{{ '/download/weavegate/windows-vst3/' | relative_url }}"
+      target="_blank"
+      rel="noopener"
+      >Download Windows VST3 (ZIP)</a
+    >
+    <a class="btn" href="mailto:kjdevapphelp@gmail.com?subject=WeaveGate%201.0"
       >Contact</a
     >
     <a
@@ -75,9 +89,30 @@ favicon: "/support/WeaveGate/img/icon.svg"
         <span style="opacity: 0.6; padding: 0 6px">•</span>
         <strong>Version:</strong> 1.0
       </div>
+      <div class="muted" style="font-size: 13px; margin-top: 10px">
+        <strong>macOS:</strong> AAX / AU / VST for macOS
+        <span style="opacity: 0.6; padding: 0 6px">•</span>
+        <strong>Windows:</strong> VST3
+      </div>
+      <div style="margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap">
+        <a
+          class="btn"
+          href="{{ '/download/weavegate/macos/' | relative_url }}"
+          target="_blank"
+          rel="noopener"
+          style="font-weight: 700"
+          >Download Mac v1.0 (PKG)</a
+        >
+        <a
+          class="btn"
+          href="{{ '/download/weavegate/windows-vst3/' | relative_url }}"
+          target="_blank"
+          rel="noopener"
+          >Download Windows VST3 (ZIP)</a
+        >
+      </div>
       <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-        The screenshot below shows the version 1.0 interface. Direct package
-        and ZIP links will be added here when release assets are posted.
+        The screenshot below shows the version 1.0 interface.
       </p>
     </div>
   </div>
@@ -86,8 +121,8 @@ favicon: "/support/WeaveGate/img/icon.svg"
   <h2>What it does</h2>
   <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
     <li>
-      Splits audio into up to eight frequency bands and applies independent
-      gate / expander behavior per band.
+      Splits audio into up to eight frequency bands and applies independent gate
+      / expander behavior per band.
     </li>
     <li>
       Lets each band use a selectable detector: Peak, RMS, Rectified, Fast
@@ -163,17 +198,29 @@ favicon: "/support/WeaveGate/img/icon.svg"
         <li><strong>RMS</strong>: averaged power detector.</li>
         <li><strong>Rectified</strong>: instantaneous rectified level.</li>
         <li><strong>Fast Envelope</strong>: responsive envelope follower.</li>
-        <li><strong>Slow Envelope</strong>: slower, more sustained envelope.</li>
+        <li>
+          <strong>Slow Envelope</strong>: slower, more sustained envelope.
+        </li>
       </ul>
     </div>
     <div class="card" style="margin: 0">
       <h3 style="margin: 0 0 8px; font-size: 16px">Gate parameters</h3>
       <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
-        <li><strong>Open Threshold</strong>: detector level required to open.</li>
-        <li><strong>Hysteresis</strong>: separation between open and close points.</li>
-        <li><strong>Attack / Hold / Release</strong>: timing of transitions.</li>
-        <li><strong>Range</strong>: maximum attenuation applied when closed.</li>
-        <li><strong>Detector Gain</strong>: trims the detector before gating.</li>
+        <li>
+          <strong>Open Threshold</strong>: detector level required to open.
+        </li>
+        <li>
+          <strong>Hysteresis</strong>: separation between open and close points.
+        </li>
+        <li>
+          <strong>Attack / Hold / Release</strong>: timing of transitions.
+        </li>
+        <li>
+          <strong>Range</strong>: maximum attenuation applied when closed.
+        </li>
+        <li>
+          <strong>Detector Gain</strong>: trims the detector before gating.
+        </li>
       </ul>
     </div>
     <div class="card" style="margin: 0">
@@ -184,8 +231,8 @@ favicon: "/support/WeaveGate/img/icon.svg"
           own detector.
         </li>
         <li>
-          <strong>Sidechain</strong>: how much external sidechain contributes
-          to the band's detector.
+          <strong>Sidechain</strong>: how much external sidechain contributes to
+          the band's detector.
         </li>
         <li>
           <strong>Band weights</strong>: how much other bands influence the
@@ -267,7 +314,8 @@ favicon: "/support/WeaveGate/img/icon.svg"
       style="margin: 10px 0 0; padding-left: 18px; font-size: 13px"
     >
       <li>Initial version 1.0 release.</li>
-      <li>Direct macOS package and Windows ZIP links have not been added to this page yet.</li>
+      <li>macOS support: AAX / AU / VST.</li>
+      <li>Windows support: VST3.</li>
       <li>
         The control names, supported formats, screenshots, and workflow may
         continue to evolve after the initial release.
@@ -283,9 +331,26 @@ favicon: "/support/WeaveGate/img/icon.svg"
 <section class="section">
   <h2>Availability</h2>
   <p class="muted" style="margin: 0; font-size: 13px">
-    WeaveGate is listed as version 1.0. This page will be updated with direct
-    package or ZIP links when those release assets are posted.
+    WeaveGate version 1.0 is available for macOS and Windows. The macOS package
+    includes AAX, AU, and VST builds. The Windows package is VST3.
   </p>
+  <div style="margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap">
+    <a
+      class="btn"
+      href="{{ '/download/weavegate/macos/' | relative_url }}"
+      target="_blank"
+      rel="noopener"
+      style="font-weight: 700"
+      >Download Mac v1.0 (PKG)</a
+    >
+    <a
+      class="btn"
+      href="{{ '/download/weavegate/windows-vst3/' | relative_url }}"
+      target="_blank"
+      rel="noopener"
+      >Download Windows VST3 (ZIP)</a
+    >
+  </div>
 </section>
 <section class="section">
   <h2>Support</h2>
