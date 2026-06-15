@@ -1,6 +1,6 @@
 {
-  "schema_version": 24,
-  "generated_at": "2026-06-06T00:00:00Z",
+  "schema_version": 25,
+  "generated_at": "2026-06-15T00:00:00Z",
   "products": {
     "levelrangeeq": {
       "name": "Level Range EQ",
@@ -64,6 +64,22 @@
       "download_url": "https://bitterapple.github.io/support/distance/",
       "release_notes_url": "https://bitterapple.github.io/support/distance/#release-notes",
       "min_supported_version": "1.0.1",
+      "critical": false
+    },
+    "dsptrace": {
+      "name": "DSPTrace",
+      "latest_version": "beta",
+      "download_url": "https://bitterapple.github.io/support/DSPTrace/",
+      "release_notes_url": "https://bitterapple.github.io/support/DSPTrace/#release-notes",
+      "min_supported_version": "beta",
+      "critical": false
+    },
+    "weavegate": {
+      "name": "WeaveGate",
+      "latest_version": "1.0.0",
+      "download_url": "https://bitterapple.github.io/support/WeaveGate/",
+      "release_notes_url": "https://bitterapple.github.io/support/WeaveGate/#release-notes",
+      "min_supported_version": "1.0.0",
       "critical": false
     },
     "Propagation": {

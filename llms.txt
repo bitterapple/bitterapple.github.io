@@ -14,7 +14,8 @@
 
 - Propagation: free IR-inspired algorithmic reverb that turns captured spaces into editable reverb controls.
 - Level Range EQ: free dynamic EQ-style plug-in for applying different EQ curves to quiet, mid-level, and loud signal ranges.
-- DSPTrace: plug-in analyzer in active development for loading AU/VST processors, sweeping parameters, graphing trace results, and documenting how controls change sound.
+- DSPTrace: beta plug-in analyzer for loading AU/VST processors, sweeping parameters, graphing trace results, and documenting how controls change sound.
+- WeaveGate: version 1.0 rhythmic gate and pattern-weaving effect for turning pads, ambience, rooms, loops, and long effect returns into interlocking motion.
 - Harmony & Counterpoint: a music theory practice app for composers, arrangers, and producers, with guided exercises and red-pen style review.
 - ScoreShelf: free iPad sheet music library on the App Store for managing PDFs, reading scores, light Apple Pencil markup, bookmarks, practice spots, and practice history.
 - Studio Mate: iPad recording-session app that adds timecode markers to PDFs and jumps a DAW to the marked spot.

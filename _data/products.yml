@@ -110,27 +110,27 @@
   title: DSPTrace
   type: plugin
   order: 90
-  status_label: Coming Soon
-  status_class: soon
-  summary: Plug-in analyzer for loading AU/VST processors, sweeping parameters, and turning compressor, EQ, saturation, timing, and automation behavior into repeatable trace graphs.
+  status_label: Beta
+  status_class: progress
+  summary: Beta plug-in analyzer for loading AU/VST processors, sweeping parameters, and turning compressor, EQ, saturation, timing, and automation behavior into repeatable trace graphs.
   icon: /support/DSPTrace/img/DSPTrace.png
   url: /support/DSPTrace/
-  latest_order: -1
-  latest_date: "2026-06-13"
-  latest_summary: DSPTrace now has a fuller preview page for the in-development plug-in analyzer, including Compressor Trace, EQ Trace, parameter sweeps, and repeatable behavior comparison.
+  latest_order: -9
+  latest_date: "2026-06-15"
+  latest_summary: DSPTrace is now listed as a beta plug-in analyzer, with Compressor Trace, EQ Trace, parameter sweeps, and repeatable behavior comparison described as the current beta focus.
 
 - slug: weavegate
   title: WeaveGate
   type: plugin
   order: 92
-  status_label: Coming Soon
-  status_class: soon
-  summary: In-development rhythmic gate and pattern-weaving effect for turning pads, ambience, rooms, loops, and long effect returns into interlocking motion.
+  status_label: Live
+  status_class: live
+  summary: Version 1.0 rhythmic gate and pattern-weaving effect for turning pads, ambience, rooms, loops, and long effect returns into interlocking motion.
   icon: /support/WeaveGate/img/icon.svg
   url: /support/WeaveGate/
-  latest_order: 0
-  latest_date: "2026-06-13"
-  latest_summary: WeaveGate preview page added. It is still in development, with no public package or ZIP posted yet, and focuses on pattern lanes, gate shape, accents, and mix-friendly rhythmic motion.
+  latest_order: -8
+  latest_date: "2026-06-15"
+  latest_summary: WeaveGate v1.0 is listed as the initial release, focused on pattern lanes, gate shape, accents, and mix-friendly rhythmic motion.
 
 - slug: spectralleveler
   title: Spectral Leveler
