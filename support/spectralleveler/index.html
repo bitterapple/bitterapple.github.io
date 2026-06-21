@@ -1,7 +1,7 @@
 ---
 layout: support
 title: "Spectral Leveler"
-description: "Spectral Leveler is a real-time spectral dynamics plug-in for smoothing harshness and uneven resonances without static EQ. AAX / AU / VST3 for macOS, VST3 and AAX public test for Windows."
+description: "Spectral Leveler is a real-time spectral dynamics plug-in for smoothing harshness and uneven resonances with frequency, level, sidechain, and inter-band reduction control."
 favicon: "/support/spectralleveler/img/spectralleveler_icon.png"
 ---
       <header class="header">
@@ -22,7 +22,7 @@ favicon: "/support/spectralleveler/img/spectralleveler_icon.png"
           <div>
             <h1 style="margin: 0">Spectral Leveler</h1>
             <p class="muted" style="margin: 6px 0 0; font-size: 13px">
-              <strong>Released</strong> — <strong>Version 1.2.1</strong>.
+              <strong>Released</strong> — <strong>Version 1.3.0</strong>.
             </p>
             <p
               class="muted"
@@ -39,7 +39,8 @@ favicon: "/support/spectralleveler/img/spectralleveler_icon.png"
           EQ. Instead of committing to one fixed EQ curve, you shape audio by
           <strong>frequency window</strong> and <strong>level window</strong>
           directly on a live spectrogram, then tune Gain, Attack, and Release
-          for smooth, selective leveling.
+          for smooth, selective leveling. Version 1.3.0 adds reduction control
+          that can be influenced by other bands and by the sidechain input.
         </p>
 
         <div class="nav">
@@ -78,7 +79,7 @@ favicon: "/support/spectralleveler/img/spectralleveler_icon.png"
                 class="btn"
                 href="{{ '/download/spectralleveler/macos/' | relative_url }}"
                 style="font-weight: 700"
-                >Download v1.2.1 (PKG)</a
+                >Download v1.3.0 (PKG)</a
               >
               <a
                 class="btn"
@@ -94,11 +95,12 @@ favicon: "/support/spectralleveler/img/spectralleveler_icon.png"
             <p class="muted" style="margin: 10px 0 0; font-size: 12px">
               Latest downloads are available for macOS 11 or later and Windows.
               The Windows VST3 build matches version
-              <strong>1.2.1</strong>, and I have received reports that it works
+              <strong>1.3.0</strong>, and I have received reports that it works
               well. A signed Windows AAX public test build is also available.
               Building and signing are complete, but final verification on an
-              actual Windows Pro Tools system is still pending. This update may
-              resolve an issue where the plug-in could fail to load in some
+              actual Windows Pro Tools system is still pending. Version 1.3.0
+              adds sidechain and inter-band reduction control. A previous update
+              may resolve an issue where the plug-in could fail to load in some
               environments, but this has not been fully confirmed yet.
             </p>
           </div>
@@ -176,11 +178,10 @@ favicon: "/support/spectralleveler/img/spectralleveler_icon.png"
             class="muted"
             style="margin: 0; padding-left: 18px; font-size: 13px"
           >
-            <li><strong>Release:</strong> v1.2.1 is now publicly available.</li>
+            <li><strong>Release:</strong> v1.3.0 is now publicly available.</li>
             <li>
-              <strong>Latest update:</strong> this release may resolve an issue
-              where the plug-in could fail to load in some environments, but
-              this has not been fully confirmed yet.
+              <strong>Latest update:</strong> reduction can now be influenced by
+              other bands and by the sidechain input.
             </li>
             <li>
               <strong>UI:</strong> resizable window support from v1.2.0 remains
@@ -208,10 +209,16 @@ favicon: "/support/spectralleveler/img/spectralleveler_icon.png"
         <h2>Release history</h2>
         <div class="card" style="margin: 0">
           <p class="muted" style="margin: 0; font-size: 13px">
+            <strong>v1.3.0</strong> — Sidechain and inter-band reduction
+          </p>
+          <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+            Current release. Allows reduction to be influenced by other bands and by the sidechain input.
+          </p>
+          <p class="muted" style="margin: 14px 0 0; font-size: 13px">
             <strong>v1.2.1</strong> — Possible loading issue fix
           </p>
           <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-            Current release. This update may resolve an issue where the plug-in could fail to load in some environments, but this has not been fully confirmed yet.
+            That update may resolve an issue where the plug-in could fail to load in some environments, but this has not been fully confirmed yet.
           </p>
         </div>
       </section>
@@ -317,7 +324,7 @@ favicon: "/support/spectralleveler/img/spectralleveler_icon.png"
             A plug-in host that supports <strong>AAX</strong> (Pro Tools),
             <strong>AU</strong>, or <strong>VST3</strong>.
           </li>
-          <li>Installer: <code>SpectralLeveler_1.2.1.pkg</code></li>
+          <li>Installer: <code>SpectralLeveler_1.3.0.pkg</code></li>
         </ul>
       </section>
 
@@ -328,7 +335,7 @@ favicon: "/support/spectralleveler/img/spectralleveler_icon.png"
           style="margin: 0; padding-left: 18px; font-size: 13px"
         >
           <li>
-            Download the latest <code>SpectralLeveler_1.2.1.pkg</code> from this
+            Download the latest <code>SpectralLeveler_1.3.0.pkg</code> from this
             page.
           </li>
           <li>

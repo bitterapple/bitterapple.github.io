@@ -1,7 +1,7 @@
 ---
 layout: support
 title: "BandMatrix"
-description: "BandMatrix is a free 6-band sidechain dynamics plug-in with compression, expansion, flexible key routing, Tone Shaper mode, and Inverse sidechain mode."
+description: "BandMatrix is a free variable-band sidechain dynamics plug-in with compression, expansion, flexible matrix routing, Tone Shaper mode, and Inverse sidechain mode."
 favicon: "/support/bandmatrix/img/BandMatrix_icon.png"
 ---
 
@@ -21,20 +21,20 @@ favicon: "/support/bandmatrix/img/BandMatrix_icon.png"
     <div>
       <h1 style="margin: 0">BandMatrix</h1>
       <p class="muted" style="margin: 6px 0 0; font-size: 13px">
-        <strong>Released</strong> — <strong>Version 2.9.0</strong>.
+        <strong>Released</strong> — <strong>Version 3.0.0</strong>.
       </p>
       <p class="muted" style="margin: 6px 0 0; font-size: 12px; opacity: 0.85">
-        Free 6-Band Sidechain Dynamics Plug-in
+        Free Variable-Band Sidechain Dynamics Plug-in
       </p>
     </div>
   </div>
 
   <p style="margin-top: 14px">
-    <strong>BandMatrix</strong> is a free 6-band sidechain dynamics plug-in with
-    compression, expansion, flexible key routing, Tone Shaper mode, and Inverse
-    sidechain mode. Each band can listen to the internal signal, external
-    sidechain input, or another band, so you can create targeted ducking and
-    inter-band control without compressing the whole mix.
+    <strong>BandMatrix</strong> is a free variable-band sidechain dynamics
+    plug-in with compression, expansion, flexible matrix routing, Tone Shaper
+    mode, and Inverse sidechain mode. Each band can listen to the internal
+    signal, external sidechain input, or another band, so you can create
+    targeted ducking and inter-band control without compressing the whole mix.
   </p>
 
   <div class="nav">
@@ -66,7 +66,7 @@ favicon: "/support/bandmatrix/img/BandMatrix_icon.png"
           class="btn"
           href="{{ '/download/bandmatrix/macos/' | relative_url }}"
           style="font-weight: 700"
-          >Download v2.9.0 (PKG)</a
+          >Download v3.0.0 (PKG)</a
         >
         <a
           class="btn"
@@ -75,8 +75,8 @@ favicon: "/support/bandmatrix/img/BandMatrix_icon.png"
         >
       </div>
       <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-        The latest release is <strong>v2.9.0</strong>, with improved compressor
-        release behavior and cleaner burst-boundary handling.
+        The latest release is <strong>v3.0.0</strong>, with variable band count
+        support and more flexible matrix routing.
       </p>
     </div>
   </div>
@@ -86,7 +86,7 @@ favicon: "/support/bandmatrix/img/BandMatrix_icon.png"
   <h2>What it does</h2>
   <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
     <li>
-      Split the signal into multiple bands and apply
+      Choose the active band count, split the signal into multiple bands, and apply
       <strong>independent compression</strong> per band.
     </li>
     <li>
@@ -99,9 +99,8 @@ favicon: "/support/bandmatrix/img/BandMatrix_icon.png"
       (e.g., harsh band → tame presence) without affecting the entire spectrum.
     </li>
     <li>
-      Version <strong>2.9.0</strong> improves compressor release behavior and
-      reduces burst-boundary artifacts while preserving the static curve and
-      transient pass-through.
+      Version <strong>3.0.0</strong> adds variable band count support and makes
+      the matrix routing more flexible for sidechain dynamics workflows.
     </li>
     <li>
       <strong>Tone Shaper mode</strong> adds a more flexible way to shape
@@ -134,12 +133,18 @@ favicon: "/support/bandmatrix/img/BandMatrix_icon.png"
   <h2>Release history</h2>
   <div class="card" style="margin: 0">
     <p class="muted" style="margin: 0; font-size: 13px">
+      <strong>v3.0.0</strong> — Variable bands and matrix routing.
+    </p>
+    <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+      Current release. Adds variable band count support and makes matrix
+      routing more flexible for sidechain dynamics workflows.
+    </p>
+    <p class="muted" style="margin: 14px 0 0; font-size: 13px">
       <strong>v2.9.0</strong> — Compressor behavior update.
     </p>
     <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-      Current release. Improves compressor release behavior and burst-boundary
-      handling while preserving the static transfer curve and transient
-      pass-through.
+      Improved compressor release behavior and burst-boundary handling while
+      preserving the static transfer curve and transient pass-through.
     </p>
     <p class="muted" style="margin: 14px 0 0; font-size: 13px">
       <strong>v2.6.0</strong> — Tone Shaper Mix fix.
@@ -186,7 +191,7 @@ favicon: "/support/bandmatrix/img/BandMatrix_icon.png"
     <li>
       A plug-in host that supports <strong>AU</strong> or <strong>VST3</strong>.
     </li>
-    <li>Installer: <code>BandMatrix_2.9.0.pkg</code></li>
+    <li>Installer: <code>BandMatrix_3.0.0.pkg</code></li>
   </ul>
   <p class="muted" style="margin: 10px 0 0; font-size: 12px">
     Note: The installer includes <strong>AU / VST3</strong> builds that target
@@ -198,7 +203,7 @@ favicon: "/support/bandmatrix/img/BandMatrix_icon.png"
   <h2>Install</h2>
   <ol class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
     <li>
-      Download the latest <code>BandMatrix_2.9.0.pkg</code> from this page.
+      Download the latest <code>BandMatrix_3.0.0.pkg</code> from this page.
     </li>
     <li>
       Run the installer (it installs AU / VST3 to the standard macOS plug-in

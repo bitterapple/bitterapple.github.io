@@ -1,7 +1,7 @@
 ---
 layout: support
 title: "Level Range EQ"
-description: "Level Range EQ is a free dynamic EQ-style plug-in that applies different EQ curves to quiet, mid-level, and loud parts of a signal."
+description: "Level Range EQ is a free level-dependent EQ plug-in with separate curves for quiet, mid-level, and loud parts, plus Tone Shaper and Dynamic EQ workflows."
 favicon: "/support/levelrangeeq/img/LevelRangeEQ_icon_bottomleft_redpurpleblue.png"
 ---
       <header class="header">
@@ -22,7 +22,7 @@ favicon: "/support/levelrangeeq/img/LevelRangeEQ_icon_bottomleft_redpurpleblue.p
           <div>
             <h1 style="margin: 0">Level Range EQ</h1>
             <p class="muted" style="margin: 6px 0 0; font-size: 13px">
-              <strong>Version 2.0.0</strong> — <strong>Out now</strong>.
+              <strong>Version 2.1.0</strong> — <strong>Out now</strong>.
             </p>
             <p
               class="muted"
@@ -34,10 +34,11 @@ favicon: "/support/levelrangeeq/img/LevelRangeEQ_icon_bottomleft_redpurpleblue.p
         </div>
 
         <p style="margin-top: 14px">
-          <strong>Level Range EQ</strong> is a free dynamic EQ-style plug-in
+          <strong>Level Range EQ</strong> is a free level-dependent EQ plug-in
           that applies different EQ curves to quiet, mid-level, and loud parts
-          of a signal. Instead of one static tone curve, you can shape soft
-          details, normal body, and loud peaks separately.
+          of a signal. Version 2.1.0 also adds Tone Shaper and Dynamic EQ
+          workflows, so level-dependent EQ, tonal shaping, and dynamic control
+          can live in the same plug-in.
         </p>
 
         <div class="nav">
@@ -76,7 +77,7 @@ favicon: "/support/levelrangeeq/img/LevelRangeEQ_icon_bottomleft_redpurpleblue.p
                 class="btn"
                 href="{{ '/download/levelrangeeq/macos/' | relative_url }}"
                 style="font-weight: 700"
-                >Download LevelRangeEQ_2.0.0.pkg</a
+                >Download LevelRangeEQ_2.1.0.pkg</a
               >
               <a
                 class="btn"
@@ -87,9 +88,10 @@ favicon: "/support/levelrangeeq/img/LevelRangeEQ_icon_bottomleft_redpurpleblue.p
             <p class="muted" style="margin: 10px 0 0; font-size: 12px">
               Latest downloads are available for macOS 11 or later and Windows
               VST3. The Windows build matches version
-              <strong>2.0.0</strong>, and I have received reports that it works
-              well. Windows AAX support is planned for a future release. This
-              release fixes an AU startup issue reported in Logic Pro where
+              <strong>2.1.0</strong>, and I have received reports that it works
+              well. Windows AAX support is planned for a future release.
+              Version 2.1.0 adds Tone Shaper and Dynamic EQ workflows. Version
+              2.0.0 fixed an AU startup issue reported in Logic Pro where
               inserting the plug-in immediately after launch and moving EQ
               bands could produce severe distortion, runaway output, and audio
               dropout until the plug-in was re-instanced.
@@ -138,27 +140,26 @@ favicon: "/support/levelrangeeq/img/LevelRangeEQ_icon_bottomleft_redpurpleblue.p
       <section class="section">
         <h2>What’s new</h2>
         <div class="card" style="margin: 0">
-          <h3 style="margin: 0 0 8px; font-size: 16px">Version 2.0.0</h3>
+          <h3 style="margin: 0 0 8px; font-size: 16px">Version 2.1.0</h3>
           <ul
             class="muted"
             style="margin: 0; padding-left: 18px; font-size: 13px"
           >
             <li>
-              <strong>New release:</strong> Level Range EQ 2.0.0 is out now.
+              <strong>New release:</strong> Level Range EQ 2.1.0 is out now.
             </li>
             <li>
-              Fixes an AU startup bug in Logic Pro that could trigger severe
-              distortion and runaway output when the plug-in was inserted
-              immediately after launch and EQ bands were edited before the
-              instance had settled.
+              Adds <strong>Tone Shaper</strong> and
+              <strong>Dynamic EQ</strong> workflows alongside the existing
+              level-dependent EQ model.
             </li>
             <li>
-              Version reporting is now aligned so the shipped component
-              metadata matches the plug-in release version.
+              Keeps the quiet / mid-level / loud EQ curve workflow available
+              while adding more ways to shape tone and dynamic response.
             </li>
           </ul>
           <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-            Previous: 1.9.1 addressed a loading issue in some environments.
+            Previous: 2.0.0 fixed an AU startup issue reported in Logic Pro.
           </p>
         </div>
       </section>
@@ -167,6 +168,16 @@ favicon: "/support/levelrangeeq/img/LevelRangeEQ_icon_bottomleft_redpurpleblue.p
         <h2>Release history</h2>
         <div class="card" style="margin: 0">
           <p class="muted" style="margin: 0; font-size: 13px">
+            <strong>2.1.0</strong>
+            <span style="opacity: 0.6; padding: 0 6px">•</span>
+            <span>2026-06-21</span>
+            <span style="opacity: 0.6; padding: 0 6px">•</span>
+            <span>Tone Shaper and Dynamic EQ</span>
+          </p>
+          <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+            Current release. Adds Tone Shaper and Dynamic EQ workflows alongside the existing level-dependent EQ model.
+          </p>
+          <p class="muted" style="margin: 14px 0 0; font-size: 13px">
             <strong>2.0.0</strong>
             <span style="opacity: 0.6; padding: 0 6px">•</span>
             <span>2026-04-02</span>
@@ -174,7 +185,7 @@ favicon: "/support/levelrangeeq/img/LevelRangeEQ_icon_bottomleft_redpurpleblue.p
             <span>AU startup stability fix</span>
           </p>
           <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-            Current release. Fixes an AU startup issue reported in Logic Pro where inserting the plug-in immediately after launch and editing EQ bands could produce severe distortion, runaway output, and audio dropout until the plug-in was re-instanced.
+            Fixed an AU startup issue reported in Logic Pro where inserting the plug-in immediately after launch and editing EQ bands could produce severe distortion, runaway output, and audio dropout until the plug-in was re-instanced.
           </p>
         </div>
       </section>
@@ -223,7 +234,7 @@ favicon: "/support/levelrangeeq/img/LevelRangeEQ_icon_bottomleft_redpurpleblue.p
             <strong>AU</strong>, or <strong>VST3</strong>.
           </li>
           <li>
-            Installer: <code>LevelRangeEQ_2.0.0.pkg</code> (download above).
+            Installer: <code>LevelRangeEQ_2.1.0.pkg</code> (download above).
           </li>
         </ul>
         <p class="muted" style="margin: 10px 0 0; font-size: 12px">
@@ -242,7 +253,7 @@ favicon: "/support/levelrangeeq/img/LevelRangeEQ_icon_bottomleft_redpurpleblue.p
             Download
             <a
               href="{{ '/download/levelrangeeq/macos/' | relative_url }}"
-              >LevelRangeEQ_2.0.0.pkg</a
+              >LevelRangeEQ_2.1.0.pkg</a
             >.
           </li>
           <li>
