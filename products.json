@@ -1,13 +1,13 @@
 {
-  "schema_version": 27,
-  "generated_at": "2026-06-22T00:00:00Z",
+  "schema_version": 29,
+  "generated_at": "2026-06-21T12:00:00Z",
   "products": {
     "levelrangeeq": {
       "name": "Level Range EQ",
-      "latest_version": "2.1.0",
+      "latest_version": "2.2.0",
       "download_url": "https://bitterapple.github.io/support/levelrangeeq/",
       "release_notes_url": "https://bitterapple.github.io/support/levelrangeeq/#release-notes",
-      "min_supported_version": "2.1.0",
+      "min_supported_version": "2.2.0",
       "critical": false
     },
     "dialoguedoctor": {
