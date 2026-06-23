@@ -35,9 +35,9 @@
   summary: Free variable-band sidechain dynamics plug-in with compression, expansion, flexible matrix routing, and Inverse sidechain mode.
   icon: /support/bandmatrix/img/BandMatrix_icon.png
   url: /support/bandmatrix/
-  latest_order: -29
-  latest_date: "2026-06-22"
-  latest_summary: Updated to v3.1.0. Adds variable band count support and more flexible matrix routing for sidechain dynamics workflows.
+  latest_order: -31
+  latest_date: "2026-06-23"
+  latest_summary: Updated to v3.2.0. Adds variable band count support and more flexible matrix routing for sidechain dynamics workflows.
 
 - slug: panblur
   title: PanBlur
@@ -76,8 +76,8 @@
   icon: /support/img/levelrangeeq_icon.png
   url: /support/levelrangeeq/
   latest_order: -30
-  latest_date: "2026-06-22"
-  latest_summary: Updated to v2.3.0. Adds Tone Shaper and Dynamic EQ workflows on top of the level-dependent EQ model.
+  latest_date: "2026-06-21"
+  latest_summary: Updated to v2.1.0. Adds Tone Shaper and Dynamic EQ workflows on top of the level-dependent EQ model.
 
 - slug: phaseslice
   title: PhaseSlice
@@ -141,7 +141,7 @@
   summary: Real-time spectral dynamics plug-in for smoothing harshness and uneven resonances with frequency, level, sidechain, and inter-band reduction control.
   icon: /support/spectralleveler/img/spectralleveler_icon.png
   url: /support/spectralleveler/
-  latest_order: -28
+  latest_order: -29
   latest_date: "2026-06-21"
   latest_summary: Updated to v1.3.0. Allows reduction to be influenced by other bands and by the sidechain input.
 
