@@ -1,0 +1,1389 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TakeFlow Workflow Guide</title>
+  <meta name="robots" content="noindex">
+  <meta
+    name="description"
+    content="Detailed TakeFlow workflow guide for requesters and performers, based on the current iOS app, backend, Worker, and beta implementation state."
+  >
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f6f8;
+      --paper: #ffffff;
+      --ink: #16202a;
+      --muted: #5d6875;
+      --line: #d8dee6;
+      --soft: #eef3f7;
+      --blue: #1967d2;
+      --green: #17815d;
+      --orange: #b46014;
+      --red: #b23a3a;
+      --shadow: 0 18px 40px rgba(20, 34, 48, 0.10);
+      --radius: 8px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+    }
+
+    .topbar-inner {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 20px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 7px;
+      background: var(--blue);
+      color: white;
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .brand a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .language-picker {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .language-picker label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    select {
+      min-width: 210px;
+      min-height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 0 12px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      font-size: 14px;
+    }
+
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: calc(100vh - 64px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(380px, 0.88fr);
+      align-items: center;
+      gap: 42px;
+      padding: 54px 0 32px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      max-width: 880px;
+      font-size: clamp(38px, 6vw, 78px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 21px);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border: 1px solid var(--blue);
+      border-radius: 7px;
+      color: var(--blue);
+      background: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .button.primary {
+      background: var(--blue);
+      color: white;
+    }
+
+    .hero-panel {
+      display: grid;
+      gap: 14px;
+      align-self: stretch;
+      align-content: center;
+    }
+
+    .phone {
+      border: 1px solid #c8d1dc;
+      border-radius: 24px;
+      background: #0f1721;
+      padding: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .phone-screen {
+      overflow: hidden;
+      border-radius: 16px;
+      background: #f2f4f7;
+      border: 1px solid #222b34;
+    }
+
+    .phone-header {
+      display: grid;
+      grid-template-columns: 36px 1fr 36px;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 12px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .icon-button {
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .mock-content {
+      display: grid;
+      gap: 10px;
+      padding: 12px;
+    }
+
+    .segment {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      overflow: hidden;
+      background: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .segment span {
+      padding: 8px 6px;
+    }
+
+    .segment span:first-child {
+      background: var(--blue);
+      color: white;
+    }
+
+    .mock-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      padding: 12px;
+    }
+
+    .mock-card h3 {
+      margin: 0 0 8px;
+      font-size: 14px;
+    }
+
+    .mock-row,
+    .mock-metric-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+      min-height: 28px;
+      border-top: 1px solid #eef1f4;
+      font-size: 12px;
+    }
+
+    .mock-row:first-of-type,
+    .mock-metric-row:first-of-type {
+      border-top: 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 22px;
+      padding: 0 8px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .pill.green {
+      background: #e7f5ee;
+      color: var(--green);
+    }
+
+    .pill.orange {
+      background: #fff0df;
+      color: var(--orange);
+    }
+
+    .pill.blue {
+      background: #eaf1ff;
+      color: var(--blue);
+    }
+
+    .progress-bar {
+      height: 7px;
+      border-radius: 999px;
+      background: #dce5ef;
+      overflow: hidden;
+    }
+
+    .progress-bar span {
+      display: block;
+      width: 64%;
+      height: 100%;
+      background: var(--green);
+    }
+
+    .excel {
+      border: 1px solid #c6d3df;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .excel-top {
+      display: grid;
+      grid-template-columns: 120px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 10px 12px;
+      border-bottom: 1px solid #c6d3df;
+      background: #eef3f7;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .sheet {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .sheet th,
+    .sheet td {
+      padding: 8px 10px;
+      border-right: 1px solid #dfe6ee;
+      border-bottom: 1px solid #dfe6ee;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .sheet th {
+      background: #f8fafc;
+      color: #334151;
+      font-weight: 700;
+    }
+
+    .sheet td:first-child,
+    .sheet th:first-child {
+      width: 52px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    section {
+      padding: 58px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(260px, 0.5fr);
+      gap: 34px;
+      align-items: end;
+      margin-bottom: 26px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(28px, 3.5vw, 46px);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    .section-head p,
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      padding: 20px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      line-height: 1.24;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .steps {
+      display: grid;
+      gap: 12px;
+      counter-reset: step;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 7px;
+      background: var(--ink);
+      color: white;
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .step h3 {
+      margin: 0 0 4px;
+      font-size: 17px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .flow-item {
+      min-height: 116px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .flow-item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    .flow-item span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .status-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      font-size: 14px;
+    }
+
+    .status-table th,
+    .status-table td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .status-table th {
+      background: #eef3f7;
+      color: #263545;
+    }
+
+    .status-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .limits {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .limit {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      padding: 14px;
+    }
+
+    .limit strong {
+      display: block;
+      font-size: 20px;
+      line-height: 1.1;
+    }
+
+    .limit span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .note {
+      border-left: 4px solid var(--blue);
+      background: #fff;
+      padding: 16px 18px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 36px 0 54px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    [data-i18n-list] {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    [data-i18n-list] li + li {
+      margin-top: 6px;
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      .section-head,
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 36px;
+      }
+
+      .hero-panel {
+        align-content: start;
+      }
+
+      .flow,
+      .limits {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .language-picker {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      select {
+        width: 100%;
+      }
+
+      .flow,
+      .limits {
+        grid-template-columns: 1fr;
+      }
+
+      .phone {
+        padding: 8px;
+        border-radius: 18px;
+      }
+
+      .excel-top {
+        grid-template-columns: 1fr;
+      }
+
+      .sheet {
+        font-size: 11px;
+      }
+
+      .sheet th,
+      .sheet td {
+        padding: 7px 6px;
+      }
+
+      .status-table,
+      .status-table tbody,
+      .status-table tr,
+      .status-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .status-table thead {
+        display: none;
+      }
+
+      .status-table {
+        border: 0;
+        background: transparent;
+      }
+
+      .status-table tr {
+        margin-bottom: 10px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #fff;
+        overflow: hidden;
+      }
+
+      .status-table td {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .status-table td:last-child {
+        border-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">T</div>
+        <a href="/support/TakeFlow/">TakeFlow</a>
+      </div>
+      <div class="language-picker">
+        <label for="languageSelect" data-i18n="languageLabel">Language</label>
+        <select id="languageSelect" aria-label="Language">
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+          <option value="es">Español</option>
+          <option value="de">Deutsch</option>
+          <option value="fr">Français</option>
+          <option value="pt">Português</option>
+          <option value="ko">한국어</option>
+          <option value="zhHans">简体中文</option>
+          <option value="zhHant">繁體中文</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div>
+        <h1 data-i18n="heroTitle">Remote voice recording, organized line by line.</h1>
+        <p data-i18n="heroBody">TakeFlow is an iOS workflow for requesters who prepare a script, invite performers, review submitted takes, request retakes, and export clean delivery files without losing track of every line.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#requester" data-i18n="heroPrimary">Requester workflow</a>
+          <a class="button" href="#performer" data-i18n="heroSecondary">Performer workflow</a>
+        </div>
+      </div>
+
+      <div class="hero-panel" aria-label="TakeFlow screen and spreadsheet mockups">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="phone-header">
+              <div class="icon-button">‹</div>
+              <div data-i18n="mockNavTitle">Recording list</div>
+              <div class="icon-button">⋯</div>
+            </div>
+            <div class="mock-content">
+              <div class="segment">
+                <span data-i18n="mockSegmentManage">Manage</span>
+                <span data-i18n="mockSegmentCreate">Create</span>
+              </div>
+              <div class="mock-card">
+                <h3 data-i18n="mockJobTitle">Episode 03 voice lines</h3>
+                <div class="mock-row">
+                  <span data-i18n="mockInviteCount">Invite links</span>
+                  <strong>3</strong>
+                </div>
+                <div class="mock-row">
+                  <span data-i18n="mockPending">Needs review</span>
+                  <span class="pill blue">7</span>
+                </div>
+                <div class="mock-row">
+                  <span data-i18n="mockRetake">Retake</span>
+                  <span class="pill orange">2</span>
+                </div>
+                <div class="mock-metric-row">
+                  <span data-i18n="mockAccepted">Accepted</span>
+                  <span class="pill green">18</span>
+                </div>
+                <div class="progress-bar"><span></span></div>
+              </div>
+              <div class="mock-card">
+                <h3 data-i18n="mockLineTitle">Line A-014</h3>
+                <div class="mock-row">
+                  <span data-i18n="mockPerformer">Performer</span>
+                  <strong>Mina</strong>
+                </div>
+                <div class="mock-row">
+                  <span data-i18n="mockLatest">Latest take</span>
+                  <span class="pill blue" data-i18n="mockSubmitted">Submitted</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="excel">
+          <div class="excel-top">
+            <span data-i18n="sheetTitle">Line list template</span>
+            <span data-i18n="sheetHint">CSV / XLSX import</span>
+            <span class="pill green">.xlsx</span>
+          </div>
+          <table class="sheet" aria-label="Line list sample">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th data-i18n="sheetCharacter">Character</th>
+                <th data-i18n="sheetLine">Line</th>
+                <th data-i18n="sheetNote">Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td data-i18n="sheetAlice">Alice</td>
+                <td data-i18n="sheetAliceLine">We start on the third bell.</td>
+                <td data-i18n="sheetAliceNote">calm, close mic</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td data-i18n="sheetBob">Bob</td>
+                <td data-i18n="sheetBobLine">Copy. I will match your timing.</td>
+                <td data-i18n="sheetBobNote">listen to reference</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td data-i18n="sheetNarrator">Narrator</td>
+                <td data-i18n="sheetNarratorLine">The room falls silent.</td>
+                <td data-i18n="sheetNarratorNote">lower energy</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="overview">
+      <div class="section-head">
+        <h2 data-i18n="overviewTitle">What the current implementation covers</h2>
+        <p data-i18n="overviewBody">The app is built around the current MVP model: jobs contain script lines, invite links bring performers into a guest session, recordings are submitted per line, and the requester reviews and exports the result. The production backend is being shaped as a Cloudflare Worker with Supabase metadata and R2 audio storage.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3 data-i18n="overviewCard1Title">iOS requester workspace</h3>
+          <p data-i18n="overviewCard1Body">Account registration/login, job list management, CSV/XLSX script import, job creation wizard, video asset attachment, invite link management, progress tracking, review, reference sharing, and ZIP export.</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="overviewCard2Title">iOS performer workspace</h3>
+          <p data-i18n="overviewCard2Body">Invite opening, accept/decline, optional performer account creation, targeted line list, notes from the requester, recording controls, local preview, upload, progress state, and shared reference audio playback.</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="overviewCard3Title">Backend state</h3>
+          <p data-i18n="overviewCard3Body">The detailed app flow is represented in the legacy FastAPI backend. The current Worker implements project creation, line creation, one-take upload, review fetch, audio download, and health checks against Supabase and R2.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="requester">
+      <div class="section-head">
+        <h2 data-i18n="requesterTitle">Requester workflow in detail</h2>
+        <p data-i18n="requesterLead">The requester side is the control room. It turns a spreadsheet or line list into a trackable recording job and keeps every delivery decision tied to the exact line that needs it.</p>
+      </div>
+      <div class="steps" data-i18n-steps="requesterSteps"></div>
+    </section>
+
+    <section id="performer">
+      <div class="section-head">
+        <h2 data-i18n="performerTitle">Performer workflow in detail</h2>
+        <p data-i18n="performerLead">The performer side is intentionally narrower. It shows what this performer needs to record, the context around those lines, and the feedback or reference takes needed to deliver the next useful submission.</p>
+      </div>
+      <div class="steps" data-i18n-steps="performerSteps"></div>
+    </section>
+
+    <section id="handoff">
+      <div class="section-head">
+        <h2 data-i18n="handoffTitle">How work moves between both sides</h2>
+        <p data-i18n="handoffLead">TakeFlow keeps the handoff explicit: the requester creates structure, the performer records against that structure, and review decisions return to the performer as line-level state.</p>
+      </div>
+      <div class="flow" data-i18n-flow="handoffFlow"></div>
+    </section>
+
+    <section id="status">
+      <div class="section-head">
+        <h2 data-i18n="statusTitle">Implementation status</h2>
+        <p data-i18n="statusLead">This page separates what is already represented in the app from what is only the current production-backend direction. That distinction matters for planning a real launch.</p>
+      </div>
+      <table class="status-table">
+        <thead>
+          <tr>
+            <th data-i18n="statusFeature">Area</th>
+            <th data-i18n="statusApp">App / legacy API</th>
+            <th data-i18n="statusWorker">Worker production shape</th>
+          </tr>
+        </thead>
+        <tbody data-i18n-status="statusRows"></tbody>
+      </table>
+    </section>
+
+    <section id="limits">
+      <div class="section-head">
+        <h2 data-i18n="limitsTitle">Current beta constraints</h2>
+        <p data-i18n="limitsLead">The beta policy keeps the free tier small until hosting, billing, storage retention, and production operations are complete.</p>
+      </div>
+      <div class="limits" data-i18n-limits="limits"></div>
+    </section>
+
+    <section id="model">
+      <div class="section-head">
+        <h2 data-i18n="modelTitle">Where the model is heading</h2>
+        <p data-i18n="modelLead">The future direction is scene-centered: one shared scene video, line-level assignments, multiple takes, and only approved reference takes exposed to other performers.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3 data-i18n="modelCurrentTitle">Current MVP vocabulary</h3>
+          <ul data-i18n-list="modelCurrent"></ul>
+        </div>
+        <div class="card">
+          <h3 data-i18n="modelFutureTitle">Target vocabulary</h3>
+          <ul data-i18n-list="modelFuture"></ul>
+        </div>
+      </div>
+      <p class="note" data-i18n="modelNote">The important product decision is to avoid turning TakeFlow into a generic file-transfer tool. The durable unit should be the scene, line, assignment, and take; files are evidence attached to that structure.</p>
+    </section>
+  </main>
+
+  <footer>
+    <main>
+      <span data-i18n="footerText">Generated from the local TakeFlow implementation state: SwiftUI app, legacy FastAPI reference backend, Cloudflare Worker, Supabase schema, and project documentation.</span>
+    </main>
+  </footer>
+
+  <script>
+    const base = {
+      en: {
+        languageLabel: "Language",
+        heroTitle: "Remote voice recording, organized line by line.",
+        heroBody: "TakeFlow is an iOS workflow for requesters who prepare a script, invite performers, review submitted takes, request retakes, and export clean delivery files without losing track of every line.",
+        heroPrimary: "Requester workflow",
+        heroSecondary: "Performer workflow",
+        mockNavTitle: "Recording list",
+        mockSegmentManage: "Manage",
+        mockSegmentCreate: "Create",
+        mockJobTitle: "Episode 03 voice lines",
+        mockInviteCount: "Invite links",
+        mockPending: "Needs review",
+        mockRetake: "Retake",
+        mockAccepted: "Accepted",
+        mockLineTitle: "Line A-014",
+        mockPerformer: "Performer",
+        mockLatest: "Latest take",
+        mockSubmitted: "Submitted",
+        sheetTitle: "Line list template",
+        sheetHint: "CSV / XLSX import",
+        sheetCharacter: "Character",
+        sheetLine: "Line",
+        sheetNote: "Note",
+        sheetAlice: "Alice",
+        sheetAliceLine: "We start on the third bell.",
+        sheetAliceNote: "calm, close mic",
+        sheetBob: "Bob",
+        sheetBobLine: "Copy. I will match your timing.",
+        sheetBobNote: "listen to reference",
+        sheetNarrator: "Narrator",
+        sheetNarratorLine: "The room falls silent.",
+        sheetNarratorNote: "lower energy",
+        overviewTitle: "What the current implementation covers",
+        overviewBody: "The app is built around the current MVP model: jobs contain script lines, invite links bring performers into a guest session, recordings are submitted per line, and the requester reviews and exports the result. The production backend is being shaped as a Cloudflare Worker with Supabase metadata and R2 audio storage.",
+        overviewCard1Title: "iOS requester workspace",
+        overviewCard1Body: "Account registration/login, job list management, CSV/XLSX script import, job creation wizard, video asset attachment, invite link management, progress tracking, review, reference sharing, and ZIP export.",
+        overviewCard2Title: "iOS performer workspace",
+        overviewCard2Body: "Invite opening, accept/decline, optional performer account creation, targeted line list, notes from the requester, recording controls, local preview, upload, progress state, and shared reference audio playback.",
+        overviewCard3Title: "Backend state",
+        overviewCard3Body: "The detailed app flow is represented in the legacy FastAPI backend. The current Worker implements project creation, line creation, one-take upload, review fetch, audio download, and health checks against Supabase and R2.",
+        requesterTitle: "Requester workflow in detail",
+        requesterLead: "The requester side is the control room. It turns a spreadsheet or line list into a trackable recording job and keeps every delivery decision tied to the exact line that needs it.",
+        performerTitle: "Performer workflow in detail",
+        performerLead: "The performer side is intentionally narrower. It shows what this performer needs to record, the context around those lines, and the feedback or reference takes needed to deliver the next useful submission.",
+        handoffTitle: "How work moves between both sides",
+        handoffLead: "TakeFlow keeps the handoff explicit: the requester creates structure, the performer records against that structure, and review decisions return to the performer as line-level state.",
+        statusTitle: "Implementation status",
+        statusLead: "This page separates what is already represented in the app from what is only the current production-backend direction. That distinction matters for planning a real launch.",
+        statusFeature: "Area",
+        statusApp: "App / legacy API",
+        statusWorker: "Worker production shape",
+        limitsTitle: "Current beta constraints",
+        limitsLead: "The beta policy keeps the free tier small until hosting, billing, storage retention, and production operations are complete.",
+        modelTitle: "Where the model is heading",
+        modelLead: "The future direction is scene-centered: one shared scene video, line-level assignments, multiple takes, and only approved reference takes exposed to other performers.",
+        modelCurrentTitle: "Current MVP vocabulary",
+        modelFutureTitle: "Target vocabulary",
+        modelNote: "The important product decision is to avoid turning TakeFlow into a generic file-transfer tool. The durable unit should be the scene, line, assignment, and take; files are evidence attached to that structure.",
+        footerText: "Generated from the local TakeFlow implementation state: SwiftUI app, legacy FastAPI reference backend, Cloudflare Worker, Supabase schema, and project documentation.",
+        requesterSteps: [
+          ["Sign in and choose the workspace", "The requester registers or logs in, then works from the recording-list management area or the new recording-list wizard. Existing jobs can be filtered by all, open, stopped, or needs-attention and sorted by newest, due date, title, attention, or latest submission."],
+          ["Create the job skeleton", "The wizard captures the project title, story or episode metadata, description, requester name, due date, and the broad recording target. Internal notes stay on the requester side; performer notes are shown inside the guest session."],
+          ["Import the line list", "A script can be imported from CSV or XLSX. The app previews the sheet, suggests column mapping, supports line identifiers, dialogue text, character names, notes, playback groups, and optional timing fields. Templates exist for Excel, CSV, and Google Sheets export workflows."],
+          ["Attach shared video and cue ranges", "Where video is enabled, the requester can upload a video asset once for the job and map cue ranges to line ranges. This is the current bridge toward scene-based video: one shared asset, many line references."],
+          ["Confirm and create", "Before creation, the requester reviews the full draft: job metadata, parsed lines, import mapping, due date, performer-facing notes, delivery note, and optional video references. The job is then created through the API."],
+          ["Create invite links", "The requester creates shareable links for performers. Links can carry labels, target performer names, target characters, target line IDs, expiry, share URLs, and app-open URLs. Links can later be disabled or deleted."],
+          ["Monitor progress", "The job detail view groups lines into not started, submitted, accepted, and retake-requested states. Storage usage tracks audio bytes, video bytes, total bytes, recording count, video asset count, and cue count."],
+          ["Review submissions", "Submitted recordings are played back in the requester workspace. The requester can mark a take accepted or request a retake, add review comments, use comment templates, and inspect older submissions for the same line."],
+          ["Share reference takes", "Accepted recordings can be explicitly exposed as reference audio. This keeps performer guidance deliberate: only selected takes become available to other invite sessions."],
+          ["Export delivery", "The requester can download a ZIP using modes such as latest only, accepted only, or all submissions. Filename styles include uploaded name, line ID, line ID plus performer, or ordered line ID. Retake-requested files can be excluded, and delivery notes are included in the manifest."]
+        ],
+        performerSteps: [
+          ["Open the invite", "The performer receives an HTTPS share URL or app-open link. The app extracts the invite token, loads the session, and shows the requester name, due date, target performer, target characters, target line count, and any performer note."],
+          ["Accept or decline", "The performer can accept the request, decline it, create a performer account, or accept for this device only. Once accepted, the invite is tied to the device or performer account so the work remains accessible after the initial link moment."],
+          ["Read only the relevant work", "The session shows the recording target lines and optional surrounding context. The performer can search, page through the list, and see character names, line IDs, notes, timing, and whether a line is for context only."],
+          ["Record against one line", "Each line card is the unit of action. The app supports microphone permission, input monitoring, auto-start arming, recording, stop/save, trimming of leading and trailing silence, gentle compression, waveform preview, and local playback before upload."],
+          ["Submit and track status", "After upload, the line state changes from unrecorded or ready-to-submit into submitted, accepted, or retake. The progress card summarizes unrecorded, ready, waiting for review, accepted, retake, and total lines."],
+          ["Use feedback for retakes", "When the requester asks for a retake, the performer sees the line-level status and review comment. The performer records a replacement take for the same line rather than sending a disconnected file."],
+          ["Listen to reference audio", "If the requester has shared accepted takes, they appear as shared reference audio. This supports timing and dialogue matching without exposing every draft, rejected take, or unrelated performer file."],
+          ["Leave and return safely", "The workspace suspends live audio resources when the app disappears or the scene becomes inactive. The performer can close the current session and return to the invite list without leaving microphones or playback running."]
+        ],
+        handoffFlow: [
+          ["1. Structure", "Requester creates job, line list, notes, due date, and optional video references."],
+          ["2. Invitation", "Requester sends a targeted link with performer, character, or line scope."],
+          ["3. Recording", "Performer records and submits takes per line inside the app."],
+          ["4. Review", "Requester accepts, comments, or requests retakes line by line."],
+          ["5. Delivery", "Accepted or latest takes are exported as a ZIP with a manifest."]
+        ],
+        statusRows: [
+          ["Authentication", "Requester registration, login, Apple login path, session restore, and bearer-token protected requester routes are represented.", "Worker currently focuses on smoke-test endpoints and does not yet expose the full requester auth surface."],
+          ["Job/project creation", "Job creation includes metadata, description, due date, notes, lines, upload limits, status, storage usage, invites, recordings, and video references.", "Worker supports creating projects and inserting lines into Supabase."],
+          ["Script import", "CSV/XLSX parsing, mapping preview, suggested fields, timing values, templates, and Google Sheets download guidance are in the app.", "Not yet implemented as Worker-side import; app-side parsing can post structured lines."],
+          ["Invites", "FastAPI reference supports create/list/disable/delete invite links, accept/decline, share URL, app-open URL, and Universal Link redirect pages.", "Not yet represented in the current Worker endpoints."],
+          ["Recording upload", "Guest upload is per invite and per line, with performer name, duration, multipart audio upload, and latest-state refresh.", "Worker supports one base64 audio take per line, stores bytes in R2, and records metadata in Supabase."],
+          ["Review", "Requester can play submitted audio, accept, request retake, comment, inspect history, bulk accept, and share accepted takes as references.", "Worker exposes a project review fetch that returns project, lines, and attached takes. Decision updates are not yet implemented there."],
+          ["Video", "App and FastAPI reference include job video assets, cue ranges, line-to-video segments, and storage usage.", "Production direction expects R2 for uploaded audio/video, but current Worker endpoints only cover audio objects and R2 health checks."],
+          ["Export", "ZIP export supports latest/accepted/all modes, filename styles, audio processing preset parameter, retake exclusion, and manifest metadata.", "Not yet implemented in the Worker."],
+          ["Limits", "Free beta policy includes small project, line, take, duration, storage, retention, invite expiry, and export constraints.", "Worker enforces a 40-line free beta line limit and one submitted take per line in the current endpoint."]
+        ],
+        limits: [
+          ["3", "saved projects per requester account"],
+          ["40", "script lines per project"],
+          ["1", "submitted take per line in free beta"],
+          ["1 min", "maximum recording length per take"],
+          ["50 MB", "audio file size per take"],
+          ["300 MB", "project audio storage"],
+          ["7 days", "storage period and invite expiry"],
+          ["Custom", "ZIP delivery, video sync, multi-actor projects, and larger limits"]
+        ],
+        modelCurrent: [
+          "job: the current requester-owned recording list or project container",
+          "job_lines: imported script lines with IDs, dialogue, characters, notes, and timing",
+          "invite: a shareable performer entry point and temporary assignment container",
+          "recording: the uploaded take for a line",
+          "job_video_assets and video_cues: the current bridge toward shared scene video"
+        ],
+        modelFuture: [
+          "project: the work, episode, campaign, or delivery unit",
+          "scene: a recording unit with one shared video and many lines",
+          "line: a single utterance with context and timing",
+          "assignment: which performer is responsible for which line or character",
+          "take: a recorded submission attached to an assignment",
+          "take_share: the explicit decision to expose an approved take as reference audio"
+        ]
+      }
+    };
+
+    const translations = {
+      en: base.en,
+      ja: {
+        ...base.en,
+        languageLabel: "言語",
+        heroTitle: "遠隔ボイス収録を、セリフ単位で整理する。",
+        heroBody: "TakeFlowは、依頼者が台本を準備し、受託者を招待し、提出テイクを確認し、リテイクを依頼し、納品ファイルを書き出すまでを、各セリフに紐づけて管理するiOSワークフローです。",
+        heroPrimary: "依頼者側の流れ",
+        heroSecondary: "受託者側の流れ",
+        mockNavTitle: "録音リスト",
+        mockSegmentManage: "管理",
+        mockSegmentCreate: "作成",
+        mockJobTitle: "第03話 セリフ収録",
+        mockInviteCount: "依頼リンク",
+        mockPending: "未確認",
+        mockRetake: "リテイク",
+        mockAccepted: "OK",
+        mockLineTitle: "セリフ A-014",
+        mockPerformer: "受託者",
+        mockLatest: "最新テイク",
+        mockSubmitted: "提出済み",
+        sheetTitle: "台本テンプレート",
+        sheetHint: "CSV / XLSX 取り込み",
+        sheetCharacter: "キャラクター",
+        sheetLine: "セリフ",
+        sheetNote: "メモ",
+        sheetAliceLine: "三回目の鐘で始めます。",
+        sheetAliceNote: "落ち着いて、近め",
+        sheetBobLine: "了解。タイミングを合わせます。",
+        sheetBobNote: "参考音声を聞く",
+        sheetNarrator: "ナレーター",
+        sheetNarratorLine: "部屋が静まり返る。",
+        sheetNarratorNote: "低めの熱量",
+        overviewTitle: "現在の実装で扱えること",
+        overviewBody: "アプリは現行MVPのモデルを中心に構成されています。jobに台本行を持たせ、invite linkで受託者をguest sessionへ招待し、recordingをセリフ単位で提出し、依頼者が確認して書き出します。本番バックエンドはCloudflare Worker、Supabaseメタデータ、R2音声ストレージへ寄せている段階です。",
+        overviewCard1Title: "iOS 依頼者ワークスペース",
+        overviewCard1Body: "アカウント登録/ログイン、録音リスト管理、CSV/XLSX台本取り込み、作成ウィザード、映像素材添付、招待リンク管理、進捗確認、レビュー、参考音声共有、ZIP書き出しを扱います。",
+        overviewCard2Title: "iOS 受託者ワークスペース",
+        overviewCard2Body: "招待を開く、受諾/辞退、任意の受託者アカウント作成、担当セリフ一覧、依頼者メモ、録音操作、ローカル確認、アップロード、進捗状態、共有された参考音声の再生を扱います。",
+        overviewCard3Title: "バックエンド状態",
+        overviewCard3Body: "詳細なアプリの流れはレガシーFastAPIバックエンドに表現されています。現在のWorkerはプロジェクト作成、行作成、1行1テイクのアップロード、レビュー取得、音声ダウンロード、Supabase/R2ヘルスチェックを実装しています。",
+        requesterTitle: "依頼者側の仕事の流れ",
+        requesterLead: "依頼者側は管制室です。スプレッドシートや台本リストを追跡可能な録音案件に変え、すべての納品判断を必要なセリフ行へ結びつけます。",
+        performerTitle: "受託者側の仕事の流れ",
+        performerLead: "受託者側は意図的に狭く作られています。その人が録るべきセリフ、前後の文脈、次の提出に必要なフィードバックや参考テイクだけを見せます。",
+        handoffTitle: "両者の作業がどう受け渡されるか",
+        handoffLead: "TakeFlowでは、依頼者が構造を作り、受託者がその構造に沿って録音し、レビュー判断がセリフ単位の状態として受託者へ戻ります。",
+        statusTitle: "実装状態",
+        statusLead: "このページでは、すでにアプリに表現されているものと、現在の本番バックエンド方針に留まるものを分けています。実際のローンチ計画ではこの切り分けが重要です。",
+        statusFeature: "領域",
+        statusApp: "アプリ / レガシーAPI",
+        statusWorker: "Worker本番形",
+        limitsTitle: "現在のベータ制限",
+        limitsLead: "ホスティング、課金、保存期間、運用が完成するまで、無料ベータは小さく制限されています。",
+        modelTitle: "今後のモデル設計",
+        modelLead: "将来方向はscene中心です。1つの共有シーン映像、セリフ単位の担当、複数テイク、明示的にOKされた参考テイクだけを他の受託者へ公開します。",
+        modelCurrentTitle: "現行MVPの語彙",
+        modelFutureTitle: "目標モデルの語彙",
+        modelNote: "重要なのは、TakeFlowを単なるファイル転送ツールにしないことです。長く残る単位はscene、line、assignment、takeであり、ファイルはその構造にぶら下がる証拠データとして扱います。",
+        footerText: "ローカルのTakeFlow実装状態、SwiftUIアプリ、レガシーFastAPI参照バックエンド、Cloudflare Worker、Supabaseスキーマ、プロジェクト文書から作成。",
+        requesterSteps: [
+          ["ログインして作業場所を選ぶ", "依頼者は登録またはログイン後、録音リスト管理か新規作成ウィザードへ進みます。既存案件はすべて/公開中/停止中/要対応で絞り込み、新しい順、納期順、タイトル順、要対応順、最新提出順で並べ替えできます。"],
+          ["案件の骨格を作る", "ウィザードでは案件タイトル、作品や話数の情報、説明、依頼者名、締切、大まかな収録対象を入力します。internal_noteは依頼者側だけに残り、performer_noteは受託者セッションに表示されます。"],
+          ["台本行を取り込む", "CSVまたはXLSXから台本を取り込めます。アプリは表をプレビューし、列マッピングを提案し、行ID、セリフ本文、キャラクター名、メモ、再生グループ、任意の開始/終了秒を扱います。Excel、CSV、Google Sheets向けのテンプレート案内もあります。"],
+          ["共有映像とキュー範囲を添付する", "映像が有効な場合、依頼者はjobに対して映像素材を1回アップロードし、行範囲へキューを割り当てます。これはscene中心設計へ向かう現行の橋渡しです。1つの共有素材を複数行から参照します。"],
+          ["確認して作成する", "作成前に、案件メタデータ、解析された台本行、取り込みマッピング、締切、受託者向けメモ、納品メモ、任意の映像参照を確認します。その後API経由で案件を作成します。"],
+          ["招待リンクを作る", "依頼者は受託者へ共有するリンクを作成します。リンクにはラベル、対象受託者名、担当キャラクター、担当行ID、有効期限、share_url、app_open_urlを持たせられます。後から無効化や削除もできます。"],
+          ["進捗を見る", "案件詳細では、セリフが未着手、提出済み、OK、リテイク依頼中に分かれます。保存量では音声バイト、映像バイト、合計、録音数、映像素材数、キュー数を確認できます。"],
+          ["提出を確認する", "依頼者ワークスペースで提出音声を再生し、OKまたはリテイクを判断します。レビューコメント、コメントテンプレート、同じ行の過去提出も確認できます。"],
+          ["参考テイクとして共有する", "OKにした録音は、明示的に参考音声として公開できます。これにより、他の受託者へ見せる音声は選ばれたものだけになります。"],
+          ["納品を書き出す", "latest only、accepted only、all submissionsなどのモードでZIPを書き出せます。ファイル名はアップロード名、line ID、line ID + performer、連番付きline IDを選べ、リテイク中の提出除外やmanifestへの納品メモも扱います。"]
+        ],
+        performerSteps: [
+          ["招待を開く", "受託者はHTTPSの共有URLまたはアプリ直開きリンクを受け取ります。アプリは招待トークンを読み取り、依頼者名、納期、対象受託者、担当キャラクター、録音対象行数、受託者メモを表示します。"],
+          ["受ける、または辞退する", "受託者は依頼を受ける、辞退する、受託者アカウントを作る、または今回はこの端末で受ける、を選べます。受諾後は端末またはアカウントに紐づくため、最初のリンクを開いた後も作業へ戻れます。"],
+          ["必要な作業だけ読む", "セッションには録音対象行と必要に応じた前後文脈が表示されます。検索、ページング、キャラクター名、行ID、メモ、タイミング、文脈専用行かどうかを確認できます。"],
+          ["1行ごとに録音する", "各セリフカードが操作単位です。マイク許可、入力監視、自動開始待機、録音、停止保存、前後の無音トリム、軽いコンプレッション、波形プレビュー、アップロード前のローカル再生に対応します。"],
+          ["提出して状態を見る", "アップロード後、行の状態は未録音/提出待ちから提出済み、OK、リテイクへ変わります。進捗カードは未録音、未提出、確認待ち、OK、リテイク、総行数をまとめます。"],
+          ["リテイク指示を使う", "依頼者がリテイクを依頼すると、受託者は行単位の状態とレビューコメントを見ます。切り離したファイルを送るのではなく、同じ行に対して差し替えテイクを録ります。"],
+          ["参考音声を聞く", "依頼者がOKテイクを共有した場合、共有された参考音声として表示されます。draft、NG、関係ない受託者の全素材を見せずに、タイミングや掛け合いの参考だけを渡せます。"],
+          ["安全に離脱して戻る", "アプリが非表示になる、またはsceneが非activeになるとライブ音声リソースを停止します。受託者は現在のセッションを閉じて招待一覧へ戻れます。"]
+        ],
+        handoffFlow: [
+          ["1. 構造化", "依頼者が案件、台本行、メモ、締切、任意の映像参照を作ります。"],
+          ["2. 招待", "依頼者が受託者、キャラクター、行の範囲を持つリンクを送ります。"],
+          ["3. 録音", "受託者がアプリ内でセリフ単位のテイクを録って提出します。"],
+          ["4. 確認", "依頼者がセリフ単位でOK、コメント、リテイク依頼を返します。"],
+          ["5. 納品", "OKまたは最新テイクをmanifest付きZIPとして書き出します。"]
+        ],
+        statusRows: [
+          ["認証", "依頼者登録、ログイン、Appleログイン経路、セッション復元、Bearer token保護された依頼者ルートが表現されています。", "現在のWorkerはスモークテスト中心で、依頼者認証全体はまだ公開していません。"],
+          ["案件/プロジェクト作成", "メタデータ、説明、締切、メモ、行、アップロード制限、状態、保存量、招待、録音、映像参照を含みます。", "WorkerはSupabase上でprojects作成とlines追加に対応しています。"],
+          ["台本取り込み", "CSV/XLSX解析、マッピングプレビュー、推奨フィールド、秒数、テンプレート、Google Sheetsダウンロード案内があります。", "Worker側の取り込み処理は未実装です。アプリ側解析後に構造化された行を送れます。"],
+          ["招待", "FastAPI参照実装は招待リンク作成/一覧/無効化/削除、受諾/辞退、share URL、app-open URL、Universal Linkリダイレクトを持ちます。", "現在のWorker endpointにはまだありません。"],
+          ["録音アップロード", "guest uploadは招待と行に紐づき、受託者名、duration、multipart音声アップロード、最新状態更新を扱います。", "Workerはbase64音声を1行1テイクでR2へ保存し、Supabaseへメタデータを記録します。"],
+          ["レビュー", "依頼者は音声再生、OK、リテイク、コメント、履歴確認、一括OK、OKテイクの参考共有を行えます。", "Workerはproject review取得でproject、lines、takesを返します。判断更新はまだ未実装です。"],
+          ["映像", "アプリとFastAPI参照実装にはjob video assets、cue range、line-to-video segments、保存量があります。", "本番方針ではR2に音声/映像を置きますが、現在のWorker endpointは音声objectとR2ヘルスチェック中心です。"],
+          ["書き出し", "ZIP exportはlatest/accepted/all、ファイル名形式、audio processing preset、リテイク除外、manifestメタデータを扱います。", "Workerではまだ未実装です。"],
+          ["制限", "無料ベータには案件、行、テイク、duration、保存量、保存期間、招待期限、書き出しの制約があります。", "Workerは40行制限と1行1提出テイク制限を現在のendpointで実施しています。"]
+        ],
+        limits: [["3", "依頼者アカウントごとの保存案件"], ["40", "1案件あたりの台本行"], ["1", "無料ベータの1行あたり提出テイク"], ["1分", "1テイクの最大録音時間"], ["50 MB", "1テイクの音声サイズ"], ["300 MB", "案件あたりの音声保存量"], ["7日", "保存期間と招待リンク期限"], ["個別対応", "ZIP納品、映像同期、複数受託者、大きな上限"]],
+        modelCurrent: ["job: 現在の依頼者所有の録音リスト/案件コンテナ", "job_lines: ID、本文、キャラクター、メモ、タイミングを持つ取り込み台本行", "invite: 共有可能な受託者入口であり暫定assignment container", "recording: 行に対してアップロードされたテイク", "job_video_assets / video_cues: 共有scene videoへ向かう現行の橋渡し"],
+        modelFuture: ["project: 作品、話数、キャンペーン、納品単位", "scene: 1つの共有映像と複数行を持つ収録単位", "line: 文脈とタイミングを持つ1つのセリフ", "assignment: どの受託者がどの行/キャラクターを担当するか", "take: assignmentに紐づく録音提出", "take_share: OKテイクを参考音声として公開する明示的な判断"]
+      }
+    };
+
+    const localeNames = {
+      es: ["Español", "Grabación remota de voces, organizada línea por línea.", "TakeFlow es un flujo de trabajo iOS para clientes que preparan un guion, invitan intérpretes, revisan tomas enviadas, piden retomas y exportan archivos de entrega sin perder el estado de cada línea."],
+      de: ["Deutsch", "Remote-Sprachaufnahmen, Zeile für Zeile organisiert.", "TakeFlow ist ein iOS-Workflow für Auftraggeber, die ein Skript vorbereiten, Sprecher einladen, eingereichte Takes prüfen, Retakes anfordern und saubere Lieferdateien exportieren, ohne den Überblick über einzelne Zeilen zu verlieren."],
+      fr: ["Français", "Enregistrement vocal à distance, organisé ligne par ligne.", "TakeFlow est un flux iOS pour les donneurs d'ordre qui préparent un script, invitent des interprètes, vérifient les prises envoyées, demandent des reprises et exportent des fichiers de livraison propres sans perdre le suivi ligne par ligne."],
+      pt: ["Português", "Gravação remota de voz, organizada linha por linha.", "TakeFlow é um fluxo de trabalho iOS para solicitantes que preparam um roteiro, convidam intérpretes, revisam takes enviados, pedem retakes e exportam arquivos de entrega sem perder o controle de cada linha."],
+      ko: ["한국어", "원격 보이스 녹음을 대사 줄 단위로 정리합니다.", "TakeFlow는 의뢰자가 대본을 준비하고, 수행자를 초대하고, 제출된 테이크를 검토하고, 재녹음을 요청하고, 납품 파일을 내보내는 과정을 각 대사 줄에 연결해 관리하는 iOS 워크플로입니다."],
+      zhHans: ["简体中文", "远程配音录制，按台词逐行管理。", "TakeFlow 是一套 iOS 工作流，帮助委托方准备脚本、邀请录制者、审核提交的 take、要求重录，并在不丢失每一行状态的情况下导出交付文件。"],
+      zhHant: ["繁體中文", "遠端配音錄製，依台詞逐行管理。", "TakeFlow 是一套 iOS 工作流程，協助委託方準備腳本、邀請錄製者、審核提交的 take、要求重錄，並在不失去每一行狀態的情況下匯出交付檔案。"]
+    };
+
+    const contentPacks = {
+      es: {
+        mockNavTitle: "Lista de grabación", mockSegmentManage: "Gestionar", mockSegmentCreate: "Crear", mockJobTitle: "Líneas del episodio 03", mockInviteCount: "Enlaces de invitación", mockPending: "Por revisar", mockRetake: "Retoma", mockAccepted: "Aceptadas", mockLineTitle: "Línea A-014", mockPerformer: "Intérprete", mockLatest: "Última toma", mockSubmitted: "Enviada",
+        sheetTitle: "Plantilla de líneas", sheetHint: "Importación CSV / XLSX", sheetCharacter: "Personaje", sheetLine: "Línea", sheetNote: "Nota", sheetAliceLine: "Empezamos en la tercera campana.", sheetAliceNote: "calma, micrófono cerca", sheetBobLine: "Recibido. Igualaré tu timing.", sheetBobNote: "escuchar referencia", sheetNarrator: "Narrador", sheetNarratorLine: "La sala queda en silencio.", sheetNarratorNote: "menor energía",
+        overviewBody: "La app usa el modelo MVP actual: los trabajos contienen líneas de guion, los enlaces de invitación llevan a los intérpretes a una sesión invitada, las grabaciones se envían por línea, y el cliente revisa y exporta el resultado. El backend de producción se está orientando a Cloudflare Worker con metadatos en Supabase y audio en R2.",
+        overviewCard1Title: "Espacio iOS del cliente", overviewCard1Body: "Registro/inicio de sesión, gestión de listas, importación CSV/XLSX, asistente de creación, adjuntos de vídeo, enlaces de invitación, progreso, revisión, referencia compartida y exportación ZIP.",
+        overviewCard2Title: "Espacio iOS del intérprete", overviewCard2Body: "Apertura de invitación, aceptar/rechazar, cuenta opcional, lista de líneas asignadas, notas del cliente, grabación, vista previa local, subida, estado de progreso y reproducción de referencias.",
+        overviewCard3Title: "Estado del backend", overviewCard3Body: "El flujo detallado vive en el backend FastAPI heredado. El Worker actual implementa creación de proyecto, líneas, subida de una toma, vista de revisión, descarga de audio y health checks de Supabase/R2.",
+        requesterLead: "El lado del cliente es la sala de control: convierte una hoja o lista de líneas en un trabajo rastreable y une cada decisión de entrega a la línea exacta.",
+        performerLead: "El lado del intérprete es más estrecho a propósito: muestra lo que debe grabar, el contexto necesario y la referencia o feedback para el siguiente envío útil.",
+        handoffLead: "TakeFlow hace explícito el traspaso: el cliente crea estructura, el intérprete graba contra esa estructura y la revisión vuelve como estado por línea.",
+        statusLead: "La página separa lo ya representado en la app de lo que todavía es dirección del backend de producción.",
+        statusFeature: "Área", statusApp: "App / API heredada", statusWorker: "Forma Worker", limitsLead: "La beta gratuita se mantiene pequeña hasta completar hosting, facturación, retención y operaciones.", modelLead: "La dirección futura se centra en escenas: un vídeo compartido, asignaciones por línea, varias tomas y solo referencias aprobadas expuestas.", modelCurrentTitle: "Vocabulario MVP actual", modelFutureTitle: "Vocabulario objetivo", modelNote: "La decisión clave es no convertir TakeFlow en transferencia genérica de archivos. La unidad duradera debe ser escena, línea, asignación y toma; los archivos son evidencia adjunta.",
+        requesterSteps: [["Iniciar sesión y elegir espacio", "El cliente se registra o inicia sesión y entra a gestión de listas o al asistente de nueva lista. Puede filtrar trabajos por todos, abiertos, detenidos o requieren atención, y ordenarlos por fecha, vencimiento, título, atención o último envío."], ["Crear la base del trabajo", "El asistente captura título, metadatos de obra o episodio, descripción, nombre del cliente, fecha límite y objetivo general. Las notas internas quedan para el cliente; las notas al intérprete aparecen en su sesión."], ["Importar la lista de líneas", "El guion se importa desde CSV o XLSX. La app previsualiza columnas, sugiere mapeo y admite ID de línea, texto, personaje, notas, grupo de reproducción y tiempos opcionales."], ["Adjuntar vídeo y rangos", "Si el vídeo está habilitado, el cliente sube un recurso una vez y lo relaciona con rangos de líneas. Es el puente actual hacia escenas con un solo recurso compartido."], ["Confirmar y crear", "Antes de crear, revisa metadatos, líneas parseadas, mapeo, fecha, notas, nota de entrega y referencias de vídeo. Después se crea por API."], ["Crear invitaciones", "Los enlaces pueden incluir etiqueta, intérprete objetivo, personajes, IDs de línea, expiración, share URL y app-open URL. Luego se pueden desactivar o borrar."], ["Supervisar progreso", "El detalle agrupa líneas no iniciadas, enviadas, aceptadas y con retoma. El uso muestra bytes de audio/vídeo, total, grabaciones, vídeos y cues."], ["Revisar envíos", "El cliente reproduce el audio, acepta o pide retoma, añade comentarios, usa plantillas y ve historial por la misma línea."], ["Compartir referencias", "Las grabaciones aceptadas pueden exponerse explícitamente como audio de referencia para otros intérpretes."], ["Exportar entrega", "El ZIP puede incluir últimas, aceptadas o todas las tomas, con estilos de nombre por subida, línea, línea+intérprete u orden, exclusión de retomas y manifest."]],
+        performerSteps: [["Abrir invitación", "El intérprete recibe un enlace HTTPS o app-open. La app lee el token y muestra cliente, fecha, intérprete, personajes, número de líneas y nota."], ["Aceptar o rechazar", "Puede aceptar, rechazar, crear cuenta o aceptar solo en este dispositivo. Después queda vinculado para volver al trabajo."], ["Leer solo lo relevante", "La sesión muestra líneas objetivo y contexto opcional, con búsqueda, paginación, personajes, IDs, notas y tiempos."], ["Grabar una línea", "Cada tarjeta de línea es la unidad. Incluye permisos de micrófono, monitoreo, armado de auto-inicio, grabar, parar/guardar, recorte de silencio, compresión suave, forma de onda y reproducción local."], ["Enviar y seguir estado", "Tras subir, la línea pasa a enviada, aceptada o retoma. La tarjeta de progreso resume pendientes, listas, en revisión, aceptadas, retomas y total."], ["Usar feedback", "Si se pide retoma, el comentario queda en la misma línea y se graba una toma reemplazo, no un archivo suelto."], ["Escuchar referencias", "Las tomas aceptadas compartidas aparecen como referencia para timing y diálogo sin exponer borradores o NG."], ["Salir y volver", "Al ocultar la app se suspenden recursos de audio; el intérprete puede cerrar la sesión y volver a la lista."]],
+        handoffFlow: [["1. Estructura", "El cliente crea trabajo, líneas, notas, fecha y vídeo opcional."], ["2. Invitación", "Envía un enlace con alcance por intérprete, personaje o línea."], ["3. Grabación", "El intérprete envía tomas por línea."], ["4. Revisión", "El cliente acepta, comenta o pide retoma por línea."], ["5. Entrega", "Se exporta un ZIP con manifest."]],
+        statusRows: [["Autenticación", "Registro, login, Apple login, restauración y rutas protegidas están en la app/API.", "El Worker aún no expone toda la autenticación."], ["Trabajo/proyecto", "Incluye metadatos, vencimiento, notas, líneas, límites, estado, uso, invitaciones, grabaciones y vídeo.", "Crea projects y lines en Supabase."], ["Importación", "CSV/XLSX, vista previa, mapeo, tiempos y plantillas.", "No hay importación Worker; la app envía líneas estructuradas."], ["Invitaciones", "Crear/listar/desactivar/borrar, aceptar/rechazar y Universal Link están en FastAPI.", "Aún no está en Worker."], ["Subida", "Multipart por invitación y línea con nombre y duración.", "Base64 a R2, metadatos en Supabase, una toma por línea."], ["Revisión", "Reproducir, aceptar, retoma, comentarios, historial, aceptar en lote y referencia.", "Devuelve proyecto, líneas y tomas; decisiones pendientes."], ["Vídeo", "Assets, cues, segmentos y uso existen en app/API.", "Dirección R2, pero endpoint actual cubre audio."], ["Exportación", "ZIP con modos, nombres, preset, exclusión y manifest.", "Aún no implementado."], ["Límites", "La beta limita proyectos, líneas, tomas, duración, almacenamiento y exportación.", "Aplica 40 líneas y una toma por línea."]],
+        limits: [["3", "proyectos guardados por cliente"], ["40", "líneas por proyecto"], ["1", "toma enviada por línea"], ["1 min", "duración máxima"], ["50 MB", "audio por toma"], ["300 MB", "audio por proyecto"], ["7 días", "retención e invitación"], ["A medida", "ZIP, vídeo, varios intérpretes y límites mayores"]],
+        modelCurrent: ["job: contenedor actual de lista/proyecto", "job_lines: líneas importadas con ID, texto, personaje, nota y tiempo", "invite: entrada compartible y contenedor temporal", "recording: toma subida para una línea", "job_video_assets/video_cues: puente hacia vídeo compartido"],
+        modelFuture: ["project: obra, episodio o unidad de entrega", "scene: unidad con vídeo compartido y líneas", "line: frase con contexto y timing", "assignment: quién graba qué línea/personaje", "take: envío grabado de una asignación", "take_share: decisión de exponer una toma como referencia"]
+      },
+      de: {
+        mockNavTitle: "Aufnahmeliste", mockSegmentManage: "Verwalten", mockSegmentCreate: "Erstellen", mockJobTitle: "Episode 03 Sprachzeilen", mockInviteCount: "Einladungslinks", mockPending: "Zu prüfen", mockRetake: "Retake", mockAccepted: "OK", mockLineTitle: "Zeile A-014", mockPerformer: "Sprecher", mockLatest: "Letzter Take", mockSubmitted: "Eingereicht",
+        sheetTitle: "Zeilen-Vorlage", sheetHint: "CSV / XLSX Import", sheetCharacter: "Figur", sheetLine: "Zeile", sheetNote: "Notiz", sheetAliceLine: "Wir beginnen beim dritten Glockenschlag.", sheetAliceNote: "ruhig, nah am Mikro", sheetBobLine: "Verstanden. Ich passe mein Timing an.", sheetBobNote: "Referenz hören", sheetNarrator: "Erzähler", sheetNarratorLine: "Der Raum wird still.", sheetNarratorNote: "weniger Energie",
+        overviewBody: "Die App folgt dem aktuellen MVP-Modell: Jobs enthalten Skriptzeilen, Einladungslinks führen Sprecher in Gast-Sessions, Aufnahmen werden pro Zeile eingereicht, und der Auftraggeber prüft und exportiert. Das Produktionsbackend bewegt sich zu Cloudflare Worker, Supabase-Metadaten und R2-Audiospeicher.",
+        overviewCard1Title: "iOS-Arbeitsbereich Auftraggeber", overviewCard1Body: "Registrierung/Login, Listenverwaltung, CSV/XLSX-Import, Erstellassistent, Videoanhänge, Einladungen, Fortschritt, Review, Referenzfreigabe und ZIP-Export.",
+        overviewCard2Title: "iOS-Arbeitsbereich Sprecher", overviewCard2Body: "Einladung öffnen, annehmen/ablehnen, optionales Konto, zugewiesene Zeilen, Notizen, Aufnahme, lokale Vorschau, Upload, Status und Referenzwiedergabe.",
+        overviewCard3Title: "Backend-Stand", overviewCard3Body: "Der detaillierte Flow steckt im alten FastAPI-Backend. Der Worker kann Projekte und Zeilen anlegen, einen Take hochladen, Review-Daten abrufen, Audio laden und Supabase/R2 prüfen.",
+        requesterLead: "Die Auftraggeberseite ist die Leitstelle: Sie macht aus Tabelle oder Zeilenliste einen verfolgbaren Aufnahmeauftrag und bindet jede Lieferentscheidung an die richtige Zeile.",
+        performerLead: "Die Sprecherseite ist bewusst fokussiert: Sie zeigt nur die aufzunehmenden Zeilen, Kontext sowie Feedback oder Referenzen für die nächste sinnvolle Abgabe.",
+        handoffLead: "TakeFlow macht die Übergabe explizit: Auftraggeber strukturieren, Sprecher nehmen entlang dieser Struktur auf, und Review-Ergebnisse kommen als Zeilenstatus zurück.",
+        statusLead: "Diese Seite trennt, was in der App vorhanden ist, von dem, was erst Richtung Produktionsbackend ist.",
+        statusFeature: "Bereich", statusApp: "App / alte API", statusWorker: "Worker-Stand", limitsLead: "Die kostenlose Beta bleibt klein, bis Hosting, Abrechnung, Aufbewahrung und Betrieb fertig sind.", modelLead: "Die Richtung ist szenenzentriert: ein gemeinsames Video, zeilenbasierte Assignments, mehrere Takes und nur freigegebene Referenzen.", modelCurrentTitle: "Aktuelle MVP-Begriffe", modelFutureTitle: "Zielbegriffe", modelNote: "TakeFlow soll kein generischer Dateitransfer werden. Dauerhafte Einheiten sind Szene, Zeile, Assignment und Take; Dateien sind Nachweise daran.",
+        requesterSteps: [["Anmelden und Arbeitsbereich wählen", "Nach Registrierung oder Login nutzt der Auftraggeber Listenverwaltung oder Erstellassistent. Jobs lassen sich filtern und nach Datum, Fälligkeit, Titel, Aufmerksamkeit oder letzter Einreichung sortieren."], ["Grunddaten anlegen", "Titel, Werk-/Episodendaten, Beschreibung, Name, Deadline und Ziel werden erfasst. Interne Notizen bleiben intern; Sprecher-Notizen erscheinen in der Gast-Session."], ["Zeilen importieren", "CSV/XLSX wird mit Vorschau und Mapping importiert: Zeilen-ID, Text, Figur, Notizen, Playback-Gruppe und optionale Zeiten."], ["Video und Cues anhängen", "Bei aktiviertem Video wird ein Asset einmal hochgeladen und Zeilenbereichen zugeordnet. Das ist der Übergang zur gemeinsamen Szene."], ["Prüfen und erstellen", "Metadaten, Zeilen, Mapping, Deadline, Notizen, Liefernotiz und Video werden vor API-Erstellung geprüft."], ["Einladungen erstellen", "Links tragen Label, Zielsprecher, Figuren, Zeilen-IDs, Ablauf, share URL und app-open URL und können deaktiviert oder gelöscht werden."], ["Fortschritt überwachen", "Zeilen werden als nicht begonnen, eingereicht, OK oder Retake angezeigt; Speicher zeigt Audio, Video, Gesamt, Aufnahmen und Cues."], ["Einreichungen prüfen", "Audio abspielen, OK geben, Retake anfordern, kommentieren, Vorlagen nutzen und Historie sehen."], ["Referenzen teilen", "Akzeptierte Takes können bewusst als Referenzaudio freigegeben werden."], ["Lieferung exportieren", "ZIP mit latest/accepted/all, Namensstilen, Retake-Ausschluss und Manifest."]],
+        performerSteps: [["Einladung öffnen", "HTTPS- oder App-Link wird gelesen; Session zeigt Auftraggeber, Deadline, Zielsprecher, Figuren, Zeilenanzahl und Notiz."], ["Annehmen oder ablehnen", "Der Sprecher kann annehmen, ablehnen, ein Konto erstellen oder nur auf diesem Gerät annehmen."], ["Nur Relevantes lesen", "Zielzeilen und Kontext mit Suche, Seiten, Figuren, IDs, Notizen und Zeiten."], ["Eine Zeile aufnehmen", "Jede Karte steuert Mikrofon, Monitoring, Auto-Start, Aufnahme, Speichern, Trimmen, leichte Kompression, Wellenform und Vorschau."], ["Senden und Status sehen", "Nach Upload wird der Status eingereicht, OK oder Retake; Fortschritt fasst alle Zeilen zusammen."], ["Feedback nutzen", "Retake-Kommentare bleiben an der Zeile, statt Dateien lose zu senden."], ["Referenzen hören", "Freigegebene OK-Takes helfen Timing und Dialog, ohne Entwürfe oder NGs offenzulegen."], ["Sicher verlassen", "Audioressourcen werden bei Inaktivität gestoppt; Rückkehr zur Liste ist möglich."]],
+        handoffFlow: [["1. Struktur", "Job, Zeilen, Notizen, Deadline und Video."], ["2. Einladung", "Gezielter Link nach Sprecher, Figur oder Zeile."], ["3. Aufnahme", "Takes pro Zeile in der App."], ["4. Review", "OK, Kommentar oder Retake pro Zeile."], ["5. Lieferung", "ZIP mit Manifest."]],
+        statusRows: [["Auth", "Registrierung, Login, Apple, Restore und geschützte Routen.", "Noch nicht vollständig im Worker."], ["Job/Projekt", "Metadaten, Deadline, Notizen, Zeilen, Limits, Status, Speicher, Einladungen, Aufnahmen, Video.", "Projects und lines in Supabase."], ["Import", "CSV/XLSX, Vorschau, Mapping, Zeiten, Vorlagen.", "Noch kein Worker-Import."], ["Einladungen", "FastAPI kann erstellen/listen/deaktivieren/löschen/annehmen/ablehnen.", "Noch nicht im Worker."], ["Upload", "Multipart pro Einladung und Zeile.", "Base64 nach R2, Metadaten in Supabase, ein Take pro Zeile."], ["Review", "Abspielen, OK, Retake, Kommentare, Historie, Batch, Referenz.", "Liefert Projekt, Zeilen, Takes; Entscheidungen fehlen."], ["Video", "Assets, Cues und Segmente in App/API.", "Aktuell vor allem Audio."], ["Export", "ZIP-Modi, Namen, Preset, Ausschluss, Manifest.", "Noch nicht."], ["Limits", "Beta-Grenzen in App/Policy.", "40 Zeilen und ein Take pro Zeile."]],
+        limits: [["3", "gespeicherte Projekte"], ["40", "Zeilen pro Projekt"], ["1", "Take pro Zeile"], ["1 Min", "maximale Länge"], ["50 MB", "Audio pro Take"], ["300 MB", "Audio pro Projekt"], ["7 Tage", "Speicher und Einladung"], ["Individuell", "ZIP, Video, mehrere Sprecher, höhere Limits"]],
+        modelCurrent: ["job: aktueller Projekt-/Listencontainer", "job_lines: importierte Zeilen mit ID, Text, Figur, Notiz, Zeit", "invite: teilbarer Einstieg und temporärer Container", "recording: hochgeladener Take", "job_video_assets/video_cues: Brücke zum gemeinsamen Video"],
+        modelFuture: ["project: Werk, Episode oder Lieferung", "scene: Einheit mit gemeinsamem Video und Zeilen", "line: einzelne Äußerung mit Kontext", "assignment: wer welche Zeile/Figur aufnimmt", "take: Aufnahmeabgabe", "take_share: Freigabe als Referenz"]
+      },
+      fr: {
+        mockNavTitle: "Liste d'enregistrement", mockSegmentManage: "Gérer", mockSegmentCreate: "Créer", mockJobTitle: "Répliques épisode 03", mockInviteCount: "Liens d'invitation", mockPending: "À vérifier", mockRetake: "Reprise", mockAccepted: "Validé", mockLineTitle: "Ligne A-014", mockPerformer: "Interprète", mockLatest: "Dernière prise", mockSubmitted: "Envoyée",
+        sheetTitle: "Modèle de lignes", sheetHint: "Import CSV / XLSX", sheetCharacter: "Personnage", sheetLine: "Réplique", sheetNote: "Note", sheetAliceLine: "Nous commençons au troisième coup.", sheetAliceNote: "calme, micro proche", sheetBobLine: "Reçu. Je cale mon timing.", sheetBobNote: "écouter la référence", sheetNarrator: "Narrateur", sheetNarratorLine: "La pièce devient silencieuse.", sheetNarratorNote: "moins d'énergie",
+        overviewBody: "L'app suit le modèle MVP actuel: les jobs contiennent les lignes, les invitations ouvrent une session interprète, les enregistrements sont soumis par ligne, puis le donneur d'ordre vérifie et exporte. Le backend de production s'oriente vers Cloudflare Worker, Supabase et R2.",
+        overviewCard1Title: "Espace iOS donneur d'ordre", overviewCard1Body: "Compte, listes, import CSV/XLSX, assistant de création, vidéos, invitations, progression, review, partage de références et export ZIP.",
+        overviewCard2Title: "Espace iOS interprète", overviewCard2Body: "Ouverture d'invitation, acceptation/refus, compte optionnel, lignes ciblées, notes, enregistrement, aperçu local, upload, état et références audio.",
+        overviewCard3Title: "État backend", overviewCard3Body: "Le flux détaillé est dans l'ancien backend FastAPI. Le Worker crée projets/lignes, accepte une prise, sert la review, télécharge l'audio et vérifie Supabase/R2.",
+        requesterLead: "Le donneur d'ordre pilote: il transforme une feuille en mission suivable et relie chaque décision de livraison à la bonne ligne.",
+        performerLead: "L'interprète voit volontairement moins: seulement les lignes à enregistrer, le contexte, le feedback et les références utiles.",
+        handoffLead: "TakeFlow rend le passage clair: structure côté client, prise côté interprète, retour de review comme état de ligne.",
+        statusLead: "La page distingue ce qui existe dans l'app de ce qui reste une direction backend.",
+        statusFeature: "Domaine", statusApp: "App / API héritée", statusWorker: "Worker", limitsLead: "La bêta gratuite reste limitée jusqu'à la fin du hosting, de la facturation et de l'exploitation.", modelLead: "La cible est centrée scène: une vidéo partagée, des affectations par ligne, plusieurs prises et seules les références validées exposées.", modelCurrentTitle: "Vocabulaire MVP", modelFutureTitle: "Vocabulaire cible", modelNote: "TakeFlow ne doit pas devenir un simple transfert de fichiers. L'unité durable est scène, ligne, affectation, prise; les fichiers sont des preuves attachées.",
+        requesterSteps: [["Se connecter et choisir l'espace", "Le donneur d'ordre se connecte puis gère les listes ou crée une nouvelle liste, avec filtres et tris par date, échéance, titre, attention ou dernier envoi."], ["Créer la base", "Titre, métadonnées, description, nom, échéance et cible. Les notes internes restent privées; les notes interprète sont visibles."], ["Importer les lignes", "CSV/XLSX avec aperçu, mapping conseillé, ID, texte, personnage, notes, groupe de lecture et temps optionnels."], ["Ajouter vidéo et repères", "Une vidéo peut être téléversée une fois et reliée à des plages de lignes."], ["Confirmer", "Métadonnées, lignes, mapping, échéance, notes et vidéo sont relus avant création API."], ["Créer les invitations", "Liens avec label, interprète, personnages, lignes, expiration, share URL et app-open URL."], ["Suivre", "Lignes non commencées, envoyées, validées ou en reprise; stockage audio/vidéo et compteurs."], ["Vérifier", "Lecture, validation, demande de reprise, commentaire, modèles et historique."], ["Partager des références", "Les prises validées peuvent être exposées explicitement comme références."], ["Exporter", "ZIP latest/accepted/all, styles de noms, exclusion des reprises et manifest."]],
+        performerSteps: [["Ouvrir l'invitation", "Lien HTTPS ou app-open; affichage du client, délai, cible, personnages, lignes et note."], ["Accepter ou refuser", "Accepter, refuser, créer un compte ou accepter sur l'appareil."], ["Lire le nécessaire", "Lignes ciblées et contexte avec recherche, pagination, personnages, IDs, notes et temps."], ["Enregistrer une ligne", "Micro, monitoring, armement auto, enregistrement, sauvegarde, trim, compression légère, waveform et aperçu."], ["Envoyer et suivre", "Après upload, état envoyé, validé ou reprise; résumé de progression."], ["Utiliser le feedback", "Les reprises restent liées à la même ligne avec commentaire."], ["Écouter les références", "Les prises OK partagées servent de référence sans exposer brouillons ou NG."], ["Quitter proprement", "Les ressources audio sont suspendues quand l'app devient inactive."]],
+        handoffFlow: [["1. Structure", "Job, lignes, notes, échéance, vidéo."], ["2. Invitation", "Lien ciblé par interprète, personnage ou ligne."], ["3. Enregistrement", "Prises par ligne."], ["4. Review", "OK, commentaire ou reprise."], ["5. Livraison", "ZIP avec manifest."]],
+        statusRows: [["Auth", "Inscription, login, Apple, restauration et routes protégées.", "Pas encore complet dans Worker."], ["Projet", "Métadonnées, lignes, limites, état, stockage, invitations, prises, vidéo.", "projects et lines dans Supabase."], ["Import", "CSV/XLSX, aperçu, mapping, temps, modèles.", "Pas d'import Worker."], ["Invitations", "Créer/lister/désactiver/supprimer/accepter/refuser.", "Absent du Worker."], ["Upload", "Multipart par invitation et ligne.", "Base64 vers R2, métadonnées Supabase."], ["Review", "Lecture, OK, reprise, commentaires, historique, référence.", "Retourne projet, lignes, prises; décisions absentes."], ["Vidéo", "Assets, cues, segments.", "Audio surtout actuellement."], ["Export", "ZIP modes/noms/preset/manifest.", "Non implémenté."], ["Limites", "Contraintes bêta.", "40 lignes et une prise par ligne."]],
+        limits: [["3", "projets sauvegardés"], ["40", "lignes par projet"], ["1", "prise par ligne"], ["1 min", "durée max"], ["50 MB", "audio par prise"], ["300 MB", "audio par projet"], ["7 jours", "stockage et invitation"], ["Sur mesure", "ZIP, vidéo, multi-interprètes"]],
+        modelCurrent: ["job: conteneur de liste/projet", "job_lines: lignes importées", "invite: entrée partageable", "recording: prise envoyée", "job_video_assets/video_cues: pont vers vidéo partagée"],
+        modelFuture: ["project: œuvre ou livraison", "scene: vidéo partagée et lignes", "line: réplique contextualisée", "assignment: responsabilité par interprète", "take: soumission enregistrée", "take_share: partage de référence"]
+      },
+      pt: {
+        mockNavTitle: "Lista de gravação", mockSegmentManage: "Gerenciar", mockSegmentCreate: "Criar", mockJobTitle: "Falas do episódio 03", mockInviteCount: "Links de convite", mockPending: "Para revisar", mockRetake: "Retake", mockAccepted: "OK", mockLineTitle: "Linha A-014", mockPerformer: "Intérprete", mockLatest: "Take mais recente", mockSubmitted: "Enviado",
+        sheetTitle: "Modelo de falas", sheetHint: "Importação CSV / XLSX", sheetCharacter: "Personagem", sheetLine: "Fala", sheetNote: "Nota", sheetAliceLine: "Começamos no terceiro sino.", sheetAliceNote: "calmo, microfone perto", sheetBobLine: "Entendido. Vou ajustar o timing.", sheetBobNote: "ouvir referência", sheetNarrator: "Narrador", sheetNarratorLine: "A sala fica em silêncio.", sheetNarratorNote: "menos energia",
+        overviewBody: "O app segue o MVP atual: jobs contêm falas, convites abrem sessões de intérprete, gravações são enviadas por linha, e o solicitante revisa e exporta. O backend de produção caminha para Cloudflare Worker, Supabase e R2.",
+        overviewCard1Title: "Área iOS do solicitante", overviewCard1Body: "Conta, listas, CSV/XLSX, assistente, vídeo, convites, progresso, revisão, referências e ZIP.",
+        overviewCard2Title: "Área iOS do intérprete", overviewCard2Body: "Convite, aceitar/recusar, conta opcional, falas alvo, notas, gravação, prévia, upload, estado e referências.",
+        overviewCard3Title: "Estado do backend", overviewCard3Body: "O fluxo detalhado está no FastAPI legado. O Worker cria projetos/linhas, recebe um take, lista revisão, baixa áudio e testa Supabase/R2.",
+        requesterLead: "O solicitante transforma planilhas em trabalhos rastreáveis e prende cada decisão à fala correta.",
+        performerLead: "O intérprete vê apenas o necessário: falas, contexto, feedback e referências para o próximo envio.",
+        handoffLead: "TakeFlow explicita a passagem: estrutura, gravação, revisão e entrega por linha.",
+        statusLead: "A página separa app existente e direção do backend de produção.",
+        statusFeature: "Área", statusApp: "App / API legada", statusWorker: "Worker", limitsLead: "A beta grátis é limitada até hosting, cobrança, retenção e operação ficarem prontos.", modelLead: "A direção é centrada em cena: vídeo compartilhado, atribuições por fala, vários takes e referências aprovadas.", modelCurrentTitle: "Vocabulário MVP", modelFutureTitle: "Vocabulário alvo", modelNote: "TakeFlow não deve virar transferência genérica. A unidade durável é cena, fala, atribuição e take; arquivos são evidências.",
+        requesterSteps: [["Entrar e escolher área", "Login e gestão/criação com filtros e ordenação."], ["Criar base", "Título, metadados, descrição, nome, prazo e alvo; notas internas e ao intérprete separadas."], ["Importar falas", "CSV/XLSX com prévia, mapeamento, ID, texto, personagem, notas e tempos."], ["Anexar vídeo", "Um vídeo por job com cues para faixas de linhas."], ["Confirmar", "Revisar tudo antes de criar pela API."], ["Criar convites", "Links com rótulo, intérprete, personagens, linhas, expiração e URLs."], ["Acompanhar", "Não iniciadas, enviadas, OK, retake e uso de armazenamento."], ["Revisar", "Ouvir, aceitar, pedir retake, comentar e ver histórico."], ["Compartilhar referência", "Takes OK podem virar áudio de referência."], ["Exportar", "ZIP por modos, nomes, exclusão de retakes e manifest."]],
+        performerSteps: [["Abrir convite", "Link HTTPS ou app-open com token."], ["Aceitar ou recusar", "Aceitar, recusar, criar conta ou aceitar neste dispositivo."], ["Ler o necessário", "Falas alvo, contexto, busca, páginas, notas e tempos."], ["Gravar por linha", "Microfone, monitoramento, auto-start, gravar, salvar, trim, compressão, waveform e prévia."], ["Enviar e seguir", "Estado muda para enviado, OK ou retake."], ["Usar feedback", "Comentários ficam na linha para nova tomada."], ["Ouvir referências", "Takes aprovados compartilhados ajudam timing."], ["Sair com segurança", "Recursos de áudio são suspensos ao sair."]],
+        handoffFlow: [["1. Estrutura", "Job, falas, notas, prazo, vídeo."], ["2. Convite", "Link direcionado."], ["3. Gravação", "Takes por linha."], ["4. Revisão", "OK, comentário ou retake."], ["5. Entrega", "ZIP com manifest."]],
+        statusRows: [["Auth", "Cadastro, login, Apple e rotas protegidas.", "Ainda incompleto."], ["Projeto", "Metadados, falas, limites, estado, uso, convites, takes, vídeo.", "projects/lines no Supabase."], ["Importação", "CSV/XLSX, prévia, mapeamento.", "Sem import no Worker."], ["Convites", "Criar/listar/desativar/apagar/aceitar/recusar.", "Ainda não."], ["Upload", "Multipart por convite e linha.", "Base64 para R2 e Supabase."], ["Revisão", "Ouvir, OK, retake, comentários, referência.", "Busca projeto/linhas/takes."], ["Vídeo", "Assets e cues.", "Atual foco em áudio."], ["Exportação", "ZIP completo.", "Ainda não."], ["Limites", "Beta limitada.", "40 linhas e 1 take."]],
+        limits: [["3", "projetos salvos"], ["40", "falas por projeto"], ["1", "take por fala"], ["1 min", "duração máxima"], ["50 MB", "áudio por take"], ["300 MB", "áudio por projeto"], ["7 dias", "retenção e convite"], ["Sob medida", "ZIP, vídeo e multi-intérprete"]],
+        modelCurrent: ["job: lista/projeto atual", "job_lines: falas importadas", "invite: entrada compartilhável", "recording: take enviado", "video assets/cues: ponte para cena"],
+        modelFuture: ["project: obra/entrega", "scene: vídeo e falas", "line: fala", "assignment: responsabilidade", "take: gravação", "take_share: referência"]
+      },
+      ko: {
+        mockNavTitle: "녹음 리스트", mockSegmentManage: "관리", mockSegmentCreate: "생성", mockJobTitle: "03화 대사 녹음", mockInviteCount: "초대 링크", mockPending: "검토 필요", mockRetake: "재녹음", mockAccepted: "OK", mockLineTitle: "대사 A-014", mockPerformer: "수행자", mockLatest: "최신 테이크", mockSubmitted: "제출됨",
+        sheetTitle: "대사 목록 템플릿", sheetHint: "CSV / XLSX 가져오기", sheetCharacter: "캐릭터", sheetLine: "대사", sheetNote: "메모", sheetAliceLine: "세 번째 종소리에 시작합니다.", sheetAliceNote: "차분하게, 가까운 마이크", sheetBobLine: "알겠습니다. 타이밍을 맞추겠습니다.", sheetBobNote: "참고 음성 듣기", sheetNarrator: "내레이션", sheetNarratorLine: "방 안이 조용해진다.", sheetNarratorNote: "낮은 에너지",
+        overviewBody: "앱은 현재 MVP 모델을 중심으로 합니다. job은 대사 줄을 포함하고, invite link는 수행자를 guest session으로 데려오며, recording은 줄 단위로 제출되고, 의뢰자가 검토한 뒤 내보냅니다. production backend는 Cloudflare Worker, Supabase metadata, R2 audio storage 방향으로 정리 중입니다.",
+        overviewCard1Title: "iOS 의뢰자 작업공간", overviewCard1Body: "계정, 녹음 리스트, CSV/XLSX 가져오기, 생성 마법사, 영상 첨부, 초대 링크, 진행률, 리뷰, 참고 음성 공유, ZIP 내보내기를 다룹니다.",
+        overviewCard2Title: "iOS 수행자 작업공간", overviewCard2Body: "초대 열기, 수락/거절, 선택적 계정, 담당 대사, 의뢰자 메모, 녹음, 로컬 미리듣기, 업로드, 진행 상태, 공유 참고 음성 재생을 다룹니다.",
+        overviewCard3Title: "백엔드 상태", overviewCard3Body: "상세 앱 흐름은 legacy FastAPI backend에 표현되어 있습니다. 현재 Worker는 project 생성, line 생성, 한 줄 한 take 업로드, review 조회, audio download, Supabase/R2 health check를 구현합니다.",
+        requesterLead: "의뢰자 쪽은 관제실입니다. 스프레드시트나 대사 목록을 추적 가능한 녹음 작업으로 바꾸고 모든 납품 판단을 정확한 대사 줄에 연결합니다.",
+        performerLead: "수행자 쪽은 일부러 좁습니다. 이 사람이 녹음해야 할 줄, 필요한 문맥, 다음 제출에 필요한 피드백과 참고 take만 보여줍니다.",
+        handoffLead: "TakeFlow는 의뢰자가 구조를 만들고, 수행자가 그 구조에 맞춰 녹음하며, 리뷰 결과가 줄 단위 상태로 돌아오게 합니다.",
+        statusLead: "이 페이지는 앱에 이미 있는 것과 production backend 방향에 머무는 것을 분리합니다.",
+        statusFeature: "영역", statusApp: "앱 / legacy API", statusWorker: "Worker 형태", limitsLead: "호스팅, 과금, 보존, 운영이 완성될 때까지 무료 베타는 작게 제한됩니다.", modelLead: "앞으로는 scene 중심입니다. 하나의 공유 영상, 줄 단위 assignment, 여러 take, 승인된 reference take만 노출합니다.", modelCurrentTitle: "현재 MVP 용어", modelFutureTitle: "목표 용어", modelNote: "TakeFlow를 일반 파일 전송 도구로 닫지 않는 것이 중요합니다. 오래 남는 단위는 scene, line, assignment, take이고 파일은 그 구조에 붙은 증거입니다.",
+        requesterSteps: [["로그인하고 작업공간 선택", "의뢰자는 등록/로그인 후 녹음 리스트 관리 또는 새 리스트 생성으로 갑니다. 기존 작업은 전체/공개/중지/대응 필요로 필터하고 여러 기준으로 정렬합니다."], ["작업 골격 만들기", "제목, 작품/회차 정보, 설명, 의뢰자명, 마감, 녹음 대상을 입력합니다. 내부 메모는 의뢰자에게만, 수행자 메모는 세션에 표시됩니다."], ["대사 가져오기", "CSV/XLSX를 미리보고 열 매핑을 제안합니다. line ID, 본문, 캐릭터, 메모, 재생 그룹, 시작/종료 초를 다룹니다."], ["공유 영상과 cue 연결", "영상이 켜져 있으면 job에 영상을 한 번 올리고 줄 범위와 연결합니다."], ["확인 후 생성", "메타데이터, 줄, 매핑, 마감, 메모, 영상 참조를 확인하고 API로 생성합니다."], ["초대 링크 생성", "라벨, 대상 수행자, 캐릭터, 줄 ID, 만료, share URL, app-open URL을 가진 링크를 만들고 나중에 비활성화/삭제할 수 있습니다."], ["진행 확인", "미착수, 제출, OK, 재녹음 상태와 audio/video 저장량을 봅니다."], ["제출 리뷰", "음성을 재생하고 OK 또는 재녹음을 판단하며 댓글과 히스토리를 확인합니다."], ["참고 take 공유", "OK 녹음을 명시적으로 참고 음성으로 공개합니다."], ["납품 내보내기", "latest/accepted/all ZIP, 파일명 방식, 재녹음 제외, manifest를 지원합니다."]],
+        performerSteps: [["초대 열기", "HTTPS 또는 app-open 링크에서 token을 읽고 의뢰자, 마감, 대상, 캐릭터, 줄 수, 메모를 보여줍니다."], ["수락 또는 거절", "수락, 거절, 계정 생성, 이 기기에서만 수락을 선택합니다."], ["필요한 내용만 읽기", "담당 줄과 문맥, 검색, 페이지, 캐릭터, ID, 메모, 시간 정보를 확인합니다."], ["한 줄씩 녹음", "마이크 권한, 입력 모니터링, 자동 시작 대기, 녹음, 저장, 무음 trim, 가벼운 compression, waveform, 로컬 재생을 지원합니다."], ["제출하고 상태 확인", "업로드 후 제출됨, OK, 재녹음 상태가 됩니다."], ["피드백 사용", "재녹음 코멘트는 같은 줄에 붙어 대체 take를 녹음합니다."], ["참고 음성 듣기", "공유된 OK take로 타이밍과 대화를 맞춥니다."], ["안전하게 나가기", "앱이 비활성화되면 live audio resource를 중지합니다."]],
+        handoffFlow: [["1. 구조", "작업, 줄, 메모, 마감, 영상."], ["2. 초대", "수행자/캐릭터/줄 범위 링크."], ["3. 녹음", "앱에서 줄 단위 take 제출."], ["4. 리뷰", "줄 단위 OK, 댓글, 재녹음."], ["5. 납품", "manifest 포함 ZIP."]],
+        statusRows: [["인증", "등록, 로그인, Apple, 세션 복원, 보호 route.", "Worker에는 아직 전체 없음."], ["작업/프로젝트", "메타데이터, 줄, 제한, 상태, 저장량, 초대, 녹음, 영상.", "Supabase projects/lines."], ["가져오기", "CSV/XLSX, preview, mapping, 시간, template.", "Worker import 없음."], ["초대", "생성/목록/비활성/삭제/수락/거절.", "Worker 미구현."], ["업로드", "초대와 줄 기준 multipart.", "Base64를 R2에 저장, Supabase metadata."], ["리뷰", "재생, OK, 재녹음, 댓글, 히스토리, reference.", "project/lines/takes 조회."], ["영상", "assets, cues, segments.", "현재는 audio 중심."], ["내보내기", "ZIP modes/names/manifest.", "미구현."], ["제한", "베타 제한.", "40줄, 1줄 1take."]],
+        limits: [["3", "저장 작업"], ["40", "작업당 대사 줄"], ["1", "줄당 제출 take"], ["1분", "최대 녹음 길이"], ["50 MB", "take당 음성"], ["300 MB", "작업당 음성 저장"], ["7일", "보존과 초대"], ["개별", "ZIP, 영상, 다중 수행자"]],
+        modelCurrent: ["job: 현재 리스트/작업 컨테이너", "job_lines: 가져온 대사 줄", "invite: 공유 가능한 입구", "recording: 업로드된 take", "video assets/cues: 공유 scene video 전 단계"],
+        modelFuture: ["project: 작품/납품 단위", "scene: 공유 영상과 줄", "line: 대사 한 줄", "assignment: 담당 관계", "take: 녹음 제출", "take_share: reference 공개"]
+      },
+      zhHans: {
+        mockNavTitle: "录音列表", mockSegmentManage: "管理", mockSegmentCreate: "创建", mockJobTitle: "第03集台词录音", mockInviteCount: "邀请链接", mockPending: "待审核", mockRetake: "重录", mockAccepted: "已通过", mockLineTitle: "台词 A-014", mockPerformer: "录制者", mockLatest: "最新 take", mockSubmitted: "已提交",
+        sheetTitle: "台词表模板", sheetHint: "CSV / XLSX 导入", sheetCharacter: "角色", sheetLine: "台词", sheetNote: "备注", sheetAliceLine: "第三声钟响时开始。", sheetAliceNote: "平静，近麦", sheetBobLine: "收到。我会对齐你的节奏。", sheetBobNote: "听参考音频", sheetNarrator: "旁白", sheetNarratorLine: "房间安静下来。", sheetNarratorNote: "能量低一些",
+        overviewBody: "应用围绕当前 MVP 模型构建：job 包含台词行，invite link 将录制者带入 guest session，recording 按行提交，委托方审核后导出结果。生产后端正在转向 Cloudflare Worker、Supabase 元数据和 R2 音频存储。",
+        overviewCard1Title: "iOS 委托方工作区", overviewCard1Body: "账号、录音列表、CSV/XLSX 导入、创建向导、视频附件、邀请链接、进度、审核、参考共享和 ZIP 导出。",
+        overviewCard2Title: "iOS 录制者工作区", overviewCard2Body: "打开邀请、接受/拒绝、可选账号、目标台词、备注、录音、本地预听、上传、进度状态和共享参考音频。",
+        overviewCard3Title: "后端状态", overviewCard3Body: "详细应用流程在 legacy FastAPI 后端中。当前 Worker 实现 project/line 创建、每行一个 take 上传、review 查询、音频下载以及 Supabase/R2 健康检查。",
+        requesterLead: "委托方是控制室：把表格或台词列表变成可追踪的录音任务，并把每个交付决定绑定到具体台词行。",
+        performerLead: "录制者侧刻意更窄：只显示需要录的内容、上下文、反馈和下一次提交所需的参考。",
+        handoffLead: "TakeFlow 明确交接：委托方创建结构，录制者按结构录音，审核结果作为行级状态返回。",
+        statusLead: "本页区分应用中已有的内容和仍属于生产后端方向的内容。",
+        statusFeature: "领域", statusApp: "应用 / legacy API", statusWorker: "Worker 形态", limitsLead: "在托管、计费、保留和运营完成前，免费 beta 保持小范围限制。", modelLead: "未来方向是以 scene 为中心：一个共享视频、按行 assignment、多个 take，只公开已批准的参考 take。", modelCurrentTitle: "当前 MVP 词汇", modelFutureTitle: "目标词汇", modelNote: "关键是不要把 TakeFlow 做成普通文件传输工具。长期单位应是 scene、line、assignment、take；文件是挂在结构下的证据。",
+        requesterSteps: [["登录并选择工作区", "委托方注册/登录后进入列表管理或新建向导，可按状态筛选并排序。"], ["创建任务骨架", "填写标题、作品/集数、说明、委托方、截止日和录音目标。内部备注只给委托方，录制者备注显示在 session。"], ["导入台词", "从 CSV/XLSX 导入，预览并建议列映射，支持行ID、正文、角色、备注、播放组和时间。"], ["附加共享视频", "启用视频时，只上传一次视频并映射到台词范围。"], ["确认并创建", "检查元数据、台词、映射、截止日、备注和视频后通过 API 创建。"], ["创建邀请链接", "链接可包含标签、目标录制者、角色、行ID、过期、share URL 和 app-open URL。"], ["监控进度", "查看未开始、已提交、OK、重录以及音频/视频存储量。"], ["审核提交", "播放音频，标记 OK 或要求重录，添加评论并查看历史。"], ["共享参考 take", "已通过录音可明确公开为参考音频。"], ["导出交付", "ZIP 支持 latest/accepted/all、文件名规则、排除重录和 manifest。"]],
+        performerSteps: [["打开邀请", "从 HTTPS 或 app-open 链接读取 token，显示委托方、截止日、目标、角色、行数和备注。"], ["接受或拒绝", "可接受、拒绝、创建账号或只在本设备接受。"], ["只读相关内容", "查看目标台词和上下文，支持搜索、分页、角色、ID、备注和时间。"], ["逐行录音", "支持麦克风权限、输入监听、自动开始、录音、保存、静音裁剪、轻压缩、波形和本地预听。"], ["提交并跟踪状态", "上传后变为已提交、OK 或重录。"], ["使用反馈", "重录评论绑定在同一行。"], ["听参考音频", "共享 OK take 用于节奏和对戏参考。"], ["安全离开", "应用非活动时停止实时音频资源。"]],
+        handoffFlow: [["1. 结构", "任务、台词、备注、截止日、视频。"], ["2. 邀请", "按录制者/角色/行范围发送链接。"], ["3. 录音", "应用内按行提交 take。"], ["4. 审核", "按行 OK、评论或重录。"], ["5. 交付", "导出带 manifest 的 ZIP。"]],
+        statusRows: [["认证", "注册、登录、Apple、session 恢复和受保护路由。", "Worker 尚未完整。"], ["任务/项目", "元数据、台词、限制、状态、存储、邀请、录音、视频。", "Supabase projects/lines。"], ["导入", "CSV/XLSX、预览、映射、时间、模板。", "Worker 尚无导入。"], ["邀请", "创建/列表/禁用/删除/接受/拒绝。", "Worker 未实现。"], ["上传", "按邀请和行 multipart。", "Base64 到 R2，Supabase 元数据。"], ["审核", "播放、OK、重录、评论、历史、参考。", "查询 project/lines/takes。"], ["视频", "assets、cues、segments。", "当前主要是音频。"], ["导出", "ZIP 模式/命名/manifest。", "未实现。"], ["限制", "beta 限制。", "40 行和每行 1 take。"]],
+        limits: [["3", "保存项目"], ["40", "每项目台词行"], ["1", "每行提交 take"], ["1 分钟", "最大录音时长"], ["50 MB", "每 take 音频"], ["300 MB", "项目音频存储"], ["7 天", "保留和邀请"], ["定制", "ZIP、视频、多录制者"]],
+        modelCurrent: ["job: 当前列表/项目容器", "job_lines: 导入台词行", "invite: 可分享入口", "recording: 上传 take", "video assets/cues: 共享 scene video 前段"],
+        modelFuture: ["project: 作品/交付单位", "scene: 共享视频和台词", "line: 单句台词", "assignment: 分配关系", "take: 录音提交", "take_share: 参考公开"]
+      },
+      zhHant: {
+        mockNavTitle: "錄音列表", mockSegmentManage: "管理", mockSegmentCreate: "建立", mockJobTitle: "第03集台詞錄音", mockInviteCount: "邀請連結", mockPending: "待審核", mockRetake: "重錄", mockAccepted: "已通過", mockLineTitle: "台詞 A-014", mockPerformer: "錄製者", mockLatest: "最新 take", mockSubmitted: "已提交",
+        sheetTitle: "台詞表範本", sheetHint: "CSV / XLSX 匯入", sheetCharacter: "角色", sheetLine: "台詞", sheetNote: "備註", sheetAliceLine: "第三聲鐘響時開始。", sheetAliceNote: "平靜，近麥", sheetBobLine: "收到。我會對齊你的節奏。", sheetBobNote: "聽參考音訊", sheetNarrator: "旁白", sheetNarratorLine: "房間安靜下來。", sheetNarratorNote: "能量低一些",
+        overviewBody: "應用程式以目前 MVP 模型為中心：job 包含台詞行，invite link 將錄製者帶入 guest session，recording 依行提交，委託方審核後匯出結果。生產後端正在轉向 Cloudflare Worker、Supabase metadata 與 R2 音訊儲存。",
+        overviewCard1Title: "iOS 委託方工作區", overviewCard1Body: "帳號、錄音列表、CSV/XLSX 匯入、建立精靈、影片附件、邀請連結、進度、審核、參考共享與 ZIP 匯出。",
+        overviewCard2Title: "iOS 錄製者工作區", overviewCard2Body: "開啟邀請、接受/拒絕、選用帳號、目標台詞、備註、錄音、本機預聽、上傳、進度狀態與共享參考音訊。",
+        overviewCard3Title: "後端狀態", overviewCard3Body: "詳細應用流程位於 legacy FastAPI 後端。目前 Worker 實作 project/line 建立、每行一個 take 上傳、review 查詢、音訊下載與 Supabase/R2 health check。",
+        requesterLead: "委託方是控制室：把表格或台詞列表變成可追蹤的錄音任務，並將每個交付判斷綁定到具體台詞行。",
+        performerLead: "錄製者側刻意更窄：只顯示需要錄的內容、上下文、回饋與下一次提交所需的參考。",
+        handoffLead: "TakeFlow 明確交接：委託方建立結構，錄製者依結構錄音，審核結果作為行級狀態返回。",
+        statusLead: "本頁區分應用中已有內容與仍屬於生產後端方向的內容。",
+        statusFeature: "領域", statusApp: "應用 / legacy API", statusWorker: "Worker 形態", limitsLead: "在託管、計費、保留與營運完成前，免費 beta 保持小範圍限制。", modelLead: "未來方向以 scene 為中心：一個共享影片、依行 assignment、多個 take，只公開已核准的參考 take。", modelCurrentTitle: "目前 MVP 詞彙", modelFutureTitle: "目標詞彙", modelNote: "關鍵是不要把 TakeFlow 做成一般檔案傳輸工具。長期單位應是 scene、line、assignment、take；檔案是掛在結構下的證據。",
+        requesterSteps: [["登入並選擇工作區", "委託方註冊/登入後進入列表管理或新建精靈，可依狀態篩選與排序。"], ["建立任務骨架", "填寫標題、作品/集數、說明、委託方、截止日與錄音目標。內部備註只給委託方，錄製者備註顯示在 session。"], ["匯入台詞", "從 CSV/XLSX 匯入，預覽並建議欄位映射，支援行ID、正文、角色、備註、播放組與時間。"], ["附加共享影片", "啟用影片時，只上傳一次影片並映射到台詞範圍。"], ["確認並建立", "檢查 metadata、台詞、mapping、截止日、備註與影片後透過 API 建立。"], ["建立邀請連結", "連結可包含標籤、目標錄製者、角色、行ID、過期、share URL 與 app-open URL。"], ["監控進度", "查看未開始、已提交、OK、重錄與 audio/video 儲存量。"], ["審核提交", "播放音訊，標記 OK 或要求重錄，加入評論並查看歷史。"], ["共享參考 take", "已通過錄音可明確公開為參考音訊。"], ["匯出交付", "ZIP 支援 latest/accepted/all、檔名規則、排除重錄與 manifest。"]],
+        performerSteps: [["開啟邀請", "從 HTTPS 或 app-open 連結讀取 token，顯示委託方、截止日、目標、角色、行數與備註。"], ["接受或拒絕", "可接受、拒絕、建立帳號或只在本裝置接受。"], ["只讀相關內容", "查看目標台詞與上下文，支援搜尋、分頁、角色、ID、備註與時間。"], ["逐行錄音", "支援麥克風權限、輸入監聽、自動開始、錄音、儲存、靜音裁剪、輕壓縮、波形與本機預聽。"], ["提交並追蹤狀態", "上傳後變為已提交、OK 或重錄。"], ["使用回饋", "重錄評論綁定在同一行。"], ["聽參考音訊", "共享 OK take 用於節奏與對戲參考。"], ["安全離開", "應用非活動時停止即時音訊資源。"]],
+        handoffFlow: [["1. 結構", "任務、台詞、備註、截止日、影片。"], ["2. 邀請", "依錄製者/角色/行範圍發送連結。"], ["3. 錄音", "應用內依行提交 take。"], ["4. 審核", "依行 OK、評論或重錄。"], ["5. 交付", "匯出帶 manifest 的 ZIP。"]],
+        statusRows: [["認證", "註冊、登入、Apple、session 還原與受保護 route。", "Worker 尚未完整。"], ["任務/專案", "metadata、台詞、限制、狀態、儲存、邀請、錄音、影片。", "Supabase projects/lines。"], ["匯入", "CSV/XLSX、預覽、映射、時間、範本。", "Worker 尚無匯入。"], ["邀請", "建立/列表/停用/刪除/接受/拒絕。", "Worker 未實作。"], ["上傳", "依邀請和行 multipart。", "Base64 到 R2，Supabase metadata。"], ["審核", "播放、OK、重錄、評論、歷史、參考。", "查詢 project/lines/takes。"], ["影片", "assets、cues、segments。", "目前主要是音訊。"], ["匯出", "ZIP 模式/命名/manifest。", "未實作。"], ["限制", "beta 限制。", "40 行和每行 1 take。"]],
+        limits: [["3", "保存專案"], ["40", "每專案台詞行"], ["1", "每行提交 take"], ["1 分鐘", "最大錄音長度"], ["50 MB", "每 take 音訊"], ["300 MB", "專案音訊儲存"], ["7 天", "保留和邀請"], ["客製", "ZIP、影片、多錄製者"]],
+        modelCurrent: ["job: 目前列表/專案容器", "job_lines: 匯入台詞行", "invite: 可分享入口", "recording: 上傳 take", "video assets/cues: 共享 scene video 前段"],
+        modelFuture: ["project: 作品/交付單位", "scene: 共享影片和台詞", "line: 單句台詞", "assignment: 分配關係", "take: 錄音提交", "take_share: 參考公開"]
+      }
+    };
+
+    function derivedLanguage(code) {
+      const [name, title, body] = localeNames[code];
+      return {
+        ...base.en,
+        languageLabel: name,
+        heroTitle: title,
+        heroBody: body,
+        heroPrimary: {
+          es: "Flujo del cliente", de: "Workflow Auftraggeber", fr: "Flux donneur d'ordre", pt: "Fluxo do solicitante", ko: "의뢰자 흐름", zhHans: "委托方流程", zhHant: "委託方流程"
+        }[code],
+        heroSecondary: {
+          es: "Flujo del intérprete", de: "Workflow Sprecher", fr: "Flux interprète", pt: "Fluxo do intérprete", ko: "수행자 흐름", zhHans: "录制者流程", zhHant: "錄製者流程"
+        }[code],
+        overviewTitle: {
+          es: "Qué cubre la implementación actual", de: "Was die aktuelle Implementierung abdeckt", fr: "Ce que couvre l'implémentation actuelle", pt: "O que a implementação atual cobre", ko: "현재 구현 범위", zhHans: "当前实现覆盖的范围", zhHant: "目前實作涵蓋的範圍"
+        }[code],
+        requesterTitle: {
+          es: "Flujo detallado del cliente", de: "Detaillierter Workflow für Auftraggeber", fr: "Flux détaillé du donneur d'ordre", pt: "Fluxo detalhado do solicitante", ko: "의뢰자 작업 흐름 상세", zhHans: "委托方详细工作流程", zhHant: "委託方詳細工作流程"
+        }[code],
+        performerTitle: {
+          es: "Flujo detallado del intérprete", de: "Detaillierter Workflow für Sprecher", fr: "Flux détaillé de l'interprète", pt: "Fluxo detalhado do intérprete", ko: "수행자 작업 흐름 상세", zhHans: "录制者详细工作流程", zhHant: "錄製者詳細工作流程"
+        }[code],
+        handoffTitle: {
+          es: "Cómo se mueve el trabajo entre ambos lados", de: "Wie Arbeit zwischen beiden Seiten läuft", fr: "Comment le travail circule entre les deux côtés", pt: "Como o trabalho passa entre os dois lados", ko: "양쪽 작업이 이어지는 방식", zhHans: "双方工作如何交接", zhHant: "雙方工作如何交接"
+        }[code],
+        statusTitle: {
+          es: "Estado de implementación", de: "Implementierungsstand", fr: "État d'implémentation", pt: "Estado da implementação", ko: "구현 상태", zhHans: "实现状态", zhHant: "實作狀態"
+        }[code],
+        limitsTitle: {
+          es: "Restricciones beta actuales", de: "Aktuelle Beta-Grenzen", fr: "Limites bêta actuelles", pt: "Limites atuais da beta", ko: "현재 베타 제한", zhHans: "当前 Beta 限制", zhHant: "目前 Beta 限制"
+        }[code],
+        modelTitle: {
+          es: "Hacia dónde va el modelo", de: "Wohin sich das Modell entwickelt", fr: "Vers où évolue le modèle", pt: "Para onde o modelo está indo", ko: "모델이 향하는 방향", zhHans: "模型接下来的方向", zhHant: "模型接下來的方向"
+        }[code]
+      };
+    }
+
+    for (const code of Object.keys(localeNames)) {
+      translations[code] = {
+        ...derivedLanguage(code),
+        ...(contentPacks[code] || {})
+      };
+    }
+
+    function renderSteps(container, steps) {
+      container.innerHTML = steps.map(([title, body]) => `
+        <article class="step">
+          <div>
+            <h3>${title}</h3>
+            <p>${body}</p>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderFlow(container, items) {
+      container.innerHTML = items.map(([title, body]) => `
+        <article class="flow-item">
+          <strong>${title}</strong>
+          <span>${body}</span>
+        </article>
+      `).join("");
+    }
+
+    function renderRows(container, rows) {
+      container.innerHTML = rows.map(([area, app, worker]) => `
+        <tr>
+          <td><strong>${area}</strong></td>
+          <td>${app}</td>
+          <td>${worker}</td>
+        </tr>
+      `).join("");
+    }
+
+    function renderLimits(container, limits) {
+      container.innerHTML = limits.map(([value, label]) => `
+        <div class="limit">
+          <strong>${value}</strong>
+          <span>${label}</span>
+        </div>
+      `).join("");
+    }
+
+    function renderList(container, items) {
+      container.innerHTML = items.map((item) => `<li>${item}</li>`).join("");
+    }
+
+    function applyLanguage(code) {
+      const dictionary = translations[code] || translations.en;
+      document.documentElement.lang = code === "zhHans" ? "zh-Hans" : code === "zhHant" ? "zh-Hant" : code;
+      for (const node of document.querySelectorAll("[data-i18n]")) {
+        const key = node.getAttribute("data-i18n");
+        node.textContent = dictionary[key] || base.en[key] || "";
+      }
+      for (const node of document.querySelectorAll("[data-i18n-steps]")) {
+        const key = node.getAttribute("data-i18n-steps");
+        renderSteps(node, dictionary[key] || base.en[key]);
+      }
+      for (const node of document.querySelectorAll("[data-i18n-flow]")) {
+        const key = node.getAttribute("data-i18n-flow");
+        renderFlow(node, dictionary[key] || base.en[key]);
+      }
+      for (const node of document.querySelectorAll("[data-i18n-status]")) {
+        const key = node.getAttribute("data-i18n-status");
+        renderRows(node, dictionary[key] || base.en[key]);
+      }
+      for (const node of document.querySelectorAll("[data-i18n-limits]")) {
+        const key = node.getAttribute("data-i18n-limits");
+        renderLimits(node, dictionary[key] || base.en[key]);
+      }
+      for (const node of document.querySelectorAll("[data-i18n-list]")) {
+        const key = node.getAttribute("data-i18n-list");
+        renderList(node, dictionary[key] || base.en[key]);
+      }
+      localStorage.setItem("takeflowExplainerLanguage", code);
+    }
+
+    const languageSelect = document.getElementById("languageSelect");
+    languageSelect.addEventListener("change", (event) => applyLanguage(event.target.value));
+    const savedLanguage = localStorage.getItem("takeflowExplainerLanguage");
+    if (savedLanguage && translations[savedLanguage]) {
+      languageSelect.value = savedLanguage;
+    }
+    applyLanguage(languageSelect.value);
+  </script>
+</body>
+</html>
