@@ -1,0 +1,4 @@
+No,Character,Line,Direction,File name,Notes
+1,ナレーター,これはTakeFlowのテストセリフです。,落ち着いたトーン,narrator_001,冒頭
+2,ナレーター,録音ワークフロー確認用の2つ目のセリフです。,少し明るく,narrator_002,
+3,システム音声,保存が完了しました。,短くはっきり,system_001,UI音声

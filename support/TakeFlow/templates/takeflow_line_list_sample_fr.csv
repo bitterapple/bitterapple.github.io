@@ -1,0 +1,4 @@
+No,Character,Line,Direction,File name,Notes
+1,Narrateur,Bienvenue dans l'enregistrement de test TakeFlow.,Calme et clair,narrateur_001,Réplique d'ouverture
+2,Narrateur,Voici la deuxième réplique pour vérifier le flux d'enregistrement.,Un peu plus lumineux,narrateur_002,
+3,Voix système,L'enregistrement a été sauvegardé.,Court et précis,systeme_001,Voix d'interface

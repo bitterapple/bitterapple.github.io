@@ -154,6 +154,30 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     gap: 12px;
   }
 
+  .workflow-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    align-items: start;
+  }
+
+  .workflow-column {
+    display: grid;
+    gap: 14px;
+    min-width: 0;
+  }
+
+  .workflow-column .section-intro {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 8px;
+    margin-bottom: 0;
+  }
+
+  .workflow-column .step-grid {
+    grid-template-columns: 1fr;
+  }
+
   .step-card {
     display: grid;
     grid-template-columns: 34px minmax(0, 1fr);
@@ -217,16 +241,80 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     line-height: 1.7;
   }
 
+  .template-downloads {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .template-downloads h3 {
+    margin: 0 0 6px;
+    font-size: 15px;
+  }
+
+  .template-downloads p {
+    margin: 0 0 12px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .download-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .download-card {
+    display: grid;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.045);
+  }
+
+  .download-card h4 {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .download-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .download-actions a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 0 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.05);
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .download-actions a:hover {
+    border-color: rgba(255, 255, 255, 0.24);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
   @media (max-width: 820px) {
     .takeflow-header,
     .section-intro,
+    .workflow-columns,
     .two-column-grid {
       grid-template-columns: 1fr;
     }
 
     .compact-grid,
     .step-grid,
-    .handoff-grid {
+    .handoff-grid,
+    .download-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
@@ -234,7 +322,8 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
   @media (max-width: 560px) {
     .compact-grid,
     .step-grid,
-    .handoff-grid {
+    .handoff-grid,
+    .download-grid {
       grid-template-columns: 1fr;
     }
 
@@ -313,26 +402,30 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
   <div class="compact-grid" data-render="audiences"></div>
 </section>
 
-<section class="section" id="requester">
-  <div class="section-intro">
-    <h2 data-i18n="requesterTitle">For people requesting voice work</h2>
-    <p data-i18n="requesterLead">
-      The requester side turns a script or spreadsheet into a trackable recording
-      job, then keeps every review decision tied to the exact line.
-    </p>
-  </div>
-  <div class="step-grid" data-render="requesterSteps"></div>
-</section>
+<section class="section" id="workflows">
+  <div class="workflow-columns">
+    <div class="workflow-column" id="requester">
+      <div class="section-intro">
+        <h2 data-i18n="requesterTitle">For people requesting voice work</h2>
+        <p data-i18n="requesterLead">
+          The requester side turns a script or spreadsheet into a trackable recording
+          job, then keeps every review decision tied to the exact line.
+        </p>
+      </div>
+      <div class="step-grid" data-render="requesterSteps"></div>
+    </div>
 
-<section class="section" id="performer">
-  <div class="section-intro">
-    <h2 data-i18n="performerTitle">For performers accepting the work</h2>
-    <p data-i18n="performerLead">
-      The performer side stays focused on the assigned lines, recording context,
-      review notes, and the next take that needs to be submitted.
-    </p>
+    <div class="workflow-column" id="performer">
+      <div class="section-intro">
+        <h2 data-i18n="performerTitle">For performers accepting the work</h2>
+        <p data-i18n="performerLead">
+          The performer side stays focused on the assigned lines, recording context,
+          review notes, and the next take that needs to be submitted.
+        </p>
+      </div>
+      <div class="step-grid" data-render="performerSteps"></div>
+    </div>
   </div>
-  <div class="step-grid" data-render="performerSteps"></div>
 </section>
 
 <section class="section" id="handoff">
@@ -366,6 +459,15 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
   </div>
 
   <ul class="rule-list" data-render="rules"></ul>
+
+  <div class="template-downloads">
+    <h3 data-i18n="downloadsTitle">Download localized samples</h3>
+    <p data-i18n="downloadsLead">
+      Choose a sample in the language closest to the project. Column names stay
+      in English so the import contract remains stable.
+    </p>
+    <div class="download-grid" data-render="templateDownloads"></div>
+  </div>
 </section>
 
 <section class="section">
@@ -388,6 +490,8 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
 </section>
 
 <script>
+  const templateBasePath = "{{ '/support/TakeFlow/templates/' | relative_url }}";
+
   const takeFlowContent = {
     en: {
       lang: "en",
@@ -412,6 +516,8 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       handoffLead: "TakeFlow keeps the collaboration explicit: structure is created by the requester, recordings arrive from the performer, and review decisions flow back as line-level status.",
       templateTitle: "Line list template",
       templateLead: "For Excel or Google Sheets, use one row per line. Keep the first row as the header, and avoid merged cells or multiple lines inside one cell.",
+      downloadsTitle: "Download localized samples",
+      downloadsLead: "Choose a sample in the language closest to the project. Column names stay in English so the import contract remains stable.",
       limitsTitle: "Beta limits",
       limitsLead: "During the beta period, limits may change as the service is tested and improved.",
       supportTitle: "Support",
@@ -455,6 +561,17 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
         "<strong>Free beta guide:</strong> Up to 40 lines per project, up to 1 minute per line, one submitted take per line.",
         "<strong>Google Sheets:</strong> Use File → Download → Microsoft Excel (.xlsx) or CSV before importing."
       ],
+      templateDownloads: [
+        ["English", "takeflow_line_list_sample_en.xlsx", "takeflow_line_list_sample_en.csv"],
+        ["日本語", "takeflow_line_list_sample_ja.xlsx", "takeflow_line_list_sample_ja.csv"],
+        ["Español", "takeflow_line_list_sample_es.xlsx", "takeflow_line_list_sample_es.csv"],
+        ["Deutsch", "takeflow_line_list_sample_de.xlsx", "takeflow_line_list_sample_de.csv"],
+        ["Français", "takeflow_line_list_sample_fr.xlsx", "takeflow_line_list_sample_fr.csv"],
+        ["Português", "takeflow_line_list_sample_pt.xlsx", "takeflow_line_list_sample_pt.csv"],
+        ["한국어", "takeflow_line_list_sample_ko.xlsx", "takeflow_line_list_sample_ko.csv"],
+        ["简体中文", "takeflow_line_list_sample_zh_hans.xlsx", "takeflow_line_list_sample_zh_hans.csv"],
+        ["繁體中文", "takeflow_line_list_sample_zh_hant.xlsx", "takeflow_line_list_sample_zh_hant.csv"]
+      ],
       limits: [
         ["Projects", "Up to 3 free projects per requester account during the beta."],
         ["Line count", "Up to 40 lines per project, with one submitted take per line in the free beta."],
@@ -485,6 +602,8 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       handoffLead: "TakeFlowでは、依頼側が構造を作り、受託側がその構造に沿って録音し、確認結果がセリフ単位の状態として戻るようにします。",
       templateTitle: "台本テンプレート",
       templateLead: "ExcelやGoogle Sheetsでは、1行につき1セリフで作成します。1行目はヘッダーにし、セル結合や空行、1セル内の複数セリフは避けてください。",
+      downloadsTitle: "各言語のサンプルをダウンロード",
+      downloadsLead: "案件に近い言語のサンプルを選んでください。読み込み互換性を保つため、列名は英語のままにしています。",
       limitsTitle: "ベータ版の制限",
       limitsLead: "ベータ期間中は、サービスの検証と改善に合わせて制限が変わる場合があります。",
       supportTitle: "サポート",
@@ -528,6 +647,17 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
         "<strong>無料ベータの目安:</strong> 1案件40行まで、1行あたり1分まで、1行につき提出テイク1つまで。",
         "<strong>Google Sheets:</strong> 読み込み前に、ファイル → ダウンロード → Microsoft Excel（.xlsx）またはCSVを書き出してください。"
       ],
+      templateDownloads: [
+        ["English", "takeflow_line_list_sample_en.xlsx", "takeflow_line_list_sample_en.csv"],
+        ["日本語", "takeflow_line_list_sample_ja.xlsx", "takeflow_line_list_sample_ja.csv"],
+        ["Español", "takeflow_line_list_sample_es.xlsx", "takeflow_line_list_sample_es.csv"],
+        ["Deutsch", "takeflow_line_list_sample_de.xlsx", "takeflow_line_list_sample_de.csv"],
+        ["Français", "takeflow_line_list_sample_fr.xlsx", "takeflow_line_list_sample_fr.csv"],
+        ["Português", "takeflow_line_list_sample_pt.xlsx", "takeflow_line_list_sample_pt.csv"],
+        ["한국어", "takeflow_line_list_sample_ko.xlsx", "takeflow_line_list_sample_ko.csv"],
+        ["简体中文", "takeflow_line_list_sample_zh_hans.xlsx", "takeflow_line_list_sample_zh_hans.csv"],
+        ["繁體中文", "takeflow_line_list_sample_zh_hant.xlsx", "takeflow_line_list_sample_zh_hant.csv"]
+      ],
       limits: [
         ["案件数", "ベータ期間中は、依頼者アカウントごとに無料案件3件まで。"],
         ["セリフ数", "1案件40行まで。無料ベータでは1行につき提出テイク1つまで。"],
@@ -566,6 +696,22 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     if (node) node.innerHTML = content.rules.map((rule) => `<li>${rule}</li>`).join("");
   }
 
+  function renderTemplateDownloads(content) {
+    const node = document.querySelector('[data-render="templateDownloads"]');
+    if (!node) return;
+    node.innerHTML = content.templateDownloads
+      .map(([label, xlsx, csv]) => `
+        <article class="download-card">
+          <h4>${label}</h4>
+          <div class="download-actions">
+            <a href="${templateBasePath}${xlsx}" download>XLSX</a>
+            <a href="${templateBasePath}${csv}" download>CSV</a>
+          </div>
+        </article>
+      `)
+      .join("");
+  }
+
   function applyLocale(locale, persist = true) {
     const content = takeFlowContent[locale] || takeFlowContent.en;
     document.documentElement.lang = content.lang;
@@ -584,6 +730,7 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     renderCards("limits", content.limits, "limit-card");
     renderTable(content);
     renderRules(content);
+    renderTemplateDownloads(content);
     document.getElementById("localeSelect").value = locale;
     if (persist) localStorage.setItem("takeflow-locale", locale);
   }
