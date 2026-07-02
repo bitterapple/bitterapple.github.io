@@ -1,7 +1,7 @@
 ---
 layout: support
 title: "TakeFlow — Online Recording Studio"
-description: "TakeFlow is an online recording studio for narration projects. Create a script, share a recording link, review takes, request retakes, and deliver files in the browser."
+description: "TakeFlow is an online recording studio app for narration projects. Create a script, share a recording link, review takes, request retakes, and deliver files in the app."
 favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232f73ff'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Arial,sans-serif' font-size='22' font-weight='700' fill='white'%3ETF%3C/text%3E%3C/svg%3E"
 ---
 
@@ -165,6 +165,10 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     display: grid;
     gap: 14px;
     min-width: 0;
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.045));
   }
 
   .workflow-column .section-intro {
@@ -359,7 +363,7 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
         <option value="ja">Japan / 日本語</option>
       </select>
       <span class="locale-note" data-i18n="localeNote">
-        Selected from your browser language and time zone.
+        Selected from your device language and time zone.
       </span>
     </div>
   </div>
@@ -372,7 +376,7 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     <p class="muted" data-i18n="heroSub">
       Create a line list, share a recording link, receive takes from the
       performer, review each line, request retakes, and keep the delivery files
-      organized in one browser-based workflow.
+      organized in one app-based workflow.
     </p>
   </div>
 
@@ -395,7 +399,7 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
   <div class="section-intro">
     <h2 data-i18n="whatTitle">What is TakeFlow?</h2>
     <p data-i18n="whatLead">
-      TakeFlow is a browser-based recording workflow for narration, voice-over,
+      TakeFlow is an app-based recording workflow for narration, voice-over,
       game dialogue, e-learning, short-form ads, and other spoken-word projects.
     </p>
   </div>
@@ -497,9 +501,9 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       lang: "en",
       tagline: "Online recording studio for narration projects",
       localeLabel: "Display region",
-      localeNote: "Selected from your browser language and time zone.",
+      localeNote: "Selected from your device language and time zone.",
       heroBody: "TakeFlow helps narration projects move from script to recording, review, retake, and delivery without booking a physical studio.",
-      heroSub: "Create a line list, share a recording link, receive takes from the performer, review each line, request retakes, and keep the delivery files organized in one browser-based workflow.",
+      heroSub: "Create a line list, share a recording link, receive takes from the performer, review each line, request retakes, and keep the delivery files organized in one app-based workflow.",
       navAllApps: "← All apps",
       navRequester: "Requester steps",
       navPerformer: "Performer steps",
@@ -507,7 +511,7 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       navTemplate: "Line list template",
       navSupport: "Contact support",
       whatTitle: "What is TakeFlow?",
-      whatLead: "TakeFlow is a browser-based recording workflow for narration, voice-over, game dialogue, e-learning, short-form ads, and other spoken-word projects.",
+      whatLead: "TakeFlow is an app-based recording workflow for narration, voice-over, game dialogue, e-learning, short-form ads, and other spoken-word projects.",
       requesterTitle: "For people requesting voice work",
       requesterLead: "The requester side turns a script or spreadsheet into a trackable recording job, then keeps every review decision tied to the exact line.",
       performerTitle: "For performers accepting the work",
@@ -524,7 +528,7 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       supportBody: 'For questions, beta feedback, or business recording workflow requests, email <a href="mailto:kjdevapphelp@gmail.com?subject=TakeFlow%20Support">kjdevapphelp@gmail.com</a>.',
       audiences: [
         ["For requesters", "Create a project, import or enter lines, share a recording link, and review submitted takes line by line."],
-        ["For performers", "Open the link, record each assigned line in the browser, listen back, and submit the selected take."],
+        ["For performers", "Open the link, record each assigned line in the app, listen back, and submit the selected take."],
         ["For delivery", "Keep takes, line status, notes, and file names organized so the project does not turn into file chaos."]
       ],
       requesterSteps: [
@@ -538,7 +542,7 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       performerSteps: [
         ["Open the invite", "Use the shared link to enter the recording page for that job and confirm the assigned work."],
         ["Read the line context", "Check the line text, character, direction, requester notes, and any reference material before recording."],
-        ["Record in the browser", "Record one line at a time, listen back locally, and keep the take that best matches the request."],
+        ["Record in the app", "Record one line at a time, listen back locally, and keep the take that best matches the request."],
         ["Submit the take", "Upload the selected take so the requester can review it against the exact script line."],
         ["Handle retake notes", "When a retake is requested, return to the same line with the review note visible and record a replacement."],
         ["Finish the assignment", "Use the progress state to see what is submitted, accepted, or still waiting before the job is complete."]
@@ -583,9 +587,9 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       lang: "ja",
       tagline: "ナレーション案件のためのオンライン録音スタジオ",
       localeLabel: "表示地域",
-      localeNote: "ブラウザの言語とタイムゾーンから自動選択しています。",
+      localeNote: "端末の言語とタイムゾーンから自動選択しています。",
       heroBody: "TakeFlowは、台本作成から録音、確認、リテイク、納品までを、物理スタジオを押さえずに進めるためのナレーション制作ワークフローです。",
-      heroSub: "セリフ一覧を作り、録音リンクを共有し、受託者から届いたテイクを行単位で確認し、必要ならリテイクを依頼し、納品ファイルまでブラウザ上で整理できます。",
+      heroSub: "セリフ一覧を作り、録音リンクを共有し、受託者から届いたテイクを行単位で確認し、必要ならリテイクを依頼し、納品ファイルまでアプリ内で整理できます。",
       navAllApps: "← すべてのアプリ",
       navRequester: "依頼側の手順",
       navPerformer: "受託側の手順",
@@ -593,7 +597,7 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       navTemplate: "台本テンプレート",
       navSupport: "サポートに連絡",
       whatTitle: "TakeFlowとは",
-      whatLead: "TakeFlowは、ナレーション、ボイスオーバー、ゲーム台詞、eラーニング、短尺広告など、声の収録案件をブラウザで進めるためのワークフローです。",
+      whatLead: "TakeFlowは、ナレーション、ボイスオーバー、ゲーム台詞、eラーニング、短尺広告など、声の収録案件をアプリで進めるためのワークフローです。",
       requesterTitle: "仕事を依頼する人の手順",
       requesterLead: "依頼側では、台本やスプレッドシートを録音案件として整理し、確認結果を各セリフに紐づけたまま管理します。",
       performerTitle: "仕事を受ける人の手順",
@@ -610,7 +614,7 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       supportBody: '質問、ベータ版へのフィードバック、業務収録ワークフローの相談は <a href="mailto:kjdevapphelp@gmail.com?subject=TakeFlow%20Support">kjdevapphelp@gmail.com</a> までご連絡ください。',
       audiences: [
         ["依頼する人へ", "案件を作成し、セリフを入力または読み込み、録音リンクを共有し、提出されたテイクをセリフ単位で確認できます。"],
-        ["受託する人へ", "リンクを開き、ブラウザで割り当てられたセリフを録音し、聞き返して選んだテイクを提出できます。"],
+        ["受託する人へ", "リンクを開き、アプリで割り当てられたセリフを録音し、聞き返して選んだテイクを提出できます。"],
         ["納品まで", "テイク、進行状態、メモ、ファイル名をまとめて管理し、音声ファイルのやり取りが散らからないようにします。"]
       ],
       requesterSteps: [
@@ -624,7 +628,7 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       performerSteps: [
         ["招待リンクを開く", "共有されたリンクから、その案件の録音ページに入り、自分に割り当てられた作業を確認します。"],
         ["セリフの意図を読む", "本文、役名、演出指示、依頼者メモ、参考素材があれば録音前に確認します。"],
-        ["ブラウザで録音する", "1セリフずつ録音し、その場で聞き返して、依頼内容に一番合うテイクを選びます。"],
+        ["アプリで録音する", "1セリフずつ録音し、その場で聞き返して、依頼内容に一番合うテイクを選びます。"],
         ["テイクを提出する", "選んだテイクをアップロードし、依頼側がそのセリフに対して確認できる状態にします。"],
         ["リテイクに対応する", "リテイク依頼が来た場合は、同じセリフに戻り、レビューコメントを見ながら差し替えテイクを録音します。"],
         ["担当分を完了する", "提出済み、OK、未対応の状態を見ながら、案件が完了するまで必要な録音を進めます。"]
