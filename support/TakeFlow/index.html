@@ -190,6 +190,42 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     grid-template-columns: 1fr;
   }
 
+  .requester-limits-block {
+    display: grid;
+    gap: 10px;
+    padding-top: 2px;
+  }
+
+  .requester-limits-block h3 {
+    margin: 0;
+    font-size: 15px;
+  }
+
+  .requester-limit-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .requester-limit-card {
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(47, 115, 255, 0.07);
+  }
+
+  .requester-limit-card h3 {
+    margin: 0 0 6px;
+    font-size: 13px;
+  }
+
+  .requester-limit-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
   .step-card {
     display: grid;
     grid-template-columns: 34px minmax(0, 1fr);
@@ -452,6 +488,10 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
         </p>
       </div>
       <div class="step-grid" data-render="requesterSteps"></div>
+      <div class="requester-limits-block">
+        <h3 data-i18n="requesterLimitsTitle">Requester limits</h3>
+        <div class="requester-limit-grid" data-render="requesterLimits"></div>
+      </div>
     </div>
 
     <div class="workflow-column" id="performer">
@@ -562,6 +602,7 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       requesterTitle: "For people requesting voice work",
       requesterLead:
         "The requester side turns a script or spreadsheet into a trackable recording job, then keeps every review decision tied to the exact line.",
+      requesterLimitsTitle: "Requester limits",
       performerTitle: "For performers accepting the work",
       performerLead:
         "The performer side stays focused on the assigned lines, recording context, review notes, and the next take that needs to be submitted.",
@@ -618,6 +659,20 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
         [
           "Collect delivery files",
           "Use the accepted takes and line metadata as the delivery set, with names and notes kept together.",
+        ],
+      ],
+      requesterLimits: [
+        [
+          "Free beta projects",
+          "Up to 3 free projects per requester account while the beta is being tested.",
+        ],
+        [
+          "Per-project size",
+          "Up to 40 lines per project, up to 1 minute per line, and one submitted take per line.",
+        ],
+        [
+          "Invite scope",
+          "Recording links show the performer only the assigned lines, notes, reference context, and recording controls.",
         ],
       ],
       performerSteps: [
@@ -784,6 +839,7 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       requesterTitle: "仕事を依頼する人の手順",
       requesterLead:
         "依頼側では、台本やスプレッドシートを録音案件として整理し、確認結果を各セリフに紐づけたまま管理します。",
+      requesterLimitsTitle: "依頼者側の利用制限",
       performerTitle: "仕事を受ける人の手順",
       performerLead:
         "受託側では、自分に割り当てられたセリフ、収録意図、レビューコメント、次に提出すべきテイクだけに集中できます。",
@@ -840,6 +896,20 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
         [
           "納品テイクをまとめる",
           "OKになったテイクと台本情報を納品対象として扱い、ファイル名とメモを一緒に残します。",
+        ],
+      ],
+      requesterLimits: [
+        [
+          "無料ベータの案件数",
+          "ベータ期間中は、依頼者アカウントごとに無料案件3件まで作成できます。",
+        ],
+        [
+          "1案件あたりの上限",
+          "1案件40セリフまで、1セリフ1分まで、1セリフにつき提出テイク1件までを目安にしています。",
+        ],
+        [
+          "招待リンクで見える範囲",
+          "受託者には、割り当てセリフ、メモ、参考情報、録音操作だけを表示します。",
         ],
       ],
       performerSteps: [
@@ -1970,6 +2040,132 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     ],
   });
 
+  Object.assign(takeFlowContent.es, {
+    requesterLimitsTitle: "Límites para solicitantes",
+    requesterLimits: [
+      [
+        "Proyectos beta gratuitos",
+        "Hasta 3 proyectos gratuitos por cuenta solicitante durante la beta.",
+      ],
+      [
+        "Tamaño por proyecto",
+        "Hasta 40 líneas por proyecto, 1 minuto por línea y una toma enviada por línea.",
+      ],
+      [
+        "Alcance del enlace",
+        "El intérprete ve solo las líneas asignadas, notas, contexto de referencia y controles de grabación.",
+      ],
+    ],
+  });
+
+  Object.assign(takeFlowContent.de, {
+    requesterLimitsTitle: "Limits fuer Auftraggeber",
+    requesterLimits: [
+      [
+        "Kostenlose Beta-Projekte",
+        "Bis zu 3 kostenlose Projekte pro Auftraggeberkonto waehrend der Beta.",
+      ],
+      [
+        "Umfang pro Projekt",
+        "Bis zu 40 Zeilen pro Projekt, 1 Minute pro Zeile und ein gesendeter Take pro Zeile.",
+      ],
+      [
+        "Umfang des Einladungslinks",
+        "Sprecher sehen nur zugewiesene Zeilen, Notizen, Referenzkontext und Aufnahmefunktionen.",
+      ],
+    ],
+  });
+
+  Object.assign(takeFlowContent.fr, {
+    requesterLimitsTitle: "Limites côté demandeur",
+    requesterLimits: [
+      [
+        "Projets bêta gratuits",
+        "Jusqu'à 3 projets gratuits par compte demandeur pendant la bêta.",
+      ],
+      [
+        "Taille par projet",
+        "Jusqu'à 40 répliques par projet, 1 minute par réplique et une prise envoyée par réplique.",
+      ],
+      [
+        "Portée du lien",
+        "L'interprète ne voit que les répliques assignées, notes, références et commandes d'enregistrement.",
+      ],
+    ],
+  });
+
+  Object.assign(takeFlowContent.pt, {
+    requesterLimitsTitle: "Limites para solicitantes",
+    requesterLimits: [
+      [
+        "Projetos beta gratuitos",
+        "Até 3 projetos gratuitos por conta solicitante durante a beta.",
+      ],
+      [
+        "Tamanho por projeto",
+        "Até 40 falas por projeto, 1 minuto por fala e um take enviado por fala.",
+      ],
+      [
+        "Escopo do link",
+        "O talento vê apenas falas atribuídas, notas, contexto de referência e controles de gravação.",
+      ],
+    ],
+  });
+
+  Object.assign(takeFlowContent.ko, {
+    requesterLimitsTitle: "의뢰자 이용 제한",
+    requesterLimits: [
+      [
+        "무료 베타 프로젝트",
+        "베타 기간에는 의뢰자 계정당 무료 프로젝트를 최대 3개까지 만들 수 있습니다.",
+      ],
+      [
+        "프로젝트당 상한",
+        "프로젝트당 최대 40줄, 줄당 최대 1분, 줄당 제출 테이크 1개를 기준으로 합니다.",
+      ],
+      [
+        "초대 링크 범위",
+        "수락자에게는 배정 대사, 메모, 참고 정보, 녹음 조작만 표시합니다.",
+      ],
+    ],
+  });
+
+  Object.assign(takeFlowContent.zh_hans, {
+    requesterLimitsTitle: "委托方使用限制",
+    requesterLimits: [
+      [
+        "免费 Beta 项目",
+        "Beta 期间每个委托方账号最多可创建3个免费项目。",
+      ],
+      [
+        "每个项目上限",
+        "每个项目最多40句，每句最多1分钟，每句提交1个录音。",
+      ],
+      [
+        "邀请链接范围",
+        "录音者只会看到分配台词、备注、参考信息和录音操作。",
+      ],
+    ],
+  });
+
+  Object.assign(takeFlowContent.zh_hant, {
+    requesterLimitsTitle: "委託方使用限制",
+    requesterLimits: [
+      [
+        "免費 Beta 專案",
+        "Beta 期間每個委託方帳號最多可建立3個免費專案。",
+      ],
+      [
+        "每個專案上限",
+        "每個專案最多40句，每句最多1分鐘，每句提交1個錄音。",
+      ],
+      [
+        "邀請連結範圍",
+        "錄音者只會看到分配台詞、備註、參考資訊和錄音操作。",
+      ],
+    ],
+  });
+
   function renderCards(selector, items, cardClass, content) {
     const node = document.querySelector(`[data-render="${selector}"]`);
     if (!node || !Array.isArray(items)) return;
@@ -2076,6 +2272,12 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       "requesterSteps",
       content.requesterSteps || fallback.requesterSteps,
       "step-card",
+      content,
+    );
+    renderCards(
+      "requesterLimits",
+      content.requesterLimits || fallback.requesterLimits,
+      "requester-limit-card",
       content,
     );
     renderCards(
