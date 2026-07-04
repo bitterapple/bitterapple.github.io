@@ -189,6 +189,17 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     padding: 14px;
   }
 
+  .step-shot {
+    grid-column: 1 / -1;
+    width: 100%;
+    aspect-ratio: 368 / 800;
+    max-height: 520px;
+    object-fit: contain;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.035);
+  }
+
   .step-number {
     display: grid;
     place-items: center;
@@ -361,6 +372,13 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       <select id="localeSelect">
         <option value="en">International / English</option>
         <option value="ja">Japan / 日本語</option>
+        <option value="es">Español</option>
+        <option value="de">Deutsch</option>
+        <option value="fr">Français</option>
+        <option value="pt">Português</option>
+        <option value="ko">한국어</option>
+        <option value="zh_hans">简体中文</option>
+        <option value="zh_hant">繁體中文</option>
       </select>
       <span class="locale-note" data-i18n="localeNote">
         Selected from your device language and time zone.
@@ -495,6 +513,7 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
 
 <script>
   const templateBasePath = "{{ '/support/TakeFlow/templates/' | relative_url }}";
+  const workflowImageBasePath = "{{ '/support/TakeFlow/images/workflow/' | relative_url }}";
 
   const takeFlowContent = {
     en: {
@@ -671,13 +690,441 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     }
   };
 
-  function renderCards(selector, items, cardClass) {
+  Object.assign(takeFlowContent, {
+    es: {
+      ...takeFlowContent.en,
+      lang: "es",
+      tagline: "Estudio de grabación online para narración",
+      localeLabel: "Región de visualización",
+      localeNote: "Seleccionada según el idioma y la zona horaria del dispositivo.",
+      heroBody: "TakeFlow ayuda a llevar proyectos de narración desde el guion hasta la grabación, revisión, retomas y entrega sin reservar un estudio físico.",
+      heroSub: "Crea una lista de líneas, comparte un enlace de grabación, recibe tomas, revisa cada línea, pide retomas y mantiene los archivos organizados dentro de la app.",
+      navAllApps: "← Todas las apps",
+      navRequester: "Pasos del solicitante",
+      navPerformer: "Pasos del intérprete",
+      navHandoff: "Traspaso del proyecto",
+      navTemplate: "Plantilla de líneas",
+      navSupport: "Contactar soporte",
+      whatTitle: "Qué es TakeFlow",
+      whatLead: "TakeFlow es un flujo de grabación en app para narración, voice-over, diálogo de juegos, e-learning, anuncios cortos y otros proyectos de voz.",
+      requesterTitle: "Pasos para quien encarga el trabajo",
+      requesterLead: "El solicitante convierte un guion o una hoja de cálculo en un trabajo de grabación trazable y mantiene cada decisión ligada a su línea.",
+      performerTitle: "Pasos para quien acepta el trabajo",
+      performerLead: "El intérprete se concentra en las líneas asignadas, el contexto, los comentarios de revisión y la próxima toma que debe enviar.",
+      handoffTitle: "Cómo avanza el proyecto entre ambos lados",
+      handoffLead: "TakeFlow mantiene clara la colaboración: el solicitante crea la estructura, el intérprete graba y las decisiones vuelven como estado por línea.",
+      templateTitle: "Plantilla de lista de líneas",
+      templateLead: "En Excel o Google Sheets, usa una fila por línea. Mantén la primera fila como encabezado y evita celdas combinadas.",
+      downloadsTitle: "Descargar muestras localizadas",
+      downloadsLead: "Elige una muestra cercana al idioma del proyecto. Los nombres de columna permanecen en inglés para mantener estable la importación.",
+      limitsTitle: "Límites beta",
+      limitsLead: "Durante la beta, los límites pueden cambiar mientras se prueba y mejora el servicio.",
+      supportTitle: "Soporte",
+      supportBody: 'Para preguntas, comentarios de beta o flujos de grabación profesionales, escribe a <a href="mailto:kjdevapphelp@gmail.com?subject=TakeFlow%20Support">kjdevapphelp@gmail.com</a>.',
+      audiences: [
+        ["Para solicitantes", "Crea proyectos, importa líneas, comparte enlaces y revisa tomas línea por línea."],
+        ["Para intérpretes", "Abre el enlace, graba cada línea en la app, escucha y envía la toma elegida."],
+        ["Hasta la entrega", "Mantiene tomas, estado, notas y nombres de archivo organizados."]
+      ],
+      requesterSteps: [
+        ["Crear el proyecto", "Agrega título, datos del solicitante, notas y contexto de grabación."],
+        ["Preparar la lista", "Importa una hoja o introduce líneas con personaje, dirección, notas y nombres."],
+        ["Invitar al intérprete", "Comparte el enlace de grabación para que vea solo el flujo asignado."],
+        ["Seguir envíos", "Revisa líneas pendientes, enviadas, aprobadas o con retoma pedida."],
+        ["Revisar línea a línea", "Escucha cada toma, aprueba, añade notas o pide una retoma exacta."],
+        ["Reunir entregables", "Usa las tomas aprobadas y sus metadatos como conjunto de entrega."]
+      ],
+      performerSteps: [
+        ["Abrir la invitación", "Entra desde el enlace compartido y confirma el trabajo asignado."],
+        ["Leer el contexto", "Revisa texto, personaje, dirección, notas y referencias antes de grabar."],
+        ["Grabar en la app", "Graba una línea por vez, escucha y conserva la toma que mejor encaja."],
+        ["Enviar la toma", "Sube la toma elegida para que se revise contra esa línea exacta."],
+        ["Atender retomas", "Vuelve a la misma línea con la nota visible y graba un reemplazo."],
+        ["Terminar el trabajo", "Usa el progreso para ver lo enviado, aprobado o pendiente."]
+      ],
+      handoff: [
+        ["1. Estructura", "El solicitante crea proyecto, líneas, indicaciones y enlaces."],
+        ["2. Grabación", "El intérprete graba contra líneas exactas, no contra una petición suelta."],
+        ["3. Revisión", "El solicitante aprueba o devuelve notas de retoma a la misma línea."],
+        ["4. Entrega", "Tomas aprobadas, nombres, notas y estado quedan unidos."]
+      ],
+      tableRows: [
+        ["1", "Narrador", "Bienvenido a TakeFlow.", "Calmado y claro", "narrador_001", "Línea inicial"],
+        ["2", "Voz del sistema", "La grabación se ha enviado.", "Corto y amable", "sistema_001", ""],
+        ["3", "Guía", "Prueba una toma más con un tono más luminoso.", "Dirección de retoma", "guia_001", "Solo si hace falta"]
+      ],
+      rules: [
+        "<strong>Columnas obligatorias:</strong> No, Line",
+        "<strong>Columnas opcionales:</strong> Character, Direction, File name, Notes",
+        "<strong>Guía beta gratuita:</strong> Hasta 40 líneas por proyecto, 1 minuto por línea y una toma enviada por línea.",
+        "<strong>Google Sheets:</strong> Descarga como Microsoft Excel (.xlsx) o CSV antes de importar."
+      ],
+      limits: [
+        ["Proyectos", "Hasta 3 proyectos gratuitos por cuenta solicitante durante la beta."],
+        ["Líneas", "Hasta 40 líneas por proyecto, con una toma enviada por línea."],
+        ["Duración", "Hasta 1 minuto por línea mientras se prueba el servicio."],
+        ["Vista del intérprete", "Las páginas de grabación no muestran precios ni pagos."]
+      ]
+    },
+    de: {
+      ...takeFlowContent.en,
+      lang: "de",
+      tagline: "Online-Aufnahmestudio fuer Erzaehlprojekte",
+      localeLabel: "Anzeigeregion",
+      localeNote: "Aus Geraetesprache und Zeitzone gewaehlt.",
+      heroBody: "TakeFlow fuehrt Erzaehlprojekte vom Skript ueber Aufnahme, Review, Retakes und Lieferung, ohne ein physisches Studio zu buchen.",
+      heroSub: "Zeilenliste erstellen, Aufnahmelink teilen, Takes empfangen, jede Zeile pruefen, Retakes anfordern und Lieferdateien in der App geordnet halten.",
+      navAllApps: "← Alle Apps",
+      navRequester: "Auftraggeber",
+      navPerformer: "Sprecher",
+      navHandoff: "Projektuebergabe",
+      navTemplate: "Zeilenvorlage",
+      navSupport: "Support kontaktieren",
+      whatTitle: "Was ist TakeFlow?",
+      whatLead: "TakeFlow ist ein App-basierter Aufnahmeablauf fuer Narration, Voice-over, Game-Dialoge, E-Learning, kurze Anzeigen und andere Sprachprojekte.",
+      requesterTitle: "Schritte fuer Auftraggeber",
+      requesterLead: "Die Auftraggeberseite macht Skript oder Tabelle zu einem verfolgbaren Aufnahmeauftrag und bindet jede Review-Entscheidung an die Zeile.",
+      performerTitle: "Schritte fuer Sprecher",
+      performerLead: "Die Sprecherseite konzentriert sich auf zugewiesene Zeilen, Kontext, Review-Notizen und den naechsten einzureichenden Take.",
+      handoffTitle: "Wie das Projekt zwischen beiden Seiten laeuft",
+      handoffLead: "TakeFlow haelt die Zusammenarbeit klar: Struktur vom Auftraggeber, Aufnahmen vom Sprecher, Entscheidungen als Zeilenstatus zurueck.",
+      templateTitle: "Zeilenlisten-Vorlage",
+      templateLead: "In Excel oder Google Sheets eine Zeile pro Text verwenden. Erste Zeile als Header behalten und verbundene Zellen vermeiden.",
+      downloadsTitle: "Lokalisierte Muster herunterladen",
+      downloadsLead: "Waehle ein Muster nahe an der Projektsprache. Spaltennamen bleiben fuer stabile Importe auf Englisch.",
+      limitsTitle: "Beta-Limits",
+      limitsLead: "Waehrend der Beta koennen Limits angepasst werden.",
+      supportTitle: "Support",
+      supportBody: 'Fragen, Beta-Feedback oder professionelle Aufnahmeablaeufe: <a href="mailto:kjdevapphelp@gmail.com?subject=TakeFlow%20Support">kjdevapphelp@gmail.com</a>.',
+      audiences: [["Fuer Auftraggeber", "Projekt erstellen, Zeilen importieren, Link teilen und Takes je Zeile pruefen."], ["Fuer Sprecher", "Link oeffnen, Zeilen in der App aufnehmen, anhoeren und Take senden."], ["Bis zur Lieferung", "Takes, Status, Notizen und Dateinamen bleiben geordnet."]],
+      requesterSteps: [["Projekt anlegen", "Titel, Auftraggeberdaten, Notizen und Kontext erfassen."], ["Zeilenliste vorbereiten", "Tabelle importieren oder Zeilen mit Rolle, Hinweis, Notiz und Namen eingeben."], ["Sprecher einladen", "Aufnahmelink teilen, damit nur der zugewiesene Ablauf sichtbar ist."], ["Abgaben verfolgen", "Wartend, gesendet, akzeptiert und Retakes je Zeile sehen."], ["Zeile fuer Zeile pruefen", "Takes anhoeren, akzeptieren, Notizen hinzufuegen oder Retake anfordern."], ["Lieferdateien sammeln", "Akzeptierte Takes und Metadaten als Lieferumfang nutzen."]],
+      performerSteps: [["Einladung oeffnen", "Vom geteilten Link in den Aufnahmeauftrag gehen."], ["Kontext lesen", "Text, Rolle, Regiehinweis, Notizen und Referenzen pruefen."], ["In der App aufnehmen", "Eine Zeile nach der anderen aufnehmen, anhoeren und besten Take behalten."], ["Take senden", "Gewaehlten Take hochladen, damit er zeilengenau geprueft wird."], ["Retakes bearbeiten", "Zur selben Zeile mit sichtbarer Notiz zurueckkehren und neu aufnehmen."], ["Aufgabe abschliessen", "Status nutzen, um Gesendetes, Akzeptiertes und Offenes zu sehen."]],
+      handoff: [["1. Struktur", "Auftraggeber erstellt Auftrag, Zeilen, Hinweise und Links."], ["2. Aufnahme", "Sprecher nehmen gegen exakte Zeilen auf."], ["3. Review", "Akzeptanz oder Retake-Notiz geht zur gleichen Zeile zurueck."], ["4. Lieferung", "Takes, Namen, Notizen und Status bleiben verbunden."]],
+      tableRows: [["1", "Erzaehler", "Willkommen bei TakeFlow.", "Ruhig und deutlich", "erzaehler_001", "Anfang"], ["2", "Systemstimme", "Die Aufnahme wurde gesendet.", "Kurz und freundlich", "system_001", ""], ["3", "Guide", "Bitte noch einen Take mit hellerem Ton.", "Retake-Hinweis", "guide_001", "Nur bei Bedarf"]],
+      limits: [["Projekte", "Bis zu 3 kostenlose Projekte pro Auftraggeberkonto in der Beta."], ["Zeilen", "Bis zu 40 Zeilen pro Projekt und ein gesendeter Take pro Zeile."], ["Laenge", "Bis zu 1 Minute pro Zeile waehrend der Testphase."], ["Sprecheransicht", "Keine Preis- oder Zahlungseinstellungen fuer Sprecher."]]
+    },
+    fr: {
+      ...takeFlowContent.en,
+      lang: "fr",
+      tagline: "Studio d'enregistrement en ligne pour narration",
+      localeLabel: "Région d'affichage",
+      localeNote: "Choisie selon la langue et le fuseau horaire de l'appareil.",
+      heroBody: "TakeFlow accompagne les projets de narration du script à l'enregistrement, la révision, les reprises et la livraison sans réserver de studio physique.",
+      heroSub: "Créez une liste de répliques, partagez un lien, recevez les prises, révisez chaque ligne, demandez des reprises et gardez les fichiers organisés dans l'app.",
+      navAllApps: "← Toutes les apps",
+      navRequester: "Étapes demandeur",
+      navPerformer: "Étapes interprète",
+      navHandoff: "Passage du projet",
+      navTemplate: "Modèle de répliques",
+      navSupport: "Contacter le support",
+      whatTitle: "Qu'est-ce que TakeFlow ?",
+      whatLead: "TakeFlow est un flux d'enregistrement dans l'app pour narration, voice-over, dialogues de jeu, e-learning, publicités courtes et autres projets vocaux.",
+      requesterTitle: "Étapes pour demander un travail vocal",
+      requesterLead: "Le côté demandeur transforme un script ou tableur en projet de recording traçable et garde chaque décision liée à la réplique.",
+      performerTitle: "Étapes pour accepter le travail",
+      performerLead: "Le côté interprète reste centré sur les répliques assignées, le contexte, les notes de révision et la prochaine prise.",
+      handoffTitle: "Comment le projet circule",
+      handoffLead: "TakeFlow rend la collaboration explicite : structure côté demandeur, enregistrements côté interprète, décisions renvoyées par réplique.",
+      tableRows: [["1", "Narrateur", "Bienvenue dans TakeFlow.", "Calme et clair", "narrateur_001", "Ouverture"], ["2", "Voix système", "Votre enregistrement a été envoyé.", "Court et chaleureux", "systeme_001", ""], ["3", "Guide", "Essayez une prise plus lumineuse.", "Consigne reprise", "guide_001", "Si reprise nécessaire"]],
+      requesterSteps: [["Créer le projet", "Ajoutez titre, demandeur, notes et contexte."], ["Préparer la liste", "Importez un tableur ou saisissez rôles, consignes, notes et noms."], ["Inviter l'interprète", "Partagez le lien d'enregistrement avec le flux assigné."], ["Suivre les envois", "Voyez les lignes en attente, envoyées, validées ou à refaire."], ["Réviser par réplique", "Écoutez, validez, notez ou demandez une reprise."], ["Rassembler les fichiers", "Utilisez les prises validées et métadonnées pour la livraison."]],
+      performerSteps: [["Ouvrir l'invitation", "Entrez via le lien et confirmez le travail assigné."], ["Lire le contexte", "Vérifiez texte, rôle, consigne, notes et références."], ["Enregistrer dans l'app", "Enregistrez ligne par ligne, réécoutez et gardez la meilleure prise."], ["Envoyer la prise", "Téléversez la prise choisie pour révision."], ["Traiter les reprises", "Revenez à la même réplique avec la note visible."], ["Terminer la mission", "Utilisez le statut pour voir envoyé, validé ou restant."]]
+    },
+    pt: {
+      ...takeFlowContent.en,
+      lang: "pt",
+      tagline: "Estúdio online para projetos de narração",
+      localeLabel: "Região de exibição",
+      localeNote: "Selecionada pelo idioma e fuso horário do dispositivo.",
+      heroBody: "TakeFlow leva projetos de narração do roteiro à gravação, revisão, retakes e entrega sem reservar um estúdio físico.",
+      heroSub: "Crie uma lista de falas, compartilhe um link, receba takes, revise linha por linha, peça retakes e mantenha os arquivos organizados no app.",
+      navAllApps: "← Todos os apps",
+      navRequester: "Passos do solicitante",
+      navPerformer: "Passos do talento",
+      navHandoff: "Passagem do projeto",
+      navTemplate: "Modelo de falas",
+      navSupport: "Contato",
+      whatTitle: "O que é TakeFlow?",
+      whatLead: "TakeFlow é um fluxo de gravação em app para narração, voice-over, diálogos de jogos, e-learning, anúncios curtos e outros projetos de voz.",
+      requesterTitle: "Passos para quem solicita",
+      requesterLead: "O lado solicitante transforma roteiro ou planilha em um trabalho rastreável e mantém cada decisão ligada à fala.",
+      performerTitle: "Passos para quem grava",
+      performerLead: "O lado do talento foca nas falas atribuídas, contexto, notas de revisão e próximo take.",
+      handoffTitle: "Como o projeto avança",
+      handoffLead: "TakeFlow deixa a colaboração explícita: estrutura pelo solicitante, gravações pelo talento e decisões por fala.",
+      tableRows: [["1", "Narrador", "Bem-vindo ao TakeFlow.", "Calmo e claro", "narrador_001", "Abertura"], ["2", "Voz do sistema", "Sua gravação foi enviada.", "Curto e amigável", "sistema_001", ""], ["3", "Guia", "Tente mais um take com tom mais claro.", "Direção de retake", "guia_001", "Se necessário"]],
+      requesterSteps: [["Criar o projeto", "Adicione título, solicitante, notas e contexto."], ["Preparar a lista", "Importe uma planilha ou insira falas, direção, notas e nomes."], ["Convidar o talento", "Compartilhe o link de gravação com o fluxo atribuído."], ["Acompanhar envios", "Veja pendente, enviado, aprovado e retake por fala."], ["Revisar fala por fala", "Ouça, aprove, anote ou peça retake."], ["Reunir entregas", "Use takes aprovados e metadados como entrega."]],
+      performerSteps: [["Abrir convite", "Entre pelo link e confirme o trabalho atribuído."], ["Ler o contexto", "Confira fala, personagem, direção, notas e referências."], ["Gravar no app", "Grave fala por fala, ouça e mantenha o melhor take."], ["Enviar o take", "Envie o take escolhido para revisão."], ["Responder retake", "Volte à mesma fala com a nota visível."], ["Concluir tarefa", "Use o progresso para ver enviado, aprovado ou pendente."]]
+    },
+    ko: {
+      ...takeFlowContent.en,
+      lang: "ko",
+      tagline: "내레이션 작업을 위한 온라인 녹음 스튜디오",
+      localeLabel: "표시 지역",
+      localeNote: "기기 언어와 시간대에서 선택합니다.",
+      heroBody: "TakeFlow는 물리 스튜디오 예약 없이 대본, 녹음, 확인, 리테이크, 납품까지 진행하는 내레이션 제작 흐름입니다.",
+      heroSub: "대사 목록을 만들고 녹음 링크를 공유하며, 제출된 테이크를 줄 단위로 확인하고 리테이크와 납품 파일을 앱에서 정리합니다.",
+      navAllApps: "← 모든 앱",
+      navRequester: "의뢰자 절차",
+      navPerformer: "수락자 절차",
+      navHandoff: "프로젝트 전달",
+      navTemplate: "대사 템플릿",
+      navSupport: "지원 문의",
+      whatTitle: "TakeFlow란?",
+      whatLead: "TakeFlow는 내레이션, 보이스오버, 게임 대사, 이러닝, 짧은 광고 등 음성 작업을 앱에서 진행하는 워크플로입니다.",
+      requesterTitle: "일을 의뢰하는 사람의 절차",
+      requesterLead: "의뢰자는 대본이나 스프레드시트를 추적 가능한 녹음 작업으로 만들고 확인 결과를 대사에 연결합니다.",
+      performerTitle: "일을 받는 사람의 절차",
+      performerLead: "수락자는 배정된 대사, 녹음 의도, 리뷰 코멘트, 다음 제출 테이크에 집중합니다.",
+      handoffTitle: "양쪽 사이의 진행 방식",
+      handoffLead: "TakeFlow는 의뢰자가 구조를 만들고 수락자가 녹음하며, 결정이 대사별 상태로 돌아오게 합니다.",
+      tableRows: [["1", "내레이터", "TakeFlow에 오신 것을 환영합니다.", "차분하고 또렷하게", "narrator_001", "첫 문장"], ["2", "시스템 음성", "녹음이 제출되었습니다.", "짧고 친근하게", "system_001", ""], ["3", "가이드", "조금 더 밝은 톤으로 한 번 더 부탁드립니다.", "리테이크 지시", "guide_001", "필요 시"]],
+      requesterSteps: [["프로젝트 만들기", "제목, 의뢰자 정보, 메모, 녹음 의도를 입력합니다."], ["대사 목록 준비", "스프레드시트를 가져오거나 배역, 지시, 메모, 파일명을 입력합니다."], ["수락자 초대", "배정된 녹음 흐름만 보이는 링크를 공유합니다."], ["제출 상황 보기", "미녹음, 제출, 승인, 리테이크를 대사별로 확인합니다."], ["대사별 확인", "듣고 승인, 메모, 리테이크 요청을 남깁니다."], ["납품 테이크 정리", "승인된 테이크와 메타데이터를 납품 세트로 둡니다."]],
+      performerSteps: [["초대 링크 열기", "공유 링크에서 담당 작업을 확인합니다."], ["대사 의도 읽기", "본문, 배역, 지시, 메모, 참고 정보를 확인합니다."], ["앱에서 녹음", "한 줄씩 녹음하고 듣고 가장 맞는 테이크를 유지합니다."], ["테이크 제출", "선택한 테이크를 제출합니다."], ["리테이크 대응", "리뷰 메모를 보며 같은 대사로 돌아갑니다."], ["담당분 완료", "제출, 승인, 미완료 상태를 보며 마무리합니다."]]
+    },
+    zh_hans: {
+      ...takeFlowContent.en,
+      lang: "zh_hans",
+      tagline: "面向旁白项目的在线录音工作室",
+      localeLabel: "显示地区",
+      localeNote: "根据设备语言和时区自动选择。",
+      heroBody: "TakeFlow 帮助旁白项目从脚本到录音、审核、重录和交付，无需预约实体录音棚。",
+      heroSub: "创建台词列表，共享录音链接，接收录音，逐句审核，要求重录，并在 App 内整理交付文件。",
+      navAllApps: "← 所有 App",
+      navRequester: "委托方步骤",
+      navPerformer: "录音者步骤",
+      navHandoff: "项目交接",
+      navTemplate: "台词模板",
+      navSupport: "联系支持",
+      whatTitle: "什么是 TakeFlow？",
+      whatLead: "TakeFlow 是面向旁白、配音、游戏台词、在线课程、短广告等语音项目的 App 录音流程。",
+      requesterTitle: "委托工作的步骤",
+      requesterLead: "委托方把脚本或表格变成可追踪的录音项目，并让每个审核决定绑定到具体台词。",
+      performerTitle: "接收工作的步骤",
+      performerLead: "录音者专注于分配的台词、录音意图、审核备注和下一条需要提交的录音。",
+      handoffTitle: "双方之间如何推进项目",
+      handoffLead: "TakeFlow 让协作清晰：委托方建立结构，录音者按结构录制，审核决定以台词状态返回。",
+      tableRows: [["1", "旁白", "欢迎使用 TakeFlow。", "平静、清晰", "narrator_001", "开场"], ["2", "系统语音", "你的录音已提交。", "简短、友好", "system_001", ""], ["3", "引导", "请用更明亮的语气再录一次。", "重录指示", "guide_001", "需要时使用"]],
+      requesterSteps: [["创建项目", "填写标题、委托方信息、备注和录音意图。"], ["准备台词列表", "导入表格或手动输入角色、指示、备注和文件名。"], ["邀请录音者", "共享只显示分配流程的录音链接。"], ["跟踪提交", "逐句查看待录、已交、通过和重录。"], ["逐句审核", "播放录音，通过、备注或要求重录。"], ["整理交付文件", "把通过的录音和元数据作为交付集合。"]],
+      performerSteps: [["打开邀请", "从共享链接进入并确认任务。"], ["阅读台词意图", "查看文本、角色、指示、备注和参考。"], ["在 App 中录音", "逐句录音，回听并保留最佳版本。"], ["提交录音", "上传选中的录音供审核。"], ["处理重录备注", "带着备注回到同一句台词。"], ["完成任务", "查看已提交、通过和待处理状态。"]]
+    },
+    zh_hant: {
+      ...takeFlowContent.en,
+      lang: "zh_hant",
+      tagline: "面向旁白專案的線上錄音工作室",
+      localeLabel: "顯示地區",
+      localeNote: "根據裝置語言與時區自動選擇。",
+      heroBody: "TakeFlow 協助旁白專案從腳本到錄音、審核、重錄與交付，無需預約實體錄音棚。",
+      heroSub: "建立台詞列表、分享錄音連結、接收錄音、逐句審核、要求重錄，並在 App 內整理交付檔案。",
+      navAllApps: "← 所有 App",
+      navRequester: "委託方步驟",
+      navPerformer: "錄音者步驟",
+      navHandoff: "專案交接",
+      navTemplate: "台詞模板",
+      navSupport: "聯絡支援",
+      whatTitle: "什麼是 TakeFlow？",
+      requesterTitle: "委託工作的步驟",
+      performerTitle: "接收工作的步驟",
+      tableRows: [["1", "旁白", "歡迎使用 TakeFlow。", "平靜、清晰", "narrator_001", "開場"], ["2", "系統語音", "你的錄音已提交。", "簡短、友好", "system_001", ""], ["3", "引導", "請用更明亮的語氣再錄一次。", "重錄指示", "guide_001", "需要時使用"]],
+      requesterSteps: [["建立專案", "填寫標題、委託方資訊、備註與錄音意圖。"], ["準備台詞列表", "匯入表格或手動輸入角色、指示、備註與檔名。"], ["邀請錄音者", "分享只顯示分配流程的錄音連結。"], ["追蹤提交", "逐句查看待錄、已交、通過與重錄。"], ["逐句審核", "播放錄音，通過、備註或要求重錄。"], ["整理交付檔案", "把通過的錄音與資料作為交付集合。"]],
+      performerSteps: [["開啟邀請", "從分享連結進入並確認任務。"], ["閱讀台詞意圖", "查看文字、角色、指示、備註與參考。"], ["在 App 中錄音", "逐句錄音，回聽並保留最佳版本。"], ["提交錄音", "上傳選中的錄音供審核。"], ["處理重錄備註", "帶著備註回到同一句台詞。"], ["完成任務", "查看已提交、通過和待處理狀態。"]]
+    }
+  });
+
+  Object.assign(takeFlowContent.de, {
+    rules: [
+      "<strong>Pflichtspalten:</strong> No, Line",
+      "<strong>Optionale Spalten:</strong> Character, Direction, File name, Notes",
+      "<strong>Kostenlose Beta:</strong> Bis zu 40 Zeilen pro Projekt, bis zu 1 Minute pro Zeile, ein gesendeter Take pro Zeile.",
+      "<strong>Google Sheets:</strong> Vor dem Import als Microsoft Excel (.xlsx) oder CSV herunterladen."
+    ]
+  });
+
+  Object.assign(takeFlowContent.fr, {
+    templateTitle: "Modèle de liste de répliques",
+    templateLead: "Dans Excel ou Google Sheets, utilisez une ligne par réplique. Gardez la première ligne comme en-tête et évitez les cellules fusionnées.",
+    downloadsTitle: "Télécharger des exemples localisés",
+    downloadsLead: "Choisissez l'exemple le plus proche de la langue du projet. Les noms de colonnes restent en anglais pour garder l'import stable.",
+    limitsTitle: "Limites bêta",
+    limitsLead: "Pendant la bêta, les limites peuvent évoluer avec les tests du service.",
+    supportTitle: "Support",
+    supportBody: 'Pour les questions, retours bêta ou demandes de flux d’enregistrement professionnel, écrivez à <a href="mailto:kjdevapphelp@gmail.com?subject=TakeFlow%20Support">kjdevapphelp@gmail.com</a>.',
+    audiences: [
+      ["Pour les demandeurs", "Créez un projet, importez les répliques, partagez un lien et révisez les prises ligne par ligne."],
+      ["Pour les interprètes", "Ouvrez le lien, enregistrez chaque réplique dans l'app, réécoutez et envoyez la prise choisie."],
+      ["Jusqu'à la livraison", "Gardez prises, statuts, notes et noms de fichiers organisés."]
+    ],
+    handoff: [
+      ["1. Structure", "Le demandeur crée le projet, les répliques, les consignes et les liens."],
+      ["2. Enregistrement", "L'interprète enregistre selon les répliques exactes."],
+      ["3. Révision", "Le demandeur valide ou renvoie une note de reprise à la même réplique."],
+      ["4. Livraison", "Prises validées, noms, notes et statuts restent liés."]
+    ],
+    rules: [
+      "<strong>Colonnes requises :</strong> No, Line",
+      "<strong>Colonnes optionnelles :</strong> Character, Direction, File name, Notes",
+      "<strong>Bêta gratuite :</strong> Jusqu'à 40 répliques par projet, 1 minute par réplique, une prise envoyée par réplique.",
+      "<strong>Google Sheets :</strong> Téléchargez en Microsoft Excel (.xlsx) ou CSV avant l'import."
+    ],
+    limits: [
+      ["Projets", "Jusqu'à 3 projets gratuits par compte demandeur pendant la bêta."],
+      ["Répliques", "Jusqu'à 40 répliques par projet, avec une prise envoyée par réplique."],
+      ["Durée", "Jusqu'à 1 minute par réplique pendant les tests."],
+      ["Vue interprète", "Les pages d'enregistrement n'affichent pas les prix ni les paiements."]
+    ]
+  });
+
+  Object.assign(takeFlowContent.pt, {
+    templateTitle: "Modelo de lista de falas",
+    templateLead: "No Excel ou Google Sheets, use uma linha por fala. Mantenha a primeira linha como cabeçalho e evite células mescladas.",
+    downloadsTitle: "Baixar exemplos localizados",
+    downloadsLead: "Escolha um exemplo próximo ao idioma do projeto. Os nomes das colunas ficam em inglês para manter a importação estável.",
+    limitsTitle: "Limites beta",
+    limitsLead: "Durante a beta, os limites podem mudar conforme o serviço é testado.",
+    supportTitle: "Suporte",
+    supportBody: 'Para perguntas, feedback da beta ou fluxos profissionais de gravação, escreva para <a href="mailto:kjdevapphelp@gmail.com?subject=TakeFlow%20Support">kjdevapphelp@gmail.com</a>.',
+    audiences: [
+      ["Para solicitantes", "Crie projetos, importe falas, compartilhe links e revise takes fala por fala."],
+      ["Para talentos", "Abra o link, grave cada fala no app, ouça e envie o take escolhido."],
+      ["Até a entrega", "Mantenha takes, status, notas e nomes de arquivo organizados."]
+    ],
+    handoff: [
+      ["1. Estrutura", "O solicitante cria projeto, falas, direções e links."],
+      ["2. Gravação", "O talento grava contra falas exatas."],
+      ["3. Revisão", "O solicitante aprova ou envia nota de retake à mesma fala."],
+      ["4. Entrega", "Takes aprovados, nomes, notas e status ficam ligados."]
+    ],
+    rules: [
+      "<strong>Colunas obrigatórias:</strong> No, Line",
+      "<strong>Colunas opcionais:</strong> Character, Direction, File name, Notes",
+      "<strong>Beta gratuita:</strong> Até 40 falas por projeto, 1 minuto por fala e um take enviado por fala.",
+      "<strong>Google Sheets:</strong> Baixe como Microsoft Excel (.xlsx) ou CSV antes de importar."
+    ],
+    limits: [
+      ["Projetos", "Até 3 projetos gratuitos por conta solicitante durante a beta."],
+      ["Falas", "Até 40 falas por projeto, com um take enviado por fala."],
+      ["Duração", "Até 1 minuto por fala durante os testes."],
+      ["Vista do talento", "As páginas de gravação não mostram preço nem pagamento."]
+    ]
+  });
+
+  Object.assign(takeFlowContent.ko, {
+    templateTitle: "대사 목록 템플릿",
+    templateLead: "Excel 또는 Google Sheets에서는 한 줄에 한 대사만 사용합니다. 첫 줄은 헤더로 두고 병합 셀은 피하세요.",
+    downloadsTitle: "현지화 샘플 다운로드",
+    downloadsLead: "프로젝트 언어에 가까운 샘플을 선택하세요. 가져오기 안정성을 위해 열 이름은 영어로 유지합니다.",
+    limitsTitle: "베타 제한",
+    limitsLead: "베타 기간에는 서비스 테스트에 따라 제한이 바뀔 수 있습니다.",
+    supportTitle: "지원",
+    supportBody: '질문, 베타 피드백, 업무용 녹음 워크플로 상담은 <a href="mailto:kjdevapphelp@gmail.com?subject=TakeFlow%20Support">kjdevapphelp@gmail.com</a> 으로 보내주세요.',
+    audiences: [
+      ["의뢰자에게", "프로젝트를 만들고 대사를 가져오며 링크를 공유하고 테이크를 대사별로 확인합니다."],
+      ["수락자에게", "링크를 열고 앱에서 각 대사를 녹음한 뒤 들어보고 선택한 테이크를 제출합니다."],
+      ["납품까지", "테이크, 상태, 메모, 파일명을 함께 정리합니다."]
+    ],
+    handoff: [
+      ["1. 구조화", "의뢰자가 프로젝트, 대사, 지시, 링크를 만듭니다."],
+      ["2. 녹음", "수락자는 정확한 대사에 맞춰 녹음합니다."],
+      ["3. 확인", "의뢰자는 승인 또는 리테이크 메모를 같은 대사에 돌려보냅니다."],
+      ["4. 납품", "승인 테이크, 이름, 메모, 상태가 연결됩니다."]
+    ],
+    rules: [
+      "<strong>필수 열:</strong> No, Line",
+      "<strong>선택 열:</strong> Character, Direction, File name, Notes",
+      "<strong>무료 베타:</strong> 프로젝트당 최대 40줄, 줄당 최대 1분, 줄당 제출 테이크 1개.",
+      "<strong>Google Sheets:</strong> 가져오기 전에 Microsoft Excel (.xlsx) 또는 CSV로 다운로드하세요."
+    ],
+    limits: [
+      ["프로젝트", "베타 기간 의뢰자 계정당 무료 프로젝트 3개까지."],
+      ["대사 수", "프로젝트당 40줄까지, 줄당 제출 테이크 1개."],
+      ["녹음 길이", "테스트 기간에는 줄당 최대 1분."],
+      ["수락자 화면", "녹음 페이지에는 가격이나 결제 설정을 표시하지 않습니다."]
+    ]
+  });
+
+  Object.assign(takeFlowContent.zh_hans, {
+    templateTitle: "台词列表模板",
+    templateLead: "在 Excel 或 Google Sheets 中，每行填写一句台词。保留第一行为表头，避免合并单元格。",
+    downloadsTitle: "下载本地化样本",
+    downloadsLead: "选择最接近项目语言的样本。列名保持英文，以保证导入规则稳定。",
+    limitsTitle: "Beta 限制",
+    limitsLead: "Beta 期间，限制可能会随服务测试和改进而变化。",
+    supportTitle: "支持",
+    supportBody: '如有问题、Beta 反馈或业务录音流程咨询，请联系 <a href="mailto:kjdevapphelp@gmail.com?subject=TakeFlow%20Support">kjdevapphelp@gmail.com</a>。',
+    audiences: [
+      ["给委托方", "创建项目，导入台词，分享录音链接，并逐句审核提交的录音。"],
+      ["给录音者", "打开链接，在 App 中录制分配的台词，回听并提交选中的录音。"],
+      ["直到交付", "把录音、状态、备注和文件名整理在一起。"]
+    ],
+    handoff: [
+      ["1. 结构", "委托方创建项目、台词、指示和录音链接。"],
+      ["2. 录音", "录音者按照精确台词录制。"],
+      ["3. 审核", "委托方把通过或重录备注返回到同一句台词。"],
+      ["4. 交付", "通过的录音、名称、备注和状态保持绑定。"]
+    ],
+    rules: [
+      "<strong>必填列:</strong> No, Line",
+      "<strong>可选列:</strong> Character, Direction, File name, Notes",
+      "<strong>免费 Beta:</strong> 每个项目最多40句，每句最多1分钟，每句提交1个录音。",
+      "<strong>Google Sheets:</strong> 导入前请下载为 Microsoft Excel (.xlsx) 或 CSV。"
+    ],
+    limits: [
+      ["项目", "Beta 期间每个委托方账号最多3个免费项目。"],
+      ["台词数", "每个项目最多40句，每句提交1个录音。"],
+      ["录音长度", "测试期间每句最多1分钟。"],
+      ["录音者视图", "录音页面不向录音者显示价格或付款设置。"]
+    ]
+  });
+
+  Object.assign(takeFlowContent.zh_hant, {
+    whatLead: "TakeFlow 是面向旁白、配音、遊戲台詞、線上課程、短廣告等語音專案的 App 錄音流程。",
+    requesterLead: "委託方把腳本或表格變成可追蹤的錄音專案，並讓每個審核決定綁定到具體台詞。",
+    performerLead: "錄音者專注於分配的台詞、錄音意圖、審核備註和下一條需要提交的錄音。",
+    handoffTitle: "雙方之間如何推進專案",
+    handoffLead: "TakeFlow 讓協作清晰：委託方建立結構，錄音者按結構錄製，審核決定以台詞狀態返回。",
+    templateTitle: "台詞列表模板",
+    templateLead: "在 Excel 或 Google Sheets 中，每行填寫一句台詞。保留第一行為表頭，避免合併儲存格。",
+    downloadsTitle: "下載在地化範例",
+    downloadsLead: "選擇最接近專案語言的範例。欄位名稱保持英文，以確保匯入規則穩定。",
+    limitsTitle: "Beta 限制",
+    limitsLead: "Beta 期間，限制可能會隨服務測試與改善而變化。",
+    supportTitle: "支援",
+    supportBody: '如有問題、Beta 回饋或業務錄音流程諮詢，請聯絡 <a href="mailto:kjdevapphelp@gmail.com?subject=TakeFlow%20Support">kjdevapphelp@gmail.com</a>。',
+    audiences: [
+      ["給委託方", "建立專案，匯入台詞，分享錄音連結，並逐句審核提交的錄音。"],
+      ["給錄音者", "開啟連結，在 App 中錄製分配的台詞，回聽並提交選中的錄音。"],
+      ["直到交付", "把錄音、狀態、備註和檔名整理在一起。"]
+    ],
+    handoff: [
+      ["1. 結構", "委託方建立專案、台詞、指示和錄音連結。"],
+      ["2. 錄音", "錄音者按照精確台詞錄製。"],
+      ["3. 審核", "委託方把通過或重錄備註返回到同一句台詞。"],
+      ["4. 交付", "通過的錄音、名稱、備註和狀態保持綁定。"]
+    ],
+    rules: [
+      "<strong>必填欄:</strong> No, Line",
+      "<strong>可選欄:</strong> Character, Direction, File name, Notes",
+      "<strong>免費 Beta:</strong> 每個專案最多40句，每句最多1分鐘，每句提交1個錄音。",
+      "<strong>Google Sheets:</strong> 匯入前請下載為 Microsoft Excel (.xlsx) 或 CSV。"
+    ],
+    limits: [
+      ["專案", "Beta 期間每個委託方帳號最多3個免費專案。"],
+      ["台詞數", "每個專案最多40句，每句提交1個錄音。"],
+      ["錄音長度", "測試期間每句最多1分鐘。"],
+      ["錄音者視圖", "錄音頁面不向錄音者顯示價格或付款設定。"]
+    ]
+  });
+
+  function renderCards(selector, items, cardClass, content) {
     const node = document.querySelector(`[data-render="${selector}"]`);
     if (!node) return;
+    const flow = selector === "requesterSteps" ? "requester" : selector === "performerSteps" ? "performer" : "";
     node.innerHTML = items
       .map(([title, body], index) => {
         const number = cardClass === "step-card" ? `<div class="step-number">${index + 1}</div>` : "";
-        return `<article class="${cardClass}">${number}<div><h3>${title}</h3><p>${body}</p></div></article>`;
+        const stepImage = flow
+          ? `<img class="step-shot" src="${workflowImageBasePath}${content.lang}-${flow}-${index + 1}.jpg" alt="" loading="lazy">`
+          : "";
+        return `<article class="${cardClass}">${number}<div><h3>${title}</h3><p>${body}</p></div>${stepImage}</article>`;
       })
       .join("");
   }
@@ -727,11 +1174,11 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       const key = node.getAttribute("data-i18n-html");
       if (content[key]) node.innerHTML = content[key];
     });
-    renderCards("audiences", content.audiences, "mini-card");
-    renderCards("requesterSteps", content.requesterSteps, "step-card");
-    renderCards("performerSteps", content.performerSteps, "step-card");
-    renderCards("handoff", content.handoff, "handoff-card");
-    renderCards("limits", content.limits, "limit-card");
+    renderCards("audiences", content.audiences, "mini-card", content);
+    renderCards("requesterSteps", content.requesterSteps, "step-card", content);
+    renderCards("performerSteps", content.performerSteps, "step-card", content);
+    renderCards("handoff", content.handoff, "handoff-card", content);
+    renderCards("limits", content.limits, "limit-card", content);
     renderTable(content);
     renderRules(content);
     renderTemplateDownloads(content);
@@ -744,9 +1191,17 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     if (saved && takeFlowContent[saved]) return saved;
     const languages = navigator.languages || [navigator.language || ""];
     const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
-    if (languages.some((language) => language.toLowerCase().startsWith("ja")) || timeZone === "Asia/Tokyo") {
+    const normalizedLanguages = languages.map((language) => language.toLowerCase());
+    if (normalizedLanguages.some((language) => language.startsWith("ja")) || timeZone === "Asia/Tokyo") {
       return "ja";
     }
+    if (normalizedLanguages.some((language) => language.startsWith("es"))) return "es";
+    if (normalizedLanguages.some((language) => language.startsWith("de"))) return "de";
+    if (normalizedLanguages.some((language) => language.startsWith("fr"))) return "fr";
+    if (normalizedLanguages.some((language) => language.startsWith("pt"))) return "pt";
+    if (normalizedLanguages.some((language) => language.startsWith("ko"))) return "ko";
+    if (normalizedLanguages.some((language) => language.includes("hant") || language.includes("tw") || language.includes("hk"))) return "zh_hant";
+    if (normalizedLanguages.some((language) => language.startsWith("zh"))) return "zh_hans";
     return "en";
   }
 
