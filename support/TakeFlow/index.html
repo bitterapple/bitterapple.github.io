@@ -377,7 +377,12 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
 
     <div class="locale-panel" aria-label="Display region">
       <label for="localeSelect" data-i18n="localeLabel">Display region</label>
-      <select id="localeSelect">
+      <select
+        id="localeSelect"
+        onchange="
+          window.takeFlowApplyLocale && window.takeFlowApplyLocale(this.value)
+        "
+      >
         <option value="en">International / English</option>
         <option value="ja">Japan / 日本語</option>
         <option value="es">Español</option>
@@ -2048,6 +2053,8 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     const selectedLocale = takeFlowContent[locale] ? locale : "en";
     const fallback = takeFlowContent.en;
 
+    console.debug("TakeFlow locale", selectedLocale);
+
     document.documentElement.lang = content.lang || fallback.lang;
     document.querySelectorAll("[data-i18n]").forEach((node) => {
       const key = node.getAttribute("data-i18n");
@@ -2105,6 +2112,8 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     if (persist) localStorage.setItem("takeflow-locale", selectedLocale);
   }
 
+  window.takeFlowApplyLocale = applyLocale;
+
   function detectLocale() {
     const saved = localStorage.getItem("takeflow-locale");
     if (saved && takeFlowContent[saved]) return saved;
@@ -2147,9 +2156,15 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     const localeSelect = document.getElementById("localeSelect");
     if (!localeSelect) return;
 
-    localeSelect.addEventListener("change", (event) => {
-      applyLocale(event.target.value);
-    });
+    const onLocaleChange = (event) => {
+      const target = event.target;
+      if (!target || target.id !== "localeSelect") return;
+      applyLocale(target.value);
+    };
+
+    localeSelect.addEventListener("change", onLocaleChange);
+    localeSelect.addEventListener("input", onLocaleChange);
+    document.addEventListener("change", onLocaleChange);
 
     applyLocale(detectLocale(), false);
   }
