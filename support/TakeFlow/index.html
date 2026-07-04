@@ -1972,7 +1972,7 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
 
   function renderCards(selector, items, cardClass, content) {
     const node = document.querySelector(`[data-render="${selector}"]`);
-    if (!node) return;
+    if (!node || !Array.isArray(items)) return;
     const flow =
       selector === "requesterSteps"
         ? "requester"
@@ -1996,13 +1996,17 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
   function renderTable(content) {
     const head = document.querySelector('[data-render="tableHead"]');
     const body = document.querySelector('[data-render="tableRows"]');
+    const tableHead = Array.isArray(content.tableHead)
+      ? content.tableHead
+      : takeFlowContent.en.tableHead;
+    const tableRows = Array.isArray(content.tableRows)
+      ? content.tableRows
+      : takeFlowContent.en.tableRows;
     if (head) {
-      head.innerHTML = content.tableHead
-        .map((label) => `<th>${label}</th>`)
-        .join("");
+      head.innerHTML = tableHead.map((label) => `<th>${label}</th>`).join("");
     }
     if (body) {
-      body.innerHTML = content.tableRows
+      body.innerHTML = tableRows
         .map(
           (row) => `<tr>${row.map((cell) => `<td>${cell}</td>`).join("")}</tr>`,
         )
@@ -2012,14 +2016,19 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
 
   function renderRules(content) {
     const node = document.querySelector('[data-render="rules"]');
-    if (node)
-      node.innerHTML = content.rules.map((rule) => `<li>${rule}</li>`).join("");
+    const rules = Array.isArray(content.rules)
+      ? content.rules
+      : takeFlowContent.en.rules;
+    if (node) node.innerHTML = rules.map((rule) => `<li>${rule}</li>`).join("");
   }
 
   function renderTemplateDownloads(content) {
     const node = document.querySelector('[data-render="templateDownloads"]');
     if (!node) return;
-    node.innerHTML = content.templateDownloads
+    const templateDownloads = Array.isArray(content.templateDownloads)
+      ? content.templateDownloads
+      : takeFlowContent.en.templateDownloads;
+    node.innerHTML = templateDownloads
       .map(
         ([label, xlsx, csv]) => `
         <article class="download-card">
@@ -2036,25 +2045,64 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
 
   function applyLocale(locale, persist = true) {
     const content = takeFlowContent[locale] || takeFlowContent.en;
-    document.documentElement.lang = content.lang;
+    const selectedLocale = takeFlowContent[locale] ? locale : "en";
+    const fallback = takeFlowContent.en;
+
+    document.documentElement.lang = content.lang || fallback.lang;
     document.querySelectorAll("[data-i18n]").forEach((node) => {
       const key = node.getAttribute("data-i18n");
-      if (content[key]) node.textContent = content[key];
+      if (Object.prototype.hasOwnProperty.call(content, key)) {
+        node.textContent = content[key];
+      } else if (Object.prototype.hasOwnProperty.call(fallback, key)) {
+        node.textContent = fallback[key];
+      }
     });
     document.querySelectorAll("[data-i18n-html]").forEach((node) => {
       const key = node.getAttribute("data-i18n-html");
-      if (content[key]) node.innerHTML = content[key];
+      if (Object.prototype.hasOwnProperty.call(content, key)) {
+        node.innerHTML = content[key];
+      } else if (Object.prototype.hasOwnProperty.call(fallback, key)) {
+        node.innerHTML = fallback[key];
+      }
     });
-    renderCards("audiences", content.audiences, "mini-card", content);
-    renderCards("requesterSteps", content.requesterSteps, "step-card", content);
-    renderCards("performerSteps", content.performerSteps, "step-card", content);
-    renderCards("handoff", content.handoff, "handoff-card", content);
-    renderCards("limits", content.limits, "limit-card", content);
+
+    renderCards(
+      "audiences",
+      content.audiences || fallback.audiences,
+      "mini-card",
+      content,
+    );
+    renderCards(
+      "requesterSteps",
+      content.requesterSteps || fallback.requesterSteps,
+      "step-card",
+      content,
+    );
+    renderCards(
+      "performerSteps",
+      content.performerSteps || fallback.performerSteps,
+      "step-card",
+      content,
+    );
+    renderCards(
+      "handoff",
+      content.handoff || fallback.handoff,
+      "handoff-card",
+      content,
+    );
+    renderCards(
+      "limits",
+      content.limits || fallback.limits,
+      "limit-card",
+      content,
+    );
     renderTable(content);
     renderRules(content);
     renderTemplateDownloads(content);
-    document.getElementById("localeSelect").value = locale;
-    if (persist) localStorage.setItem("takeflow-locale", locale);
+
+    const localeSelect = document.getElementById("localeSelect");
+    if (localeSelect) localeSelect.value = selectedLocale;
+    if (persist) localStorage.setItem("takeflow-locale", selectedLocale);
   }
 
   function detectLocale() {
@@ -2095,11 +2143,20 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     return "en";
   }
 
-  document
-    .getElementById("localeSelect")
-    .addEventListener("change", (event) => {
+  function initTakeFlowLocale() {
+    const localeSelect = document.getElementById("localeSelect");
+    if (!localeSelect) return;
+
+    localeSelect.addEventListener("change", (event) => {
       applyLocale(event.target.value);
     });
 
-  applyLocale(detectLocale(), false);
+    applyLocale(detectLocale(), false);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initTakeFlowLocale);
+  } else {
+    initTakeFlowLocale();
+  }
 </script>
