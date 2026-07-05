@@ -452,7 +452,6 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     <a class="btn" href="#performer" data-i18n="navPerformer"
       >Performer steps</a
     >
-    <a class="btn" href="#handoff" data-i18n="navHandoff">Project handoff</a>
     <a class="btn" href="#line-list-template" data-i18n="navTemplate"
       >Line list template</a
     >
@@ -507,18 +506,6 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
   </div>
 </section>
 
-<section class="section" id="handoff">
-  <div class="section-intro">
-    <h2 data-i18n="handoffTitle">How the project moves between both sides</h2>
-    <p data-i18n="handoffLead">
-      TakeFlow keeps the collaboration explicit: structure is created by the
-      requester, recordings arrive from the performer, and review decisions flow
-      back as line-level status.
-    </p>
-  </div>
-  <div class="handoff-grid" data-render="handoff"></div>
-</section>
-
 <section class="section" id="line-list-template">
   <div class="section-intro">
     <h2 data-i18n="templateTitle">Line list template</h2>
@@ -540,10 +527,10 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
   <ul class="rule-list" data-render="rules"></ul>
 
   <div class="template-downloads">
-    <h3 data-i18n="downloadsTitle">Download localized samples</h3>
+    <h3 data-i18n="downloadsTitle">Download this language's sample</h3>
     <p data-i18n="downloadsLead">
-      Choose a sample in the language closest to the project. Column names stay
-      in English so the import contract remains stable.
+      Download the sample for the current page language. Column names stay in
+      English so the import contract remains stable.
     </p>
     <div class="download-grid" data-render="templateDownloads"></div>
   </div>
@@ -579,6 +566,53 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     "{{ '/support/TakeFlow/templates/' | relative_url }}";
   const workflowImageBasePath =
     "{{ '/support/TakeFlow/images/workflow/' | relative_url }}";
+  const templateSamples = {
+    en: [
+      "English",
+      "takeflow_line_list_sample_en.xlsx",
+      "takeflow_line_list_sample_en.csv",
+    ],
+    ja: [
+      "日本語",
+      "takeflow_line_list_sample_ja.xlsx",
+      "takeflow_line_list_sample_ja.csv",
+    ],
+    es: [
+      "Español",
+      "takeflow_line_list_sample_es.xlsx",
+      "takeflow_line_list_sample_es.csv",
+    ],
+    de: [
+      "Deutsch",
+      "takeflow_line_list_sample_de.xlsx",
+      "takeflow_line_list_sample_de.csv",
+    ],
+    fr: [
+      "Français",
+      "takeflow_line_list_sample_fr.xlsx",
+      "takeflow_line_list_sample_fr.csv",
+    ],
+    pt: [
+      "Português",
+      "takeflow_line_list_sample_pt.xlsx",
+      "takeflow_line_list_sample_pt.csv",
+    ],
+    ko: [
+      "한국어",
+      "takeflow_line_list_sample_ko.xlsx",
+      "takeflow_line_list_sample_ko.csv",
+    ],
+    zh_hans: [
+      "简体中文",
+      "takeflow_line_list_sample_zh_hans.xlsx",
+      "takeflow_line_list_sample_zh_hans.csv",
+    ],
+    zh_hant: [
+      "繁體中文",
+      "takeflow_line_list_sample_zh_hant.xlsx",
+      "takeflow_line_list_sample_zh_hant.csv",
+    ],
+  };
 
   const takeFlowContent = {
     en: {
@@ -609,12 +643,12 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       handoffTitle: "How the project moves between both sides",
       handoffLead:
         "TakeFlow keeps the collaboration explicit: structure is created by the requester, recordings arrive from the performer, and review decisions flow back as line-level status.",
-      templateTitle: "Line list template",
+      templateTitle: "Script template requesters need to prepare",
       templateLead:
         "For Excel or Google Sheets, use one row per line. Keep the first row as the header, and avoid merged cells or multiple lines inside one cell.",
-      downloadsTitle: "Download localized samples",
+      downloadsTitle: "Download this language's sample",
       downloadsLead:
-        "Choose a sample in the language closest to the project. Column names stay in English so the import contract remains stable.",
+        "Download the sample for the current page language. Column names stay in English so the import contract remains stable.",
       limitsTitle: "Beta limits",
       limitsLead:
         "During the beta period, limits may change as the service is tested and improved.",
@@ -749,7 +783,6 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       rules: [
         "<strong>Required columns:</strong> No, Line",
         "<strong>Optional columns:</strong> Character, Direction, File name, Notes",
-        "<strong>Free beta guide:</strong> Up to 40 lines per project, up to 1 minute per line, one submitted take per line.",
         "<strong>Google Sheets:</strong> Use File → Download → Microsoft Excel (.xlsx) or CSV before importing.",
       ],
       templateDownloads: [
@@ -830,7 +863,6 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       navAllApps: "← すべてのアプリ",
       navRequester: "依頼側の手順",
       navPerformer: "受託側の手順",
-      navHandoff: "行ごとの管理",
       navTemplate: "台本テンプレート",
       navSupport: "サポートに連絡",
       whatTitle: "TakeFlowとは",
@@ -843,15 +875,12 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       performerTitle: "仕事を受ける人の手順",
       performerLead:
         "受託側では、割り当てられたセリフや収録意図を確認しながら、録音、提出、リテイク対応を進められます。",
-      handoffTitle: "台本の行ごとに、録音・確認・リテイクを管理",
-      handoffLead:
-        "TakeFlowでは、録音ファイルをただ送るのではなく、台本のセリフごとにテイクを管理します。依頼する側はセリフごとに確認でき、依頼を受ける側は必要なセリフだけを録り直せます。",
-      templateTitle: "台本テンプレート",
+      templateTitle: "依頼者が用意する必要がある台本テンプレート",
       templateLead:
         "ExcelやGoogle Sheetsでは、1行につき1セリフで作成します。1行目はヘッダーにし、セル結合や空行、1セル内の複数セリフは避けてください。",
-      downloadsTitle: "各言語のサンプルをダウンロード",
+      downloadsTitle: "この言語のサンプルをダウンロード",
       downloadsLead:
-        "案件に近い言語のサンプルを選んでください。読み込み互換性を保つため、列名は英語のままにしています。",
+        "現在の表示言語に対応したサンプルをダウンロードできます。読み込み互換性を保つため、列名は英語のままにしています。",
       limitsTitle: "ベータ版の制限",
       limitsLead:
         "ベータ期間中は、サービスの検証と改善に合わせて制限が変わる場合があります。",
@@ -887,7 +916,7 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
         ],
         [
           "提出状況を見る",
-          "未収録、提出済み、OK、リテイク待ちをセリフ単位で確認し、別々の音声ファイルを追いかける状態を避けます。",
+          "未収録、提出済み、OK、リテイク待ちをセリフ単位で確認します。",
         ],
         [
           "セリフごとに確認する",
@@ -895,7 +924,7 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
         ],
         [
           "納品テイクをまとめる",
-          "OKになったテイクと台本情報を納品対象として扱い、ファイル名とメモを一緒に残します。",
+          "OKにしたテイクを音圧、前後の余白を設定してダウンロードします。",
         ],
       ],
       requesterLimits: [
@@ -923,11 +952,11 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
         ],
         [
           "アプリで録音する",
-          "1セリフずつ録音し、その場で聞き返して、依頼内容に一番合うテイクを選びます。",
+          "セリフごとに録音し、必要があれば聞き返して、依頼内容に一番合うテイクを選びます。",
         ],
         [
           "テイクを提出する",
-          "選んだテイクをアップロードし、依頼側がセリフごとに確認できる状態にします。",
+          "録音したセリフをアップロードし、依頼側が確認できる状態にします。",
         ],
         [
           "リテイクに対応する",
@@ -936,24 +965,6 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
         [
           "担当分を完了する",
           "提出済み、OK、未対応の状態を見ながら、案件が完了するまで必要な録音を進めます。",
-        ],
-      ],
-      handoff: [
-        [
-          "1. セリフ一覧",
-          "依頼する側が、セリフ、演出指示、メモ、必要なファイル名を行ごとに整理します。",
-        ],
-        [
-          "2. 録音",
-          "依頼を受ける側は、共有されたセリフ一覧に沿って録音し、行ごとにテイクを提出します。",
-        ],
-        [
-          "3. 確認とリテイク",
-          "依頼する側は、提出されたテイクをセリフ単位で確認し、OKまたはリテイク指示を返します。",
-        ],
-        [
-          "4. 納品",
-          "OKになったテイク、本文、メモ、状態、ファイル名を整理したまま納品に進めます。",
         ],
       ],
       tableHead: ["No", "役名", "セリフ", "演出指示", "ファイル名", "メモ"],
@@ -986,7 +997,6 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       rules: [
         "<strong>必須列:</strong> No、セリフ",
         "<strong>任意列:</strong> 役名、演出指示、ファイル名、メモ",
-        "<strong>無料ベータの目安:</strong> 1案件40行まで、1行あたり1分まで、1行につき提出テイク1つまで。",
         "<strong>Google Sheets:</strong> 読み込み前に、ファイル → ダウンロード → Microsoft Excel（.xlsx）またはCSVを書き出してください。",
       ],
       templateDownloads: [
@@ -1081,12 +1091,12 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       handoffTitle: "Cómo avanza el proyecto entre ambos lados",
       handoffLead:
         "TakeFlow mantiene clara la colaboración: el solicitante crea la estructura, el intérprete graba y las decisiones vuelven como estado por línea.",
-      templateTitle: "Plantilla de lista de líneas",
+      templateTitle: "Plantilla de guion que prepara el solicitante",
       templateLead:
         "En Excel o Google Sheets, usa una fila por línea. Mantén la primera fila como encabezado y evita celdas combinadas.",
-      downloadsTitle: "Descargar muestras localizadas",
+      downloadsTitle: "Descargar la muestra de este idioma",
       downloadsLead:
-        "Elige una muestra cercana al idioma del proyecto. Los nombres de columna permanecen en inglés para mantener estable la importación.",
+        "Descarga la muestra del idioma actual de la página. Los nombres de columna permanecen en inglés para mantener estable la importación.",
       limitsTitle: "Límites beta",
       limitsLead:
         "Durante la beta, los límites pueden cambiar mientras se prueba y mejora el servicio.",
@@ -1206,7 +1216,6 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       rules: [
         "<strong>Columnas obligatorias:</strong> No, Line",
         "<strong>Columnas opcionales:</strong> Character, Direction, File name, Notes",
-        "<strong>Guía beta gratuita:</strong> Hasta 40 líneas por proyecto, 1 minuto por línea y una toma enviada por línea.",
         "<strong>Google Sheets:</strong> Descarga como Microsoft Excel (.xlsx) o CSV antes de importar.",
       ],
       limits: [
@@ -1256,12 +1265,12 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       handoffTitle: "Wie das Projekt zwischen beiden Seiten laeuft",
       handoffLead:
         "TakeFlow haelt die Zusammenarbeit klar: Struktur vom Auftraggeber, Aufnahmen vom Sprecher, Entscheidungen als Zeilenstatus zurueck.",
-      templateTitle: "Zeilenlisten-Vorlage",
+      templateTitle: "Skriptvorlage, die Auftraggeber vorbereiten",
       templateLead:
         "In Excel oder Google Sheets eine Zeile pro Text verwenden. Erste Zeile als Header behalten und verbundene Zellen vermeiden.",
-      downloadsTitle: "Lokalisierte Muster herunterladen",
+      downloadsTitle: "Muster fuer diese Sprache herunterladen",
       downloadsLead:
-        "Waehle ein Muster nahe an der Projektsprache. Spaltennamen bleiben fuer stabile Importe auf Englisch.",
+        "Lade das Muster fuer die aktuelle Seitensprache herunter. Spaltennamen bleiben fuer stabile Importe auf Englisch.",
       limitsTitle: "Beta-Limits",
       limitsLead: "Waehrend der Beta koennen Limits angepasst werden.",
       supportTitle: "Support",
@@ -1782,18 +1791,17 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     rules: [
       "<strong>Pflichtspalten:</strong> No, Line",
       "<strong>Optionale Spalten:</strong> Character, Direction, File name, Notes",
-      "<strong>Kostenlose Beta:</strong> Bis zu 40 Zeilen pro Projekt, bis zu 1 Minute pro Zeile, ein gesendeter Take pro Zeile.",
       "<strong>Google Sheets:</strong> Vor dem Import als Microsoft Excel (.xlsx) oder CSV herunterladen.",
     ],
   });
 
   Object.assign(takeFlowContent.fr, {
-    templateTitle: "Modèle de liste de répliques",
+    templateTitle: "Modèle de script à préparer par le demandeur",
     templateLead:
       "Dans Excel ou Google Sheets, utilisez une ligne par réplique. Gardez la première ligne comme en-tête et évitez les cellules fusionnées.",
-    downloadsTitle: "Télécharger des exemples localisés",
+    downloadsTitle: "Télécharger l'exemple de cette langue",
     downloadsLead:
-      "Choisissez l'exemple le plus proche de la langue du projet. Les noms de colonnes restent en anglais pour garder l'import stable.",
+      "Téléchargez l'exemple correspondant à la langue actuelle de la page. Les noms de colonnes restent en anglais pour garder l'import stable.",
     limitsTitle: "Limites bêta",
     limitsLead:
       "Pendant la bêta, les limites peuvent évoluer avec les tests du service.",
@@ -1832,7 +1840,6 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     rules: [
       "<strong>Colonnes requises :</strong> No, Line",
       "<strong>Colonnes optionnelles :</strong> Character, Direction, File name, Notes",
-      "<strong>Bêta gratuite :</strong> Jusqu'à 40 répliques par projet, 1 minute par réplique, une prise envoyée par réplique.",
       "<strong>Google Sheets :</strong> Téléchargez en Microsoft Excel (.xlsx) ou CSV avant l'import.",
     ],
     limits: [
@@ -1853,12 +1860,12 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
   });
 
   Object.assign(takeFlowContent.pt, {
-    templateTitle: "Modelo de lista de falas",
+    templateTitle: "Modelo de roteiro que o solicitante prepara",
     templateLead:
       "No Excel ou Google Sheets, use uma linha por fala. Mantenha a primeira linha como cabeçalho e evite células mescladas.",
-    downloadsTitle: "Baixar exemplos localizados",
+    downloadsTitle: "Baixar o exemplo deste idioma",
     downloadsLead:
-      "Escolha um exemplo próximo ao idioma do projeto. Os nomes das colunas ficam em inglês para manter a importação estável.",
+      "Baixe o exemplo do idioma atual da página. Os nomes das colunas ficam em inglês para manter a importação estável.",
     limitsTitle: "Limites beta",
     limitsLead:
       "Durante a beta, os limites podem mudar conforme o serviço é testado.",
@@ -1891,7 +1898,6 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     rules: [
       "<strong>Colunas obrigatórias:</strong> No, Line",
       "<strong>Colunas opcionais:</strong> Character, Direction, File name, Notes",
-      "<strong>Beta gratuita:</strong> Até 40 falas por projeto, 1 minuto por fala e um take enviado por fala.",
       "<strong>Google Sheets:</strong> Baixe como Microsoft Excel (.xlsx) ou CSV antes de importar.",
     ],
     limits: [
@@ -1909,12 +1915,12 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
   });
 
   Object.assign(takeFlowContent.ko, {
-    templateTitle: "대사 목록 템플릿",
+    templateTitle: "의뢰자가 준비해야 하는 대사 템플릿",
     templateLead:
       "Excel 또는 Google Sheets에서는 한 줄에 한 대사만 사용합니다. 첫 줄은 헤더로 두고 병합 셀은 피하세요.",
-    downloadsTitle: "현지화 샘플 다운로드",
+    downloadsTitle: "이 언어의 샘플 다운로드",
     downloadsLead:
-      "프로젝트 언어에 가까운 샘플을 선택하세요. 가져오기 안정성을 위해 열 이름은 영어로 유지합니다.",
+      "현재 페이지 언어에 맞는 샘플을 다운로드합니다. 가져오기 안정성을 위해 열 이름은 영어로 유지합니다.",
     limitsTitle: "베타 제한",
     limitsLead: "베타 기간에는 서비스 테스트에 따라 제한이 바뀔 수 있습니다.",
     supportTitle: "지원",
@@ -1943,7 +1949,6 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     rules: [
       "<strong>필수 열:</strong> No, Line",
       "<strong>선택 열:</strong> Character, Direction, File name, Notes",
-      "<strong>무료 베타:</strong> 프로젝트당 최대 40줄, 줄당 최대 1분, 줄당 제출 테이크 1개.",
       "<strong>Google Sheets:</strong> 가져오기 전에 Microsoft Excel (.xlsx) 또는 CSV로 다운로드하세요.",
     ],
     limits: [
@@ -1958,12 +1963,12 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
   });
 
   Object.assign(takeFlowContent.zh_hans, {
-    templateTitle: "台词列表模板",
+    templateTitle: "委托方需要准备的台词模板",
     templateLead:
       "在 Excel 或 Google Sheets 中，每行填写一句台词。保留第一行为表头，避免合并单元格。",
-    downloadsTitle: "下载本地化样本",
+    downloadsTitle: "下载此语言的样本",
     downloadsLead:
-      "选择最接近项目语言的样本。列名保持英文，以保证导入规则稳定。",
+      "下载当前页面语言对应的样本。列名保持英文，以保证导入规则稳定。",
     limitsTitle: "Beta 限制",
     limitsLead: "Beta 期间，限制可能会随服务测试和改进而变化。",
     supportTitle: "支持",
@@ -1983,7 +1988,6 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     rules: [
       "<strong>必填列:</strong> No, Line",
       "<strong>可选列:</strong> Character, Direction, File name, Notes",
-      "<strong>免费 Beta:</strong> 每个项目最多40句，每句最多1分钟，每句提交1个录音。",
       "<strong>Google Sheets:</strong> 导入前请下载为 Microsoft Excel (.xlsx) 或 CSV。",
     ],
     limits: [
@@ -2004,12 +2008,12 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     handoffTitle: "雙方之間如何推進專案",
     handoffLead:
       "TakeFlow 讓協作清晰：委託方建立結構，錄音者按結構錄製，審核決定以台詞狀態返回。",
-    templateTitle: "台詞列表模板",
+    templateTitle: "委託方需要準備的台詞模板",
     templateLead:
       "在 Excel 或 Google Sheets 中，每行填寫一句台詞。保留第一行為表頭，避免合併儲存格。",
-    downloadsTitle: "下載在地化範例",
+    downloadsTitle: "下載此語言的範例",
     downloadsLead:
-      "選擇最接近專案語言的範例。欄位名稱保持英文，以確保匯入規則穩定。",
+      "下載目前頁面語言對應的範例。欄位名稱保持英文，以確保匯入規則穩定。",
     limitsTitle: "Beta 限制",
     limitsLead: "Beta 期間，限制可能會隨服務測試與改善而變化。",
     supportTitle: "支援",
@@ -2029,7 +2033,6 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
     rules: [
       "<strong>必填欄:</strong> No, Line",
       "<strong>可選欄:</strong> Character, Direction, File name, Notes",
-      "<strong>免費 Beta:</strong> 每個專案最多40句，每句最多1分鐘，每句提交1個錄音。",
       "<strong>Google Sheets:</strong> 匯入前請下載為 Microsoft Excel (.xlsx) 或 CSV。",
     ],
     limits: [
@@ -2221,12 +2224,9 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
   function renderTemplateDownloads(content) {
     const node = document.querySelector('[data-render="templateDownloads"]');
     if (!node) return;
-    const templateDownloads = Array.isArray(content.templateDownloads)
-      ? content.templateDownloads
-      : takeFlowContent.en.templateDownloads;
-    node.innerHTML = templateDownloads
-      .map(
-        ([label, xlsx, csv]) => `
+    const [label, xlsx, csv] =
+      templateSamples[content.lang] || templateSamples.en;
+    node.innerHTML = `
         <article class="download-card">
           <h4>${label}</h4>
           <div class="download-actions">
@@ -2234,9 +2234,7 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
             <a href="${templateBasePath}${csv}" download>CSV</a>
           </div>
         </article>
-      `,
-      )
-      .join("");
+      `;
   }
 
   function applyLocale(locale, persist = true) {
@@ -2284,12 +2282,6 @@ favicon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
       "performerSteps",
       content.performerSteps || fallback.performerSteps,
       "step-card",
-      content,
-    );
-    renderCards(
-      "handoff",
-      content.handoff || fallback.handoff,
-      "handoff-card",
       content,
     );
     renderCards(
