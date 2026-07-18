@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>RecScriptへの招待</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background: #101114;
+      color: #f5f5f7;
+    }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at top, #252830, #101114 58%);
+    }
+    main {
+      width: min(100% - 40px, 420px);
+      box-sizing: border-box;
+      padding: 32px 26px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 24px;
+      background: rgba(28, 29, 34, .92);
+      box-shadow: 0 20px 70px rgba(0, 0, 0, .35);
+      text-align: center;
+    }
+    h1 { margin: 0 0 12px; font-size: 26px; }
+    p { margin: 0 0 24px; color: #b8bac2; line-height: 1.65; }
+    a {
+      display: block;
+      padding: 13px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    #open-app { color: #fff; background: #147ef5; }
+    #app-store { margin-top: 10px; color: #f5f5f7; background: #3a3b40; }
+    .invalid { color: #ff9f0a; }
+    small { display: block; margin-top: 18px; color: #858791; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>RecScriptへの招待</h1>
+    <p id="status">RecScriptを開いています…</p>
+    <a id="open-app" href="#">RecScriptを開く</a>
+    <a id="app-store" href="https://apps.apple.com/jp/app/recscript/id6788962674">App Storeから入手</a>
+    <small>アプリがインストールされていない場合は、App Storeから入手してください。</small>
+  </main>
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const payload = params.get("payload");
+      const status = document.getElementById("status");
+      const openApp = document.getElementById("open-app");
+      const appStoreURL = "https://apps.apple.com/jp/app/recscript/id6788962674";
+
+      if (!payload) {
+        status.textContent = "招待情報を読み取れませんでした。";
+        status.classList.add("invalid");
+        openApp.hidden = true;
+        return;
+      }
+
+      const appURL = `recscript://invite?payload=${encodeURIComponent(payload)}`;
+      openApp.href = appURL;
+
+      let appWasOpened = false;
+      const handleVisibilityChange = () => {
+        if (document.hidden) appWasOpened = true;
+      };
+      document.addEventListener("visibilitychange", handleVisibilityChange);
+
+      const openAppOrStore = () => {
+        window.location.href = appURL;
+        window.setTimeout(() => {
+          document.removeEventListener("visibilitychange", handleVisibilityChange);
+          if (!appWasOpened && !document.hidden) {
+            window.location.replace(appStoreURL);
+          }
+        }, 1400);
+      };
+
+      window.setTimeout(openAppOrStore, 120);
+    })();
+  </script>
+</body>
+</html>
