@@ -154,9 +154,9 @@
   summary: iPad recording-session app that adds timecode markers to PDFs and jumps your DAW back to the marked spot.
   icon: /support/img/studiomate_icon.png
   url: /support/studiomate/
-  latest_order: 1
-  latest_date: "2026-05-18"
-  latest_summary: Updated to v2.9. Adds workspace operation improvements for smoother session document handling.
+  latest_order: -32
+  latest_date: "2026-07-26"
+  latest_summary: Updated to v3.3. Studio Mate can now display PDFs containing annotations added in other apps. Existing external annotations can be viewed, but not edited in Studio Mate.
 
 - slug: pocketcamviewer
   title: PocketCam Viewer
@@ -177,9 +177,9 @@
   summary: Music theory practice app for harmony and counterpoint, with guided exercises, note entry, daily questions, and red-pen style review.
   icon: /support/harmonycounterpoint/img/icon.jpeg
   url: /support/harmonycounterpoint/
-  latest_order: 2
-  latest_date: "2026-05-18"
-  latest_summary: Updated to v1.4. Includes guided learning improvements, easier note entry, level assessment, goal setting, daily questions, and reminders.
+  latest_order: -34
+  latest_date: "2026-07-26"
+  latest_summary: Updated to v2.0. Added Instrumentation, Orchestration, Ear Training, and Solfège.
 
 - slug: scoreshelf
   title: ScoreShelf
@@ -190,9 +190,9 @@
   summary: Free iPad sheet music library for managing PDFs, reading scores, adding light Apple Pencil notes, bookmarking pages, and tracking practice spots.
   icon: /support/ScoreShelf/img/icon.png
   url: /support/ScoreShelf/
-  latest_order: -6
-  latest_date: "2026-06-06"
-  latest_summary: ScoreShelf is now available on the App Store as a free iPad sheet music library and reader.
+  latest_order: -33
+  latest_date: "2026-07-26"
+  latest_summary: Updated to v1.2. Adds support for remotely turning pages from another iOS device.
 
 - slug: quicksearchext
   title: QuickSearchExt
