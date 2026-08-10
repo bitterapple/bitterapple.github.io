@@ -1,6 +1,6 @@
 {
-  "schema_version": 31,
-  "generated_at": "2026-06-23T12:00:00Z",
+  "schema_version": 32,
+  "generated_at": "2026-08-10T12:00:00Z",
   "products": {
     "levelrangeeq": {
       "name": "Level Range EQ",
@@ -76,10 +76,10 @@
     },
     "weavegate": {
       "name": "WeaveGate",
-      "latest_version": "1.1.0",
+      "latest_version": "1.2.0",
       "download_url": "https://bitterapple.github.io/support/WeaveGate/",
       "release_notes_url": "https://bitterapple.github.io/support/WeaveGate/#release-notes",
-      "min_supported_version": "1.1.0",
+      "min_supported_version": "1.2.0",
       "critical": false
     },
     "Propagation": {
