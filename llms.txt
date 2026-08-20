@@ -25,7 +25,7 @@
 - Calendar Calendar: macOS desktop calendar widget with customizable colors, fonts, and readable month layouts.
 - WrisTick: watchOS metronome and tuner with haptics, tap tempo, and pitch reference.
 - BandMatrix: free 6-band sidechain dynamics plug-in with compression, expansion, and flexible key routing.
-- PanBlur: free spatial enhancer for mono, LCR, and 5.1 sources, adding ASMR-like stereo presence without moving the pan position. Version 1.7.0 adds 5.1 support, with final surround-host verification still pending.
+- PanBlur: free spatial enhancer for mono, LCR, and 5.1 sources, adding ASMR-like stereo presence without moving the pan position. Version 1.8.0 includes bug fixes and stability refinements.
 - SourceField: free 2D ASMR-style source placement plug-in for changing mono, stereo, or 5.1ch position, source direction, listener direction, blur-based spatial softness, and distance-style depth from an XY field.
 - PhaseSlice: free multi-band phase and timing shaper for tightening drums, transients, and frequency-specific timing.
 - Dialogue Doctor: free dialogue cleanup plug-in for voice and post-production workflows.

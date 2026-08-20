@@ -49,9 +49,9 @@
   collection: spatial
   icon: /support/PanBlur/img/icon.png
   url: /support/PanBlur/
-  latest_order: -2
-  latest_date: "2026-06-04"
-  latest_summary: PanBlur v1.7.0 adds 5.1 layout support. Final verification in some surround host environments is still pending.
+  latest_order: -35
+  latest_date: "2026-08-20"
+  latest_summary: Updated to v1.8.0. Includes bug fixes and stability refinements for the spatial-enhancer workflow.
 
 - slug: dialoguedoctor
   title: Dialogue Doctor
