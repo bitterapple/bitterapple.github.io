@@ -174,12 +174,12 @@
   order: 30
   status_label: Live
   status_class: live
-  summary: Music theory practice app for harmony and counterpoint, with guided exercises, note entry, daily questions, and red-pen style review.
+  summary: Music theory, ear-training, and composition-practice app for harmony, counterpoint, orchestration, instrumentation, solfege, and jazz study.
   icon: /support/harmonycounterpoint/img/icon.jpeg
   url: /support/harmonycounterpoint/
-  latest_order: -34
-  latest_date: "2026-07-26"
-  latest_summary: Updated to v2.0. Added Instrumentation, Orchestration, Ear Training, and Solfège.
+  latest_order: -36
+  latest_date: "2026-08-21"
+  latest_summary: Updated to v2.4 with minor bug fixes and stability improvements. The app now brings harmony, counterpoint, ear training, orchestration, instrumentation, solfege, and jazz study into one practice path.
 
 - slug: scoreshelf
   title: ScoreShelf
