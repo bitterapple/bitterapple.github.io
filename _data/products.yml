@@ -75,7 +75,7 @@
   summary: Free level-dependent EQ plug-in with separate curves for quiet, mid-level, and loud parts, plus Tone Shaper and Dynamic EQ workflows.
   icon: /support/img/levelrangeeq_icon.png
   url: /support/levelrangeeq/
-  latest_order: -30
+  latest_order: -38
   latest_date: "2026-08-21"
   latest_summary: Updated to v2.4.0. Includes minor bug fixes while retaining the Tone Shaper and Dynamic EQ workflows.
 
@@ -141,7 +141,7 @@
   summary: Real-time spectral dynamics plug-in for smoothing harshness and uneven resonances with frequency, level, sidechain, and inter-band reduction control.
   icon: /support/spectralleveler/img/spectralleveler_icon.png
   url: /support/spectralleveler/
-  latest_order: -29
+  latest_order: -37
   latest_date: "2026-08-21"
   latest_summary: Updated to v1.4.0. Includes minor bug fixes for spectral leveling and harshness control.
 
