@@ -76,8 +76,8 @@
   icon: /support/img/levelrangeeq_icon.png
   url: /support/levelrangeeq/
   latest_order: -30
-  latest_date: "2026-06-22"
-  latest_summary: Updated to v2.3.0. Includes a bug fix while retaining the Tone Shaper and Dynamic EQ workflows.
+  latest_date: "2026-08-21"
+  latest_summary: Updated to v2.4.0. Includes minor bug fixes while retaining the Tone Shaper and Dynamic EQ workflows.
 
 - slug: phaseslice
   title: PhaseSlice
@@ -142,8 +142,8 @@
   icon: /support/spectralleveler/img/spectralleveler_icon.png
   url: /support/spectralleveler/
   latest_order: -29
-  latest_date: "2026-06-21"
-  latest_summary: Updated to v1.3.0. Allows reduction to be influenced by other bands and by the sidechain input.
+  latest_date: "2026-08-21"
+  latest_summary: Updated to v1.4.0. Includes minor bug fixes for spectral leveling and harshness control.
 
 - slug: studiomate
   title: Studio Mate

@@ -13,7 +13,7 @@
 ## Products
 
 - Propagation: free IR-inspired algorithmic reverb that turns captured spaces into editable reverb controls.
-- Level Range EQ: free dynamic EQ-style plug-in for applying different EQ curves to quiet, mid-level, and loud signal ranges.
+- Level Range EQ: free dynamic EQ-style plug-in for applying different EQ curves to quiet, mid-level, and loud signal ranges. Version 2.4.0 includes minor bug fixes.
 - DSPTrace: beta plug-in analyzer for loading AU/VST processors, sweeping parameters, graphing trace results, and documenting how controls change sound.
 - WeaveGate: version 1.0 rhythmic gate and pattern-weaving effect for turning pads, ambience, rooms, loops, and long effect returns into interlocking motion.
 - Harmony & Counterpoint: a music theory practice app for composers, arrangers, and producers, with guided exercises and red-pen style review.
@@ -29,7 +29,7 @@
 - SourceField: free 2D ASMR-style source placement plug-in for changing mono, stereo, or 5.1ch position, source direction, listener direction, blur-based spatial softness, and distance-style depth from an XY field.
 - PhaseSlice: free multi-band phase and timing shaper for tightening drums, transients, and frequency-specific timing.
 - Dialogue Doctor: free dialogue cleanup plug-in for voice and post-production workflows.
-- Spectral Leveler: real-time spectral dynamics plug-in for smoothing harshness without static EQ.
+- Spectral Leveler: real-time spectral dynamics plug-in for smoothing harshness without static EQ. Version 1.4.0 includes minor bug fixes.
 - Distance: free psychoacoustic distance plug-in for pushing close sounds farther back without obvious reverb.
 
 ## Support
