@@ -1,6 +1,7 @@
 ---
 layout: support
 title: "Harmony &amp; Counterpoint"
+meta_title: "Harmony & Counterpoint — Music Theory, Ear Training & Composition Practice"
 description: "Harmony & Counterpoint is a complete music theory training app for harmony, counterpoint, ear training, instrumentation, orchestration, solfege, and jazz study, with guided practice and notation-based feedback."
 apple_itunes_app: "app-id=6759362681"
 favicon: "/support/harmonycounterpoint/img/icon.jpeg"
@@ -57,9 +58,35 @@ favicon: "/support/harmonycounterpoint/img/icon.jpeg"
     font-size: 14px;
   }
 
+  .hc-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .hc-feature {
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--card);
+  }
+
+  .hc-feature h3 {
+    margin: 0 0 5px;
+    font-size: 16px;
+  }
+
+  .hc-feature p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
   @media (max-width: 720px) {
     .hc-overview { grid-template-columns: 1fr; }
     .hc-shot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .hc-feature-grid { grid-template-columns: 1fr; }
     .hc-overview .hc-shot img { height: 360px; }
     .hc-shot img { height: 250px; }
   }
@@ -118,38 +145,37 @@ favicon: "/support/harmonycounterpoint/img/icon.jpeg"
 </header>
 
 <section class="section">
-  <h2>Learn the language of music</h2>
+  <h2>One practice path for the language of music</h2>
   <p class="muted" style="margin: 0 0 12px; font-size: 13px">
-    Follow a connected path from hearing and understanding music to writing,
-    arranging, and checking your own work.
+    Go from hearing and understanding music to writing, arranging, and checking
+    your own work — with a clear next step every time you practice.
   </p>
-  <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
-    <li>
-      <strong>Harmony and counterpoint:</strong> Work with chord function,
-      voice leading, and independent melodic lines directly in notation.
-    </li>
-    <li>
-      <strong>Ear training and solfège:</strong> Connect what you hear and sing
-      with the notes you write through progressively structured practice.
-    </li>
-    <li>
-      <strong>Instrumentation and orchestration:</strong> Study register,
-      playable range, instrumental roles, and real-score listening examples.
-    </li>
-    <li>
-      <strong>Jazz study:</strong> Explore chord symbols, extensions, tensions,
-      functional harmony, and improvisation foundations alongside classical
-      practice.
-    </li>
-    <li>
-      <strong>Guided daily practice:</strong> Use level assessment, goals,
-      study planning, daily questions, and reminders to keep making progress.
-    </li>
-    <li>
-      <strong>Feedback you can use:</strong> Review written answers with clear,
-      notation-based corrections instead of treating practice as a quiz alone.
-    </li>
-  </ul>
+  <div class="hc-feature-grid">
+    <article class="hc-feature">
+      <h3>Harmony</h3>
+      <p>Build four-part harmony with chord function, inversions, figured bass, and practical voice-leading feedback.</p>
+    </article>
+    <article class="hc-feature">
+      <h3>Counterpoint</h3>
+      <p>Write independent melodic lines through species-based exercises inspired by the Fux tradition.</p>
+    </article>
+    <article class="hc-feature">
+      <h3>Solfège &amp; Ear Training</h3>
+      <p>Connect hearing, singing, and notation through a progressive path from four-note foundations to larger intervals.</p>
+    </article>
+    <article class="hc-feature">
+      <h3>Instrumentation &amp; Orchestration</h3>
+      <p>Learn register, playable range, instrumental roles, and orchestral color through real score excerpts.</p>
+    </article>
+    <article class="hc-feature">
+      <h3>Jazz Study</h3>
+      <p>Explore chord symbols, extensions, tensions, functional harmony, and the foundations of improvisation.</p>
+    </article>
+    <article class="hc-feature">
+      <h3>Guided Daily Practice</h3>
+      <p>Use level assessment, goals, study planning, daily questions, and reminders to keep building a musical habit.</p>
+    </article>
+  </div>
 </section>
 
 <section class="section">
@@ -175,7 +201,7 @@ favicon: "/support/harmonycounterpoint/img/icon.jpeg"
       <h3 style="margin: 0 0 8px">Practice with a direction</h3>
       <p class="muted" style="margin: 0">
         Start from a level that fits, take one meaningful daily question, and
-        move from theory to listening and writing without switching tools.
+        move from theory to listening and writing in one place.
       </p>
     </div>
   </div>
@@ -183,14 +209,6 @@ favicon: "/support/harmonycounterpoint/img/icon.jpeg"
   <div class="hc-shot-group">
     <h3>Write and understand</h3>
     <div class="hc-shot-grid">
-      <figure class="hc-shot">
-        <img
-          src="./img/home-daily-practice.png"
-          alt="Daily counterpoint question and weekly creative mission"
-          loading="lazy"
-        />
-        <figcaption>Daily practice and a weekly creative task.</figcaption>
-      </figure>
       <figure class="hc-shot">
         <img
           src="./img/counterpoint-input.png"
@@ -206,6 +224,14 @@ favicon: "/support/harmonycounterpoint/img/icon.jpeg"
           loading="lazy"
         />
         <figcaption>See the exact note and moment to review.</figcaption>
+      </figure>
+      <figure class="hc-shot">
+        <img
+          src="./img/home-daily-practice.png"
+          alt="Daily counterpoint question and weekly creative mission"
+          loading="lazy"
+        />
+        <figcaption>Daily practice and a weekly creative task.</figcaption>
       </figure>
     </div>
   </div>
@@ -238,175 +264,6 @@ favicon: "/support/harmonycounterpoint/img/icon.jpeg"
         <figcaption>Learn each instrument's range and role.</figcaption>
       </figure>
     </div>
-  </div>
-</section>
-
-<section class="section" id="release-notes">
-  <h2>Release history</h2>
-  <div class="card" style="margin: 0">
-    <div class="muted" style="font-size: 13px">
-      <strong>v2.4</strong> — Minor bug fixes and stability improvements
-    </div>
-    <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-      Current release. Released on 2026-08-21.
-    </p>
-    <ul
-      class="muted"
-      style="margin: 10px 0 0; padding-left: 18px; font-size: 13px"
-    >
-      <li>Includes minor bug fixes and stability refinements.</li>
-      <li>
-        Keeps the expanded theory, listening, writing, and arranging practice
-        path introduced in v2.3.
-      </li>
-    </ul>
-
-    <hr
-      style="
-        border: 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        margin: 14px 0;
-      "
-    />
-
-    <div class="muted" style="font-size: 13px">
-      <strong>v2.3</strong> — Ear training, orchestration, instrumentation,
-      solfège, and jazz study
-    </div>
-    <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-      Previous major feature release.
-    </p>
-    <ul
-      class="muted"
-      style="margin: 10px 0 0; padding-left: 18px; font-size: 13px"
-    >
-      <li>Added ear training and solfège practice alongside written theory.</li>
-      <li>
-        Added instrumentation and orchestration study, including register,
-        range, roles, and score-based learning.
-      </li>
-      <li>Added jazz study for harmony beyond the classical-practice path.</li>
-    </ul>
-
-    <hr
-      style="
-        border: 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        margin: 14px 0;
-      "
-    />
-
-    <div class="muted" style="font-size: 13px">
-      <strong>v2.0</strong> — Instrumentation, orchestration, ear training, and
-      solfège
-    </div>
-    <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-      Previous release. Released on 2026-07-26.
-    </p>
-    <ul
-      class="muted"
-      style="margin: 10px 0 0; padding-left: 18px; font-size: 13px"
-    >
-      <li>Added instrumentation practice.</li>
-      <li>Added orchestration practice.</li>
-      <li>Added ear training.</li>
-      <li>Added solfège practice.</li>
-    </ul>
-
-    <hr
-      style="
-        border: 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        margin: 14px 0;
-      "
-    />
-
-    <div class="muted" style="font-size: 13px">
-      <strong>v1.4</strong> — Guided learning improvements and easier note entry
-    </div>
-    <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-      Previous release.
-    </p>
-    <ul
-      class="muted"
-      style="margin: 10px 0 0; padding-left: 18px; font-size: 13px"
-    >
-      <li>Improved note entry to make input easier.</li>
-      <li>Added level assessment to help users find the right starting point.</li>
-      <li>Added goal setting and personalized study planning.</li>
-      <li>Added a daily question to encourage regular study.</li>
-      <li>Added reminders to help users maintain a consistent learning habit.</li>
-    </ul>
-
-    <hr
-      style="
-        border: 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        margin: 14px 0;
-      "
-    />
-
-    <div class="muted" style="font-size: 13px">
-      <strong>v1.3</strong> — Easier note entry
-    </div>
-    <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-      Previous release.
-    </p>
-    <ul
-      class="muted"
-      style="margin: 10px 0 0; padding-left: 18px; font-size: 13px"
-    >
-      <li>Improved note entry to make input easier.</li>
-    </ul>
-
-    <hr
-      style="
-        border: 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        margin: 14px 0;
-      "
-    />
-
-    <div class="muted" style="font-size: 13px">
-      <strong>v1.2</strong> — Guided learning update
-    </div>
-    <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-      Previous release.
-    </p>
-    <ul
-      class="muted"
-      style="margin: 10px 0 0; padding-left: 18px; font-size: 13px"
-    >
-      <li>Added level assessment to help users find the right starting point.</li>
-      <li>Added goal setting and personalized study planning.</li>
-      <li>Added a daily question and reminders to support consistent practice.</li>
-    </ul>
-
-    <hr
-      style="
-        border: 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        margin: 14px 0;
-      "
-    />
-
-    <div class="muted" style="font-size: 13px">
-      <strong>v1.0</strong> — Initial App Store release
-    </div>
-    <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-      Released on 2026-03-13.
-    </p>
-    <ul
-      class="muted"
-      style="margin: 10px 0 0; padding-left: 18px; font-size: 13px"
-    >
-      <li>Harmony &amp; Counterpoint is now available on the App Store.</li>
-      <li>
-        Includes counterpoint assignments and harmony figured-bass exercises for
-        daily study.
-      </li>
-      <li>Released as the successor to <strong>Music Theory</strong>.</li>
-    </ul>
   </div>
 </section>
 
