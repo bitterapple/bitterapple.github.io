@@ -154,9 +154,9 @@
   summary: iPad recording-session app that adds timecode markers to PDFs and jumps your DAW back to the marked spot.
   icon: /support/img/studiomate_icon.png
   url: /support/studiomate/
-  latest_order: -32
-  latest_date: "2026-07-26"
-  latest_summary: Updated to v3.3. Studio Mate can now display PDFs containing annotations added in other apps. Existing external annotations can be viewed, but not edited in Studio Mate.
+  latest_order: -40
+  latest_date: "2026-08-25"
+  latest_summary: Version 3.4 adds Finder transfer, editable package sharing, standard-PDF export with embedded edits, and more reliable document management.
 
 - slug: pocketcamviewer
   title: PocketCam Viewer
@@ -177,9 +177,9 @@
   summary: Music theory, ear-training, and composition-practice app for harmony, counterpoint, orchestration, instrumentation, solfege, and jazz study.
   icon: /support/harmonycounterpoint/img/icon.jpeg
   url: /support/harmonycounterpoint/
-  latest_order: -36
-  latest_date: "2026-08-21"
-  latest_summary: Music theory, ear training, and composition practice in one guided path, from harmony and counterpoint to orchestration and jazz.
+  latest_order: -41
+  latest_date: "2026-08-25"
+  latest_summary: Version 2.5 deepens Instrumentation & Orchestration and Jazz Study, adds flexible daily and weekly learning paths, and introduces Work Portfolio.
 
 - slug: scoreshelf
   title: ScoreShelf
