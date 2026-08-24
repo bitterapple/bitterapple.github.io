@@ -1,7 +1,7 @@
 ---
 layout: support
 title: "WeaveGate"
-description: "WeaveGate is a multiband gate and spectral expander plug-in with per-band detection, dependency routing, gain-curve mapping, and crossover or FFT spectral processing modes. Version 1.3.0 adds interface tooltips and bug fixes."
+description: "WeaveGate is a multiband gate and spectral expander plug-in with per-band detection, dependency routing, gain-curve mapping, and crossover or FFT spectral processing modes. Version 1.4.0 adds direction-aware Open/Close hysteresis and clearer live gate-state feedback."
 favicon: "/support/WeaveGate/img/icon.svg"
 ---
 
@@ -21,7 +21,7 @@ favicon: "/support/WeaveGate/img/icon.svg"
     <div>
       <h1 style="margin: 0">WeaveGate</h1>
       <p class="muted" style="margin: 6px 0 0; font-size: 13px">
-        <strong>Version 1.3.0</strong> — <strong>Out now</strong>.
+        <strong>Version 1.4.0</strong> — <strong>Out now</strong>.
       </p>
       <p class="muted" style="margin: 6px 0 0; font-size: 12px; opacity: 0.85">
         Multiband Gate / Spectral Expander
@@ -72,7 +72,7 @@ favicon: "/support/WeaveGate/img/icon.svg"
       <div class="muted" style="font-size: 13px">
         <strong>Status:</strong> Released
         <span style="opacity: 0.6; padding: 0 6px">•</span>
-        <strong>Version:</strong> 1.3.0
+        <strong>Version:</strong> 1.4.0
       </div>
       <div class="muted" style="font-size: 13px; margin-top: 10px">
         <strong>macOS:</strong> AAX / AU / VST3 for macOS
@@ -86,7 +86,7 @@ favicon: "/support/WeaveGate/img/icon.svg"
           target="_blank"
           rel="noopener"
           style="font-weight: 700"
-          >Download Mac v1.3.0 (PKG)</a
+          >Download Mac v1.4.0 (PKG)</a
         >
         <a
           class="btn"
@@ -97,7 +97,8 @@ favicon: "/support/WeaveGate/img/icon.svg"
         >
       </div>
       <p class="muted" style="margin: 10px 0 0; font-size: 12px">
-        Version 1.3.0 adds tooltips to the interface and includes bug fixes.
+        Version 1.4.0 makes Open and Close behave as true direction-aware
+        boundaries and shows the current gate state more clearly.
       </p>
     </div>
   </div>
@@ -283,7 +284,8 @@ favicon: "/support/WeaveGate/img/icon.svg"
         loading="lazy"
       />
       <figcaption class="muted" style="margin-top: 8px; font-size: 12px">
-        Current interface.
+        Interface overview. Version 1.4.0 adds live latch-state feedback to the
+        timeline and Gain Curve views.
       </figcaption>
     </figure>
   </div>
@@ -292,25 +294,34 @@ favicon: "/support/WeaveGate/img/icon.svg"
   <h2>Release status</h2>
   <div class="card" style="margin: 0">
     <div class="muted" style="font-size: 13px">
-      <strong>v1.3.0</strong> — Tooltips and bug fixes.
+      <strong>v1.4.0</strong> — Clearer, direction-aware Open/Close behavior.
     </div>
     <ul
       class="muted"
       style="margin: 10px 0 0; padding-left: 18px; font-size: 13px"
     >
-      <li>Current release with interface tooltips and bug fixes.</li>
+      <li>
+        After crossing Open, a band stays open until it reaches Close. From
+        below, it stays closed until it reaches Open.
+      </li>
+      <li>
+        Crossover bands and spectral bins now follow the same direction-aware
+        hysteresis model.
+      </li>
+      <li>
+        Hold begins at the effective Close threshold, while Transient Keep,
+        Sustain Keep, Continuity, and custom Gain Curves respect the Open latch.
+      </li>
+      <li>
+        The timeline and Gain Curve view now show the live gate state and actual
+        smoothed open amount more clearly.
+      </li>
       <li>macOS support: AAX / AU / VST3.</li>
       <li>Windows support: VST3.</li>
-      <li>
-        The control names, supported formats, screenshots, and workflow may
-        continue to evolve after the initial release.
-      </li>
-      <li>
-        The current public-facing direction is a multiband gate and spectral
-        expander focused on band detection, dependency routing, gain mapping,
-        and crossover / FFT spectral processing.
-      </li>
     </ul>
+    <div class="muted" style="margin-top: 14px; font-size: 13px">
+      <strong>v1.3.0</strong> — Interface tooltips and bug fixes.
+    </div>
     <div class="muted" style="margin-top: 14px; font-size: 13px">
       <strong>v1.1.0</strong> — Bug fixes.
     </div>
@@ -322,7 +333,7 @@ favicon: "/support/WeaveGate/img/icon.svg"
 <section class="section">
   <h2>Availability</h2>
   <p class="muted" style="margin: 0; font-size: 13px">
-    WeaveGate version 1.3.0 is available for macOS and Windows. The macOS package
+    WeaveGate version 1.4.0 is available for macOS and Windows. The macOS package
     includes AAX, AU, and VST3 builds. The Windows package is VST3.
   </p>
 </section>
