@@ -62,9 +62,9 @@
   summary: Free dialogue cleanup plug-in for voice and post-production, with separate sibilance and residual processing for more consistent speech.
   icon: /support/dialoguedoctor/img/icon.jpg
   url: /support/dialoguedoctor/
-  latest_order: 10
-  latest_date: "2026-03-11"
-  latest_summary: Updated to v1.5.1. This release may resolve a loading issue in some environments, but that is not fully confirmed yet.
+  latest_order: 12
+  latest_date: "2026-08-28"
+  latest_summary: Machine-learning model integration is in development and is now planned for late September 2026. The current plug-in remains unavailable for download.
 
 - slug: levelrangeeq
   title: Level Range EQ
@@ -154,9 +154,9 @@
   summary: iPad recording-session app that adds timecode markers to PDFs and jumps your DAW back to the marked spot.
   icon: /support/img/studiomate_icon.png
   url: /support/studiomate/
-  latest_order: -40
-  latest_date: "2026-08-25"
-  latest_summary: Version 3.4 adds Finder transfer, editable package sharing, standard-PDF export with embedded edits, and more reliable document management.
+  latest_order: -41
+  latest_date: "2026-08-28"
+  latest_summary: Updated to v3.5. Improves PDF import, sharing, export, page progress, resizable thumbnails, and the Pro Tools MIDI Input Devices setup guide.
 
 - slug: pocketcamviewer
   title: PocketCam Viewer
@@ -177,9 +177,9 @@
   summary: Music theory, ear-training, and composition-practice app for harmony, counterpoint, orchestration, instrumentation, solfege, and jazz study.
   icon: /support/harmonycounterpoint/img/icon.jpeg
   url: /support/harmonycounterpoint/
-  latest_order: -41
-  latest_date: "2026-08-25"
-  latest_summary: Version 2.5 deepens Instrumentation & Orchestration and Jazz Study, adds flexible daily and weekly learning paths, and introduces Work Portfolio.
+  latest_order: -42
+  latest_date: "2026-08-28"
+  latest_summary: Updated to v2.6. Refines counterpoint evaluation for octaves and idiomatic third-species passing dissonances, and avoids unnatural consecutive repetitions in Styles examples.
 
 - slug: scoreshelf
   title: ScoreShelf
