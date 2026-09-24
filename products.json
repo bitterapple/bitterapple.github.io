@@ -1,6 +1,6 @@
 {
-  "schema_version": 33,
-  "generated_at": "2026-08-24T04:42:08Z",
+  "schema_version": 34,
+  "generated_at": "2026-09-24T08:33:17Z",
   "products": {
     "levelrangeeq": {
       "name": "Level Range EQ",
@@ -88,6 +88,14 @@
       "download_url": "https://bitterapple.github.io/support/Propagation/",
       "release_notes_url": "https://bitterapple.github.io/support/Propagation/#release-notes",
       "min_supported_version": "1.5.0",
+      "critical": false
+    },
+    "texturematch": {
+      "name": "TextureMatch",
+      "latest_version": "1.0.0",
+      "download_url": "https://bitterapple.github.io/support/texturematch/",
+      "release_notes_url": "https://bitterapple.github.io/support/texturematch/#release-notes",
+      "min_supported_version": "1.0.0",
       "critical": false
     }
   }

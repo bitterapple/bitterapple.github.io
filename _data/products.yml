@@ -57,14 +57,27 @@
   title: Dialogue Doctor
   type: plugin
   order: 30
-  status_label: Beta
+  status_label: In development
   status_class: progress
   summary: Free dialogue cleanup plug-in for voice and post-production, with separate sibilance and residual processing for more consistent speech.
   icon: /support/dialoguedoctor/img/icon.jpg
   url: /support/dialoguedoctor/
   latest_order: 12
   latest_date: "2026-08-28"
-  latest_summary: Machine-learning model integration is in development and is now planned for late September 2026. The current plug-in remains unavailable for download.
+  latest_summary: Development is continuing and the release has been postponed. Dialogue Doctor has not been cancelled, and we remain committed to releasing it.
+
+- slug: texturematch
+  title: TextureMatch
+  type: plugin
+  order: 35
+  status_label: Live
+  status_class: live
+  summary: Reference-based character matching plug-in that matches more than a static EQ curve.
+  icon: /support/texturematch/img/texturematch.png
+  url: /support/texturematch/
+  latest_order: -43
+  latest_date: "2026-09-24"
+  latest_summary: First release of TextureMatch, with macOS AU/VST3/AAX and Windows VST3 downloads available.
 
 - slug: levelrangeeq
   title: Level Range EQ

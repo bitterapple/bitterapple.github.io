@@ -31,6 +31,7 @@
 - Dialogue Doctor: free dialogue cleanup plug-in for voice and post-production workflows.
 - Spectral Leveler: real-time spectral dynamics plug-in for smoothing harshness without static EQ. Version 1.4.0 includes minor bug fixes.
 - Distance: free psychoacoustic distance plug-in for pushing close sounds farther back without obvious reverb.
+- TextureMatch: reference-based character matching plug-in that compares a recording with DAW input through spectrum, dynamics, transients, envelope, sibilance, and harmonic-texture differences.
 
 ## Support
 
