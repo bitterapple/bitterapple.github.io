@@ -239,3 +239,16 @@
   summary: macOS desktop calendar widget with customizable colors, fonts, weekend styling, and readable month layouts.
   icon: /support/calendarcalendar/img/CalendarCalendar.png
   url: /support/calendarcalendar/
+
+- slug: audiofolderinspector
+  title: Audio Folder Inspector
+  type: app
+  order: 5
+  status_label: Download
+  status_class: live
+  summary: macOS Finder Quick Action for inspecting audio folders, checking loudness and file specifications, auditioning waveforms, and exporting HTML/CSV reports. Requires Python 3 and FFmpeg.
+  icon: /support/audiofolderinspector/img/icon.svg
+  url: /support/audiofolderinspector/
+  latest_order: -44
+  latest_date: "2026-10-27"
+  latest_summary: Audio Folder Inspector v8 is available for Mac. Inspect audio folders from Finder with quality categories, waveform playback, CSV export, and seven report languages.

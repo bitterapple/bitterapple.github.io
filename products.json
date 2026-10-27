@@ -1,6 +1,6 @@
 {
-  "schema_version": 34,
-  "generated_at": "2026-09-24T08:33:17Z",
+  "schema_version": 35,
+  "generated_at": "2026-10-27T02:25:06Z",
   "products": {
     "levelrangeeq": {
       "name": "Level Range EQ",
@@ -96,6 +96,14 @@
       "download_url": "https://bitterapple.github.io/support/texturematch/",
       "release_notes_url": "https://bitterapple.github.io/support/texturematch/#release-notes",
       "min_supported_version": "1.0.0",
+      "critical": false
+    },
+    "audiofolderinspector": {
+      "name": "Audio Folder Inspector",
+      "latest_version": "8",
+      "download_url": "https://bitterapple.github.io/download/audiofolderinspector/macos/",
+      "release_notes_url": "https://bitterapple.github.io/support/audiofolderinspector/#release-notes",
+      "min_supported_version": "8",
       "critical": false
     }
   }

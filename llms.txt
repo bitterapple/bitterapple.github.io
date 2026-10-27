@@ -12,6 +12,8 @@
 
 ## Products
 
+- Audio Folder Inspector: macOS Finder Quick Action for read-only local audio-folder analysis, LUFS/true peak and format checks, quality categories, waveform playback, and HTML/CSV reports. Version 8 supports seven report languages. Requires Python 3 and FFmpeg/ffprobe. Download and setup: https://bitterapple.github.io/support/audiofolderinspector/
+
 - Propagation: free IR-inspired algorithmic reverb that turns captured spaces into editable reverb controls.
 - Level Range EQ: free dynamic EQ-style plug-in for applying different EQ curves to quiet, mid-level, and loud signal ranges. Version 2.4.0 includes minor bug fixes.
 - DSPTrace: beta plug-in analyzer for loading AU/VST processors, sweeping parameters, graphing trace results, and documenting how controls change sound.

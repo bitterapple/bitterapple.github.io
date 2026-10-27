@@ -1,0 +1,80 @@
+---
+layout: support
+title: "Audio Folder Inspector — Audio folder reports for Mac"
+description: "Inspect audio folders from Finder on macOS. Check LUFS, true peak, file specifications and quality flags, audition waveforms, and export HTML/CSV reports."
+favicon: "/support/audiofolderinspector/img/icon.svg"
+---
+<style>
+  .afi-title { display: flex; align-items: center; gap: 14px; }
+  .afi-title img { width: 64px; height: 64px; flex-shrink: 0; }
+  .afi-title h1 { margin: 0; overflow-wrap: anywhere; }
+  .afi-page p + p { margin-top: 12px; }
+  .afi-page .btn { line-height: 1.4; }
+  .afi-page .afi-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .afi-page figure { margin: 18px 0 0; }
+  .afi-page figure img { display: block; width: 100%; height: auto; background: #fff; border: 1px solid var(--border); border-radius: 12px; }
+  .afi-page figcaption { margin-top: 8px; font-size: 13px; color: var(--muted); }
+  .afi-page .card p { margin-bottom: 0; }
+  .afi-page li + li { margin-top: 10px; }
+  .afi-page code { overflow-wrap: anywhere; }
+  .afi-page a:not(.btn) { text-decoration: underline; text-underline-offset: 3px; }
+  .afi-page summary { cursor: pointer; font-weight: 600; }
+  .afi-page details + details { margin-top: 18px; }
+  .afi-page pre { padding: 12px; border-radius: 8px; background: var(--panel); white-space: pre-wrap; }
+</style>
+<div class="afi-page">
+<header class="header">
+  <div class="afi-title"><img src="./img/icon.svg" width="64" height="64" alt="" /><h1>Audio Folder Inspector</h1></div>
+  <p style="margin-top: 14px">Know what’s inside your audio folders.</p>
+  <p class="muted">Select a folder in Finder and turn its audio files into a browsable quality report. Compare specifications, find files that need attention, and listen without opening a DAW.</p>
+  <nav class="nav" aria-label="Product navigation">
+    <a class="btn afi-primary" href="{{ '/download/audiofolderinspector/macos/' | relative_url }}">Download for Mac · v8</a>
+    <a class="btn" href="#setup">Installation &amp; requirements</a>
+    <a class="btn" href="{{ '/' | relative_url }}">← All apps</a>
+  </nav>
+  <p class="muted" style="margin-top: 12px; font-size: 13px">Finder Quick Action · ZIP download · Requires Python 3 and FFmpeg/ffprobe</p>
+</header>
+<section class="section">
+  <h2>A folder of audio, one clear report</h2>
+  <p class="muted">Review file counts, duration, LUFS-I, true peak, formats, sample rates, bit depths, and channel layouts. Folder summaries show both direct files and totals including subfolders.</p>
+  <figure><a href="./img/report-overview.webp" aria-label="Open the report overview at full size"><img src="./img/report-overview.webp" width="1345" height="680" alt="Audio report showing loudness, true peak, format statistics, quality checks, and a folder summary." /></a><figcaption>Cropped from a sample report. Open the image for a closer look.</figcaption></figure>
+</section>
+<section class="section">
+  <h2>Find the files worth checking</h2>
+  <div class="grid">
+    <div class="card"><h3>Meaningful quality categories</h3><p class="muted">OK, Info, Warning, and Error separate useful observations from issues that need attention. Short clips with unavailable LUFS and Dual Mono are informational; “Needs attention” includes warnings and errors.</p></div>
+    <div class="card"><h3>Compare within each folder</h3><p class="muted">Automatic format checks use the most common specification in each file’s immediate folder. Ties and single observations do not establish a standard. Explicit targets can be set in the configuration file.</p></div>
+    <div class="card"><h3>Reports you can keep</h3><p class="muted">Export HTML reports and file/folder CSVs for reviewing measurements, quality reasons, and folder totals. Read BWF/iXML metadata where present.</p></div>
+    <div class="card"><h3>Local, read-only analysis</h3><p class="muted">Audio analysis and playback run on your Mac. Source audio is not modified or uploaded. Reports and cache are stored locally.</p></div>
+  </div>
+</section>
+<section class="section">
+  <h2>Listen where you’re looking</h2>
+  <p class="muted">Search filenames, filter by folder or quality category, and play files beside their waveforms and quality reasons. Click or drag a waveform to seek. Audio loads when played.</p>
+  <figure><a href="./img/waveform-player.webp" aria-label="Open the waveform player screenshot at full size"><img src="./img/waveform-player.webp" width="1345" height="560" loading="lazy" alt="Three waveform players with filenames, playback buttons, and informational LUFS reasons, plus folder and search filters." /></a><figcaption>Waveforms are visual previews. The local playback service stops after inactivity; run the Quick Action again to listen.</figcaption></figure>
+</section>
+<section class="section" id="setup">
+  <h2>Get started on your Mac</h2>
+  <p>Requires macOS with Automator Quick Actions, <strong>Python 3</strong>, and <strong>FFmpeg/ffprobe</strong>. No extra Python packages or virtual environment are needed.</p>
+  <ol>
+    <li><strong>Prepare the dependencies.</strong> If you use Homebrew, install Python 3 and FFmpeg in Terminal:<pre><code>brew install python ffmpeg</code></pre></li>
+    <li><strong><a href="{{ '/download/audiofolderinspector/macos/' | relative_url }}">Download the v8 ZIP</a> and unzip it.</strong> Keep the extracted contents together.</li>
+    <li><strong>Open <code>install.command</code>.</strong> It installs <code>Audio Folder Inspector.workflow</code> in your user Library’s Services folder and backs up any previous version, including the original Japanese-named workflow.</li>
+    <li><strong>In Finder, right-click an audio folder.</strong> Choose Quick Actions → Audio Folder Inspector to generate the report.</li>
+  </ol>
+  <p class="muted">Reports offer English, Japanese, French, German, Spanish, Simplified Chinese, and Korean, with automatic macOS language selection. CSV column identifiers remain English.</p>
+</section>
+<section class="section">
+  <h2>Help &amp; details</h2>
+  <details><summary>The Quick Action is missing, or playback has stopped</summary><p>Try restarting Finder if the newly installed action does not appear. If playback stops after the local service has been idle, run the Quick Action again. After upgrading, generate a new report; existing HTML reports do not update automatically.</p></details>
+  <details><summary>Where are reports and preferences stored?</summary><p>Reports: <code>~/Library/Caches/AudioFolderInspector/Reports/</code></p><p>Preferences: <code>~/Library/Application Support/AudioFolderInspector/config.json</code></p><p>Warnings indicate a threshold or specification difference, rather than proof of damaged audio. Short or gated material may not produce an integrated LUFS value.</p></details>
+  <p style="margin-top: 18px"><a href="mailto:kjdevapphelp@gmail.com?subject=Audio%20Folder%20Inspector%20Support">Contact support</a> · Include the tool version, macOS version, and steps to reproduce.</p>
+</section>
+<section class="section" id="release-notes">
+  <h2>Release notes — v8 · October 27, 2026</h2>
+  <p>The macOS download includes an English-named workflow, English setup messages, and an English README. Reports retain all seven language choices.</p>
+  <p>Full UI localization repair: consistent translations across report explanations, quality reasons, folder totals, filters, and player messages in all seven report languages. Preserves waveform playback, folder statistics, quality checks, and CSV export.</p>
+  <p class="muted">The package documents syntax, WAV analysis, and browser language/filter checks. Finder launch and playback through real Mac audio hardware remain unverified in that validation.</p>
+  <div class="nav"><a class="btn afi-primary" href="{{ '/download/audiofolderinspector/macos/' | relative_url }}">Download for Mac · v8</a></div>
+</section>
+</div>
