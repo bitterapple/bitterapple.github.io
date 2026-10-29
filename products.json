@@ -92,7 +92,7 @@
     },
     "texturematch": {
       "name": "TextureMatch",
-      "latest_version": "1.0.0",
+      "latest_version": "1.2.0",
       "download_url": "https://bitterapple.github.io/support/texturematch/",
       "release_notes_url": "https://bitterapple.github.io/support/texturematch/#release-notes",
       "min_supported_version": "1.0.0",

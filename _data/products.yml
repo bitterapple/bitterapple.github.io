@@ -75,9 +75,9 @@
   summary: Reference-based character matching plug-in that matches more than a static EQ curve.
   icon: /support/texturematch/img/texturematch.png
   url: /support/texturematch/
-  latest_order: -43
-  latest_date: "2026-09-24"
-  latest_summary: First release of TextureMatch, with macOS AU/VST3/AAX and Windows VST3 downloads available.
+  latest_order: -45
+  latest_date: "2026-10-29"
+  latest_summary: TextureMatch 1.2.0 fixes a sidechain bug.
 
 - slug: levelrangeeq
   title: Level Range EQ
