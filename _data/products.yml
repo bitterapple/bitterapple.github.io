@@ -252,3 +252,15 @@
   latest_order: -44
   latest_date: "2026-10-27"
   latest_summary: Audio Folder Inspector v8 is available for Mac. Inspect audio folders from Finder with quality categories, waveform playback, CSV export, and seven report languages.
+
+- slug: padmachine
+  title: PAD Machine
+  type: app
+  order: 15
+  status_label: macOS
+  summary: Customizable macro controller for Mac with trackpad gestures, on-demand trackpad numpad, visual macro editor, and a browser-based 16-pad iPhone or iPad controller.
+  icon: /support/padmachine/img/icon.webp
+  url: /support/padmachine/
+  latest_order: -100
+  latest_date: "2026-11-14"
+  latest_summary: Introducing PAD Machine 0.3.1 for Apple Silicon Macs. Assign gestures and create visual macros for your workflow.
