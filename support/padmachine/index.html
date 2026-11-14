@@ -1,0 +1,158 @@
+---
+layout: support
+title: "PAD Machine — Customizable macro controller for Mac"
+description: "PAD Machine turns trackpad gestures, keyboard and other input devices into Mac macros, adds an on-demand trackpad numpad, and lets your iPhone or iPad control 16 pads over your local network."
+og_title: "PAD Machine — Your trackpad can do more."
+og_description: "Turn everyday input devices into a customizable macro controller for your Mac. No dedicated hardware required."
+---
+
+<style>
+  .pm-page { --pm-purple: #b83df5; --pm-cyan: #15cce9; }
+  .pm-page p { line-height: 1.68; }
+  .pm-page .pm-intro { font-size: 17px; max-width: 700px; margin: 16px 0 0; }
+  .pm-page .pm-eyebrow { text-transform: uppercase; font-size: 11px; font-weight: 700; letter-spacing: .15em; color: var(--muted); margin: 0 0 6px; }
+  .pm-page .pm-title { display: flex; align-items: center; gap: 20px; }
+  .pm-page .pm-title h1 { font-size: clamp(30px, 6vw, 43px); margin: 0; letter-spacing: -.035em; }
+  .pm-page .pm-icon { width: 98px; height: 98px; flex: 0 0 98px; border-radius: 23px; background: url('./img/icon.webp') center/cover, linear-gradient(145deg,#8b28cc,#ff2d79 48%,#ffbb28 75%,#1fd4e7); border: 1px solid var(--border); box-shadow: 0 14px 35px rgba(0,0,0,.22); }
+  .pm-page .pm-tagline { font-size: clamp(20px, 3.2vw, 27px); margin: 16px 0 4px; letter-spacing: -.02em; font-weight: 750; }
+  .pm-page .pm-featureline { color: var(--muted); font-size: 13px; margin: 14px 0 0; }
+  .pm-page .pm-capsules { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .pm-page .pm-capsules span { padding: 6px 11px; border-radius: 999px; border: 1px solid var(--border); background: var(--panel); font-size: 12px; }
+  .pm-page .pm-primary { background: #2f73ff; color: #fff; border-color: #2f73ff; font-weight: 700; }
+  .pm-page .pm-primary:hover { background: #1d61ef; color: #fff; }
+  .pm-page .pm-card h3 { margin-bottom: 5px; }
+  .pm-page .pm-card p { margin: 0; font-size: 14px; color: var(--muted); }
+  .pm-page .pm-shot { margin: 16px 0 0; }
+  .pm-page .pm-shot a { display: block; }
+  .pm-page .pm-shot img { width: 100%; height: auto; display: block; border: 1px solid var(--border); border-radius: 13px; background: #242424; }
+  .pm-page .pm-shot figcaption { margin-top: 8px; color: var(--muted); font-size: 12px; }
+  .pm-page .pm-shot a:hover img { border-color: rgba(47,115,255,.65); }
+  .pm-page .pm-image-missing img { display: none; }
+  .pm-page .pm-image-missing a { display: none; }
+  .pm-page .pm-image-missing figcaption { display: none; }
+  .pm-page .pm-pad { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 11px; padding: 17px; border-radius: 20px; background: #171719; border: 1px solid var(--border); max-width: 310px; margin: 22px auto 0; }
+  .pm-page .pm-pad i { display: block; aspect-ratio: 1.35; border-radius: 11px; background: var(--pad); box-shadow: inset 0 1px rgba(255,255,255,.13); }
+  .pm-page .pm-visualgrid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; align-items: center; }
+  .pm-page .pm-download { border: 1px solid var(--border); border-radius: 14px; padding: 17px; background: var(--panel); }
+  .pm-page .pm-download p { margin: 8px 0 0; }
+  .pm-page .pm-download-ready { display: none; }
+  .pm-page .pm-note { font-size: 13px; color: var(--muted); }
+  .pm-page .pm-download a:not(.btn), .pm-page .pm-support a { text-decoration: underline; text-underline-offset: 3px; }
+  @media (max-width: 700px) {
+    .pm-page .pm-title { align-items: start; gap: 13px; }
+    .pm-page .pm-icon { width: 70px; height: 70px; flex-basis: 70px; border-radius: 17px; }
+    .pm-page .pm-visualgrid { grid-template-columns: 1fr; }
+    .pm-page .pm-pad { width: 100%; max-width: 290px; margin-top: 10px; }
+  }
+</style>
+
+<div class="pm-page">
+  <header class="header">
+    <div class="pm-title">
+      <div class="pm-icon" role="img" aria-label="PAD Machine app icon"></div>
+      <div>
+        <p class="pm-eyebrow">A customizable macro controller for macOS</p>
+        <h1>PAD Machine</h1>
+      </div>
+    </div>
+    <p class="pm-tagline">Your trackpad can do more.</p>
+    <p class="pm-intro">Turn your everyday input devices into a customizable macro controller for your Mac.</p>
+    <p class="muted" style="margin: 10px 0 0">Trigger macros with trackpad gestures, use your trackpad as an on-demand numeric keypad, and control 16 customizable pads from your iPhone or iPad. <strong>No dedicated macro hardware required.</strong></p>
+    <div class="pm-capsules" aria-label="Key features">
+      <span>Trackpad gestures</span><span>Visual macro editor</span><span>Trackpad numpad</span><span>16-pad wireless controller</span>
+    </div>
+    <nav class="nav" aria-label="PAD Machine links">
+      <a class="btn pm-primary" href="#download">Download for Mac</a>
+      <a class="btn" href="#features">Explore features</a>
+      <a class="btn" href="{{ '/' | relative_url }}">← All apps</a>
+    </nav>
+    <p class="pm-featureline">Apple Silicon (M-series Macs) · macOS 13 or later · Direct distribution</p>
+  </header>
+
+  <main>
+    <section class="section" id="features">
+      <div class="pm-visualgrid">
+        <div>
+          <h2>Make your trackpad work for you</h2>
+          <p>Assign your favorite macros to trackpad gestures and taps. Trigger repeated actions without constantly reaching for the keyboard.</p>
+          <p class="muted">Whether you're editing audio, working in creative software, or handling repetitive tasks, PAD Machine helps you build controls around the way you work.</p>
+        </div>
+        <div class="pm-pad" role="img" aria-label="A colorful 4 by 4 grid of sixteen customizable pads">
+          <i style="--pad:#c126f5"></i><i style="--pad:#f42c89"></i><i style="--pad:#f94857"></i><i style="--pad:#ff8a17"></i>
+          <i style="--pad:#7464fc"></i><i style="--pad:#ef56b1"></i><i style="--pad:#fd8a2e"></i><i style="--pad:#ffce0b"></i>
+          <i style="--pad:#28a5f5"></i><i style="--pad:#19d7ed"></i><i style="--pad:#40eb9a"></i><i style="--pad:#aaff2e"></i>
+          <i style="--pad:#00cfe1"></i><i style="--pad:#02d6e5"></i><i style="--pad:#00ddd5"></i><i style="--pad:#00ded3"></i>
+        </div>
+      </div>
+      <figure class="pm-shot" id="pm-input-shot">
+        <a href="./img/input-devices.webp" target="_blank" rel="noopener" aria-label="Open the full input device setup screenshot"><img src="./img/input-devices.webp" alt="PAD Machine's trackpad gesture assignment panel, with a sixteen-pad grid and modifier-key controls." loading="lazy" onerror="this.closest('figure').classList.add('pm-image-missing')" /></a>
+        <figcaption>Assign trackpad gestures and modifiers to your pads. Click the screenshot to enlarge.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <h2>Turn your trackpad into a numpad</h2>
+      <p>Need a numeric keypad but don't want another device on your desk? PAD Machine can turn your trackpad into an on-demand numeric keypad, with an optional translucent on-screen key layout.</p>
+      <p class="muted">Switch between normal trackpad use and numeric input as needed.</p>
+    </section>
+
+    <section class="section">
+      <h2>Your iPhone or iPad becomes a PAD controller</h2>
+      <p>Use an iPhone or iPad as a wireless 16-pad macro controller for your Mac. Connect through your local network, open the controller in a browser, and trigger your assigned macros with a tap.</p>
+      <p class="muted"><strong>No separate iPhone or iPad app is required.</strong> Your Mac runs PAD Machine; your mobile device provides the controls.</p>
+    </section>
+
+    <section class="section">
+      <h2>Build macros your way</h2>
+      <p>Create macros using a visual action editor. Combine keyboard shortcuts, mouse actions, waits, repeat steps, and conditional actions. Arrange actions in the order you want, assign them to one of 16 pads, and choose which Mac application should use them.</p>
+      <p class="muted">From simple shortcuts to multi-step workflows, PAD Machine is designed to be customizable without requiring programming.</p>
+      <figure class="pm-shot" id="pm-macro-shot">
+        <a href="./img/macro-map.webp" target="_blank" rel="noopener" aria-label="Open the full macro editor screenshot"><img src="./img/macro-map.webp" alt="PAD Machine's visual macro map, showing key input, wait, repeat and mouse actions alongside a details editor." loading="lazy" onerror="this.closest('figure').classList.add('pm-image-missing')" /></a>
+        <figcaption>The visual macro map and action details editor. Click to enlarge.</figcaption>
+      </figure>
+      <div class="grid" style="margin-top:16px">
+        <div class="card pm-card"><h3>Simple to start</h3><p>Assign a single keyboard shortcut to a pad or gesture.</p></div>
+        <div class="card pm-card"><h3>Room to grow</h3><p>Connect actions into a repeatable workflow and tailor it to an app.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Made for your workflow</h2>
+      <p>PAD Machine isn't limited to Pro Tools or audio production. It's a flexible macOS utility for people who want more control over their everyday tools, without buying a dedicated hardware controller.</p>
+    </section>
+
+    <section class="section" id="download">
+      <h2>Download PAD Machine</h2>
+      <div class="pm-download">
+        <div class="titleRow" style="justify-content:space-between">
+          <strong>PAD Machine 0.3.1 (build 2)</strong>
+          <span class="badge">macOS · Apple Silicon</span>
+        </div>
+        <p class="pm-note">Requires macOS 13 or later. Direct-distribution DMG for M-series Macs.</p>
+        <p class="pm-download-ready" id="pm-release-link"><a class="btn pm-primary" href="{{ '/download/padmachine/macos/' | relative_url }}">Download PAD Machine 0.3.1 (DMG)</a></p>
+        <p class="pm-note" id="pm-release-pending">The installer download will appear here when the public release asset is published.</p>
+        <p class="pm-note">To install, open the DMG and drag PAD Machine into Applications. Some features require macOS <strong>Accessibility</strong> and <strong>Input Monitoring</strong> permissions.</p>
+      </div>
+    </section>
+
+    <section class="section pm-support">
+      <h2>Support</h2>
+      <p class="muted">Questions, bug reports, and feature requests: <a href="mailto:kjdevapphelp@gmail.com?subject=PAD%20Machine%20Support">kjdevapphelp@gmail.com</a></p>
+      <p class="pm-note">For bug reports, please include the PAD Machine version, macOS version, and the steps to reproduce the issue.</p>
+    </section>
+    {% include footer.html %}
+  </main>
+</div>
+<script>
+(function () {
+  var releaseApi = 'https://api.github.com/repos/bitterapple/bitterapple.github.io/releases/tags/PADMachine_0.3.1-2';
+  var filename = 'PAD-Machine-0.3.1-2-arm64.dmg';
+  fetch(releaseApi, { headers: { 'Accept': 'application/vnd.github+json' } })
+    .then(function (r) { if (!r.ok) throw Error('Release not published'); return r.json(); })
+    .then(function (release) {
+      if (!Array.isArray(release.assets) || !release.assets.some(function (asset) { return asset.name === filename && asset.state === 'uploaded'; })) return;
+      document.getElementById('pm-release-link').style.display = 'block';
+      document.getElementById('pm-release-pending').style.display = 'none';
+    }).catch(function () { /* Keep the non-broken pending state. */ });
+}());
+</script>
