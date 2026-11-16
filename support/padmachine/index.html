@@ -64,6 +64,7 @@ og_description: "Turn everyday input devices into a customizable macro controlle
     <nav class="nav" aria-label="PAD Machine links">
       <a class="btn pm-primary" href="#download">Download for Mac</a>
       <a class="btn" href="#features">Explore features</a>
+      <a class="btn" href="#release-notes">Release notes</a>
       <a class="btn" href="{{ '/' | relative_url }}">← All apps</a>
     </nav>
     <p class="pm-featureline">Apple Silicon (M-series Macs) · macOS 13 or later · Direct distribution</p>
@@ -125,14 +126,28 @@ og_description: "Turn everyday input devices into a customizable macro controlle
       <h2>Download PAD Machine</h2>
       <div class="pm-download">
         <div class="titleRow" style="justify-content:space-between">
-          <strong>PAD Machine 0.3.1 (build 2)</strong>
+          <strong id="pm-download-version">PAD Machine 0.3.1 (build 2)</strong>
           <span class="badge">macOS · Apple Silicon</span>
         </div>
         <p class="pm-note">Requires macOS 13 or later. Direct-distribution DMG for M-series Macs.</p>
-        <p class="pm-download-ready" id="pm-release-link"><a class="btn pm-primary" href="{{ '/download/padmachine/macos/' | relative_url }}">Download PAD Machine 0.3.1 (DMG)</a></p>
+        <p class="pm-download-ready" id="pm-release-link"><a class="btn pm-primary" id="pm-download-button" href="{{ '/download/padmachine/macos/' | relative_url }}">Download PAD Machine 0.3.1 (DMG)</a></p>
         <p class="pm-note" id="pm-release-pending">The installer download will appear here when the public release asset is published.</p>
         <p class="pm-note">To install, open the DMG and drag PAD Machine into Applications. Some features require macOS <strong>Accessibility</strong> and <strong>Input Monitoring</strong> permissions.</p>
       </div>
+    </section>
+
+    <section class="section" id="release-notes">
+      <h2>Release notes</h2>
+      <h3>PAD Machine 0.4.0 (build 1)</h3>
+      <p><strong>Smarter keyboard command execution.</strong> This update refines how PAD Machine sends shortcuts in multi-step macros.</p>
+      <ul>
+        <li><strong>Optimized key-command delivery:</strong> Improved the timing of key presses and releases for more consistent command sequences.</li>
+        <li><strong>Better handling of repeated modifier-key shortcuts:</strong> Consecutive commands using the same Command, Shift, Option, or Control modifiers are sent as distinct keystrokes.</li>
+        <li><strong>Smarter command spacing:</strong> Only the minimum additional interval is applied when needed. Wait steps you already configured in your macros count toward that interval, avoiding redundant delays.</li>
+      </ul>
+      <p class="pm-note">Your existing PAD assignments, macros, and custom wait values are preserved. The update improves keyboard-event delivery; it does not verify that the target app has completed an edit.</p>
+      <h3>PAD Machine 0.3.1 (build 2)</h3>
+      <p class="pm-note">Initial public release with customizable trackpad gestures, the visual macro editor, an on-demand numpad, and a browser-based 16-pad iPhone/iPad controller.</p>
     </section>
 
     <section class="section pm-support">
@@ -144,14 +159,38 @@ og_description: "Turn everyday input devices into a customizable macro controlle
 </div>
 <script>
 (function () {
-  var releaseApi = 'https://api.github.com/repos/bitterapple/bitterapple.github.io/releases/tags/PADMachine_0.3.1-2';
-  var filename = 'PAD-Machine-0.3.1-2-arm64.dmg';
-  fetch(releaseApi, { headers: { 'Accept': 'application/vnd.github+json' } })
-    .then(function (r) { if (!r.ok) throw Error('Release not published'); return r.json(); })
-    .then(function (release) {
-      if (!Array.isArray(release.assets) || !release.assets.some(function (asset) { return asset.name === filename && asset.state === 'uploaded'; })) return;
-      document.getElementById('pm-release-link').style.display = 'block';
-      document.getElementById('pm-release-pending').style.display = 'none';
-    }).catch(function () { /* Keep the non-broken pending state. */ });
+  // Prefer the newest published DMG, but keep the previous public
+  // release available until the new GitHub asset is actually uploaded.
+  var releases = [
+    { tag: 'PADMachine_0.4.0-1', filename: 'PAD-Machine-0.4.0-1-arm64.dmg', version: '0.4.0 (build 1)', label: 'Download PAD Machine 0.4.0 (DMG)' },
+    { tag: 'PADMachine_0.3.1-2', filename: 'PAD-Machine-0.3.1-2-arm64.dmg', version: '0.3.1 (build 2)', label: 'Download PAD Machine 0.3.1 (DMG)' }
+  ];
+
+  function checkRelease(index) {
+    if (index >= releases.length) return;
+    var candidate = releases[index];
+    var api = 'https://api.github.com/repos/bitterapple/bitterapple.github.io/releases/tags/' + encodeURIComponent(candidate.tag);
+    fetch(api, { headers: { 'Accept': 'application/vnd.github+json' } })
+      .then(function (response) {
+        if (!response.ok) throw Error('Release not published');
+        return response.json();
+      })
+      .then(function (release) {
+        if (release.draft || !Array.isArray(release.assets)) throw Error('Release has no public installer');
+        var asset = release.assets.find(function (item) {
+          return item.name === candidate.filename && item.state === 'uploaded' && item.browser_download_url;
+        });
+        if (!asset) throw Error('Public installer is not uploaded');
+        var link = document.getElementById('pm-download-button');
+        link.href = asset.browser_download_url;
+        link.textContent = candidate.label;
+        document.getElementById('pm-download-version').textContent = 'PAD Machine ' + candidate.version;
+        document.getElementById('pm-release-link').style.display = 'block';
+        document.getElementById('pm-release-pending').style.display = 'none';
+      })
+      .catch(function () { checkRelease(index + 1); });
+  }
+
+  checkRelease(0);
 }());
 </script>
