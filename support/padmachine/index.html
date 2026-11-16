@@ -35,7 +35,7 @@ og_description: "Turn everyday input devices into a customizable macro controlle
   .pm-page .pm-visualgrid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; align-items: center; }
   .pm-page .pm-download { border: 1px solid var(--border); border-radius: 14px; padding: 17px; background: var(--panel); }
   .pm-page .pm-download p { margin: 8px 0 0; }
-  .pm-page .pm-download-ready { display: none; }
+  .pm-page .pm-download-ready { display: block; }
   .pm-page .pm-note { font-size: 13px; color: var(--muted); }
   .pm-page .pm-download a:not(.btn), .pm-page .pm-support a { text-decoration: underline; text-underline-offset: 3px; }
   @media (max-width: 700px) {
@@ -126,12 +126,11 @@ og_description: "Turn everyday input devices into a customizable macro controlle
       <h2>Download PAD Machine</h2>
       <div class="pm-download">
         <div class="titleRow" style="justify-content:space-between">
-          <strong id="pm-download-version">PAD Machine 0.3.1 (build 2)</strong>
+          <strong id="pm-download-version">PAD Machine 0.4.0 (build 1)</strong>
           <span class="badge">macOS · Apple Silicon</span>
         </div>
         <p class="pm-note">Requires macOS 13 or later. Direct-distribution DMG for M-series Macs.</p>
-        <p class="pm-download-ready" id="pm-release-link"><a class="btn pm-primary" id="pm-download-button" href="{{ '/download/padmachine/macos/' | relative_url }}">Download PAD Machine 0.3.1 (DMG)</a></p>
-        <p class="pm-note" id="pm-release-pending">The installer download will appear here when the public release asset is published.</p>
+        <p class="pm-download-ready" id="pm-release-link"><a class="btn pm-primary" id="pm-download-button" href="{{ '/download/padmachine/macos/' | relative_url }}">Download PAD Machine 0.4.0 (DMG)</a></p>
         <p class="pm-note">To install, open the DMG and drag PAD Machine into Applications. Some features require macOS <strong>Accessibility</strong> and <strong>Input Monitoring</strong> permissions.</p>
       </div>
     </section>
@@ -157,40 +156,3 @@ og_description: "Turn everyday input devices into a customizable macro controlle
     </section>
   </main>
 </div>
-<script>
-(function () {
-  // Prefer the newest published DMG, but keep the previous public
-  // release available until the new GitHub asset is actually uploaded.
-  var releases = [
-    { tag: 'PADMachine_0.4.0-1', filename: 'PAD-Machine-0.4.0-1-arm64.dmg', version: '0.4.0 (build 1)', label: 'Download PAD Machine 0.4.0 (DMG)' },
-    { tag: 'PADMachine_0.3.1-2', filename: 'PAD-Machine-0.3.1-2-arm64.dmg', version: '0.3.1 (build 2)', label: 'Download PAD Machine 0.3.1 (DMG)' }
-  ];
-
-  function checkRelease(index) {
-    if (index >= releases.length) return;
-    var candidate = releases[index];
-    var api = 'https://api.github.com/repos/bitterapple/bitterapple.github.io/releases/tags/' + encodeURIComponent(candidate.tag);
-    fetch(api, { headers: { 'Accept': 'application/vnd.github+json' } })
-      .then(function (response) {
-        if (!response.ok) throw Error('Release not published');
-        return response.json();
-      })
-      .then(function (release) {
-        if (release.draft || !Array.isArray(release.assets)) throw Error('Release has no public installer');
-        var asset = release.assets.find(function (item) {
-          return item.name === candidate.filename && item.state === 'uploaded' && item.browser_download_url;
-        });
-        if (!asset) throw Error('Public installer is not uploaded');
-        var link = document.getElementById('pm-download-button');
-        link.href = asset.browser_download_url;
-        link.textContent = candidate.label;
-        document.getElementById('pm-download-version').textContent = 'PAD Machine ' + candidate.version;
-        document.getElementById('pm-release-link').style.display = 'block';
-        document.getElementById('pm-release-pending').style.display = 'none';
-      })
-      .catch(function () { checkRelease(index + 1); });
-  }
-
-  checkRelease(0);
-}());
-</script>
