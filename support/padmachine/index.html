@@ -126,20 +126,26 @@ og_description: "Turn everyday input devices into a customizable macro controlle
       <h2>Download PAD Machine</h2>
       <div class="pm-download">
         <div class="titleRow" style="justify-content:space-between">
-          <strong id="pm-download-version">PAD Machine 0.4.0 (build 1)</strong>
+          <strong id="pm-download-version">PAD Machine 0.5.0 (build 1)</strong>
           <span class="badge">macOS · Apple Silicon</span>
         </div>
         <p class="pm-note">Requires macOS 13 or later. Direct-distribution DMG for M-series Macs.</p>
-        <p class="pm-download-ready" id="pm-release-link"><a class="btn pm-primary" id="pm-download-button" href="{{ '/download/padmachine/macos/' | relative_url }}">Download PAD Machine 0.4.0 (DMG)</a></p>
+        <p class="pm-download-ready" id="pm-release-link"><a class="btn pm-primary" id="pm-download-button" href="{{ '/download/padmachine/macos/' | relative_url }}">Download PAD Machine 0.5.0 (DMG)</a></p>
         <p class="pm-note">To install, open the DMG and drag PAD Machine into Applications. Some features require macOS <strong>Accessibility</strong> and <strong>Input Monitoring</strong> permissions.</p>
       </div>
     </section>
 
     <section class="section" id="release-notes">
       <h2>Release notes</h2>
-      <!-- padmachine-v05-preview-start -->
-      <p class="pm-note"><strong>PAD Machine 0.5.0 is in preparation.</strong> The current download remains the verified v0.4.0 build until the v0.5.0 DMG has passed signing, notarization and publication checks.</p>
-      <!-- padmachine-v05-preview-end -->
+      <h3>PAD Machine 0.5.0 (build 1)</h3>
+      <p><strong>Editing and input reliability.</strong> This release refines the 16-pad workspace and macro editor.</p>
+      <ul>
+        <li><strong>Copy and paste:</strong> More predictable PAD and macro module copy/paste, with clearer focus and selection behavior.</li>
+        <li><strong>Input auto-save:</strong> Editing state is shared across PADs, tabs and app banks, with incomplete input edits kept for correction.</li>
+        <li><strong>Duplicate inputs:</strong> More useful indicators for shared gestures and different registration conditions.</li>
+        <li><strong>PAD names:</strong> Copying a default-named PAD uses the destination slot number; custom names remain unchanged.</li>
+      </ul>
+      <p class="pm-note">Existing assignments and macros remain in place when updating. Permission settings may need review after changing the installed app.</p>
       <h3>PAD Machine 0.4.0 (build 1)</h3>
       <p><strong>Smarter keyboard command execution.</strong> This update refines how PAD Machine sends shortcuts in multi-step macros.</p>
       <ul>
