@@ -126,17 +126,26 @@ og_description: "Turn everyday input devices into a customizable macro controlle
       <h2>Download PAD Machine</h2>
       <div class="pm-download">
         <div class="titleRow" style="justify-content:space-between">
-          <strong id="pm-download-version">PAD Machine 0.5.0 (build 1)</strong>
+          <strong id="pm-download-version">PAD Machine 0.5.2 (build 1)</strong>
           <span class="badge">macOS · Apple Silicon</span>
         </div>
         <p class="pm-note">Requires macOS 13 or later. Direct-distribution DMG for M-series Macs.</p>
-        <p class="pm-download-ready" id="pm-release-link"><a class="btn pm-primary" id="pm-download-button" href="{{ '/download/padmachine/macos/' | relative_url }}">Download PAD Machine 0.5.0 (DMG)</a></p>
+        <p class="pm-download-ready" id="pm-release-link"><a class="btn pm-primary" id="pm-download-button" href="{{ '/download/padmachine/macos/' | relative_url }}">Download PAD Machine 0.5.2 (DMG)</a></p>
         <p class="pm-note">To install, open the DMG and drag PAD Machine into Applications. Some features require macOS <strong>Accessibility</strong> and <strong>Input Monitoring</strong> permissions.</p>
       </div>
     </section>
 
     <section class="section" id="release-notes">
       <h2>Release notes</h2>
+      <h3>PAD Machine 0.5.2 (build 1)</h3>
+      <p><strong>Touch Monitor.</strong> See trackpad contacts in a floating, click-through display without number-pad keys.</p>
+      <ul>
+        <li><strong>Latched monitor:</strong> Optionally toggle Touch Monitor with Fn + Caps Lock, or control it from Settings.</li>
+        <li><strong>Macro feedback:</strong> When a trackpad PAD macro is accepted, its name appears briefly inside the monitor.</li>
+        <li><strong>Number pad override:</strong> While Touch Monitor is latched, hold either Fn or Caps Lock to use the number pad; release to return to the monitor.</li>
+        <li><strong>Launch at Login:</strong> Clearer status and last-check feedback.</li>
+      </ul>
+      <p class="pm-note">Existing PAD assignments and macros are preserved. Macro acceptance does not confirm that the target app completed an action.</p>
       <h3>PAD Machine 0.5.0 (build 1)</h3>
       <p><strong>Editing and input reliability.</strong> This release refines the 16-pad workspace and macro editor.</p>
       <ul>
