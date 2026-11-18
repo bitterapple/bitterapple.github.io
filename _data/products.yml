@@ -262,5 +262,5 @@
   icon: /support/padmachine/img/icon.webp
   url: /support/padmachine/
   latest_order: -100
-  latest_date: "2026-11-16"
-  latest_summary: PAD Machine 0.4.0 improves keyboard command delivery, especially consecutive shortcuts using the same modifier keys, while avoiding redundant delays and preserving existing macro wait settings.
+  latest_date: "2026-11-18"
+  latest_summary: PAD Machine 0.8.0 improves Fn/Caps Lock number-pad and Touch Monitor visibility, app scope, adjustable opacity, and safe live previews while the settings window is active.
