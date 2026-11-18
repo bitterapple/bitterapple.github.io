@@ -1,6 +1,6 @@
 {
   "schema_version": 35,
-  "generated_at": "2026-10-27T02:25:06Z",
+  "generated_at": "2026-11-18T05:59:12Z",
   "products": {
     "levelrangeeq": {
       "name": "Level Range EQ",
@@ -104,6 +104,14 @@
       "download_url": "https://bitterapple.github.io/download/audiofolderinspector/macos/",
       "release_notes_url": "https://bitterapple.github.io/support/audiofolderinspector/#release-notes",
       "min_supported_version": "8",
+      "critical": false
+    },
+    "padmachine": {
+      "name": "PAD Machine",
+      "latest_version": "0.6.1",
+      "download_url": "https://bitterapple.github.io/download/padmachine/macos/",
+      "release_notes_url": "https://bitterapple.github.io/support/padmachine/#release-notes",
+      "min_supported_version": "0.6.1",
       "critical": false
     }
   }
