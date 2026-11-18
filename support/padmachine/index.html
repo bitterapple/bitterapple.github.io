@@ -126,17 +126,25 @@ og_description: "Turn everyday input devices into a customizable macro controlle
       <h2>Download PAD Machine</h2>
       <div class="pm-download">
         <div class="titleRow" style="justify-content:space-between">
-          <strong id="pm-download-version">PAD Machine 0.5.2 (build 1)</strong>
+          <strong id="pm-download-version">PAD Machine 0.6.0 (build 1)</strong>
           <span class="badge">macOS · Apple Silicon</span>
         </div>
         <p class="pm-note">Requires macOS 13 or later. Direct-distribution DMG for M-series Macs.</p>
-        <p class="pm-download-ready" id="pm-release-link"><a class="btn pm-primary" id="pm-download-button" href="{{ '/download/padmachine/macos/' | relative_url }}">Download PAD Machine 0.5.2 (DMG)</a></p>
+        <p class="pm-download-ready" id="pm-release-link"><a class="btn pm-primary" id="pm-download-button" href="{{ '/download/padmachine/macos/' | relative_url }}">Download PAD Machine 0.6.0 (DMG)</a></p>
         <p class="pm-note">To install, open the DMG and drag PAD Machine into Applications. Some features require macOS <strong>Accessibility</strong> and <strong>Input Monitoring</strong> permissions.</p>
       </div>
     </section>
 
     <section class="section" id="release-notes">
       <h2>Release notes</h2>
+      <h3>PAD Machine 0.6.0 (build 1)</h3>
+      <p><strong>Touch Monitor 0.6.</strong> Subtle guide regions follow the active application's enabled PAD macros.</p>
+      <ul>
+        <li><strong>Context-aware regions:</strong> Only regions with enabled assignments and nonempty macros are shown.</li>
+        <li><strong>Responsiveness:</strong> Passive monitor painting is limited to 15Hz, with bounded presentation updates.</li>
+        <li><strong>Keypad:</strong> Fn and Caps Lock temporarily switch to the number pad.</li>
+      </ul>
+      <p class="pm-note">The visual guide never authorizes input or macro execution; stored settings are preserved.</p>
       <h3>PAD Machine 0.5.2 (build 1)</h3>
       <p><strong>Touch Monitor.</strong> See trackpad contacts in a floating, click-through display without number-pad keys.</p>
       <ul>
