@@ -126,17 +126,25 @@ og_description: "Turn everyday input devices into a customizable macro controlle
       <h2>Download PAD Machine</h2>
       <div class="pm-download">
         <div class="titleRow" style="justify-content:space-between">
-          <strong id="pm-download-version">PAD Machine 0.6.0 (build 1)</strong>
+          <strong id="pm-download-version">PAD Machine 0.6.1 (build 1)</strong>
           <span class="badge">macOS · Apple Silicon</span>
         </div>
         <p class="pm-note">Requires macOS 13 or later. Direct-distribution DMG for M-series Macs.</p>
-        <p class="pm-download-ready" id="pm-release-link"><a class="btn pm-primary" id="pm-download-button" href="{{ '/download/padmachine/macos/' | relative_url }}">Download PAD Machine 0.6.0 (DMG)</a></p>
+        <p class="pm-download-ready" id="pm-release-link"><a class="btn pm-primary" id="pm-download-button" href="{{ '/download/padmachine/macos/' | relative_url }}">Download PAD Machine 0.6.1 (DMG)</a></p>
         <p class="pm-note">To install, open the DMG and drag PAD Machine into Applications. Some features require macOS <strong>Accessibility</strong> and <strong>Input Monitoring</strong> permissions.</p>
       </div>
     </section>
 
     <section class="section" id="release-notes">
       <h2>Release notes</h2>
+      <h3>PAD Machine 0.6.1 (build 1)</h3>
+      <p><strong>Keyboard input and editing fixes.</strong> Single keys can be assigned to PAD macros without requiring a modifier.</p>
+      <ul>
+        <li><strong>Key registration:</strong> An unmodified key or Shift+key can be saved directly, with its saved binding displayed immediately.</li>
+        <li><strong>Cancel and navigation:</strong> Unfinished input registration can be cancelled without blocking PAD or tab navigation.</li>
+        <li><strong>Macro management:</strong> Delete an assigned macro or detach it while protecting other PADs and their assignments.</li>
+      </ul>
+      <p class="pm-note">Existing PAD settings are preserved. Native key replacement requires permission and an enabled, eligible macro.</p>
       <h3>PAD Machine 0.6.0 (build 1)</h3>
       <p><strong>Touch Monitor 0.6.</strong> Subtle guide regions follow the active application's enabled PAD macros.</p>
       <ul>
