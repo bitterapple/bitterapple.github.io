@@ -262,5 +262,5 @@
   icon: /support/padmachine/img/icon.webp
   url: /support/padmachine/
   latest_order: -100
-  latest_date: "2026-11-18"
-  latest_summary: PAD Machine 0.8.0 improves Fn/Caps Lock number-pad and Touch Monitor visibility, app scope, adjustable opacity, and safe live previews while the settings window is active.
+  latest_date: "2026-11-19"
+  latest_summary: PAD Machine 0.9.0 adds independent trackpad edge controls, menu-bar emergency stop, macro history and reduced idle overlay work.

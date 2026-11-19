@@ -126,27 +126,26 @@ og_description: "Turn everyday input devices into a customizable macro controlle
       <h2>Download PAD Machine</h2>
       <div class="pm-download">
         <div class="titleRow" style="justify-content:space-between">
-          <strong id="pm-download-version">PAD Machine 0.8.0 (build 1)</strong>
+          <strong id="pm-download-version">PAD Machine 0.9.0 (build 1)</strong>
           <span class="badge">macOS · Apple Silicon</span>
         </div>
         <p class="pm-note">Requires macOS 13 or later. Direct-distribution DMG for M-series Macs.</p>
-        <p class="pm-download-ready" id="pm-release-link"><a class="btn pm-primary" id="pm-download-button" href="{{ '/download/padmachine/macos/' | relative_url }}">Download PAD Machine 0.8.0 (DMG)</a></p>
+        <p class="pm-download-ready" id="pm-release-link"><a class="btn pm-primary" id="pm-download-button" href="{{ '/download/padmachine/macos/' | relative_url }}">Download PAD Machine 0.9.0 (DMG)</a></p>
         <p class="pm-note">To install, open the DMG and drag PAD Machine into Applications. Some features require macOS <strong>Accessibility</strong> and <strong>Input Monitoring</strong> permissions.</p>
       </div>
     </section>
 
     <section class="section" id="release-notes">
       <h2>Release notes</h2>
-      <h3>PAD Machine 0.8.0 (build 1)</h3>
-      <p><strong>More reliable trackpad projection.</strong> PAD Machine 0.8.0 unifies the number pad and Touch Monitor, and lets you preview either overlay right in the settings window.</p>
+      <h3>PAD Machine 0.9.0 (build 1)</h3>
+      <p><strong>Safer macros and adjustable trackpad edges.</strong> PAD Machine 0.9.0 adds independent trackpad edge controls, a menu-bar Emergency Stop, and macro execution history.</p>
       <ul>
-        <li><strong>Activation:</strong> Enable Fn and Caps Lock independently. Fn + Caps Lock toggles Touch Monitor; the combination never triggers a number-pad key.</li>
-        <li><strong>Caps Lock:</strong> Choose between hold and on/off latch behavior without changing Fn.</li>
-        <li><strong>App scope:</strong> Both overlays follow the same allowed-app rules, with a display-only exception when PAD Machine itself is frontmost.</li>
-        <li><strong>Overlay appearance:</strong> Adjust opacity while viewing the overlay. At 100%, its background is fully opaque.</li>
-        <li><strong>Input safety:</strong> The settings preview does not send keys to PAD Machine.</li>
+        <li><strong>Trackpad:</strong> Adjust top, bottom, left and right independently from 4% to 25%, with sliders or by dragging the diagram. Top and bottom own the corners.</li>
+        <li><strong>Emergency Stop:</strong> Block new macros and request cancellation of active macros. On-screen PAD and iPad reception remain stopped until restarted manually. Previously sent operations cannot be undone.</li>
+        <li><strong>Idle performance:</strong> Avoid unnecessary overlay updates without reducing touch sampling.</li>
+        <li><strong>Execution history:</strong> Display the last 80 PAD macro dispatches, their input source, target app and status. Sent keys do not verify DAW edit success.</li>
       </ul>
-      <p class="pm-note">Saved PAD assignments, macros and application settings are preserved.</p>
+      <p class="pm-note">Existing PAD assignments, macros and app settings are preserved, including support for older shared edge widths.</p>
     </section>
 
     <section class="section pm-support">
