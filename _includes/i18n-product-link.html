@@ -1,0 +1,5 @@
+{%- assign m = site.data.i18n_support.products[include.entry.slug] -%}
+{%- assign url = locale_prefix | append: include.entry.url -%}
+{%- if include.release -%}{%- if locale != 'en' or m.release -%}
+  {%- assign url = url | append: '#release-notes' -%}
+{%- endif -%}{%- endif -%}{{- url | relative_url -}}

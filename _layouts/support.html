@@ -2,6 +2,8 @@
 layout: default
 ---
 <div class="container">
+{%- capture i18n_suffix -%}{%- include i18n-route.html -%}{%- endcapture -%}{%- assign i18n_suffix = i18n_suffix | strip -%}
+{% unless i18n_suffix == empty %}{% include language-switch.html %}{% endunless %}
 {{ content }}
 {% include footer.html %}
 </div>

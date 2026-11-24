@@ -1,0 +1,17 @@
+{% assign locale = page.lang | default: 'en' %}
+{% assign t = site.data.i18n.locales[locale] %}
+{% assign p = site.data.i18n_support.privacy[locale] %}
+{% assign prefix = '' %}{% unless locale == 'en' %}{% assign prefix = locale | prepend: '/' %}{% endunless %}
+<header class="header">
+  <h1>{{ t.privacy | escape }}</h1>
+  <p class="muted">{{ p.lastUpdated | escape }}: 2026-01-06</p>
+  <div class="nav"><a class="btn" href="{{ prefix | append: '/' | relative_url }}">← {{ t.home | escape }}</a><a class="btn" href="mailto:kjdevapphelp@gmail.com?subject=Privacy%20Question">{{ t.contact | escape }}</a></div>
+</header>
+<section class="section"><h2>{{ p.summary | escape }}</h2><p>{{ p.summaryText | escape }}</p><ul class="muted"><li>{{ p.analytics | escape }}</li><li>{{ p.apple | escape }}</li><li>{{ p.feedback | escape }}</li></ul></section>
+<section class="section"><h2>{{ p.collect | escape }}</h2><h3>{{ p.emailTitle | escape }}</h3><p class="muted">{{ p.emailBody | escape }}</p><h3>{{ p.feedbackTitle | escape }}</h3><p class="muted">{{ p.feedbackBody | escape }}</p><h3>{{ p.icloudTitle | escape }}</h3><p class="muted">{{ p.icloudBody | escape }}</p><p class="muted">{{ p.permissions | escape }}</p></section>
+<section class="section"><h2>{{ p.use | escape }}</h2><ul class="muted"><li>{{ p.useFeatures | escape }}</li><li>{{ p.useSupport | escape }}</li><li>{{ p.useImprove | escape }}</li></ul></section>
+<section class="section"><h2>{{ p.sharing | escape }}</h2><p class="muted">{{ p.sharingBody | escape }}</p></section>
+<section class="section"><h2>{{ p.retention | escape }}</h2><p class="muted">{{ p.retentionBody | escape }}</p></section>
+<section class="section"><h2>{{ p.choices | escape }}</h2><ul class="muted"><li>{{ p.choiceFeedback | escape }}</li><li>{{ p.choiceIcloud | escape }}</li><li>{{ p.choicePermissions | escape }}</li></ul></section>
+<section class="section"><h2>{{ p.changes | escape }}</h2><p class="muted">{{ p.changesBody | escape }}</p></section>
+<section class="section"><h2>{{ t.contact | escape }}</h2><p class="muted">{{ p.questions | escape }} <a href="mailto:kjdevapphelp@gmail.com?subject=Privacy%20Question">kjdevapphelp@gmail.com</a></p></section>

@@ -1,3 +1,4 @@
+{%- capture i18n_suffix -%}{%- include i18n-route.html -%}{%- endcapture -%}{%- assign i18n_suffix = i18n_suffix | strip -%}
 <!doctype html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
   <head>
@@ -6,6 +7,16 @@
 
     {% assign meta_title = page.meta_title | default: page.title | default: site.title %}
     {% assign meta_description = page.description | default: site.description %}
+    {% if page.i18n_key == 'product' %}
+      {% assign item = site.data.products | where: 'slug', page.product_slug | first %}
+      {% assign locale_data = site.data.i18n.locales[page.lang] %}
+      {% assign snapshot = site.data.i18n.source[page.product_slug] %}
+      {% assign summary_translation = locale_data.products[page.product_slug] %}
+      {% assign meta_description = item.summary %}
+      {% if snapshot.summary == item.summary and summary_translation %}{% assign meta_description = summary_translation %}{% endif %}
+    {% elsif page.i18n_key == 'privacy' %}
+      {% assign meta_description = site.data.i18n_support.privacy[page.lang].description %}
+    {% endif %}
     <title>{{ meta_title | escape }}</title>
     <meta name="description" content="{{ meta_description | strip_newlines | escape }}" />
     {% if page.noindex %}
@@ -20,20 +31,24 @@
     {% endif %}
 
     {% assign canonical_target = page.redirect_to | default: page.url %}
+    {% unless i18n_suffix == empty %}
+      {% assign canonical_lang = page.lang | default: 'en' %}
+      {% assign canonical_locale = site.data.i18n.languages | where: 'code', canonical_lang | first %}
+      {% assign canonical_target = canonical_locale.prefix | append: i18n_suffix %}
+    {% endunless %}
     {% if canonical_target %}
     <link rel="canonical" href="{{ canonical_target | absolute_url }}" />
     {% endif %}
 
-    {% if page.i18n_key %}
-    {% assign suffix = '/' %}{% if page.i18n_key == 'news' %}{% assign suffix = '/whats-new/' %}{% endif %}
+    {% unless i18n_suffix == empty %}
     {% for language in site.data.i18n.languages %}
-    <link rel="alternate" hreflang="{{ language.code }}" href="{{ language.prefix | append: suffix | absolute_url }}" />
+    <link rel="alternate" hreflang="{{ language.code }}" href="{{ language.prefix | append: i18n_suffix | absolute_url }}" />
     {% endfor %}
-    <link rel="alternate" hreflang="x-default" href="{{ suffix | absolute_url }}" />
-    <meta property="og:url" content="{{ page.url | absolute_url }}" />
+    <link rel="alternate" hreflang="x-default" href="{{ i18n_suffix | absolute_url }}" />
+    <meta property="og:url" content="{{ canonical_target | absolute_url }}" />
     <link rel="stylesheet" href="{{ '/i18n.css' | relative_url }}" />
     <script defer src="{{ '/i18n.js' | relative_url }}" data-site-root="{{ '/' | relative_url }}"></script>
-    {% endif %}
+    {% endunless %}
 
     {% if page.redirect_to %}
     <meta http-equiv="refresh" content="0; url={{ page.redirect_to | relative_url }}" />

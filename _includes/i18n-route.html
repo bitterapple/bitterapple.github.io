@@ -1,0 +1,13 @@
+{%- assign i18n_suffix = page.i18n_path -%}
+{%- if i18n_suffix == nil or i18n_suffix == empty -%}
+  {%- assign current_url = page.url | replace: '/index.html', '/' -%}
+  {%- if page.i18n_key == 'home' -%}{%- assign i18n_suffix = '/' -%}
+  {%- elsif page.i18n_key == 'news' -%}{%- assign i18n_suffix = '/whats-new/' -%}
+  {%- elsif current_url == '/support/privacy/' -%}{%- assign i18n_suffix = '/support/privacy/' -%}
+  {%- else -%}
+    {%- for pair in site.data.i18n_support.products -%}
+      {%- if pair[1].path == current_url -%}{%- assign i18n_suffix = pair[1].path -%}{%- break -%}{%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endif -%}
+{{- i18n_suffix -}}

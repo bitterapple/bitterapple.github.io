@@ -14,28 +14,30 @@ layout: default
 
 <div class="container">
   <div class="card" style="max-width: 640px; margin: 64px auto 0">
-    <h1 style="margin: 0 0 10px; font-size: 28px">Starting download...</h1>
+    <h1 style="margin: 0 0 10px; font-size: 28px"><span data-download-text="starting">Starting download...</span></h1>
     <p class="muted" style="margin: 0; font-size: 14px">
       {% if download_name %}
-        Preparing <code>{{ download_name }}</code>.
+        <span data-download-text="preparingNamed">Preparing:</span> <code>{{ download_name }}</code>
       {% else %}
-        Preparing your download.
+        <span data-download-text="preparing">Preparing your download.</span>
       {% endif %}
-      If nothing happens, <a href="{{ download_target }}">click here</a>.
+      <span data-download-text="nothing">If nothing happens,</span> <a href="{{ download_target }}" data-download-text="click">click here</a>.
     </p>
     <p
-      id="download-close-note"
+      id="download-close-note" data-download-text="close"
       class="muted"
       style="display: none; margin: 10px 0 0; font-size: 13px"
     >
       Your browser should start the download shortly. This tab will close automatically.
     </p>
     <p class="muted" style="margin: 10px 0 0; font-size: 13px">
-      <a id="download-back-link" href="{{ return_target }}">Back to the previous page</a>
+      <a id="download-back-link" data-download-text="back" href="{{ return_target }}">Back to the previous page</a>
     </p>
   </div>
 </div>
 
+<script type="application/json" id="download-locales">{{ site.data.i18n_support.ui | jsonify }}</script>
+<script src="{{ '/i18n-download.js' | relative_url }}"></script>
 <script>
   (function () {
     var cancelled = false;

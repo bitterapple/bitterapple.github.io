@@ -15,13 +15,13 @@
   </header>
 
   <main>
-    {% unless locale == 'en' %}<p class="muted">{{ t.englishNotice | escape }}</p>{% endunless %}
+    
     <section class="section">
       <div class="grid" style="grid-template-columns: 1fr; align-items: start; gap: 12px">
         {% for entry in whats_new %}
         <a
           class="card cardLink"
-          href="{{ entry.url | append: '#release-notes' | relative_url }}"
+          href="{% include i18n-product-link.html entry=entry release=true %}"
           aria-label="{{ entry.title | escape }} {{ t.releaseNotes | escape }}"
         >
           <div class="titleRow" style="justify-content: space-between">
