@@ -5,7 +5,7 @@ The English pages in support/ remain authoritative. Localized overview pages rem
 - _data/i18n_full/<slug>.json contains numbered source text segments, source Git blob SHA, release/summary snapshots, and complete locale rows.
 - _includes/i18n_full/<slug>.html preserves the original document markup, images, links, section anchors and code; only text is replaced.
 - _includes/i18n-product.html renders a complete translation when available. Otherwise it renders the localized overview and explicitly links to the English documentation.
-- Existing full translations: PAD Machine and ScoreShelf, nine translated languages plus the original English.
+- Existing full translations: PAD Machine, ScoreShelf, Calendar Calendar, CopySkipper, PocketCam Viewer, Audio Folder Inspector, QuickSearchExt, Harmony & Counterpoint, and Distance; nine translated languages plus the original English (9 of 21 products).
 - Remaining catalog documents: extraction complete; translations not yet supplied.
 
 After an English product page changes, run:
