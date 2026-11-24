@@ -263,4 +263,4 @@
   url: /support/padmachine/
   latest_order: -100
   latest_date: "2026-11-24"
-  latest_summary: PAD Machine 0.9.2 improves Touch Monitor gesture feedback, macro creation and navigation, and Delete key registration.
+  latest_summary: PAD Machine 0.9.3 improves keyboard input, common PAD macro execution, timed mouse capture and pixel-based scrolling.

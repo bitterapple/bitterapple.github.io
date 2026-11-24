@@ -1,6 +1,6 @@
 {
   "schema_version": 35,
-  "generated_at": "2026-11-24T09:51:32Z",
+  "generated_at": "2026-11-24T14:26:12Z",
   "products": {
     "levelrangeeq": {
       "name": "Level Range EQ",
@@ -108,7 +108,7 @@
     },
     "padmachine": {
       "name": "PAD Machine",
-      "latest_version": "0.9.2",
+      "latest_version": "0.9.3",
       "download_url": "https://bitterapple.github.io/download/padmachine/macos/",
       "release_notes_url": "https://bitterapple.github.io/support/padmachine/#release-notes",
       "min_supported_version": "0.6.1",
