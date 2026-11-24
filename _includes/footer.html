@@ -1,3 +1,3 @@
 <footer class="siteFooter">
-  <p class="footerText">© {{ site.time | date: "%Y" }} {{ site.author }}. All rights reserved.</p>
+  <p class="footerText">© {{ site.time | date: "%Y" }} {{ site.author }}. {% assign footer_locale = page.lang | default: 'en' %}{% assign footer_t = site.data.i18n.locales[footer_locale] %}{{ footer_t.rights | default: 'All rights reserved.' | escape }}</p>
 </footer>

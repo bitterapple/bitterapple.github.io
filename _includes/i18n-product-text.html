@@ -1,0 +1,11 @@
+{%- assign entry = include.entry -%}
+{%- assign loc = page.lang | default: 'en' -%}
+{%- assign trans = site.data.i18n.locales[loc] -%}
+{%- assign original = site.data.i18n.source[entry.slug] -%}
+{%- if include.field == 'update' -%}
+  {%- assign current = entry.latest_summary -%}{%- assign snapshot = original.update -%}{%- assign translation = trans.updates[entry.slug] -%}
+{%- else -%}
+  {%- assign current = entry.summary -%}{%- assign snapshot = original.summary -%}{%- assign translation = trans.products[entry.slug] -%}
+{%- endif -%}
+{%- if loc != 'en' and translation and current == snapshot -%}{{ translation | escape }}
+{%- else -%}<span lang="en">{{ current | escape }}</span>{%- endif -%}

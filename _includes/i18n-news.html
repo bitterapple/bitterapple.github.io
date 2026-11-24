@@ -1,0 +1,39 @@
+{% assign locale = page.lang | default: 'en' %}
+{% assign t = site.data.i18n.locales[locale] %}
+{% assign locale_prefix = '' %}{% unless locale == 'en' %}{% assign locale_prefix = locale | prepend: '/' %}{% endunless %}
+{% assign products = site.data.products %}
+{% assign whats_new = products | where_exp: 'item', 'item.latest_order' | sort: 'latest_order' %}
+<div class="container">
+  <header class="header">
+    <h1>{{ t.news | escape }}</h1>
+    <p class="muted" style="margin-top: 8px">{{ t.newsIntro | escape }}</p>
+    {% include language-switch.html %}
+    <div class="nav">
+      <a class="btn" href="{{ locale_prefix | append: '/' | relative_url }}">{{ t.home | escape }}</a>
+      <a class="btn" href="mailto:kjdevapphelp@gmail.com?subject=Support%20Request">{{ t.contact | escape }}</a>
+    </div>
+  </header>
+
+  <main>
+    {% unless locale == 'en' %}<p class="muted">{{ t.englishNotice | escape }}</p>{% endunless %}
+    <section class="section">
+      <div class="grid" style="grid-template-columns: 1fr; align-items: start; gap: 12px">
+        {% for entry in whats_new %}
+        <a
+          class="card cardLink"
+          href="{{ entry.url | append: '#release-notes' | relative_url }}"
+          aria-label="{{ entry.title | escape }} {{ t.releaseNotes | escape }}"
+        >
+          <div class="titleRow" style="justify-content: space-between">
+            <h3 style="margin: 0">{{ entry.title }}</h3>
+            <span class="badge">{{ entry.latest_date }}</span>
+          </div>
+          <p class="muted" style="margin: 6px 0 0; font-size: 13px">{% include i18n-product-text.html entry=entry field='update' %}</p>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+
+    {% include footer.html %}
+  </main>
+</div>

@@ -1,0 +1,133 @@
+{% assign locale = page.lang | default: 'en' %}
+{% assign t = site.data.i18n.locales[locale] %}
+{% assign locale_prefix = '' %}{% unless locale == 'en' %}{% assign locale_prefix = locale | prepend: '/' %}{% endunless %}
+{% assign products = site.data.products %}
+{% assign whats_new = products | where_exp: 'item', 'item.latest_order' | sort: 'latest_order' %}
+{% assign recent_updates = whats_new | slice: 0, 3 %}
+{% assign plugins = products | where: 'type', 'plugin' | sort: 'order' %}
+{% assign spatial_plugins = plugins | where: 'collection', 'spatial' %}
+{% assign apps = products | where: 'type', 'app' | sort: 'order' %}
+<div class="container">
+  <header class="header">
+    <h1>{{ t.heading | escape }}</h1>
+    <p class="muted" style="margin-top: 8px">{{ t.byline | escape }}</p>
+    <p>
+      {{ t.intro | escape }}
+    </p>
+
+    {% include language-switch.html %}
+    <div class="nav">
+      <a class="btn" href="{{ '/support/privacy/' | relative_url }}">{{ t.privacy | escape }}</a>
+      <a
+        class="btn"
+        href="https://x.com/kojima_appdev"
+        target="_blank"
+        rel="noopener noreferrer"
+        >X (@kojima_appdev)</a
+      >
+      <a class="btn" href="mailto:kjdevapphelp@gmail.com?subject=Support%20Request">{{ t.contact | escape }}</a>
+    </div>
+  </header>
+
+  <main>
+    {% unless locale == 'en' %}<p class="muted" lang="{{ locale }}">{{ t.englishNotice | escape }}</p>{% endunless %}
+    <section class="section compactNews">
+      <div class="sectionTitleRow">
+        <h2>{{ t.news | escape }}</h2>
+        <a class="textLink" href="{{ locale_prefix | append: '/whats-new/' | relative_url }}">{{ t.all | escape }}</a>
+      </div>
+      <div class="grid" style="grid-template-columns: 1fr; align-items: start; gap: 12px">
+        {% for entry in recent_updates %}
+        <a
+          class="card cardLink"
+          href="{{ entry.url | append: '#release-notes' | relative_url }}"
+          aria-label="{{ entry.title | escape }} {{ t.releaseNotes | escape }}"
+        >
+          <div class="titleRow" style="justify-content: space-between">
+            <h3 style="margin: 0">{{ entry.title }}</h3>
+            <span class="badge">{{ entry.latest_date }}</span>
+          </div>
+          <p class="muted" style="margin: 6px 0 0; font-size: 13px">{% include i18n-product-text.html entry=entry field='update' %}</p>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="section" id="plugins">
+      <h2>{{ t.plugins | escape }}</h2>
+      <p class="muted" style="margin-top: 0">
+        {{ t.compat | escape }}
+      </p>
+      <div class="quietGroup">
+        <p class="quietGroupTitle">{{ t.spatial | escape }}</p>
+        <div class="grid">
+          {% for entry in spatial_plugins %}
+          <a class="card cardLink" href="{{ entry.url | relative_url }}" aria-label="{{ entry.title | escape }} {{ t.supportPage | escape }}">
+            <div class="cardTop">
+              <img class="appIconImg" src="{{ entry.icon | relative_url }}" alt="{{ entry.title | escape }} {{ t.icon | escape }}" />
+              <div class="cardTitle">
+                <div class="titleRow">
+                  <h3>{{ entry.title }}</h3>
+                  <span class="badge {% if entry.status_class %}{{ entry.status_class }}{% endif %}">{% case entry.status_label %}{% when 'Live' %}{{ t.live | escape }}{% when 'In development' %}{{ t.progress | escape }}{% when 'Beta' %}{{ t.beta | escape }}{% when 'Download' %}{{ t.download | escape }}{% else %}{{ entry.status_label | escape }}{% endcase %}</span>
+                </div>
+                <p class="muted">{% include i18n-product-text.html entry=entry field='summary' %}</p>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="grid">
+        {% for entry in plugins %}
+        {% unless entry.collection == 'spatial' %}
+        <a class="card cardLink" href="{{ entry.url | relative_url }}" aria-label="{{ entry.title | escape }} {{ t.supportPage | escape }}">
+          <div class="cardTop">
+            <img class="appIconImg" src="{{ entry.icon | relative_url }}" alt="{{ entry.title | escape }} {{ t.icon | escape }}" />
+            <div class="cardTitle">
+              <div class="titleRow">
+                <h3>{{ entry.title }}</h3>
+                <span class="badge {% if entry.status_class %}{{ entry.status_class }}{% endif %}">{% case entry.status_label %}{% when 'Live' %}{{ t.live | escape }}{% when 'In development' %}{{ t.progress | escape }}{% when 'Beta' %}{{ t.beta | escape }}{% when 'Download' %}{{ t.download | escape }}{% else %}{{ entry.status_label | escape }}{% endcase %}</span>
+              </div>
+              <p class="muted">{% include i18n-product-text.html entry=entry field='summary' %}</p>
+            </div>
+          </div>
+        </a>
+        {% endunless %}
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="section" id="apps">
+      <h2>{{ t.apps | escape }}</h2>
+      <div class="grid">
+        {% for entry in apps %}
+        <a class="card cardLink" href="{{ entry.url | relative_url }}" aria-label="{{ entry.title | escape }} {{ t.supportPage | escape }}">
+          <div class="cardTop">
+            <img class="appIconImg" src="{{ entry.icon | relative_url }}" alt="{{ entry.title | escape }} {{ t.icon | escape }}" />
+            <div class="cardTitle">
+              <div class="titleRow">
+                <h3>{{ entry.title }}</h3>
+                <span class="badge {% if entry.status_class %}{{ entry.status_class }}{% endif %}">{% case entry.status_label %}{% when 'Live' %}{{ t.live | escape }}{% when 'In development' %}{{ t.progress | escape }}{% when 'Beta' %}{{ t.beta | escape }}{% when 'Download' %}{{ t.download | escape }}{% else %}{{ entry.status_label | escape }}{% endcase %}</span>
+              </div>
+              <p class="muted">{% include i18n-product-text.html entry=entry field='summary' %}</p>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>{{ t.support | escape }}</h2>
+      <p>
+        {{ t.contactIntro | escape }}
+        <a href="mailto:kjdevapphelp@gmail.com?subject=Support%20Request">kjdevapphelp@gmail.com</a>
+      </p>
+      <p class="muted">
+        {{ t.contactDetails | escape }}
+      </p>
+    </section>
+
+    {% include footer.html %}
+  </main>
+</div>

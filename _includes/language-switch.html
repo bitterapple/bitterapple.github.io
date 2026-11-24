@@ -1,0 +1,14 @@
+{% assign locale = page.lang | default: 'en' %}
+{% assign t = site.data.i18n.locales[locale] %}
+{% assign current_language = site.data.i18n.languages | where: 'code', locale | first %}
+<nav class="languageNav" aria-label="{{ t.language | escape }}">
+  <details>
+    <summary><span aria-hidden="true">🌐</span> {{ current_language.name | escape }}</summary>
+    <div class="languageOptions">
+      {% for language in site.data.i18n.languages %}
+      {% assign suffix = '/' %}{% if page.i18n_key == 'news' %}{% assign suffix = '/whats-new/' %}{% endif %}
+      <a href="{{ language.prefix | append: suffix | relative_url }}" lang="{{ language.code }}" hreflang="{{ language.code }}" data-language="{{ language.code }}"{% if language.code == locale %} aria-current="page"{% endif %}>{{ language.name | escape }}</a>
+      {% endfor %}
+    </div>
+  </details>
+</nav>
