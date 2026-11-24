@@ -125,6 +125,22 @@ langs.each do |language|
       end
     else
       p = products.find { |item| item['slug'] == slug }
+      if html.include?(%(data-i18n-full="#{slug}"))
+        full = JSON.parse((root / "_data/i18n_full/#{slug}.json").read)
+        translated = full.fetch('locales').fetch(code)
+        decoded = CGI.unescapeHTML(html)
+        translated.each_with_index do |word, idx|
+          errors << "missing rendered full translation #{code} #{slug} #{idx}" unless decoded.include?(word)
+        end
+        if p['latest_summary']
+          errors << "missing full release anchor #{out}" unless html.include?('id="release-notes"')
+        end
+        product_routes.fetch(slug).fetch('downloads').each do |download|
+          errors << "missing full download link #{out} #{download['url']}" unless html.include?(%(href="#{download['url']}"))
+        end
+        next
+      end
+      errors << "full translation not rendered #{code} #{slug}" if ARGV.include?('--require-full')
       errors << "missing localized product #{code} #{slug}" unless CGI.unescapeHTML(html).include?(data.fetch('locales').fetch(code).fetch('products').fetch(slug))
       errors << "missing original documentation link #{out}" unless html.include?(%(href="#{suffix}"))
       product_routes.fetch(slug).fetch('downloads').each do |download|
@@ -136,5 +152,36 @@ langs.each do |language|
     end
   end
 end
+require 'digest'
+full_count = 0
+missing_full = []
+product_routes.each do |slug, info|
+  source = root / (info.fetch('path').sub(%r{^/}, '') + 'index.html')
+  full_path = root / "_data/i18n_full/#{slug}.json"
+  template = root / "_includes/i18n_full/#{slug}.html"
+  unless source.file? && full_path.file? && template.file?
+    errors << "missing full translation source/template #{slug}"
+    next
+  end
+  bytes = source.binread
+  blob = Digest::SHA1.hexdigest("blob #{bytes.bytesize}\0".b + bytes)
+  full = JSON.parse(full_path.read)
+  errors << "stale full translation source #{slug}: run _scripts/full_i18n.py prepare" unless full['source_blob'] == blob
+  p = products.find { |item| item['slug'] == slug }
+  errors << "stale full translation summary #{slug}" unless full['source_summary'] == p['summary'] && full['source_update'] == p['latest_summary']
+  units = full.fetch('source_units')
+  ids = template.read.scan(/full_text\[(\d+)\]/).flatten.map(&:to_i)
+  errors << "full template unit mismatch #{slug}" unless ids == (0...units.size).to_a
+  (expected - ['en']).each do |code|
+    row = full.fetch('locales')[code]
+    if row.is_a?(Array) && row.size == units.size && row.all? { |s| s.is_a?(String) && !s.strip.empty? }
+      full_count += 1
+    else
+      missing_full << "#{slug}/#{code}"
+    end
+  end
+end
+errors << "Missing full translations: #{missing_full.join(', ')}" if ARGV.include?('--require-full') && !missing_full.empty?
+puts "Full documentation: #{full_count}/#{product_routes.size * (expected.size - 1)} translated product/language pairs; #{missing_full.size} remaining"
 abort errors.join("\n") unless errors.empty?
 puts "PASS: #{langs.size} languages, #{products.size} product descriptions, #{products.count { |p| p['latest_summary'] }} update summaries, 240 home/news/product/privacy pages" + (ARGV.include?('--built') ? ' (including rendered HTML)' : ' (source only)')

@@ -1,0 +1,74 @@
+<style>
+  .afi-title { display: flex; align-items: center; gap: 14px; }
+  .afi-title img { width: 64px; height: 64px; flex-shrink: 0; }
+  .afi-title h1 { margin: 0; overflow-wrap: anywhere; }
+  .afi-page p + p { margin-top: 12px; }
+  .afi-page .btn { line-height: 1.4; }
+  .afi-page .afi-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .afi-page figure { margin: 18px 0 0; }
+  .afi-page figure img { display: block; width: 100%; height: auto; background: #fff; border: 1px solid var(--border); border-radius: 12px; }
+  .afi-page figcaption { margin-top: 8px; font-size: 13px; color: var(--muted); }
+  .afi-page .card p { margin-bottom: 0; }
+  .afi-page li + li { margin-top: 10px; }
+  .afi-page code { overflow-wrap: anywhere; }
+  .afi-page a:not(.btn) { text-decoration: underline; text-underline-offset: 3px; }
+  .afi-page summary { cursor: pointer; font-weight: 600; }
+  .afi-page details + details { margin-top: 18px; }
+  .afi-page pre { padding: 12px; border-radius: 8px; background: var(--panel); white-space: pre-wrap; }
+</style>
+<div class="afi-page">
+<header class="header">
+  <div class="afi-title"><img src="/support/audiofolderinspector/img/icon.svg" width="64" height="64" alt="" /><h1>{{ full_text[0] | escape }}</h1></div>
+  <p style="margin-top: 14px">{{ full_text[1] | escape }}</p>
+  <p class="muted">{{ full_text[2] | escape }}</p>
+  <nav class="nav" aria-label="{{ full_text[3] | escape }}">
+    <a class="btn afi-primary" href="{{ '/download/audiofolderinspector/macos/' | relative_url }}">{{ full_text[4] | escape }}</a>
+    <a class="btn" href="#setup">{{ full_text[5] | escape }}</a>
+    <a class="btn" href="{{ full_prefix | append: '/' | relative_url }}">{{ full_text[6] | escape }}</a>
+  </nav>
+  <p class="muted" style="margin-top: 12px; font-size: 13px">{{ full_text[7] | escape }}</p>
+</header>
+<section class="section">
+  <h2>{{ full_text[8] | escape }}</h2>
+  <p class="muted">{{ full_text[9] | escape }}</p>
+  <figure><a href="/support/audiofolderinspector/img/report-overview.webp" aria-label="{{ full_text[10] | escape }}"><img src="/support/audiofolderinspector/img/report-overview.webp" width="1345" height="680" alt="{{ full_text[11] | escape }}" /></a><figcaption>{{ full_text[12] | escape }}</figcaption></figure>
+</section>
+<section class="section">
+  <h2>{{ full_text[13] | escape }}</h2>
+  <div class="grid">
+    <div class="card"><h3>{{ full_text[14] | escape }}</h3><p class="muted">{{ full_text[15] | escape }}</p></div>
+    <div class="card"><h3>{{ full_text[16] | escape }}</h3><p class="muted">{{ full_text[17] | escape }}</p></div>
+    <div class="card"><h3>{{ full_text[18] | escape }}</h3><p class="muted">{{ full_text[19] | escape }}</p></div>
+    <div class="card"><h3>{{ full_text[20] | escape }}</h3><p class="muted">{{ full_text[21] | escape }}</p></div>
+  </div>
+</section>
+<section class="section">
+  <h2>{{ full_text[22] | escape }}</h2>
+  <p class="muted">{{ full_text[23] | escape }}</p>
+  <figure><a href="/support/audiofolderinspector/img/waveform-player.webp" aria-label="{{ full_text[24] | escape }}"><img src="/support/audiofolderinspector/img/waveform-player.webp" width="1345" height="560" loading="lazy" alt="{{ full_text[25] | escape }}" /></a><figcaption>{{ full_text[26] | escape }}</figcaption></figure>
+</section>
+<section class="section" id="setup">
+  <h2>{{ full_text[27] | escape }}</h2>
+  <p>{{ full_text[28] | escape }} <strong>{{ full_text[29] | escape }}</strong>{{ full_text[30] | escape }} <strong>{{ full_text[31] | escape }}</strong>{{ full_text[32] | escape }}</p>
+  <ol>
+    <li><strong>{{ full_text[33] | escape }}</strong> {{ full_text[34] | escape }}<pre><code>brew install python ffmpeg</code></pre></li>
+    <li><strong><a href="{{ '/download/audiofolderinspector/macos/' | relative_url }}">{{ full_text[35] | escape }}</a> {{ full_text[36] | escape }}</strong> {{ full_text[37] | escape }}</li>
+    <li><strong>{{ full_text[38] | escape }} <code>install.command</code>{{ full_text[39] | escape }}</strong> {{ full_text[40] | escape }} <code>Audio Folder Inspector.workflow</code> {{ full_text[41] | escape }}</li>
+    <li><strong>{{ full_text[42] | escape }}</strong> {{ full_text[43] | escape }}</li>
+  </ol>
+  <p class="muted">{{ full_text[44] | escape }}</p>
+</section>
+<section class="section">
+  <h2>{{ full_text[45] | escape }}</h2>
+  <details><summary>{{ full_text[46] | escape }}</summary><p>{{ full_text[47] | escape }}</p></details>
+  <details><summary>{{ full_text[48] | escape }}</summary><p>{{ full_text[49] | escape }} <code>~/Library/Caches/AudioFolderInspector/Reports/</code></p><p>{{ full_text[50] | escape }} <code>~/Library/Application Support/AudioFolderInspector/config.json</code></p><p>{{ full_text[51] | escape }}</p></details>
+  <p style="margin-top: 18px"><a href="mailto:kjdevapphelp@gmail.com?subject=Audio%20Folder%20Inspector%20Support">{{ full_text[52] | escape }}</a> {{ full_text[53] | escape }}</p>
+</section>
+<section class="section" id="release-notes">
+  <h2>{{ full_text[54] | escape }}</h2>
+  <p>{{ full_text[55] | escape }}</p>
+  <p>{{ full_text[56] | escape }}</p>
+  <p class="muted">{{ full_text[57] | escape }}</p>
+  <div class="nav"><a class="btn afi-primary" href="{{ '/download/audiofolderinspector/macos/' | relative_url }}">{{ full_text[58] | escape }}</a></div>
+</section>
+</div>

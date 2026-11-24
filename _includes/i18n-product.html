@@ -1,50 +1,12 @@
-{% assign locale = page.lang %}
-{% assign t = site.data.i18n.locales[locale] %}
-{% assign u = site.data.i18n_support.ui[locale] %}
-{% assign prefix = locale | prepend: '/' %}
-{% assign entry = site.data.products | where: 'slug', page.product_slug | first %}
-{% assign details = site.data.i18n_support.products[page.product_slug] %}
-<header class="header">
-  <div class="cardTop">
-    <img class="appIconImg" src="{{ entry.icon | relative_url }}" alt="{{ entry.title | escape }} {{ t.icon | escape }}" />
-    <div class="cardTitle">
-      <div class="titleRow"><h1>{{ entry.title | escape }}</h1><span class="badge {{ entry.status_class | escape }}">{% case entry.status_label %}{% when 'Live' %}{{ t.live | escape }}{% when 'In development' %}{{ t.progress | escape }}{% when 'Beta' %}{{ t.beta | escape }}{% when 'Download' %}{{ t.download | escape }}{% else %}{{ entry.status_label | escape }}{% endcase %}</span></div>
-    </div>
+{%- assign full_doc = site.data.i18n_full[page.product_slug] -%}
+{%- assign full_item = site.data.products | where: 'slug', page.product_slug | first -%}
+{%- assign full_text = full_doc.locales[page.lang] -%}
+{%- assign full_prefix = page.lang | prepend: '/' -%}
+{%- if full_text and full_text.size == full_doc.source_units.size and full_item.summary == full_doc.source_summary and full_item.latest_summary == full_doc.source_update -%}
+  {%- assign full_template = page.product_slug | prepend: 'i18n_full/' | append: '.html' -%}
+  <div data-i18n-full="{{ page.product_slug | escape }}">
+    {% include {{ full_template }} %}
   </div>
-  <div class="nav">
-    <a class="btn" href="{{ prefix | append: '/' | relative_url }}">← {{ t.home | escape }}</a>
-    {% if entry.latest_summary %}<a class="btn" href="#release-notes">{{ t.releaseNotes | escape }}</a>{% endif %}
-    <a class="btn" href="{{ prefix | append: '/support/privacy/' | relative_url }}">{{ t.privacy | escape }}</a>
-  </div>
-</header>
-<section class="section">
-  <h2>{{ u.overview | escape }}</h2>
-  <p>{% include i18n-product-text.html entry=entry field='summary' %}</p>
-  {% if details.downloads.size > 0 or details.store %}
-    <div class="nav">
-    {% for download in details.downloads %}
-      {% assign download_page = site.pages | where: 'url', download.url | first %}
-      {% unless download_page %}{% assign index_url = download.url | append: 'index.html' %}{% assign download_page = site.pages | where: 'url', index_url | first %}{% endunless %}
-      {% if download_page and download_page.download_target %}
-      <a class="btn" href="{{ download.url | relative_url }}" target="_blank" rel="noopener">{{ u.downloadFor | escape }} {{ download.label | escape }}{% if download_page.download_version %} · {{ download_page.download_version | escape }}{% endif %}</a>
-      {% endif %}
-    {% endfor %}
-    {% if details.store %}<a class="btn" href="{{ details.store | escape }}" target="_blank" rel="noopener">{{ u.store | escape }}</a>{% endif %}
-    </div>
-  {% endif %}
-  <p class="muted">{{ u.detailsNotice | escape }}</p>
-  <a class="btn" href="{{ details.path | relative_url }}" hreflang="en">{{ u.details | escape }}</a>
-</section>
-{% if entry.latest_summary %}
-<section class="section" id="release-notes">
-  <h2>{{ u.currentUpdate | escape }}</h2>
-  <span class="badge">{{ entry.latest_date | escape }}</span>
-  <p>{% include i18n-product-text.html entry=entry field='update' %}</p>
-  <a class="btn" href="{{ details.path | relative_url }}{% if details.release %}#release-notes{% endif %}" hreflang="en">{{ u.fullHistory | escape }}</a>
-</section>
-{% endif %}
-<section class="section">
-  <h2>{{ t.support | escape }}</h2>
-  <p>{{ t.contactIntro | escape }} <a href="mailto:{{ site.email | escape }}?subject={{ entry.title | url_encode }}%20Support">{{ site.email | escape }}</a></p>
-  <p class="muted">{{ t.contactDetails | escape }}</p>
-</section>
+{%- else -%}
+  {% include i18n-product-overview.html %}
+{%- endif -%}

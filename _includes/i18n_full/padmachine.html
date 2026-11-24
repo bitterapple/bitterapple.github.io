@@ -1,0 +1,149 @@
+
+<style>
+  .pm-page { --pm-purple: #b83df5; --pm-cyan: #15cce9; }
+  .pm-page p { line-height: 1.68; }
+  .pm-page .pm-intro { font-size: 17px; max-width: 700px; margin: 16px 0 0; }
+  .pm-page .pm-eyebrow { text-transform: uppercase; font-size: 11px; font-weight: 700; letter-spacing: .15em; color: var(--muted); margin: 0 0 6px; }
+  .pm-page .pm-title { display: flex; align-items: center; gap: 20px; }
+  .pm-page .pm-title h1 { font-size: clamp(30px, 6vw, 43px); margin: 0; letter-spacing: -.035em; }
+  .pm-page .pm-icon { width: 98px; height: 98px; flex: 0 0 98px; border-radius: 23px; background: url('/support/padmachine/img/icon.webp') center/cover, linear-gradient(145deg,#8b28cc,#ff2d79 48%,#ffbb28 75%,#1fd4e7); border: 1px solid var(--border); box-shadow: 0 14px 35px rgba(0,0,0,.22); }
+  .pm-page .pm-tagline { font-size: clamp(20px, 3.2vw, 27px); margin: 16px 0 4px; letter-spacing: -.02em; font-weight: 750; }
+  .pm-page .pm-featureline { color: var(--muted); font-size: 13px; margin: 14px 0 0; }
+  .pm-page .pm-capsules { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .pm-page .pm-capsules span { padding: 6px 11px; border-radius: 999px; border: 1px solid var(--border); background: var(--panel); font-size: 12px; }
+  .pm-page .pm-primary { background: #2f73ff; color: #fff; border-color: #2f73ff; font-weight: 700; }
+  .pm-page .pm-primary:hover { background: #1d61ef; color: #fff; }
+  .pm-page .pm-card h3 { margin-bottom: 5px; }
+  .pm-page .pm-card p { margin: 0; font-size: 14px; color: var(--muted); }
+  .pm-page .pm-shot { margin: 16px 0 0; }
+  .pm-page .pm-shot a { display: block; }
+  .pm-page .pm-shot img { width: 100%; height: auto; display: block; border: 1px solid var(--border); border-radius: 13px; background: #242424; }
+  .pm-page .pm-shot figcaption { margin-top: 8px; color: var(--muted); font-size: 12px; }
+  .pm-page .pm-shot a:hover img { border-color: rgba(47,115,255,.65); }
+  .pm-page .pm-image-missing img { display: none; }
+  .pm-page .pm-image-missing a { display: none; }
+  .pm-page .pm-image-missing figcaption { display: none; }
+  .pm-page .pm-pad { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 11px; padding: 17px; border-radius: 20px; background: #171719; border: 1px solid var(--border); max-width: 310px; margin: 22px auto 0; }
+  .pm-page .pm-pad i { display: block; aspect-ratio: 1.35; border-radius: 11px; background: var(--pad); box-shadow: inset 0 1px rgba(255,255,255,.13); }
+  .pm-page .pm-visualgrid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; align-items: center; }
+  .pm-page .pm-download { border: 1px solid var(--border); border-radius: 14px; padding: 17px; background: var(--panel); }
+  .pm-page .pm-download p { margin: 8px 0 0; }
+  .pm-page .pm-download-ready { display: block; }
+  .pm-page .pm-note { font-size: 13px; color: var(--muted); }
+  .pm-page .pm-download a:not(.btn), .pm-page .pm-support a { text-decoration: underline; text-underline-offset: 3px; }
+  @media (max-width: 700px) {
+    .pm-page .pm-title { align-items: start; gap: 13px; }
+    .pm-page .pm-icon { width: 70px; height: 70px; flex-basis: 70px; border-radius: 17px; }
+    .pm-page .pm-visualgrid { grid-template-columns: 1fr; }
+    .pm-page .pm-pad { width: 100%; max-width: 290px; margin-top: 10px; }
+  }
+</style>
+
+<div class="pm-page">
+  <header class="header">
+    <div class="pm-title">
+      <div class="pm-icon" role="img" aria-label="{{ full_text[0] | escape }}"></div>
+      <div>
+        <p class="pm-eyebrow">{{ full_text[1] | escape }}</p>
+        <h1>{{ full_text[2] | escape }}</h1>
+      </div>
+    </div>
+    <p class="pm-tagline">{{ full_text[3] | escape }}</p>
+    <p class="pm-intro">{{ full_text[4] | escape }}</p>
+    <p class="muted" style="margin: 10px 0 0">{{ full_text[5] | escape }} <strong>{{ full_text[6] | escape }}</strong></p>
+    <div class="pm-capsules" aria-label="{{ full_text[7] | escape }}">
+      <span>{{ full_text[8] | escape }}</span><span>{{ full_text[9] | escape }}</span><span>{{ full_text[10] | escape }}</span><span>{{ full_text[11] | escape }}</span>
+    </div>
+    <nav class="nav" aria-label="{{ full_text[12] | escape }}">
+      <a class="btn pm-primary" href="#download">{{ full_text[13] | escape }}</a>
+      <a class="btn" href="#features">{{ full_text[14] | escape }}</a>
+      <a class="btn" href="#release-notes">{{ full_text[15] | escape }}</a>
+      <a class="btn" href="{{ full_prefix | append: '/' | relative_url }}">{{ full_text[16] | escape }}</a>
+    </nav>
+    <p class="pm-featureline">{{ full_text[17] | escape }}</p>
+  </header>
+
+  <main>
+    <section class="section" id="features">
+      <div class="pm-visualgrid">
+        <div>
+          <h2>{{ full_text[18] | escape }}</h2>
+          <p>{{ full_text[19] | escape }}</p>
+          <p class="muted">{{ full_text[20] | escape }}</p>
+        </div>
+        <div class="pm-pad" role="img" aria-label="{{ full_text[21] | escape }}">
+          <i style="--pad:#c126f5"></i><i style="--pad:#f42c89"></i><i style="--pad:#f94857"></i><i style="--pad:#ff8a17"></i>
+          <i style="--pad:#7464fc"></i><i style="--pad:#ef56b1"></i><i style="--pad:#fd8a2e"></i><i style="--pad:#ffce0b"></i>
+          <i style="--pad:#28a5f5"></i><i style="--pad:#19d7ed"></i><i style="--pad:#40eb9a"></i><i style="--pad:#aaff2e"></i>
+          <i style="--pad:#00cfe1"></i><i style="--pad:#02d6e5"></i><i style="--pad:#00ddd5"></i><i style="--pad:#00ded3"></i>
+        </div>
+      </div>
+      <figure class="pm-shot" id="pm-input-shot">
+        <a href="/support/padmachine/img/input-devices.webp" target="_blank" rel="noopener" aria-label="{{ full_text[22] | escape }}"><img src="/support/padmachine/img/input-devices.webp" alt="{{ full_text[23] | escape }}" loading="lazy" onerror="this.closest('figure').classList.add('pm-image-missing')" /></a>
+        <figcaption>{{ full_text[24] | escape }}</figcaption>
+      </figure>
+    </section>
+
+    <section class="section">
+      <h2>{{ full_text[25] | escape }}</h2>
+      <p>{{ full_text[26] | escape }}</p>
+      <p class="muted">{{ full_text[27] | escape }}</p>
+    </section>
+
+    <section class="section">
+      <h2>{{ full_text[28] | escape }}</h2>
+      <p>{{ full_text[29] | escape }}</p>
+      <p class="muted"><strong>{{ full_text[30] | escape }}</strong> {{ full_text[31] | escape }}</p>
+    </section>
+
+    <section class="section">
+      <h2>{{ full_text[32] | escape }}</h2>
+      <p>{{ full_text[33] | escape }}</p>
+      <p class="muted">{{ full_text[34] | escape }}</p>
+      <figure class="pm-shot" id="pm-macro-shot">
+        <a href="/support/padmachine/img/macro-map.webp" target="_blank" rel="noopener" aria-label="{{ full_text[35] | escape }}"><img src="/support/padmachine/img/macro-map.webp" alt="{{ full_text[36] | escape }}" loading="lazy" onerror="this.closest('figure').classList.add('pm-image-missing')" /></a>
+        <figcaption>{{ full_text[37] | escape }}</figcaption>
+      </figure>
+      <div class="grid" style="margin-top:16px">
+        <div class="card pm-card"><h3>{{ full_text[38] | escape }}</h3><p>{{ full_text[39] | escape }}</p></div>
+        <div class="card pm-card"><h3>{{ full_text[40] | escape }}</h3><p>{{ full_text[41] | escape }}</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>{{ full_text[42] | escape }}</h2>
+      <p>{{ full_text[43] | escape }}</p>
+    </section>
+
+    <section class="section" id="download">
+      <h2>{{ full_text[44] | escape }}</h2>
+      <div class="pm-download">
+        <div class="titleRow" style="justify-content:space-between">
+          <strong id="pm-download-version">{{ full_text[45] | escape }}</strong>
+          <span class="badge">{{ full_text[46] | escape }}</span>
+        </div>
+        <p class="pm-note">{{ full_text[47] | escape }}</p>
+        <p class="pm-download-ready" id="pm-release-link"><a class="btn pm-primary" id="pm-download-button" href="{{ '/download/padmachine/macos/' | relative_url }}">{{ full_text[48] | escape }}</a></p>
+        <p class="pm-note">{{ full_text[49] | escape }} <strong>{{ full_text[50] | escape }}</strong> {{ full_text[51] | escape }} <strong>{{ full_text[52] | escape }}</strong> {{ full_text[53] | escape }}</p>
+      </div>
+    </section>
+
+    <section class="section" id="release-notes">
+      <h2>{{ full_text[54] | escape }}</h2>
+      <h3>{{ full_text[55] | escape }}</h3>
+      <p><strong>{{ full_text[56] | escape }}</strong></p>
+      <ul>
+        <li><strong>{{ full_text[57] | escape }}</strong> {{ full_text[58] | escape }}</li>
+        <li><strong>{{ full_text[59] | escape }}</strong> {{ full_text[60] | escape }}</li>
+        <li><strong>{{ full_text[61] | escape }}</strong> {{ full_text[62] | escape }}</li>
+        <li><strong>{{ full_text[63] | escape }}</strong> {{ full_text[64] | escape }}</li>
+      </ul>
+    </section>
+
+    <section class="section pm-support">
+      <h2>{{ full_text[65] | escape }}</h2>
+      <p class="muted">{{ full_text[66] | escape }} <a href="mailto:kjdevapphelp@gmail.com?subject=PAD%20Machine%20Support">{{ full_text[67] | escape }}</a></p>
+      <p class="pm-note">{{ full_text[68] | escape }}</p>
+    </section>
+  </main>
+</div>

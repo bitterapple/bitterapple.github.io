@@ -1,0 +1,216 @@
+
+<header class="header">
+  <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap">
+    <img
+      src="/support/ScoreShelf/img/icon.png"
+      alt="{{ full_text[0] | escape }}"
+      style="
+        width: 64px;
+        height: 64px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
+      "
+      loading="lazy"
+    />
+    <div>
+      <div
+        style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap"
+      >
+        <h1 style="margin: 0">{{ full_text[1] | escape }}</h1>
+        <span class="badge live">{{ full_text[2] | escape }}</span>
+      </div>
+      <p class="muted" style="margin: 6px 0 0; font-size: 13px">
+        {{ full_text[3] | escape }}
+      </p>
+    </div>
+  </div>
+
+  <p style="margin-top: 14px">
+    <strong>{{ full_text[4] | escape }}</strong> {{ full_text[5] | escape }}
+  </p>
+
+  <div class="nav">
+    <a class="btn" href="{{ full_prefix | append: '/' | relative_url }}">{{ full_text[6] | escape }}</a>
+    <a
+      class="btn"
+      href="https://apps.apple.com/jp/app/scoreshelf/id6774029084"
+      target="_blank"
+      rel="noopener"
+      style="font-weight: 700"
+      >{{ full_text[7] | escape }}</a
+    >
+    <a
+      class="btn"
+      href="mailto:kjdevapphelp@gmail.com?subject=ScoreShelf%20Support"
+      >{{ full_text[8] | escape }}</a
+    >
+  </div>
+</header>
+
+<section class="section">
+  <h2>{{ full_text[9] | escape }}</h2>
+  <ul class="muted" style="margin: 0; padding-left: 18px; font-size: 13px">
+    <li>{{ full_text[10] | escape }}</li>
+    <li>
+      {{ full_text[11] | escape }}
+    </li>
+    <li>
+      {{ full_text[12] | escape }} <strong>{{ full_text[13] | escape }}</strong> {{ full_text[14] | escape }}
+    </li>
+    <li>
+      {{ full_text[15] | escape }} <strong>{{ full_text[16] | escape }}</strong> {{ full_text[17] | escape }}
+    </li>
+    <li>
+      {{ full_text[18] | escape }} <strong>{{ full_text[19] | escape }}</strong> {{ full_text[20] | escape }}
+    </li>
+    <li>
+      {{ full_text[21] | escape }}
+    </li>
+    <li>
+      {{ full_text[22] | escape }}
+    </li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2>{{ full_text[23] | escape }}</h2>
+  <div
+    class="grid screenshots"
+    style="
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+      gap: 14px;
+    "
+  >
+    <figure style="margin: 0">
+      <img
+        src="/support/ScoreShelf/img/0x0ss.png"
+        alt="{{ full_text[24] | escape }}"
+        style="
+          width: 100%;
+          height: auto;
+          display: block;
+          border-radius: 14px;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+        "
+        loading="lazy"
+      />
+      <figcaption class="muted" style="margin-top: 8px; font-size: 12px">
+        {{ full_text[25] | escape }}
+      </figcaption>
+    </figure>
+
+    <figure style="margin: 0">
+      <img
+        src="/support/ScoreShelf/img/0x0ss2.png"
+        alt="{{ full_text[26] | escape }}"
+        style="
+          width: 100%;
+          height: auto;
+          display: block;
+          border-radius: 14px;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+        "
+        loading="lazy"
+      />
+      <figcaption class="muted" style="margin-top: 8px; font-size: 12px">
+        {{ full_text[27] | escape }}
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section">
+  <h2>{{ full_text[28] | escape }}</h2>
+  <div
+    class="grid"
+    style="grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: start"
+  >
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">{{ full_text[29] | escape }}</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        {{ full_text[30] | escape }}
+      </p>
+    </div>
+
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">{{ full_text[31] | escape }}</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        {{ full_text[32] | escape }}
+      </p>
+    </div>
+
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">{{ full_text[33] | escape }}</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        {{ full_text[34] | escape }}
+      </p>
+    </div>
+
+    <div class="card" style="margin: 0">
+      <h3 style="margin: 0 0 8px; font-size: 16px">{{ full_text[35] | escape }}</h3>
+      <p class="muted" style="margin: 0; font-size: 13px">
+        {{ full_text[36] | escape }}
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="release-notes">
+  <h2>{{ full_text[37] | escape }}</h2>
+  <div class="card" style="margin: 0">
+    <div class="muted" style="font-size: 13px">
+      <strong>{{ full_text[38] | escape }}</strong> {{ full_text[39] | escape }}
+    </div>
+    <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+      {{ full_text[40] | escape }}
+    </p>
+    <ul
+      class="muted"
+      style="margin: 10px 0 0; padding-left: 18px; font-size: 13px"
+    >
+      <li>
+        {{ full_text[41] | escape }}
+      </li>
+    </ul>
+
+    <hr
+      style="
+        border: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        margin: 14px 0;
+      "
+    />
+
+    <div class="muted" style="font-size: 13px">
+      <strong>{{ full_text[42] | escape }}</strong> {{ full_text[43] | escape }}
+    </div>
+    <ul
+      class="muted"
+      style="margin: 10px 0 0; padding-left: 18px; font-size: 13px"
+    >
+      <li>{{ full_text[44] | escape }}</li>
+      <li>{{ full_text[45] | escape }}</li>
+      <li>
+        {{ full_text[46] | escape }}
+      </li>
+      <li>
+        {{ full_text[47] | escape }}
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <h2>{{ full_text[48] | escape }}</h2>
+  <p class="muted" style="margin: 0; font-size: 13px">
+    {{ full_text[49] | escape }}
+    <a href="mailto:kjdevapphelp@gmail.com?subject=ScoreShelf%20Support"
+      >{{ full_text[50] | escape }}</a
+    >
+  </p>
+  <p class="muted" style="margin: 10px 0 0; font-size: 12px">
+    {{ full_text[51] | escape }}
+  </p>
+</section>
