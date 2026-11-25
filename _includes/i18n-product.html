@@ -6,6 +6,16 @@
   {%- assign full_template = page.product_slug | prepend: 'i18n_full/' | append: '.html' -%}
   <div data-i18n-full="{{ page.product_slug | escape }}">
     {% include {{ full_template }} %}
+    {%- assign full_route = site.data.i18n_support.products[page.product_slug] -%}
+    {%- if full_item.latest_summary and full_route.release != true -%}
+      {%- assign full_ui = site.data.i18n_support.ui[page.lang] -%}
+      {%- assign full_locale = site.data.i18n.locales[page.lang] -%}
+      <section class="section" id="release-notes">
+        <h2>{{ full_ui.currentUpdate | escape }}</h2>
+        <span class="badge">{{ full_item.latest_date | escape }}</span>
+        <p>{{ full_locale.updates[page.product_slug] | escape }}</p>
+      </section>
+    {%- endif -%}
   </div>
 {%- else -%}
   {% include i18n-product-overview.html %}

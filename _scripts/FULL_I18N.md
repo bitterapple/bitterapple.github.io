@@ -5,8 +5,9 @@ The English pages in support/ remain authoritative. Localized overview pages rem
 - _data/i18n_full/<slug>.json contains numbered source text segments, source Git blob SHA, release/summary snapshots, and complete locale rows.
 - _includes/i18n_full/<slug>.html preserves the original document markup, images, links, section anchors and code; only text is replaced.
 - _includes/i18n-product.html renders a complete translation when available. Otherwise it renders the localized overview and explicitly links to the English documentation.
-- Existing full translations: PAD Machine, ScoreShelf, Calendar Calendar, CopySkipper, PocketCam Viewer, Audio Folder Inspector, QuickSearchExt, Harmony & Counterpoint, Distance, BandMatrix, Level Range EQ, PanBlur, and PhaseSlice; nine translated languages plus the original English (13 of 21 products).
-- Remaining catalog documents: extraction complete; translations not yet supplied.
+- All 21 catalog products have full documentation translations in Japanese, German, French, Spanish, Portuguese, Russian, Korean, Simplified Chinese and Traditional Chinese, in addition to the authoritative English pages (189 translated product/language pairs).
+- Source coverage, source Git blob hashes, product summary/release snapshots, template segment positions, version numbers and email addresses were checked against the candidate Git tree. A local Jekyll build and review of rendered HTML are still required before publication.
+- When an original product page has a latest update but no release-notes section, the localized full page adds the translated catalog update so the news link has a valid target.
 
 After an English product page changes, run:
 
