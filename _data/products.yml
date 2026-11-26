@@ -263,4 +263,4 @@
   url: /support/padmachine/
   latest_order: -100
   latest_date: "2026-11-26"
-  latest_summary: PAD Machine 0.9.4 improves repeated PAD execution protection, with a configurable post-execution cooldown of up to 2000 ms.
+  latest_summary: PAD Machine 0.9.5 adds a Touch Monitor cooldown indicator and a visible Fn + Caps Lock shortcut hint.
