@@ -126,24 +126,25 @@ og_description: "Turn everyday input devices into a customizable macro controlle
       <h2>Download PAD Machine</h2>
       <div class="pm-download">
         <div class="titleRow" style="justify-content:space-between">
-          <strong id="pm-download-version">PAD Machine 0.9.3 (build 1)</strong>
+          <strong id="pm-download-version">PAD Machine 0.9.4 (build 1)</strong>
           <span class="badge">macOS · Apple Silicon</span>
         </div>
         <p class="pm-note">Requires macOS 13 or later. Direct-distribution DMG for M-series Macs.</p>
-        <p class="pm-download-ready" id="pm-release-link"><a class="btn pm-primary" id="pm-download-button" href="{{ '/download/padmachine/macos/' | relative_url }}">Download PAD Machine 0.9.3 (DMG)</a></p>
+        <p class="pm-download-ready" id="pm-release-link"><a class="btn pm-primary" id="pm-download-button" href="{{ '/download/padmachine/macos/' | relative_url }}">Download PAD Machine 0.9.4 (DMG)</a></p>
         <p class="pm-note">To install, open the DMG and drag PAD Machine into Applications. Some features require macOS <strong>Accessibility</strong> and <strong>Input Monitoring</strong> permissions.</p>
       </div>
     </section>
 
     <section class="section" id="release-notes">
       <h2>Release notes</h2>
-      <h3>PAD Machine 0.9.3 (build 1)</h3>
-      <p><strong>Input and mouse action improvements.</strong></p>
+      <h3>PAD Machine 0.9.4 (build 1)</h3>
+      <p><strong>Improved repeated macro execution protection.</strong></p>
       <ul>
-        <li><strong>Key Input:</strong> Preserve committed IME input and register physical keys as individual key values.</li>
-        <li><strong>Macro execution:</strong> Remove hidden demo scope restrictions from the common PAD runtime and improve blank startup.</li>
-        <li><strong>Mouse position:</strong> Capture the pointer after three seconds without an extra click or foreground activation.</li>
-        <li><strong>Scrolling:</strong> Use pixel-based scroll amounts, align the pointer to explicit scroll targets, and report submitted wheel events.</li>
+        <li><strong>Suppress Repeated:</strong> Blocks repeated execution of the same PAD while a macro is running and for the selected interval after it ends.</li>
+        <li><strong>Adjustable cooldown:</strong> Set the post-execution interval from 0 to 2000 ms. 0 ms disables the optional time-based suppression.</li>
+        <li><strong>Consistent PAD handling:</strong> Applies the configured guard to live trackpad, Mac controller and iPhone/iPad PAD inputs. Rejected inputs are not queued for later execution.</li>
+        <li><strong>Tap replay protection:</strong> Rejects duplicate or stale trackpad tap releases independently of the cooldown setting.</li>
+        <li><strong>Macro compatibility:</strong> Intentional Repeat steps inside a macro remain unchanged.</li>
       </ul>
     </section>
 

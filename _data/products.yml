@@ -262,5 +262,5 @@
   icon: /support/padmachine/img/icon.webp
   url: /support/padmachine/
   latest_order: -100
-  latest_date: "2026-11-24"
-  latest_summary: PAD Machine 0.9.3 improves keyboard input, common PAD macro execution, timed mouse capture and pixel-based scrolling.
+  latest_date: "2026-11-26"
+  latest_summary: PAD Machine 0.9.4 improves repeated PAD execution protection, with a configurable post-execution cooldown of up to 2000 ms.
