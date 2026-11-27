@@ -126,23 +126,23 @@ og_description: "Turn everyday input devices into a customizable macro controlle
       <h2>Download PAD Machine</h2>
       <div class="pm-download">
         <div class="titleRow" style="justify-content:space-between">
-          <strong id="pm-download-version">PAD Machine 0.9.5 (build 1)</strong>
+          <strong id="pm-download-version">PAD Machine 0.9.6 (build 1)</strong>
           <span class="badge">macOS · Apple Silicon</span>
         </div>
         <p class="pm-note">Requires macOS 13 or later. Direct-distribution DMG for M-series Macs.</p>
-        <p class="pm-download-ready" id="pm-release-link"><a class="btn pm-primary" id="pm-download-button" href="{{ '/download/padmachine/macos/' | relative_url }}">Download PAD Machine 0.9.5 (DMG)</a></p>
+        <p class="pm-download-ready" id="pm-release-link"><a class="btn pm-primary" id="pm-download-button" href="{{ '/download/padmachine/macos/' | relative_url }}">Download PAD Machine 0.9.6 (DMG)</a></p>
         <p class="pm-note">To install, open the DMG and drag PAD Machine into Applications. Some features require macOS <strong>Accessibility</strong> and <strong>Input Monitoring</strong> permissions.</p>
       </div>
     </section>
 
     <section class="section" id="release-notes">
       <h2>Release notes</h2>
-      <h3>PAD Machine 0.9.5 (build 1)</h3>
-      <p><strong>Touch Monitor improvements.</strong> See when the latest PAD macro can be triggered again.</p>
+      <h3>PAD Machine 0.9.6 (build 1)</h3>
+      <p><strong>Preset restoration and export improvements.</strong> Restore saved PAD configurations and use consistent product branding for new exports.</p>
       <ul>
-        <li><strong>Cooldown indicator:</strong> Touch Monitor shows a thin bar along the bottom edge when a PAD macro is accepted. It stays full during execution, then shrinks from right to left for the configured Suppress Repeated interval and disappears when that interval ends.</li>
-        <li><strong>Shortcut hint:</strong> Show Touch Monitor now displays (Fn + Caps Lock) next to its checkbox.</li>
-        <li><strong>Appearance and behavior:</strong> The bar follows the selected Mac skin and is hidden when suppression is set to 0 ms or the keypad is displayed. Existing PAD macros and Suppress Repeated execution rules are unchanged.</li>
+        <li><strong>Named preset restoration:</strong> Fixed an issue where edited presets containing legacy Pro Tools preset IDs could be rejected when loading. Named presets restore their saved PAD layout, input bindings and macro contents into the selected bank and persist that bank.</li>
+        <li><strong>Export filenames:</strong> Default filenames for full backups and JSON preset exports now use PADMachine instead of EasyPT.</li>
+        <li><strong>Compatibility:</strong> Existing backup and preset formats remain supported. Internal storage identifiers and explicit protected preset import validation are unchanged.</li>
       </ul>
     </section>
 

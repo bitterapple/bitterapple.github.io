@@ -262,5 +262,5 @@
   icon: /support/padmachine/img/icon.webp
   url: /support/padmachine/
   latest_order: -100
-  latest_date: "2026-11-26"
-  latest_summary: PAD Machine 0.9.5 adds a Touch Monitor cooldown indicator and a visible Fn + Caps Lock shortcut hint.
+  latest_date: "2026-11-27"
+  latest_summary: PAD Machine 0.9.6 fixes named preset restoration and updates default export filenames to PADMachine while preserving existing data compatibility.
